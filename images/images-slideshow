@@ -1,0 +1,17 @@
+#! /usr/bin/env bash
+
+# Relies in ImageMagick's *convert*
+
+(( $# == 0 )) && echo "Usage: WidthxHeight Images ... SlideshowProduct.gif"
+
+size="$1"
+slideshow="${@:$#}"
+
+unification="$(images-unify "${@:1:$#-1}")"
+
+#? image transparency overexpose!!! -background white/none 
+convert -background white -scale "$size"\! -delay 50 -loop 0 "$unification"/* "$slideshow"
+
+echo "$slideshow"
+
+# November 11th, 2013, Juan Manuel Borges Caño
