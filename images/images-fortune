@@ -1,0 +1,12 @@
+#! /usr/bin/env bash
+
+word="$(shuf /usr/share/dict/words | head -1)"
+size="${1:-320x240}"
+count="${2:-100}"
+
+echo "$word"
+source=$(images-fetch-google "$word" "$count")
+echo "$source"
+images-slideshow "$size" "$source"/* "$word.gif"
+
+# November 11th, 2013, Juan Manuel Borges Caño
