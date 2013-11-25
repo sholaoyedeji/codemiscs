@@ -9,4 +9,4 @@ source=$(images-fetch-google "$word" "$count")
 echo "$source"
 images-slideshow "$size" "$source"/* "$word.gif"
 
-# November 11th, 2013, Juan Manuel Borges Caño
+# November 22nd, 2013, Juan Manuel Borges Caño

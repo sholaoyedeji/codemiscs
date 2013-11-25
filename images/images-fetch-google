@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 # Tweaked http://sam.nipl.net/code/nipl-tools/bin/google-images to be silent, and elegant
-# November 11th, 2013, Juan Manuel Borges Caño
+# November 22nd, 2013, Juan Manuel Borges Caño
 
 [ $# = 0 ] && { prog=`basename "$0"`; echo -e >&2 "usage: $prog query count parallel safe opts timeout tries agent1 agent2\ne.g. : $prog ostrich\n$prog nipl 100 20 on isz:l,itp:clipart 5 10"; exit 2; }
 

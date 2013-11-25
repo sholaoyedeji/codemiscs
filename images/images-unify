@@ -12,4 +12,4 @@ for i in ${!images[@]}; do convert -scale "$size"\! "${images[i]}" "$unification
 
 echo "$unification"
 
-# November 11th, 2013, Juan Manuel Borges Caño
+# November 22nd, 2013, Juan Manuel Borges Caño
