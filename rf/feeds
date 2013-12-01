@@ -1,0 +1,73 @@
+# rf: read feed feeds configuration
+# Copyright (C) 2012-2013 Juan Manuel Borges Caño
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+rf_rss_feeds=(
+
+	# Linux 
+	["slashdot"]="http://rss.slashdot.org/Slashdot/slashdot/to"
+	["phoronix"]="http://www.phoronix.com/rss.php"
+	["foss-people"]="http://fossplanet.osdir.com/backend.php"
+	["freegame-people"]="http://planet.freegamedev.net/rss20.xml"
+	["freedesktop-people"]="http://planet.freedesktop.org/rss20.xml"
+	["linux-journal"]="http://www.linuxjournal.com/node/feed"
+	["linux-magazine"]="http://www.linux-magazine.com/rss/feed/lmi_full"
+	["linux-today"]="http://feedproxy.google.com/linuxtoday/linux"
+	["lwn"]="http://lwn.net/headlines/newrss"
+	["mozilla-people"]="http://planet.mozilla.org/rss20.xml"
+	["jabber-people"]="http://planet.jabber.org/rss20.xml"
+	["python-people"]="http://planet.python.org/rss20.xml"
+	["fedora-people"]="http://planet.fedoraproject.org/rss20.xml"
+	["debian-people"]="http://planet.debian.org/rss20.xml"
+
+	# KDE:
+	["kde-people"]="http://planetkde.org/rss20.xml"
+	["kde"]="http://dot.kde.org/rss.xml"
+
+	# GNOME: https://news.gnome.org/feeds.html
+	["gnome-people"]="https://planet.gnome.org/rss20.xml"
+	["gnome"]="http://www.gnome.org/feed/"
+	["gnome-blogs"]="http://blogs.gnome.org/feed/"
+	["gnome-devel"]="http://rss.gmane.org/messages/complete/gmane.comp.gnome.devel.announce"
+	["gstreamer-people"]="http://gstreamer.freedesktop.org/planet/rss20.xml"
+	["gstreamer"]="http://gstreamer.freedesktop.org/news/rss-1.0.xml"
+	["gimp"]="http://www.gimp.org/news.rdf"
+	["gtk"]="http://blogs.gnome.org/gtk/feed/"
+
+	# Spanish
+	#["barrapunto"]="http://barrapunto.com/barrapunto.rss"
+	#["20-minutos"]="http://www.20minutos.es/rss/"
+	#["20-minutos-tech"]="http://www.20minutos.es/rss/tecnologia/"
+)
+
+rf_atom_feeds=(
+
+	# Linux
+	["freegame-planet"]="http://planet.freegamedev.net/atom.xml"
+	["freegamedev-planet"]="http://planetdev.freegamedev.net/atom.xml"
+	["freecode"]="http://freecode.com/?format=atom"
+	["freedesktop-planet"]="http://planet.freedesktop.org/atom.xml"
+	["crystalspace"]="http://crystalspace3d.org/main/Special:WikiFeeds/atom/newestcategoryarticles/category/FinishedItem/count/50"
+	["crystalspace-planet"]="http://www.crystalspace3d.org/planet/atom.xml"
+	["ogre3d"]="http://www.ogre3d.org/feed/atom"
+	["gnome-planet"]="https://planet.gnome.org/atom.xml"
+	["linux"]="https://www.linux.com/feeds/all-content"
+	["gstreamer-planet"]="http://gstreamer.freedesktop.org/planet/atom.xml"
+	["mozilla-planet"]="http://planet.mozilla.org/atom.xml"
+	["jabber-planet"]="http://planet.jabber.org/atom.xml"
+	["fedora-planet"]="http://planet.fedoraproject.org/atom.xml"
+	["debian-planet"]="http://planet.debian.org/atom.xml"
+
+)

@@ -1,0 +1,32 @@
+"term=$(xsel); [[ ! -z $term ]] && (output=$(tw en-es "$term"); [[ -z $output ]] && output="Term not found."; kdialog --title "Translate Word" --msgbox "$output")"
+	control + t
+"term=$(kdialog --title "Translate Word" --inputbox "Term:"); [[ ! -z $term ]] && (output=$(tw en-es "$term"); [[ -z $output ]] && output="Term not found."; kdialog --title "Translate Word" --msgbox "$output")"
+	control + shift + t
+"term=$(xsel); [[ ! -z $term ]] && (output=$(tw -x en-es "$term"); [[ -z $output ]] && output="Term not found."; kdialog --title "Translate Word" --msgbox "$output")"
+	control + x
+"term=$(kdialog --title "Translate Word" --inputbox "Term:"); [[ ! -z $term ]] && (output=$(tw -x en-es "$term"); [[ -z $output ]] && output="Term not found."; kdialog --title "Translate Word" --msgbox "$output")"
+	control + shift + x
+"term=$(xsel); [[ ! -z $term ]] && (output=$(tw gt.en-es "$term"); [[ -z $output ]] && output="Term not found."; kdialog --title "Translate Word" --msgbox "$output")"
+	control + g
+"term=$(kdialog --title "Translate Word" --inputbox "Term:"); [[ ! -z $term ]] && (output=$(tw gt.en-es "$term"); [[ -z $output ]] && output="Term not found."; kdialog --title "Translate Word" --msgbox "$output")"
+	control + shift + g
+"term=$(xsel); [[ ! -z $term ]] && (output=$(tw ft.en-es "$term"); [[ -z $output ]] && output="Term not found."; kdialog --title "Translate Word" --msgbox "$output")"
+	control + f
+"term=$(kdialog --title "Translate Word" --inputbox "Term:"); [[ ! -z $term ]] && (output=$(tw ft.en-es "$term"); [[ -z $output ]] && output="Term not found."; kdialog --title "Translate Word" --msgbox "$output")"
+	control + shift + f
+#"term=$(xsel); [[ ! -z $term ]] && (output=$(tw yb.en-es "$term"); [[ -z $output ]] && output="Term not found."; kdialog --title "Translate Word" --msgbox "$output")"
+#	control + y
+#"term=$(kdialog --title "Translate Word" --inputbox "Term:"); [[ ! -z $term ]] && (output=$(tw yb.en-es "$term"); [[ -z $output ]] && output="Term not found."; kdialog --title "Translate Word" --msgbox "$output")"
+#	control + shift + y
+"term=$(xsel); [[ ! -z $term ]] && (output=$(dict -h localhost -d wn "$term" | tail -n +5); [[ -z $output ]] && output="Term not found."; kdialog --title "WordNet Dict" --msgbox "$output")"
+	control + d
+"term=$(kdialog --title "WordNet Dict" --inputbox "Term:"); [[ ! -z $term ]] && (output=$(dict -h localhost -d wn "$term" | tail -n +5); [[ -z $output ]] && output="Term not found."; kdialog --title "WordNet Dict" --msgbox "$output")"
+	control + shift + d
+"term=$(xsel); [[ ! -z $term ]] && (echo "$term" | festival --tts)"
+	control + s
+"term=$(kdialog --title "Festival Speech" --inputbox "Term:"); [[ ! -z $term ]] && (echo "$term" | festival --tts)"
+	control + shift + s
+"term=$(xsel); [[ ! -z $term ]] && (output=$(dict -h localhost -d wn "$term" | tail -n +5 | tr "[]" "()"); [[ -z $output ]] && output="Term not found."; echo "$output" | festival --tts)"
+	control + e
+"term=$(kdialog --title "WordNet Dict Speech" --inputbox "Term:"); [[ ! -z $term ]] && (output=$(dict -h localhost -d wn "$term" | tail -n +5 | tr "[]" " ."); [[ -z $output ]] && output="Term not found."; echo "$output" | festival --tts)"
+	control + shift + e

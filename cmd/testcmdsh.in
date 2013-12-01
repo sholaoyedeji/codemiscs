@@ -1,0 +1,45 @@
+#! /usr/bin/env bash
+
+# testcmdsh: test cmd.sh
+# Copyright (C) 2012-2013 Juan Manuel Borges Caño
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+function test_test { echo "testtest"; }
+function test_testarg { echo "testarg <$1>"; }
+function test_testopt { if [[ ! -z "$1" ]]; then echo "testopt <$1>"; else echo "testopt"; fi; }
+function test_init { echo "testinit <$@>"; }
+function test_main { echo "testmain <$@>"; }
+
+cmd="testcmdsh"
+cmd_name="test cmd.sh"
+cmd_description="test cmd.sh"
+cmd_explanation="tests cmd.sh"
+cmd_version="[@]pkgversion[@]"
+cmd_author="Test Author"
+cmd_month="[@]pkgmonth[@]"
+cmd_year="[@]pkgyear[@]"
+cmd_bugreport="test@server.tld"
+cmd_homepage="http://test.homepage.tld"
+cmd_usage="$cmd [OPTIONS]"
+cmd_examples=("$cmd")
+cmd_options=("/t/test/show a test message/test_test/" "/a:/testarg:/show a test message with argument/test_testarg/ARG/" "/o::/testopt::/show a test message with optional argument/test_testopt/ARG/")
+cmd_extrahelp="You can play with option argument passing."
+cmd_extranotes="For more information, check package documentation."
+cmd_init="test_init"
+cmd_main="test_main"
+
+cmd_datadir="[@]pkgdatadir[@]"
+
+source "$cmd_datadir/cmd.sh"

@@ -1,0 +1,63 @@
+#! /usr/bin/env bash
+
+# rf-gnome: read feed automatic gnome release mailer
+# Copyright (C) 2012-2013 Juan Manuel Borges Caño
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# For instance, place this file chmod +x in /etc/cron.daily/rf-gnome
+
+# User to mail
+user="foouser"
+
+# Default file paths
+readfeeddir="/usr/local/share/rf"
+gnomemajorfile="$readfeeddir/.gnomemajor"
+gnomeminorfile="$readfeeddir/.gnomeminor"
+
+
+# Set a default starting version to check
+[[ -d "$readfeeddir" ]] || mkdir -p "$readfeeddir"
+[[ -f "$gnomemajorfile" ]] || echo 3 > "$gnomemajorfile"
+[[ -f "$gnomeminorfile" ]] || echo 8 > "$gnomeminorfile" # Try 10 to skip test
+
+# Read versions
+gnomemajor=$(cat "$gnomemajorfile")
+gnomeminor=$(cat "$gnomeminorfile")
+
+# Check major and keep it updated (minor will mail)
+if rf gnome | grep -qE "^\[[[:digit:]]+\] GNOME $((gnomemajor+1)).0 Released$"
+then
+	# Update major
+	((gnomemajor++))
+	# Next release check
+	echo "$gnomemajor" > "$gnomemajorfile"
+
+	# Update minor
+	gnomeminor=0
+	# Next release check
+	echo "$gnomeminor" > "$gnomeminorfile"
+fi
+
+# Check minor, mail user and keep it updated
+info=$(rf gnome | grep -E "^\[[[:digit:]]+\] GNOME $gnomemajor.$gnomeminor Released$")
+if [[ -n "$info" ]]
+then
+	# Mail locally the user with the title as subject and description as content.
+        rf gnome -d "${info:1:1}" | mail -s "GNOME $gnomemajor.$gnomeminor Released" "$user"
+
+	# Update minor for next release check
+	gnomeminor=$((gnomeminor+2))
+	echo "$gnomeminor" > "$gnomeminorfile"
+fi
