@@ -49,15 +49,15 @@ test-driver
 
 INSTALL
 
-testcmd
-testcmdsh
-cmd
-mkproject
-mythes-raw
-mythes
-tw
-rf
-imgs-fetch-google
-imgs-unify
-imgs-slideshow
-imgs-fortune
+cmd/testcmd
+cmd/testcmdsh
+cmd/cmd
+mkproject/mkproject
+tw/mythes-raw
+tw/mythes
+tw/tw
+rf/rf
+imgs/imgs-fetch-google
+imgs/imgs-unify
+imgs/imgs-slideshow
+imgs/imgs-fortune
