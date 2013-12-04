@@ -3,10 +3,11 @@ AM_INIT_AUTOMAKE(no-dist-gzip dist-bzip2)
 
 AC_SUBST(PACKAGE_AUTHOR, "Juan Manuel Borges Caño")
 AC_SUBST(PACKAGE_DESCRIPTION, "code miscellaneous")
+AC_SUBST(PACKAGE_EXPLANATION, "No explanation for it to be")
 AC_SUBST(PACKAGE_HOMEPAGE, "http://code.google.com/p/codemiscs")
 AC_SUBST(PACKAGE_MONTH, $(LANG=C date '+%B'))
 AC_SUBST(PACKAGE_YEAR, $(LANG=C date '+%Y'))
-AC_SUBST(PACKAGE_PARSE, ["sed -e 's,\@<:@@\@:>@pkg\@<:@@\@:>@,\$(PACKAGE),g' -e 's,\@<:@@\@:>@pkgname\@<:@@\@:>@,\$(PACKAGE_NAME),g' -e 's,\@<:@@\@:>@pkgversion\@<:@@\@:>@,\$(PACKAGE_VERSION),g' -e 's,\@<:@@\@:>@pkgauthor\@<:@@\@:>@,\$(PACKAGE_AUTHOR),g' -e 's,\@<:@@\@:>@pkgmonth\@<:@@\@:>@,\$(PACKAGE_MONTH),g' -e 's,\@<:@@\@:>@pkgyear\@<:@@\@:>@,\$(PACKAGE_YEAR),g' -e 's,\@<:@@\@:>@pkghomepage\@<:@@\@:>@,\$(PACKAGE_HOMEPAGE),g' -e 's,\@<:@@\@:>@pkgbugreport\@<:@@\@:>@,\$(PACKAGE_BUGREPORT),g' -e 's,\@<:@@\@:>@pkgdescription\@<:@@\@:>@,\$(PACKAGE_DESCRIPTION),g' -e 's,\@<:@@\@:>@pkgdatadir\@<:@@\@:>@,\$(pkgdatadir),g'"])
+AC_SUBST(PACKAGE_PARSE, ["sed -e 's,\@<:@@\@:>@pkg\@<:@@\@:>@,\$(PACKAGE),g' -e 's,\@<:@@\@:>@pkgname\@<:@@\@:>@,\$(PACKAGE_NAME),g' -e 's,\@<:@@\@:>@pkgversion\@<:@@\@:>@,\$(PACKAGE_VERSION),g' -e 's,\@<:@@\@:>@pkgauthor\@<:@@\@:>@,\$(PACKAGE_AUTHOR),g' -e 's,\@<:@@\@:>@pkgmonth\@<:@@\@:>@,\$(PACKAGE_MONTH),g' -e 's,\@<:@@\@:>@pkgyear\@<:@@\@:>@,\$(PACKAGE_YEAR),g' -e 's,\@<:@@\@:>@pkghomepage\@<:@@\@:>@,\$(PACKAGE_HOMEPAGE),g' -e 's,\@<:@@\@:>@pkgbugreport\@<:@@\@:>@,\$(PACKAGE_BUGREPORT),g' -e 's,\@<:@@\@:>@pkgdescription\@<:@@\@:>@,\$(PACKAGE_DESCRIPTION),g' -e 's,\@<:@@\@:>@pkgexplanation\@<:@@\@:>@,\$(PACKAGE_EXPLANATION),g' -e 's,\@<:@@\@:>@pkgdatadir\@<:@@\@:>@,\$(pkgdatadir),g'"])
 
 # Checks for programs.
 AC_PROG_CXX
@@ -70,5 +71,5 @@ AM_CONDITIONAL(MYTHES, [test x$HAVE_HUNSPELL = xyes -a  x$HAVE_MYTHES = xyes])
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile cmd/Makefile mkproject/Makefile tw/Makefile rf/Makefile imgs/Makefile data/Makefile doc/Makefile dist/Makefile])
+AC_CONFIG_FILES([Makefile cmd/Makefile mkproject/Makefile tw/Makefile rf/Makefile colorize/Makefile imgs/Makefile data/Makefile doc/Makefile dist/Makefile])
 AC_OUTPUT
