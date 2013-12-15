@@ -3,7 +3,7 @@
 # Relies in ImageMagick's *convert*
 # November 22nd, 2013, Juan Manuel Borges Caño
 
-(( $# == 0 )) && echo "Usage: WidthxHeight Images ... SlideshowProduct.gif"
+(( $# == 0 )) && { echo "Usage: WidthxHeight Images ... SlideshowProduct.gif"; exit 1; }
 
 size="$1"
 slideshow="${@:$#}"
