@@ -1,4 +1,4 @@
-SUBDIRS = cmd mkproject tw rf colorize imgs data doc dist
+SUBDIRS = cmd mkproject tw rf colorize imgs typewriter data doc dist
 dist_doc_DATA = AUTHORS ChangeLog NEWS README COPYING
 
 deepdistcheck:
