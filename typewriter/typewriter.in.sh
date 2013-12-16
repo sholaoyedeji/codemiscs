@@ -8,7 +8,7 @@ while IFS="" read -r line
 do
 	printf "%s" "$line" | while IFS="" read -r -n 1 char
 	do
-		printf "%c" "$char"
+		printf "%s" "$char"
 		sleep "$charsecs"
 	done
 	printf "\n"
