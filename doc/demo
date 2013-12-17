@@ -1,0 +1,9 @@
+typewriter --help | colorize
+typewriter < /usr/share/doc/codemiscs-0.9.0/README
+tw --help | colorize | typewriter
+tw --list | grep en-es | typewriter
+tw --shortcuts | typewriter
+tw gt.en-es "code miscellaneous" | typewriter
+tw gt.en-es code | typewriter
+mythes --help | colorize | typewriter
+mythes en code
