@@ -2,7 +2,7 @@
 
 # colorize: Help Tinter (Early stages)
 # Copyright (C) 2013 Juan Manuel Borges Caño
-# The idea of colorizing commands output occurred to me multiple times. After knowing the Radovan Garabík Generic Colouriser <http://korpus.juls.savba.sk/~garabik/software/grc.html>, i got inspired to code an smart, fast and efficient filter solution.
+# The idea of colorizing commands output occurred to me multiple times. After knowing the Radovan Garabík Generic Colouriser <http://korpus.juls.savba.sk/~garabik/software/grc.html>, i got inspired to code an elegant, smart, fast and efficient filter solution.
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

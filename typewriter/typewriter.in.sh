@@ -2,7 +2,7 @@
 
 # typewriter: slowed down echo
 # Copyright (C) 2013 Juan Manuel Borges Caño
-# Liking the effect lot of times, and being useful for demos (Gif, YouTube), Dave W. Capella slowcat.c finally inspired a ready to use, simpler and smarter, one line solution.
+# Liking the effect lot of times, and being useful for demos (Gif, YouTube), Dave W. Capella slowcat.c finally inspired a ready to use, simple, smart, elegant, fast and efficient, one line solution.
 # TODO: add 'key typing' sound switch
 
 # This program is free software: you can redistribute it and/or modify

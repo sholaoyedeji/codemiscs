@@ -2,7 +2,7 @@
 
 # rf: read feeds from any source
 # Copyright (C) 2012-2013 Juan Manuel Borges Caño
-# The whish for a fast, command line, non interactive, rich news feed reader encouraged this command.
+# The desire for a fast, command line, non interactive, rich news feed reader encouraged this command.
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

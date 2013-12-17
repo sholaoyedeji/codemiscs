@@ -2,7 +2,7 @@
 
 # imgs: fetch and manipulate images
 # Copyright (C) 2013 Juan Manuel Borges Caño
-# The thought of creating something usable from google images, encouraged a research that found http://sam.nipl.net/code/nipl-tools/bin/google-images, tweaked to be elegant, smarter and durable. Combined with ImageMagick powerful manipualtion tools. 
+# The thought of creating something usable from google images, encouraged a research that found http://sam.nipl.net/code/nipl-tools/bin/google-images, tweaked to be smart, elegant, efficient, fast and durable. Combined with ImageMagick powerful manipulation tools. 
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
