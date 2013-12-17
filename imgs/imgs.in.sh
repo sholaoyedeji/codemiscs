@@ -40,6 +40,7 @@ function imgs_fetch_google
 	wait
 
 	echo "$dir"
+	exit 0
 }
 
 # The --unify option
@@ -57,6 +58,7 @@ function imgs_unify
 	for i in ${!images[@]}; do convert -scale "$size"\! "${images[i]}" "$unification/$(printf "%.10i" "$i").png"; done
 
 	echo "$unification"
+	exit 0
 }
 
 # The --slideshow option
@@ -71,11 +73,12 @@ function imgs_slideshow
 	size="$1"
 	slideshow="${@:$#}"
 
-	unificatitn="$(imgs_unify "${@:1:$#-1}")"
+	unification="$(imgs_unify "${@:1:$#-1}")"
 	echo "$unification"
 
 	convert -alpha off -scale "$size"\! -delay 50 -loop 0 "$unification"/* "$slideshow"
 	echo "$slideshow"
+	exit 0
 }
 
 # The --fortune option
@@ -91,6 +94,7 @@ function imgs_fortune
 	source=$(imgs_fetch_google "$word" "$count")
 	echo "$source"
 	imgs_slideshow "$size" "$source"/* "$word.gif"
+	exit 0
 }
 
 # ... and imgs, the program itself
@@ -98,13 +102,16 @@ function imgs_fortune
 # The cmd init function
 function imgs_init
 {
-	shopt -s extglob
-	shopt -s nullglob
+	#shopt -s extglob
+	#shopt -s nullglob
+	:
 }
 
 # The cmd main function
 function imgs_main
 {
+	# November 17th, 2013, Juan Manuel Borges Caño
+
 	imgs_fortune "$@"
 
 	word="${1:-$(shuf /usr/share/dict/words | head -1)}"
@@ -115,6 +122,7 @@ function imgs_main
 	source=$(imgs_fetch_google "$word" "$count")
 	echo "$source"
 	imgs_slideshow "$size" "$source"/* "$word.gif"
+	exit 0
 }
 
 # The cmd fields
