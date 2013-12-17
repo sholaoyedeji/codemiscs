@@ -71,7 +71,7 @@ function imgs_slideshow
 	size="$1"
 	slideshow="${@:$#}"
 
-	unification="$(imgs-unify "${@:1:$#-1}")"
+	unificatitn="$(imgs_unify "${@:1:$#-1}")"
 	echo "$unification"
 
 	convert -alpha off -scale "$size"\! -delay 50 -loop 0 "$unification"/* "$slideshow"
@@ -106,6 +106,15 @@ function imgs_init
 function imgs_main
 {
 	imgs_fortune "$@"
+
+	word="${1:-$(shuf /usr/share/dict/words | head -1)}"
+	count="${2:-100}"
+	size="${3:-320x240}"
+
+	echo "$word"
+	source=$(imgs_fetch_google "$word" "$count")
+	echo "$source"
+	imgs_slideshow "$size" "$source"/* "$word.gif"
 }
 
 # The cmd fields
@@ -120,7 +129,7 @@ cmd_homepage="[@]pkghomepage[@]"
 cmd_usage="$cmd [OPTIONS] [DICTIONARY] [TERM]"
 cmd_examples=("$cmd 320x240 100 linux")
 cmd_options=("/f/fetch/fetch google images/imgs_fetch_google/" "/u/unify/unify images/imgs_unify/" "/s/slideshow/slideshow images set/imgs_slideshow/" "/f/fortune/fetch, unify and slideshow terms/imgs_fortune/")
-cmd_extrahelp="By default $cmd, acts in fortune mode. Respect the terms of use of online services."
+cmd_extrahelp="Respect the terms of use of online services."
 cmd_extranotes="For more information, check man documentation."
 cmd_init="imgs_init"
 cmd_main="imgs_main"
