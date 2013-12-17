@@ -1,5 +1,7 @@
 CodeMiscs: Code Miscellaneous
 
+codemiscs is a project holding for exciting, amusing and innovative commands. codemiscs hopes to be fun and useful... and profitable.
+
 Currently Composed Of:
 * Command (cmd): Command Wrapper
 * Make Project (mkproject): Project Generator
