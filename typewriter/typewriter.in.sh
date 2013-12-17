@@ -3,6 +3,7 @@
 # typewriter: slowed down echo
 # Copyright (C) 2013 Juan Manuel Borges Caño
 # Inspired by Dave W. Capella slowcat.c, simpler and smarter.
+# TODO: add 'key typing' sound switch
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
