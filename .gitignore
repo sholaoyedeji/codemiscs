@@ -6,7 +6,6 @@ codemiscs.spec
 # for all subdirectories
 Makefile.in
 Makefile
-*.man
 TAGS
 .libs
 .deps
@@ -60,3 +59,11 @@ rf/rf
 colorize/colorize
 imgs/imgs
 typewriter/typewriter
+
+cmd.man
+mkproject.man
+tw.man
+rf.man
+colorize.man
+imgs.man
+typewriter.man

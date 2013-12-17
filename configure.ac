@@ -3,14 +3,20 @@ AM_INIT_AUTOMAKE(no-dist-gzip dist-bzip2)
 
 AC_SUBST(PACKAGE_AUTHOR, "Juan Manuel Borges Caño")
 AC_SUBST(PACKAGE_DESCRIPTION, "code miscellaneous")
-AC_SUBST(PACKAGE_EXPLANATION, "No explanation for it to be")
+AC_SUBST(PACKAGE_EXPLANATION, ["Code Miscellaneous is a project holding for exciting, amusing and innovative commands. codemiscs hopes to be fun and useful... and profitable."])
 AC_SUBST(PACKAGE_HOMEPAGE, "http://code.google.com/p/codemiscs")
 AC_SUBST(PACKAGE_MONTH, $(LANG=C date '+%B'))
 AC_SUBST(PACKAGE_YEAR, $(LANG=C date '+%Y'))
-AC_SUBST(PACKAGE_PARSE, ["sed -e 's,\@<:@@\@:>@pkg\@<:@@\@:>@,\$(PACKAGE),g' -e 's,\@<:@@\@:>@pkgname\@<:@@\@:>@,\$(PACKAGE_NAME),g' -e 's,\@<:@@\@:>@pkgversion\@<:@@\@:>@,\$(PACKAGE_VERSION),g' -e 's,\@<:@@\@:>@pkgauthor\@<:@@\@:>@,\$(PACKAGE_AUTHOR),g' -e 's,\@<:@@\@:>@pkgmonth\@<:@@\@:>@,\$(PACKAGE_MONTH),g' -e 's,\@<:@@\@:>@pkgyear\@<:@@\@:>@,\$(PACKAGE_YEAR),g' -e 's,\@<:@@\@:>@pkghomepage\@<:@@\@:>@,\$(PACKAGE_HOMEPAGE),g' -e 's,\@<:@@\@:>@pkgbugreport\@<:@@\@:>@,\$(PACKAGE_BUGREPORT),g' -e 's,\@<:@@\@:>@pkgdescription\@<:@@\@:>@,\$(PACKAGE_DESCRIPTION),g' -e 's,\@<:@@\@:>@pkgexplanation\@<:@@\@:>@,\$(PACKAGE_EXPLANATION),g' -e 's,\@<:@@\@:>@pkgdatadir\@<:@@\@:>@,\$(pkgdatadir),g'"])
+AC_SUBST(PACKAGE_PARSE, ["sed -e 's,\@<:@@\@:>@pkg\@<:@@\@:>@,\$(PACKAGE),g' -e 's,\@<:@@\@:>@pkgname\@<:@@\@:>@,\$(PACKAGE_NAME),g' -e 's,\@<:@@\@:>@pkgversion\@<:@@\@:>@,\$(PACKAGE_VERSION),g' -e 's,\@<:@@\@:>@pkgauthor\@<:@@\@:>@,\$(PACKAGE_AUTHOR),g' -e 's,\@<:@@\@:>@pkgmonth\@<:@@\@:>@,\$(PACKAGE_MONTH),g' -e 's,\@<:@@\@:>@pkgyear\@<:@@\@:>@,\$(PACKAGE_YEAR),g' -e 's,\@<:@@\@:>@pkghomepage\@<:@@\@:>@,\$(PACKAGE_HOMEPAGE),g' -e 's,\@<:@@\@:>@pkgbugreport\@<:@@\@:>@,\$(PACKAGE_BUGREPORT),g' -e 's,\@<:@@\@:>@pkgdescription\@<:@@\@:>@,\$(PACKAGE_DESCRIPTION),g' -e 's?\@<:@@\@:>@pkgexplanation\@<:@@\@:>@?\$(PACKAGE_EXPLANATION)?g' -e 's,\@<:@@\@:>@pkgdatadir\@<:@@\@:>@,\$(pkgdatadir),g'"])
 
 # Checks for programs.
 AC_PROG_CXX
+
+AC_CHECK_PROG(HAVE_MKTEMP, mktemp, yes)
+[[ -z $HAVE_MKTEMP ]] && AC_MSG_WARN(mktemp is needed at execution time)
+
+AC_CHECK_PROG(HAVE_TEE, tee, yes)
+[[ -z $HAVE_TEE ]] && AC_MSG_WARN(tee is needed at execution time)
 
 AC_CHECK_PROG(HAVE_SED, sed, yes)
 [[ -z $HAVE_SED ]] && AC_MSG_ERROR(sed is needed at compile time)
@@ -29,6 +35,9 @@ AC_CHECK_PROG(HAVE_AUTORECONF, autoreconf, yes)
 
 AC_CHECK_PROG(HAVE_CURL, curl, yes)
 [[ -z $HAVE_CURL ]] && AC_MSG_WARN(curl is needed at execution time)
+
+AC_CHECK_PROG(HAVE_WGET, wget, yes)
+[[ -z $HAVE_WGET ]] && AC_MSG_WARN(wget is needed at execution time)
 
 AC_CHECK_PROG(HAVE_ICONV, iconv, yes)
 [[ -z $HAVE_ICONV ]] && AC_MSG_WARN(iconv is needed at execution time)
@@ -52,6 +61,9 @@ AM_CONDITIONAL(ASPELL, [ test x$HAVE_ASPELL = xyes ])
 AC_CHECK_PROG(HAVE_ESPEAK, espeak, yes)
 [[ -z $HAVE_ESPEAK ]] && AC_MSG_WARN(espeak is needed at execution time)
 AM_CONDITIONAL(ESPEAK, [ test x$HAVE_ESPEAK = xyes ])
+
+AC_CHECK_PROG(HAVE_CONVERT, convert, yes)
+[[ -z $HAVE_CONVERT ]] && AC_MSG_WARN(convert is needed at execution time)
 
 # Checks for libraries.
 HUNSPELL_MODULES="hunspell"

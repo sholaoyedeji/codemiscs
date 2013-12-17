@@ -24,6 +24,7 @@ Requires: espeak
 
 %description
 Code Miscellaneous
+[@]pkgexplanation[@]
 
 %prep
 %setup -q
