@@ -39,7 +39,7 @@ function tw_option_shortcuts
 		tw_twp="$tw_plugin"
 		tw_twp="${tw_twp##*_}"
 		tw_twp="${tw_twp%.*}"
-		printf "%s\n"  "$("tw_${tw_twp}_name") = $("tw_${tw_twp}_shortcut")"
+		printf "%s\n" "$("tw_${tw_twp}_name") = $("tw_${tw_twp}_shortcut")"
 	done
 	exit 0
 }
@@ -88,7 +88,7 @@ function tw_aspell
 {
 	if (( "$tw_spelling" == "0" ))
 	then
-		printf "%s\n" "$tw_input" | aspell -d "${tw_dict%%-*}" -a  2> /dev/null | sed -ne '/^&/s/^& \([^ ]\+\) [0-9]\+ [0-9]\+: \(.*\)/possible misspelling of \`\1'\'', did you mean: \2?/p' | while read -r tw_msg
+		printf "%s\n" "$tw_input" | aspell -d "${tw_dict%%-*}" -a 2> /dev/null | sed -ne '/^&/s/^& \([^ ]\+\) [0-9]\+ [0-9]\+: \(.*\)/possible misspelling of \`\1'\'', did you mean: \2?/p' | while read -r tw_msg
 		do
 			cmd_warning "$tw_msg"
 		done
@@ -231,6 +231,7 @@ function tw_main
 cmd="tw"
 cmd_name="translate word"
 cmd_description="translates words between languages"
+cmd_explanation="translate word is a command that translates words into different languages. tw uses internal dictionaries, and contacts online to the Google Translation and the FreeTranslation engines."
 cmd_version="[@]pkgversion[@]"
 cmd_author="[@]pkgauthor[@]"
 cmd_bugreport="[@]pkgbugreport[@]"
@@ -254,9 +255,9 @@ cmd_options=("${cmd_options[@]}" "/d/disable-logging/disable logging of failure 
 cmd_extrahelp="Create ~/.$cmd directory to enable caching and logging (mkdir ~/.$cmd)."$'\n'"With no term, or when term is -, read standard input."
 if (( "[@]pkghavemythes[@]" == "0" ))
 then
-	cmd_extrahelp+="For straight synonyms, check mythes command."
+	cmd_extrahelp+=" For straight synonyms, check mythes command."
 fi
-cmd_extranotes="For more information, check man and info documentation."
+cmd_extranotes="For more information, check man documentation."
 cmd_init="tw_init"
 cmd_main="tw_main"
 

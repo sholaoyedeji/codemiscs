@@ -142,6 +142,7 @@ function mp_main
 cmd="mkproject"
 cmd_name="make project"
 cmd_description="makes projects skeletons"
+cmd_explanation="make project is a command that makes project skeletons. mkproject automatizes the task of starting a new project with the information provided from the command line. The package created by default is a 'hello world' project of the selected skeleton that is managed with autotools. There are skeletons for bash, c, c library, python, c++, c++ library and perl."
 cmd_version="[@]pkgversion[@]"
 cmd_author="[@]pkgauthor[@]"
 cmd_bugreport="[@]pkgbugreport[@]"
@@ -150,7 +151,7 @@ cmd_usage="$cmd [OPTIONS]"
 cmd_examples=("$cmd -s bash -t test")
 cmd_options=("/l/list/list skeletons/mp_list/" "/s:/skeleton:/set skeleton type/mp_skeleton/SKELETON/" "/t:/tarname:/set tar name/mp_tarname/TARNAME/" "/p:/pkgname:/set package name/mp_pkgname/PKGNAME/" "/d:/description:/set short description/mp_description/DESCRIPTION/" "/a:/author:/set author/mp_author/AUTHOR/" "/b:/bugreport:/set bug report address/mp_bugreport/BUGREPORT/" "/m:/homepage:/set homepage url/mp_homepage/HOMEPAGE/" "/n:/dependencies:/set dependencies/mp_dependencies/DEPENDENCIES/" "/r/verbose/show progress messages/mp_verbose/")
 cmd_extrahelp="Skeleton and Tar Name are obligatory, the rest are recommended, dependencies is optional."
-cmd_extranotes="For more information, check man and info documentation."
+cmd_extranotes="For more information, check man documentation."
 cmd_init="mp_init"
 cmd_main="mp_main"
 

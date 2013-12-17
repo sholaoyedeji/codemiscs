@@ -34,7 +34,7 @@ function rf_setup
 	fi
 	[[ -z "$rf_feedurl" ]] && cmd_error "unknown feed"
 
-	if [[ -f "$HOME/.rf/$1.rfd" ]] && (( $(date "+%s") - $(stat -c "%Y" "$HOME/.rf/$1.rfd") < 60 * "$rf_time"  ))
+	if [[ -f "$HOME/.rf/$1.rfd" ]] && (( $(date "+%s") - $(stat -c "%Y" "$HOME/.rf/$1.rfd") < 60 * "$rf_time" ))
 	then
 		rf_data="$(cat "$HOME/.rf/$1.rfd")"
 	else
@@ -161,7 +161,7 @@ function rf_cache
 function rf_init
 {
 	[[ ! -d "$HOME/.rf" ]] && mkdir "$HOME/.rf"
-	[[ ! -f "$HOME/.rf/feeds" ]] &&  cp "$cmd_datadir/feeds" "$HOME/.rf/feeds"
+	[[ ! -f "$HOME/.rf/feeds" ]] && cp "$cmd_datadir/feeds" "$HOME/.rf/feeds"
 	source "$HOME/.rf/feeds"
 	rf_time="30"
 	rf_mode="title"
@@ -186,6 +186,7 @@ function rf_main
 cmd="rf"
 cmd_name="read feed"
 cmd_description="read feeds from any source"
+cmd_explanation="read feed is a command that reads feeds from any source. rf uses the feed of a site to manage it with a command line interface."
 cmd_version="[@]pkgversion[@]"
 cmd_author="[@]pkgauthor[@]"
 cmd_bugreport="[@]pkgbugreport[@]"
@@ -194,7 +195,7 @@ cmd_usage="$cmd [OPTIONS] [FEED]"
 cmd_examples=("$cmd -t linux")
 cmd_options=("/l/list/list the available feeds/rf_list/" "/t::/title::/set title mode/rf_title/ITEMS/" "/d:/description:/set description mode/rf_description/ITEM/" "/n:/link:/set link mode/rf_link/ITEM/" "/c:/cache:/set cache time/rf_cache/MINUTES/")
 cmd_extrahelp="On no config creates ~/.$cmd directory and adds the default feeds to the ~/.rf/feeds file. "$'\n'"With no option, use title mode. With no items, show all. With no cache time, use 30 minutes."
-cmd_extranotes="For more information, check man and info documentation."
+cmd_extranotes="For more information, check man documentation."
 cmd_init="rf_init"
 cmd_main="rf_main"
 
