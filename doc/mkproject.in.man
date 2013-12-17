@@ -10,7 +10,7 @@ Example: mkproject -s bash -t test
 .SH DESCRIPTION
 .PP
 .B make project
-is a command that makes project skeletons. 
+is a project generator.
 .B make project
 automatizes the task of starting a new project with the information provided from the command line. The package created by default is a
 .B 'hello world'

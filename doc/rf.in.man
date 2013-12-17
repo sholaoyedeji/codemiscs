@@ -11,8 +11,8 @@ Example: rf linux
 .SH DESCRIPTION
 .PP
 .B read feed
-is a command that reads feeds from any source. 
-.B read feed
+is a feed reader.
+.B rf
 uses the feed of a site to manage it with a command line interface.
 .PP
 Mandatory arguments for long options are mandatory for short options too.

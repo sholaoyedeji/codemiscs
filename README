@@ -2,12 +2,12 @@ CodeMiscs: Code Miscellaneous
 
 Currently Composed Of:
 * Command (cmd): Command Wrapper
-* Make Project (mkproject): Makes Projects Skeletons
-* Translate Word (tw): Translates Words Between Languages
-* Read Feed (rf): Read Feeds From Any Source
-* Images (imgs): Images Utilities
-* Colorizer (colorizer): Tint '--help'
-* Typewriter (typewriter): Slowed Down echo
+* Make Project (mkproject): Project Generator
+* Translate Word (tw): Human Language Translator
+* Read Feed (rf): Feed Reader
+* Images (imgs): Images Wizard
+* Colorizer (colorizer): Help Tinter
+* Typewriter (typewriter): Slowed Down Echoer
 
 codemiscs (Code Miscellaneous) homepage <http://code.google.com/p/codemiscs>
 

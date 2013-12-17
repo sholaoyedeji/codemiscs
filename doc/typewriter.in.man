@@ -7,7 +7,7 @@ typewriter \- slowed down echo
 .SH EXAMPLE
 .B echo type this | typewriter 
 .SH DESCRIPTION
-typewriter is a program that echoes slowly. typewriter reads standard input and writes slowed down to standard output.
+typewriter is an slower down echor. typewriter reads standard input and writes slowed down to standard output.
 .PP
 Mandatory arguments for long options are mandatory for short options too.
 .TP

@@ -10,8 +10,8 @@ Example: tw en-es hello
 .SH DESCRIPTION
 .PP
 .B translate word
-is a command that translates words into different languages.  
-.B translate word
+is a human language translator.
+.B tw
 uses internal dictionaries, and contacts online to the Google Translation and the FreeTranslation engines.
 .PP
 Mandatory arguments for long options are mandatory for short options too.

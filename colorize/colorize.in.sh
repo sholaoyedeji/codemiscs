@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
 
 # December 4th, 2013, Juan Manuel Borges Caño
+# Colorizer (colorizer): Help Tinter (Early stages)
+
 sed \
 	-e "s/\([[:digit:]]\+\)/$(tput setaf 4)\1$(tput sgr0)/g" \
 	-e "s/\(GB\|MB\|KB\|[[:upper:]_]\{2,\}\|'[^']\+'\|\"[^\"]\+\"\|\`\`[^\']\+''\)/$(tput setaf 2)\1$(tput sgr0)/g" \

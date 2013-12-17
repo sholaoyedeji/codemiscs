@@ -128,7 +128,7 @@ function imgs_main
 # The cmd fields
 cmd="imgs"
 cmd_name="images"
-cmd_description="fetch & manipulate images"
+cmd_description="Images Wizard"
 cmd_explanation="images is a program that fetches and/or manipulates groups of images. imgs fetches google images, unify groups to sizes and builds slideshows."
 cmd_version="[@]pkgversion[@]"
 cmd_author="[@]pkgauthor[@]"

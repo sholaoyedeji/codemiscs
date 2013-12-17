@@ -7,7 +7,7 @@ imgs \- fetch & manipulate images
 .SH EXAMPLE
 .B imgs linux 100 320x240
 .SH DESCRIPTION
-images is a program that fetches and/or manipulates groups of images. imgs fetches google images, unify groups to sizes and builds slideshows.
+images is an images wizard that fetches and/or manipulates groups of images. imgs fetches google images, unify groups to sizes and builds slideshows.
 .PP
 Mandatory arguments for long options are mandatory for short options too.
 .TP

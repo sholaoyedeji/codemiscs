@@ -185,7 +185,7 @@ function rf_main
 # The cmd fields
 cmd="rf"
 cmd_name="read feed"
-cmd_description="read feeds from any source"
+cmd_description="Feed Reader"
 cmd_explanation="read feed is a command that reads feeds from any source. rf uses the feed of a site to manage it with a command line interface."
 cmd_version="[@]pkgversion[@]"
 cmd_author="[@]pkgauthor[@]"

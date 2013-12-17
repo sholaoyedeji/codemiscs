@@ -230,7 +230,7 @@ function tw_main
 # The cmd fields
 cmd="tw"
 cmd_name="translate word"
-cmd_description="translates words between languages"
+cmd_description="Human Language Translator"
 cmd_explanation="translate word is a command that translates words into different languages. tw uses internal dictionaries, and contacts online to the Google Translation and the FreeTranslation engines."
 cmd_version="[@]pkgversion[@]"
 cmd_author="[@]pkgauthor[@]"

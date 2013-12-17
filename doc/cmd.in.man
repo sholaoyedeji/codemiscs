@@ -12,9 +12,9 @@ Example: cmd -- -h
 .SH DESCRIPTION
 .PP
 .B command
-wraps bash functions into a command. 
-.B 
-automatizes the handling of options of a command and includes 
+is a command wrapper.
+.B cmd
+wraps bash functions into a command, automatizing the handling of options of a command and includes 
 .B --help
 ,
 .B --version

@@ -141,7 +141,7 @@ function mp_main
 # The cmd fields
 cmd="mkproject"
 cmd_name="make project"
-cmd_description="makes projects skeletons"
+cmd_description="Project Generator"
 cmd_explanation="make project is a command that makes project skeletons. mkproject automatizes the task of starting a new project with the information provided from the command line. The package created by default is a 'hello world' project of the selected skeleton that is managed with autotools. There are skeletons for bash, c, c library, python, c++, c++ library and perl."
 cmd_version="[@]pkgversion[@]"
 cmd_author="[@]pkgauthor[@]"

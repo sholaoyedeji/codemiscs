@@ -60,7 +60,7 @@ function tw_main
 # The cmd fields
 cmd="typewriter"
 cmd_name="typewriter"
-cmd_description="slowed down echo"
+cmd_description="Slowed Down Echoer"
 cmd_explanation="typewriter is a program that echoes slowly. typewriter reads standard input and writes slowed down to standard output."
 cmd_version="[@]pkgversion[@]"
 cmd_author="[@]pkgauthor[@]"
