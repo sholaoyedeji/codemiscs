@@ -24,7 +24,7 @@ function imgs_fetch_google
 	# Tweaked http://sam.nipl.net/code/nipl-tools/bin/google-images to be silent, and elegant
 	# November 22nd, 2013, Juan Manuel Borges Caño
 
-	[ $# = 0 ] && cmd_error "usage: query count parallel safe opts timeout tries agent1 agent2"
+	[ $# = 0 ] && cmd_error "Usage: query count parallel safe opts timeout tries agent1 agent2"
 
 	query=$1 count=${2:-100} parallel=${3:-10} safe=$4 opts=$5 timeout=${6:-10} tries=${7:-2} agent1=${8:-Mozilla/5.0 (X11; Linux i686; rv:25.0) Gecko/20100101 Firefox/25.0} agent2=${9:-Googlebot-Image/1.0}
 
@@ -60,7 +60,7 @@ function imgs_unify
 }
 
 # The --slideshow option
-function tw_option_synonyms
+function imgs_slideshow
 {
 	tw_synonyms=0
 	# Relies in ImageMagick's *convert*
@@ -118,7 +118,7 @@ cmd_author="[@]pkgauthor[@]"
 cmd_bugreport="[@]pkgbugreport[@]"
 cmd_homepage="[@]pkghomepage[@]"
 cmd_usage="$cmd [OPTIONS] [DICTIONARY] [TERM]"
-cmd_examples=("$cmd fortune 320x240 100 linux")
+cmd_examples=("$cmd 320x240 100 linux")
 cmd_options=("/f/fetch/fetch google images/imgs_fetch_google/" "/u/unify/unify images/imgs_unify/" "/s/slideshow/slideshow images set/imgs_slideshow/" "/f/fortune/fetch, unify and slideshow terms/imgs_fortune/")
 cmd_extrahelp="By default $cmd, acts in fortune mode. Respect the terms of use of online services."
 cmd_extranotes="For more information, check man documentation."
