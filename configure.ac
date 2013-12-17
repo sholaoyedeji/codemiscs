@@ -83,5 +83,5 @@ AM_CONDITIONAL(MYTHES, [test x$HAVE_HUNSPELL = xyes -a  x$HAVE_MYTHES = xyes])
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile cmd/Makefile mkproject/Makefile tw/Makefile rf/Makefile colorize/Makefile imgs/Makefile typewriter/Makefile data/Makefile doc/Makefile dist/Makefile])
+AC_CONFIG_FILES([Makefile cmd/Makefile mkproject/Makefile tw/Makefile rf/Makefile imgs/Makefile typewriter/Makefile colorize/Makefile data/Makefile doc/Makefile dist/Makefile])
 AC_OUTPUT

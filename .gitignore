@@ -56,14 +56,14 @@ tw/mythes-raw
 tw/mythes
 tw/tw
 rf/rf
-colorize/colorize
 imgs/imgs
 typewriter/typewriter
+colorize/colorize
 
 cmd.man
 mkproject.man
 tw.man
 rf.man
-colorize.man
 imgs.man
 typewriter.man
+colorize.man

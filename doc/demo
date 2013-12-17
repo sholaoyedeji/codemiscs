@@ -1,3 +1,5 @@
+qdbus org.kde.konsole /Konsole newSession Grande $(echo $HOME)
+clear
 increase font size
 typewriter < /usr/share/doc/codemiscs-0.9.0/README
 colorize --help
