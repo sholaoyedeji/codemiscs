@@ -2,6 +2,7 @@
 
 # mkproject: make project skeletons
 # Copyright (C) 2007-2012 Juan Manuel Borges Caño
+# The repetition of project generation made this command a need, and a must.
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

@@ -2,6 +2,7 @@
 
 # tw: translate words into different languages
 # Copyright (C) 2007-2013 Juan Manuel Borges Caño
+# The need for a fast and rich translation answer inspired this command.
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

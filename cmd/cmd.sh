@@ -2,7 +2,8 @@
 
 # cmd.sh: wrap bash functions into a command
 # Copyright (C) 2012-2013 Juan Manuel Borges Caño
-# Version 0.4.12
+# This command wrapper happened by result of design. As mkproject proved efficient generating multitude of commands projects skeletons, a command skeleton itself showed up. I started to use it in tw, mkproject, rf ... and became an smart, fast and efficient way to develop quality shell commands.
+# Version 0.9.0
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

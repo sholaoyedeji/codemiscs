@@ -2,6 +2,7 @@
 
 # cmd: wrap bash functions into a command
 # Copyright (C) 2012-2013 Juan Manuel Borges Caño
+# Motivated by fast, smart and elegant quality volatile commands. This command is a fun and nice recursion coding exercise of cmd.sh.
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
