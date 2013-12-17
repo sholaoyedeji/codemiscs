@@ -8,10 +8,10 @@ Currently Composed Of:
 * Translate Word (tw): Human Language Translator
 * Read Feed (rf): Feed Reader
 * Images (imgs): Images Wizard
-* Colorize (colorize): Input Tinter
+* Colorize Input (colorize): Input Tinter
 * Typewriter (typewriter): Slowed Down Echoer
 
-codemiscs (Code Miscellaneous) by Juan Manuel Borges Caño
+codemiscs (Code Miscellaneous) licensed GPLv3 by Juan Manuel Borges Caño
 * homepage <http://code.google.com/p/codemiscs>
 * mail <mailto:juanmabcmail@gmail.com>
 * blog <http://juanmabcblog.blogspot.com>
