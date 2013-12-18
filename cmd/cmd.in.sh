@@ -129,7 +129,7 @@ function cmd_help
 	printf "%s\n" "Execute 'bash -c \"man <($cmd --man)\"' to see the runtime manpage."
 	printf "%s\n" ""
 	[[ -n "$cmd_homepage" ]] && printf "%s\n" "$cmd ($cmd_name) homepage: $cmd_homepage."
-	printf "%s\n" "$cmd ($cmd_name) author: $cmd_author"
+	printf "%s\n" "$cmd ($cmd_name) author: $cmd_author."
 	[[ -n "$cmd_blog" ]] && printf "%s\n" "$cmd ($cmd_name) blog: $cmd_blog."
 	[[ -n "$cmd_email" ]] && printf "%s\n" "$cmd ($cmd_name) email: $cmd_email."
 	[[ -n "$cmd_extranotes" ]] && printf "%s\n" "$cmd_extranotes"
