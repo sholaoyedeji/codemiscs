@@ -21,14 +21,18 @@
 function cl_option_help_profile
 {
 	# December 4th, 2013, Juan Manuel Borges Caño
+#
 	sed \
 		-e "s/\([[:digit:]]\+\)/$(tput setaf 4)\1$(tput sgr0)/g" \
 		-e "s/\(GB\|MB\|KB\|[[:upper:]_]\{2,\}\|'[^']\+'\|\"[^\"]\+\"\|\`\`[^\']\+''\)/$(tput setaf 2)\1$(tput sgr0)/g" \
-		-e "s/\(=\)\([?[:alnum:]_-.]\+\)/\1$(tput setaf 2)\2$(tput sgr0)/g" \
 		-e "s/\([^[:alnum:]]\)\(-\{1,2\}[?[:alnum:]_-]\+\)\( \)\?\([?[:alnum:]_-]\+\)\?/\1$(tput setaf 5)\2$(tput sgr0)\3$(tput setaf 2)\4$(tput sgr0)/g" \
-		-e "s/\([[:alnum:]_-]\+\)\+@\([[:alnum:]_-.]\+\)/$(tput setaf 1)\1$(tput sgr0)@$(tput setaf 6)\2$(tput sgr0)/g" \
-		-e "s/\<\(Command\|command\|Program\|program\|Usage\|usage\|Example\|example\|Arguments\|arguments\|Options\|options\|Set\|set\|Show\|show\|Complete\|complete\|Help\|help\|Version\|version\|Man\|man\|Page\|page\Manpage\|manpage\|Documentation\|documentation\|Mandatory\|mandatory\|Home Page\|home page\|Homepage\|homepage\|Author\|author\|Blog\|blog\|Email\|email\|Report\|report\|Information\|information\|January\|February\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\)\>/$(tput setaf 3)\1$(tput sgr0)/g" \
+		-e "s/\(=\)\([?[:alnum:]_-.]\+\)/\1$(tput setaf 2)\2$(tput sgr0)/g" \
 		-e "s/\(http:\/\/\)\([^/]\+\)\([^[:blank:]]\+\)/$(tput setaf 4)\1$(tput sgr0)$(tput setaf 6)\2$(tput sgr0)$(tput setaf 1)\3$(tput sgr0)/g" \
+		-e "s/\([[:alnum:]_-]\+\)\+@\([[:alnum:]_-.]\+\)/$(tput setaf 1)\1$(tput sgr0)@$(tput setaf 6)\2$(tput sgr0)/g" \
+		-e "s/\([:,;.]\)\([[:blank:]]\)/$(tput setaf 1)\1$(tput sgr0)\2/g" \
+		-e "s/\([:,;.]\)$/$(tput setaf 1)\1$(tput sgr0)/g" \
+		-e "s/\(['\"]\)/$(tput setaf 1)\1$(tput sgr0)/g" \
+		-e "s/\<\(Command\|command\|Program\|program\|Usage\|usage\|Example\|example\|Arguments\|arguments\|Options\|options\|Set\|set\|Show\|show\|Complete\|complete\|Help\|help\|Version\|version\|Man\|man\|Page\|page\Manpage\|manpage\|Documentation\|documentation\|Mandatory\|mandatory\|Home Page\|home page\|Homepage\|homepage\|Author\|author\|Blog\|blog\|Email\|email\|Report\|report\|Information\|information\|January\|February\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\)\>/$(tput setaf 3)\1$(tput sgr0)/g" \
 		-
 	exit 0
 }
