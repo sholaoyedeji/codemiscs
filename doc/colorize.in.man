@@ -11,7 +11,7 @@ colorize input is a command that colorizes the input read from standard input. c
 .PP
 Mandatory arguments for long options are mandatory for short options too.
 .TP
-\fB\-l\fR, \fB\-\-help-profile\fR
+\fB\-e\fR, \fB\-\-help-profile\fR
 use help profile colorizer
 .TP
 \fB\-i\fR, \fB\-\-input-profile\fR
@@ -31,12 +31,14 @@ By default uses help profile.
 Execute 'bash -c "man <(colorize --man)"' to see the runtime manpage.
 .SH NOTES
 For more information, check man documentation.
-.SH AUTHOR
-Written by \fBJuan Manuel Borges Caño\fR.
 .SH HOMEPAGE
-colorize (colorize input) home page <\fBhttp://code.google.com/p/codemiscs\fR>.
-.SH REPORTING BUGS
-Report bugs to <\fBjuanmabcmail@gmail.com\fR>.
+Main project page at \fBhttp://code.google.com/p/codemiscs\fR.
+.SH AUTHOR
+Programmed by \fBJuan Manuel Borges Caño\fR.
+.SH BLOG
+Follow, thank or contact through comments or pay through BitCoin, Western Union, PayPal, ... at \fBhttp://juanmabcblog.blogspot.com\fR.
+.SH EMAIL
+Thank or contact through email to \fBjuanmabcmail@gmail.com\fR.
 .SH COPYRIGHT
 Copyright \(co \fB2013 Juan Manuel Borges Caño\fR.
 .PP

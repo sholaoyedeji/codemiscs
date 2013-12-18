@@ -5,9 +5,11 @@ AC_SUBST(PACKAGE_AUTHOR, "Juan Manuel Borges Caño")
 AC_SUBST(PACKAGE_DESCRIPTION, "code miscellaneous")
 AC_SUBST(PACKAGE_EXPLANATION, ["Code Miscellaneous is a project holding for exciting, amusing and innovative commands. codemiscs hopes to be fun and useful... and profitable."])
 AC_SUBST(PACKAGE_HOMEPAGE, "http://code.google.com/p/codemiscs")
+AC_SUBST(PACKAGE_BLOG, "http://juanmabcblog.blogspot.com")
+AC_SUBST(PACKAGE_EMAIL, "juanmabcmail@gmail.com")
 AC_SUBST(PACKAGE_MONTH, $(LANG=C date '+%B'))
 AC_SUBST(PACKAGE_YEAR, $(LANG=C date '+%Y'))
-AC_SUBST(PACKAGE_PARSE, ["sed -e 's,\@<:@@\@:>@pkg\@<:@@\@:>@,\$(PACKAGE),g' -e 's,\@<:@@\@:>@pkgname\@<:@@\@:>@,\$(PACKAGE_NAME),g' -e 's,\@<:@@\@:>@pkgversion\@<:@@\@:>@,\$(PACKAGE_VERSION),g' -e 's,\@<:@@\@:>@pkgauthor\@<:@@\@:>@,\$(PACKAGE_AUTHOR),g' -e 's,\@<:@@\@:>@pkgmonth\@<:@@\@:>@,\$(PACKAGE_MONTH),g' -e 's,\@<:@@\@:>@pkgyear\@<:@@\@:>@,\$(PACKAGE_YEAR),g' -e 's,\@<:@@\@:>@pkghomepage\@<:@@\@:>@,\$(PACKAGE_HOMEPAGE),g' -e 's,\@<:@@\@:>@pkgbugreport\@<:@@\@:>@,\$(PACKAGE_BUGREPORT),g' -e 's,\@<:@@\@:>@pkgdescription\@<:@@\@:>@,\$(PACKAGE_DESCRIPTION),g' -e 's?\@<:@@\@:>@pkgexplanation\@<:@@\@:>@?\$(PACKAGE_EXPLANATION)?g' -e 's,\@<:@@\@:>@pkgdatadir\@<:@@\@:>@,\$(pkgdatadir),g'"])
+AC_SUBST(PACKAGE_PARSE, ["sed -e 's,\@<:@@\@:>@pkg\@<:@@\@:>@,\$(PACKAGE),g' -e 's,\@<:@@\@:>@pkgname\@<:@@\@:>@,\$(PACKAGE_NAME),g' -e 's,\@<:@@\@:>@pkgversion\@<:@@\@:>@,\$(PACKAGE_VERSION),g' -e 's,\@<:@@\@:>@pkgauthor\@<:@@\@:>@,\$(PACKAGE_AUTHOR),g' -e 's,\@<:@@\@:>@pkgmonth\@<:@@\@:>@,\$(PACKAGE_MONTH),g' -e 's,\@<:@@\@:>@pkgyear\@<:@@\@:>@,\$(PACKAGE_YEAR),g' -e 's,\@<:@@\@:>@pkghomepage\@<:@@\@:>@,\$(PACKAGE_HOMEPAGE),g' -e 's,\@<:@@\@:>@pkgblog\@<:@@\@:>@,\$(PACKAGE_BLOG),g' -e 's,\@<:@@\@:>@pkgemail\@<:@@\@:>@,\$(PACKAGE_EMAIL),g' -e 's,\@<:@@\@:>@pkgdescription\@<:@@\@:>@,\$(PACKAGE_DESCRIPTION),g' -e 's?\@<:@@\@:>@pkgexplanation\@<:@@\@:>@?\$(PACKAGE_EXPLANATION)?g' -e 's,\@<:@@\@:>@pkgdatadir\@<:@@\@:>@,\$(pkgdatadir),g'"])
 
 # Checks for programs.
 AC_PROG_CXX

@@ -207,12 +207,13 @@ function mythes_main
 # The cmd fields
 cmd="mythes"
 cmd_name="mythes"
-cmd_description="mythes synonyms database tool"
+cmd_description="Synonyms Mythes Interface"
 cmd_explanation="mythes is a command that shows synonyms for a given word."
 cmd_version="[@]pkgversion[@]"
 cmd_author="[@]pkgauthor[@]"
-cmd_bugreport="[@]pkgbugreport[@]"
 cmd_homepage="[@]pkghomepage[@]"
+cmd_blog="[@]pkgblog[@]"
+cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [DICTIONARY] [TERM]"
 cmd_examples=("$cmd en hello")
 cmd_options=("/l/list/list available databases/mythes_option_list/")

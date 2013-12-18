@@ -27,8 +27,9 @@
 #cmd_author="[@]pkgauthor[@]"
 #cmd_month="[@]pkgmonth[@]"
 #cmd_year="[@]pkgyear[@]"
-#cmd_bugreport="[@]pkgbugreport[@]"
 #cmd_homepage="[@]pkghomepage[@]"
+#cmd_blog="[@]pkgblog[@]"
+#cmd_email="[@]pkgemail[@]"
 #cmd_usage="[@]pkgusage[@]"
 #cmd_examples="[@]pkgexamples[@]"
 #cmd_options="[@]pkgoptions[@]"
@@ -48,8 +49,9 @@
 [[ -z "$cmd_author" ]] && cmd_author="@author@"
 [[ -z "$cmd_month" ]] && cmd_month="$(LANG=C date '+%B')"
 [[ -z "$cmd_year" ]] && cmd_year="$(LANG=C date '+%Y')"
-[[ ! "${cmd_bugreport+_}" ]] && cmd_bugreport="@bugreport@"
 [[ ! "${cmd_homepage+_}" ]] && cmd_homepage="@homepage@"
+[[ ! "${cmd_blog+_}" ]] && cmd_blog="@blog@"
+[[ ! "${cmd_email+_}" ]] && cmd_email="@email@"
 [[ -z "$cmd_usage" ]] && cmd_usage="@usage@"
 [[ -z "$cmd_options" ]] && cmd_options=()
 [[ -z "$cmd_examples" ]] && cmd_examples=("@example@")
@@ -61,13 +63,13 @@
 # The info helper
 function cmd_info
 {
-	printf "%s\n"  "Try \`$cmd --help' for more information."
+	printf "%s\n" "Try \`$cmd --help' for more information."
 }
 
 # The warning helper
 function cmd_warning
 {
-	printf "%s\n"  "$cmd: $@" >&2
+	printf "%s\n" "$cmd: $@" >&2
 }
 
 # The error helper
@@ -85,7 +87,7 @@ cmd_funcs=()
 cmd_args=()
 for ((i = 0; i < "${#cmd_options[@]}"; i++))
 do
-	IFS="${cmd_options[$i]:0:1}" read cmd_shorts[$i] cmd_longs[$i] cmd_msgs[$i] cmd_funcs[$i] cmd_args[$i] < <(printf "%s\n"  "${cmd_options[$i]:1}")
+	IFS="${cmd_options[$i]:0:1}" read cmd_shorts[$i] cmd_longs[$i] cmd_msgs[$i] cmd_funcs[$i] cmd_args[$i] < <(printf "%s\n" "${cmd_options[$i]:1}")
 done
 
 # The examples arrays
@@ -95,46 +97,49 @@ cmd_exs=()
 cmd_footers=()
 for ((i = 1; i < "${#cmd_examples[@]}"; i++))
 do
-	IFS="${cmd_examples[$i]:0:1}" read cmd_titles[$i] cmd_descs[$i] cmd_exs[$i] cmd_footers[$i] < <(printf "%s\n"  "${cmd_examples[$i]:1}")
+	IFS="${cmd_examples[$i]:0:1}" read cmd_titles[$i] cmd_descs[$i] cmd_exs[$i] cmd_footers[$i] < <(printf "%s\n" "${cmd_examples[$i]:1}")
 done
 
 # The --help option
 function cmd_help
 {
-	printf "%s\n"  "Usage: $cmd_usage"
-	printf "%s\n"  "$cmd_description"
-	printf "%s\n"  "Example: ${cmd_examples[0]}"
-	printf "%s\n"  ""
-	printf "%s\n"  "$cmd_explanation"
-	printf "%s\n"  ""
-	printf "%s\n"  "Mandatory arguments for long options are mandatory for short options too."
+	printf "%s\n" "$cmd ($cmd_name) by $cmd_author ($cmd_month $cmd_year)"
+	printf "%s\n" "$cmd_description"
+	printf "%s\n" "Usage: $cmd_usage"
+	printf "%s\n" "Example: ${cmd_examples[0]}"
+	printf "%s\n" ""
+	printf "%s\n" "$cmd_explanation"
+	printf "%s\n" ""
+	printf "%s\n" "Mandatory arguments for long options are mandatory for short options too:"
 	for ((i = 0; i < "${#cmd_options[@]}"; i++))
 	do
 		if [[ "${cmd_shorts[$i]}" =~ ":" || "${cmd_longs[$i]}" =~ ":" ]]
 		then
 			if [[ "${cmd_shorts[$i]}" =~ "::" || "${cmd_longs[$i]}" =~ "::" ]]
 			then
-				printf "%-48s%s\n"  "  -${cmd_shorts[$i]//:/}, --${cmd_longs[$i]//:/}[=${cmd_args[$i]}]" "${cmd_msgs[$i]}"
+				printf "%-48s%s\n" "  -${cmd_shorts[$i]//:/}, --${cmd_longs[$i]//:/}[=${cmd_args[$i]}]" "${cmd_msgs[$i]}"
 			else
-				printf "%-48s%s\n"  "  -${cmd_shorts[$i]//:/}, --${cmd_longs[$i]//:/}=${cmd_args[$i]}" "${cmd_msgs[$i]}"
+				printf "%-48s%s\n" "  -${cmd_shorts[$i]//:/}, --${cmd_longs[$i]//:/}=${cmd_args[$i]}" "${cmd_msgs[$i]}"
 			fi
 		else
-			printf "%-48s%s\n"  "  -${cmd_shorts[$i]//:/}, --${cmd_longs[$i]//:/}" "${cmd_msgs[$i]}"
+			printf "%-48s%s\n" "  -${cmd_shorts[$i]//:/}, --${cmd_longs[$i]//:/}" "${cmd_msgs[$i]}"
 		fi
 	done
-	[[ -n "$cmd_extrahelp" ]] && printf "%s\n"  "$cmd_extrahelp"
+	[[ -n "$cmd_extrahelp" ]] && printf "%s\n" "$cmd_extrahelp"
 	printf "%s\n" "Execute 'bash -c \"man <($cmd --man)\"' to see the runtime manpage."
-	printf "%s\n"  ""
-	[[ -n "$cmd_bugreport" ]] && printf "%s\n"  "Report bugs to <$cmd_bugreport>."
-	[[ -n "$cmd_homepage" ]] && printf "%s\n"  "$cmd ($cmd_name) home page <$cmd_homepage>."
-	[[ -n "$cmd_extranotes" ]] && printf "%s\n"  "$cmd_extranotes"
+	printf "%s\n" ""
+	[[ -n "$cmd_homepage" ]] && printf "%s\n" "$cmd ($cmd_name) homepage: $cmd_homepage."
+	printf "%s\n" "$cmd ($cmd_name) author: $cmd_author"
+	[[ -n "$cmd_blog" ]] && printf "%s\n" "$cmd ($cmd_name) blog: $cmd_blog."
+	[[ -n "$cmd_email" ]] && printf "%s\n" "$cmd ($cmd_name) email: $cmd_email."
+	[[ -n "$cmd_extranotes" ]] && printf "%s\n" "$cmd_extranotes"
 	exit 0
 }
 
 # The --version option
 function cmd_version
 {
-	printf "%s\n"  "$cmd_version"
+	printf "%s\n" "$cmd_version"
 	exit 0
 }
 
@@ -165,7 +170,7 @@ function cmd_man
 		fi
 		printf "%s\n" "${cmd_msgs[$i]}"
 	done
-	[[ -n "$cmd_extrahelp" ]] && printf "%s\n%s\n"  ".TP" "$cmd_extrahelp"
+	[[ -n "$cmd_extrahelp" ]] && printf "%s\n%s\n" ".TP" "$cmd_extrahelp"
 	printf "%s\n" ".TP" "Execute 'bash -c \"man <($cmd --man)\"' to see the runtime manpage."
 	(( "${#cmd_examples[@]}" > 1 )) && printf "%s\n" ".SH EXAMPLES"
 	for ((i = 1; i < "${#cmd_examples[@]}"; i++))
@@ -176,9 +181,10 @@ function cmd_man
 		[[ -n "${cmd_footers[$i]}" ]] && printf "%s\n%s\n" ".TP" "${cmd_footers[$i]}"
 	done
 	[[ -n "$cmd_extranotes" ]] && printf "%s\n%s\n" ".SH NOTES" "${cmd_extranotes}"
-	printf "%s\n%s\n" ".SH AUTHOR" "Written by \\fB${cmd_author}\\fR."
-	[[ -n "$cmd_homepage" ]] && printf "%s\n%s\n" ".SH HOMEPAGE" "${cmd} (${cmd_name}) home page <\\fB${cmd_homepage}\\fR>."
-	[[ -n "$cmd_bugreport" ]] && printf "%s\n%s\n" ".SH REPORTING BUGS" "Report bugs to <\\fB${cmd_bugreport}\\fR>."
+	[[ -n "$cmd_homepage" ]] && printf "%s\n%s\n" ".SH HOMEPAGE" "Main project page at \\fB${cmd_homepage}\\fR."
+	printf "%s\n%s\n" ".SH AUTHOR" "Programmed by \\fB${cmd_author}\\fR."
+	[[ -n "$cmd_blog" ]] && printf "%s\n%s\n" ".SH BLOG" "Follow, thank or contact through comments or pay through BitCoin, Western Union, PayPal, ... at \\fB${cmd_blog}\\fR."
+	[[ -n "$cmd_email" ]] && printf "%s\n%s\n" ".SH EMAIL" "Thank or contact through email to \\fB${cmd_email}\\fR."
 	printf "%s\n%s\n" ".SH COPYRIGHT" "Copyright \(co \\fB${cmd_year} ${cmd_author}\\fR."
 	printf "%s\n%s\n%s\n%s\n" ".PP" "This is free software.  You may redistribute copies of it under the terms of" "the GNU General Public License <http://www.gnu.org/licenses/gpl.html>." "There is NO WARRANTY, to the extent permitted by law."
 	exit 0

@@ -62,6 +62,7 @@ colorize/colorize
 
 cmd.man
 mkproject.man
+mythes.man
 tw.man
 rf.man
 imgs.man
@@ -69,3 +70,4 @@ typewriter.man
 colorize.man
 
 codemiscs.wiki/
+doc/backup/

@@ -235,8 +235,9 @@ cmd_description="Human Language Translator"
 cmd_explanation="translate word is a command that translates words into different languages. tw uses internal dictionaries, and contacts online to the Google Translation and the FreeTranslation engines."
 cmd_version="[@]pkgversion[@]"
 cmd_author="[@]pkgauthor[@]"
-cmd_bugreport="[@]pkgbugreport[@]"
 cmd_homepage="[@]pkghomepage[@]"
+cmd_blog="[@]pkgblog[@]"
+cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [DICTIONARY] [TERM]"
 cmd_examples=("$cmd en-es hello")
 cmd_options=("/l/list/list available dictionaries/tw_option_list/" "/s/shortcuts/list available dictionaries shortcuts/tw_option_shortcuts/" "/x/exact/try to perform an exact match/tw_option_exact/")
@@ -253,7 +254,7 @@ then
 	cmd_options=("${cmd_options[@]}" "/k/speak/try to speak the text/tw_option_speak/")
 fi
 cmd_options=("${cmd_options[@]}" "/d/disable-logging/disable logging of failure terms/tw_option_disable_logging/")
-cmd_extrahelp="Create ~/.$cmd directory to enable caching and logging (mkdir ~/.$cmd)."$'\n'"With no term, or when term is -, read standard input."
+cmd_extrahelp="With no term, or when term is -, read standard input. Create ~/.$cmd directory to enable caching and logging (mkdir ~/.$cmd)."
 if (( "[@]pkghavemythes[@]" == "0" ))
 then
 	cmd_extrahelp+=" For straight synonyms, check mythes command."
