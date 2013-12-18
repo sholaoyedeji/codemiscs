@@ -3,7 +3,7 @@
 .SH NAME
 typewriter \- Slowed Down Echoer
 .SH SYNOPSIS
-.B typewriter
+.B typewriter [OPTIONS]
 .SH EXAMPLE
 .B echo type this | typewriter 
 .SH DESCRIPTION
