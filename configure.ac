@@ -3,7 +3,7 @@ AM_INIT_AUTOMAKE(no-dist-gzip dist-bzip2)
 
 AC_SUBST(PACKAGE_AUTHOR, "Juan Manuel Borges Caño")
 AC_SUBST(PACKAGE_DESCRIPTION, "code miscellaneous")
-AC_SUBST(PACKAGE_EXPLANATION, ["Code Miscellaneous is a project holding for exciting, amusing and innovative commands. codemiscs hopes to be fun and useful... and profitable."])
+AC_SUBST(PACKAGE_EXPLANATION, ["Code Miscellaneous is a project holding for innovative, creative, exciting and amusing commands. codemiscs hopes to be fun and useful... and profitable."])
 AC_SUBST(PACKAGE_HOMEPAGE, "http://code.google.com/p/codemiscs")
 AC_SUBST(PACKAGE_BLOG, "http://juanmabcblog.blogspot.com")
 AC_SUBST(PACKAGE_EMAIL, "juanmabcmail@gmail.com")
