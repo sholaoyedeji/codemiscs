@@ -1,3 +1,9 @@
+2013-19-12 Juan Manuel Borges Caño <juanmabcmail@gmail.com>
+	* new commands: typewriter, colorize
+	* better documentation: good writing once and automatic syndication everywhere consistency (--help, --man, manuals, homepage)
+	* better website: through documentation automatic syndication
+	* better distribution: checks for every dependent command in use, minimized overhead for new command additions
+
 2013-28-11 Juan Manuel Borges Caño <juanmabcmail@gmail.com>
-	* dist: codemisc merge of cmd, mkprojet, rf, tw and images
+	* merge of independent projects: command, make project, read feed, translateword and images
 
