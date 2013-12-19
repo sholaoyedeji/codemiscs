@@ -1,9 +1,9 @@
-2013-19-12 Juan Manuel Borges Caño <juanmabcmail@gmail.com>
-	* new commands: typewriter, colorize
-	* better documentation: good writing once and automatic syndication everywhere consistency (--help, --man, manuals, homepage)
-	* better website: through documentation automatic syndication
-	* better distribution: checks for every dependent command in use, minimized overhead for new command additions
+2013-19-12 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com><juanmabcmail@gmail.com> 
+	* New Commands: typewriter, colorize
+	* Better Documentation: good writing once and automatic syndication everywhere consistency (--help, --man, manuals, homepage)
+	* Better Website: through documentation automatic syndication
+	* Better Distribution: checks for every dependent command in use, minimized overhead for new command additions
 
-2013-28-11 Juan Manuel Borges Caño <juanmabcmail@gmail.com>
-	* merge of independent projects: command, make project, read feed, translateword and images
+2013-28-11 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
+	* Independent Projects Merger: command, make project, read feed, translateword and images
 

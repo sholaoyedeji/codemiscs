@@ -1,5 +1,5 @@
 SUBDIRS = cmd mkproject tw rf imgs typewriter colorize data doc dist
-dist_doc_DATA = AUTHORS ChangeLog NEWS README COPYING
+dist_doc_DATA = README NEWS AUTHORS COPYING PAYMENTS ChangeLog
 
 deepdistcheck:
 	make && make clean && make && make distcheck
