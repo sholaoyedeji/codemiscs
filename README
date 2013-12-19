@@ -11,6 +11,13 @@ Currently Composed Of:
 * Colorize Input (colorize): Input Tinter
 * Typewriter (typewriter): Slowed Down Echoer
 
+$ git clone http://code.google.com/p/codemiscs
+$ cd codemiscs
+$ autoreconf -i
+$ ./configure
+$ make
+# make install
+
 codemiscs (Code Miscellaneous) licensed GPLv3 by Juan Manuel Borges Caño
 * homepage <http://code.google.com/p/codemiscs>
 * mail <mailto:juanmabcmail@gmail.com>
