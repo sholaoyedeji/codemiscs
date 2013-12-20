@@ -18,7 +18,7 @@ set seconds per char
 set seconds per line
 .TP
 \fB\-s\fR, \fB\-\-sound\fR
-play a keyboard typewriting sound
+play a sound
 .TP
 \fB\-h\fR, \fB\-\-help\fR
 show a help message

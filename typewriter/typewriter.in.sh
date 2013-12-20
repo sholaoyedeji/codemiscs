@@ -89,7 +89,7 @@ cmd_examples=("echo type this | $cmd ")
 cmd_options=("/c:/charsecs:/set seconds per char/tw_option_charsecs/CHARSECS/" "/l:/linesecs:/set seconds per line/tw_option_linesecs/LINESECS/")
 if (( "[@]pkghaveogg123[@]" == "0" ))
 then
-	cmd_options=("${cmd_options[@]}" "/s/sound/play a keyboard typewriting sound/tw_option_sound/")
+	cmd_options=("${cmd_options[@]}" "/s/sound/play a sound/tw_option_sound/")
 fi
 cmd_extrahelp="Nice for demos."
 cmd_extranotes="For more information, check man documentation."
