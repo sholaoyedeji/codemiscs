@@ -20,6 +20,9 @@ AC_CHECK_PROG(HAVE_MKTEMP, mktemp, yes)
 AC_CHECK_PROG(HAVE_TEE, tee, yes)
 [[ -z $HAVE_TEE ]] && AC_MSG_WARN(tee is needed at execution time)
 
+#AC_CHECK_PROG(HAVE_BC, bc, yes)
+#[[ -z $HAVE_BC ]] && AC_MSG_WARN(bc is needed at execution time)
+
 AC_CHECK_PROG(HAVE_SED, sed, yes)
 [[ -z $HAVE_SED ]] && AC_MSG_ERROR(sed is needed at compile time)
 
@@ -66,6 +69,10 @@ AM_CONDITIONAL(ESPEAK, [ test x$HAVE_ESPEAK = xyes ])
 
 AC_CHECK_PROG(HAVE_CONVERT, convert, yes)
 [[ -z $HAVE_CONVERT ]] && AC_MSG_WARN(convert is needed at execution time)
+
+AC_CHECK_PROG(HAVE_OGG123, ogg123, yes)
+[[ -z $HAVE_OGG123 ]] && AC_MSG_WARN(ogg123 is needed at execution time)
+AM_CONDITIONAL(OGG123, [ test x$HAVE_OGG123 = xyes ])
 
 # Checks for libraries.
 HUNSPELL_MODULES="hunspell"

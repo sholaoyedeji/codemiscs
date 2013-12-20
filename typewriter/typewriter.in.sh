@@ -32,6 +32,12 @@ function tw_option_linesecs
 	tw_linesecs="$1"
 }
 
+# The --sound option
+function tw_option_sound
+{
+	tw_sound="0"
+}
+
 # ... and typewriter, the program itself
 
 # The cmd init function
@@ -39,12 +45,20 @@ function tw_init
 {
 	tw_charsecs="0.05"
 	tw_linesecs="0.5"
+	tw_sound="1"
 }
 
 # The cmd main function
 function tw_main
 {
 	# December 16th, 2013, Juan Manuel Borges Caño
+
+	if [[ $tw_sound == 0 ]]
+	then
+		trap 'kill $sound 2>/dev/null; wait $sound 2>/dev/null' EXIT
+		ogg123 -r -q "$cmd_datadir/typewriter.ogg" 2>/dev/null & 
+		sound=$!
+	fi
 
 	while IFS="" read -r line
 	do
@@ -56,6 +70,7 @@ function tw_main
 		printf "\n"
 		sleep "$tw_linesecs"
 	done
+
 	exit 0
 }
 
@@ -72,6 +87,10 @@ cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS]"
 cmd_examples=("echo type this | $cmd ")
 cmd_options=("/c:/charsecs:/set seconds per char/tw_option_charsecs/CHARSECS/" "/l:/linesecs:/set seconds per line/tw_option_linesecs/LINESECS/")
+if (( "[@]pkghaveogg123[@]" == "0" ))
+then
+	cmd_options=("${cmd_options[@]}" "/s/sound/play a keyboard typewriting sound/tw_option_sound/")
+fi
 cmd_extrahelp="Nice for demos."
 cmd_extranotes="For more information, check man documentation."
 cmd_init="tw_init"
