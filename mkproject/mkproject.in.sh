@@ -157,7 +157,7 @@ cmd_extranotes="For more information, check man documentation."
 cmd_init="mp_init"
 cmd_main="mp_main"
 
-cmd_datadir="[@]pkgdatadir[@]"
+cmd_datadir="[@]pkgdatadir[@]/$cmd"
 
 # The cmd environment
-source "$cmd_datadir/cmd.sh"
+source "[@]pkgdatadir[@]/cmd.sh"

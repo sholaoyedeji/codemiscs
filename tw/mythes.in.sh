@@ -217,11 +217,11 @@ cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [DICTIONARY] [TERM]"
 cmd_examples=("$cmd en hello")
 cmd_options=("/l/list/list available databases/mythes_option_list/")
-if (( "[@]pkghaveaspell[@]" == "0" ))
+if [[ "[@]pkgaspell[@]" == "yes" ]]
 then
 	cmd_options=("${cmd_options[@]}" "/p/spelling/try to check the spelling grammar/mythes_option_spelling/")
 fi
-if (( "[@]pkghaveespeak[@]" == "0" ))
+if [[ "[@]pkgespeak[@]" == "yes" ]]
 then
 	cmd_options=("${cmd_options[@]}" "/k/speak/try to speak the text/mythes_option_speak/")
 fi
@@ -230,7 +230,7 @@ cmd_extranotes="For more information, check tw documentation."
 cmd_init="mythes_init"
 cmd_main="mythes_main"
 
-cmd_datadir="[@]pkgdatadir[@]"
+cmd_datadir="[@]pkgdatadir[@]/$cmd"
 
 # The cmd environment
-source "$cmd_datadir/cmd.sh"
+source "[@]pkgdatadir[@]/cmd.sh"

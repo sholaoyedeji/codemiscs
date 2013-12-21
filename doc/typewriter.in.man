@@ -3,11 +3,11 @@
 .SH NAME
 typewriter \- Slowed Down Echoer
 .SH SYNOPSIS
-.B typewriter [OPTIONS]
+.B typewriter [OPTIONS] [FILE]
 .SH EXAMPLE
 .B echo type this | typewriter 
 .SH DESCRIPTION
-typewriter is a program that echoes slowly. typewriter reads standard input and writes slowed down to standard output.
+typewriter is a program that echoes slowly. typewriter reads a file or standard input and writes slowed down to standard output.
 .PP
 Mandatory arguments for long options are mandatory for short options too.
 .TP
@@ -29,7 +29,7 @@ show the program version
 \fB\-m\fR, \fB\-\-man\fR
 show a man page
 .TP
-Nice for demos.
+With no file, or when file is -, read standard input.
 .TP
 Execute 'bash -c "man <(typewriter --man)"' to see the runtime manpage.
 .SH NOTES

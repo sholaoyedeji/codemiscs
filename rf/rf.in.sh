@@ -201,7 +201,7 @@ cmd_extranotes="For more information, check man documentation."
 cmd_init="rf_init"
 cmd_main="rf_main"
 
-cmd_datadir="[@]pkgdatadir[@]"
+cmd_datadir="[@]pkgdatadir[@]/$cmd"
 
 # The cmd environment
-source "$cmd_datadir/cmd.sh"
+source "[@]pkgdatadir[@]/cmd.sh"

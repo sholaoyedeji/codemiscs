@@ -1,11 +1,12 @@
+EXTRA_DIST = \
+	cmd.in.sh testcmdsh.in \
+	cmd.in testcmd.in
 cmd_SCRIPTS = cmd.sh
-bin_SCRIPTS = cmd
+cmddir = $(pkgdatadir)
 test_SCRIPTS = testcmdsh testcmd
-cmddir=$(pkgdatadir)
-testdir=$(docdir)
-EXTRA_DIST = cmd.in.sh testcmdsh.in cmd.in testcmd.in
+testdir = $(docdir)
+bin_SCRIPTS = cmd
 CLEANFILES = $(cmd_SCRIPTS) $(bin_SCRIPTS) $(test_SCRIPTS)
-#pkgdatadir=./
 cmd.sh: cmd.in.sh Makefile
 	cp $(srcdir)/cmd.in.sh cmd.sh
 testcmdsh: testcmdsh.in Makefile

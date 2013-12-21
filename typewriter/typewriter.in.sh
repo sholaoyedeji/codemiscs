@@ -53,6 +53,8 @@ function tw_main
 {
 	# December 16th, 2013, Juan Manuel Borges Caño
 
+	tw_input="$(cat "${1:--}")"
+
 	if [[ $tw_sound == 0 ]]
 	then
 		trap 'kill $sound 2>/dev/null; wait $sound 2>/dev/null' EXIT
@@ -60,11 +62,11 @@ function tw_main
 		sound=$!
 	fi
 
-	while IFS="" read -r line
+	printf "%s\n" "$tw_input" | while IFS="" read -r tw_line
 	do
-		printf "%s" "$line" | while IFS="" read -r -n 1 char
+		printf "%s" "$tw_line" | while IFS="" read -r -n 1 tw_char
 		do
-			printf "%s" "$char"
+			printf "%s" "$tw_char"
 			sleep "$tw_charsecs"
 		done
 		printf "\n"
@@ -78,25 +80,25 @@ function tw_main
 cmd="typewriter"
 cmd_name="typewriter"
 cmd_description="Slowed Down Echoer"
-cmd_explanation="typewriter is a program that echoes slowly. typewriter reads standard input and writes slowed down to standard output."
+cmd_explanation="typewriter is a program that echoes slowly. typewriter reads a file or standard input and writes slowed down to standard output."
 cmd_version="[@]pkgversion[@]"
 cmd_author="[@]pkgauthor[@]"
 cmd_homepage="[@]pkghomepage[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
-cmd_usage="$cmd [OPTIONS]"
+cmd_usage="$cmd [OPTIONS] [FILE]"
 cmd_examples=("echo type this | $cmd ")
 cmd_options=("/c:/charsecs:/set seconds per char/tw_option_charsecs/CHARSECS/" "/l:/linesecs:/set seconds per line/tw_option_linesecs/LINESECS/")
-if (( "[@]pkghaveogg123[@]" == "0" ))
+if [[ "[@]pkgogg123[@]" == "yes" ]]
 then
 	cmd_options=("${cmd_options[@]}" "/s/sound/play a sound/tw_option_sound/")
 fi
-cmd_extrahelp="Nice for demos."
+cmd_extrahelp="With no file, or when file is -, read standard input."
 cmd_extranotes="For more information, check man documentation."
 cmd_init="tw_init"
 cmd_main="tw_main"
 
-cmd_datadir="[@]pkgdatadir[@]"
+cmd_datadir="[@]pkgdatadir[@]/$cmd"
 
 # The cmd environment
-source "$cmd_datadir/cmd.sh"
+source "[@]pkgdatadir[@]/cmd.sh"

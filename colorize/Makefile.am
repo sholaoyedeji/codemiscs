@@ -1,6 +1,6 @@
-bin_SCRIPTS = colorize
 EXTRA_DIST = colorize.in.sh
+bin_SCRIPTS = colorize
 CLEANFILES = $(bin_SCRIPTS)
-%: %.in.sh
-	$(PACKAGE_PARSE) $(srcdir)/$^ > $@
-	chmod +x $@
+colorize: colorize.in.sh Makefile
+	$(PACKAGE_PARSE) $(srcdir)/colorize.in.sh > colorize
+	chmod +x colorize

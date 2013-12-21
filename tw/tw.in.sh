@@ -241,21 +241,21 @@ cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [DICTIONARY] [TERM]"
 cmd_examples=("$cmd en-es hello")
 cmd_options=("/l/list/list available dictionaries/tw_option_list/" "/s/shortcuts/list available dictionaries shortcuts/tw_option_shortcuts/" "/x/exact/try to perform an exact match/tw_option_exact/")
-if (( "[@]pkghavemythes[@]" == "0" ))
+if [[ "[@]pkghunspell[@]" = "yes" && "[@]pkgmythes[@]" = "yes" ]] 
 then
 	cmd_options=("${cmd_options[@]}" "/y/synonyms/try to perform a synonym triangulation/tw_option_synonyms/")
 fi
-if (( "[@]pkghaveaspell[@]" == "0" ))
+if [[ "[@]pkgaspell[@]" = "yes" ]]
 then
 	cmd_options=("${cmd_options[@]}" "/p/spelling/try to check the spelling grammar/tw_option_spelling/")
 fi
-if (( "[@]pkghaveespeak[@]" == "0" ))
+if [[ "[@]pkgespeak[@]" = "yes" ]]
 then
 	cmd_options=("${cmd_options[@]}" "/k/speak/try to speak the text/tw_option_speak/")
 fi
 cmd_options=("${cmd_options[@]}" "/d/disable-logging/disable logging of failure terms/tw_option_disable_logging/")
 cmd_extrahelp="With no term, or when term is -, read standard input. Create ~/.$cmd directory to enable caching and logging (mkdir ~/.$cmd)."
-if (( "[@]pkghavemythes[@]" == "0" ))
+if [[ "[@]pkgmythes[@]" = "yes" ]]
 then
 	cmd_extrahelp+=" For straight synonyms, check mythes command."
 fi
@@ -263,7 +263,7 @@ cmd_extranotes="For more information, check man documentation."
 cmd_init="tw_init"
 cmd_main="tw_main"
 
-cmd_datadir="[@]pkgdatadir[@]"
+cmd_datadir="[@]pkgdatadir[@]/$cmd"
 
 # The cmd environment
-source "$cmd_datadir/cmd.sh"
+source "[@]pkgdatadir[@]/cmd.sh"

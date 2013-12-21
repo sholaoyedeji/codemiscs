@@ -1,13 +1,9 @@
-if OGG123
-BOOL_OGG123 = 0
-else
-BOOL_OGG123 = 1
-endif
-bin_SCRIPTS = typewriter
 EXTRA_DIST = typewriter.in.sh
+bin_SCRIPTS = typewriter
 CLEANFILES = $(bin_SCRIPTS)
-typewriter_data = typewriter.ogg
-nobase_dist_pkgdata_DATA = $(typewriter_data)
-%: %.in.sh
-	$(PACKAGE_PARSE) -e 's,\[@\]pkghaveogg123\[@\],$(BOOL_OGG123),g' $(srcdir)/$^ > $@ 
-	chmod +x $@
+typewriterdir= $(pkgdatadir)/typewriter
+dist_typewriter_DATA = \
+	typewriter.ogg
+typewriter: typewriter.in.sh Makefile
+	$(PACKAGE_PARSE) $(srcdir)/typewriter.in.sh > typewriter 
+	chmod +x typewriter
