@@ -18,16 +18,16 @@ list available dictionaries
 list available dictionaries shortcuts
 .TP
 \fB\-x\fR, \fB\-\-exact\fR
-try to perform an exact match
+perform an exact match
 .TP
 \fB\-y\fR, \fB\-\-synonyms\fR
-try to perform a synonym triangulation
+perform a synonym triangulation
 .TP
 \fB\-p\fR, \fB\-\-spelling\fR
-try to check the spelling grammar
+check the spelling grammar
 .TP
 \fB\-k\fR, \fB\-\-speak\fR
-try to speak the text
+speak the text
 .TP
 \fB\-d\fR, \fB\-\-disable-logging\fR
 disable logging of failure terms

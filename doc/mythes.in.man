@@ -12,13 +12,13 @@ mythes is a command that shows synonyms for a given word.
 Mandatory arguments for long options are mandatory for short options too.
 .TP
 \fB\-l\fR, \fB\-\-list\fR
-list available databases
+list available dictionaries
 .TP
 \fB\-p\fR, \fB\-\-spelling\fR
-try to check the spelling grammar
+check the spelling grammar
 .TP
 \fB\-k\fR, \fB\-\-speak\fR
-try to speak the text
+speak the text
 .TP
 \fB\-h\fR, \fB\-\-help\fR
 show a help message

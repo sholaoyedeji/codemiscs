@@ -216,14 +216,14 @@ cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [DICTIONARY] [TERM]"
 cmd_examples=("$cmd en hello")
-cmd_options=("/l/list/list available databases/mythes_option_list/")
+cmd_options=("/l/list/list available dictionaries/mythes_option_list/")
 if [[ "[@]pkgaspell[@]" == "yes" ]]
 then
-	cmd_options=("${cmd_options[@]}" "/p/spelling/try to check the spelling grammar/mythes_option_spelling/")
+	cmd_options=("${cmd_options[@]}" "/p/spelling/check the spelling grammar/mythes_option_spelling/")
 fi
 if [[ "[@]pkgespeak[@]" == "yes" ]]
 then
-	cmd_options=("${cmd_options[@]}" "/k/speak/try to speak the text/mythes_option_speak/")
+	cmd_options=("${cmd_options[@]}" "/k/speak/speak the text/mythes_option_speak/")
 fi
 cmd_extrahelp="With no term, or when term is -, read standard input."
 cmd_extranotes="For more information, check tw documentation."

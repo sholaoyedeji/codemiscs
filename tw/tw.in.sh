@@ -240,18 +240,18 @@ cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [DICTIONARY] [TERM]"
 cmd_examples=("$cmd en-es hello")
-cmd_options=("/l/list/list available dictionaries/tw_option_list/" "/s/shortcuts/list available dictionaries shortcuts/tw_option_shortcuts/" "/x/exact/try to perform an exact match/tw_option_exact/")
+cmd_options=("/l/list/list available dictionaries/tw_option_list/" "/s/shortcuts/list available dictionaries shortcuts/tw_option_shortcuts/" "/x/exact/perform an exact match/tw_option_exact/")
 if [[ "[@]pkghunspell[@]" = "yes" && "[@]pkgmythes[@]" = "yes" ]] 
 then
-	cmd_options=("${cmd_options[@]}" "/y/synonyms/try to perform a synonym triangulation/tw_option_synonyms/")
+	cmd_options=("${cmd_options[@]}" "/y/synonyms/perform a synonym triangulation/tw_option_synonyms/")
 fi
 if [[ "[@]pkgaspell[@]" = "yes" ]]
 then
-	cmd_options=("${cmd_options[@]}" "/p/spelling/try to check the spelling grammar/tw_option_spelling/")
+	cmd_options=("${cmd_options[@]}" "/p/spelling/check the spelling grammar/tw_option_spelling/")
 fi
 if [[ "[@]pkgespeak[@]" = "yes" ]]
 then
-	cmd_options=("${cmd_options[@]}" "/k/speak/try to speak the text/tw_option_speak/")
+	cmd_options=("${cmd_options[@]}" "/k/speak/speak the text/tw_option_speak/")
 fi
 cmd_options=("${cmd_options[@]}" "/d/disable-logging/disable logging of failure terms/tw_option_disable_logging/")
 cmd_extrahelp="With no term, or when term is -, read standard input. Create ~/.$cmd directory to enable caching and logging (mkdir ~/.$cmd)."
