@@ -53,7 +53,7 @@ Programmed by \fBJuan Manuel Borges Caño\fR.
 .SH BLOG
 Thank, follow, comment or pay through BitCoin, Flattr, Western Union, PayPal, ... at \fBhttp://juanmabcblog.blogspot.com\fR.
 .SH EMAIL
-Thank or Contact through email to \fBjuanmabcmail@gmail.com\fR.
+Thank or contact through email to \fBjuanmabcmail@gmail.com\fR.
 .SH COPYRIGHT
 Copyright \(co \fB2013 Juan Manuel Borges Caño\fR.
 .PP
