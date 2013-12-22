@@ -46,9 +46,9 @@ Main project page at \fBhttp://code.google.com/p/codemiscs\fR.
 .SH AUTHOR
 Programmed by \fBJuan Manuel Borges Caño\fR.
 .SH BLOG
-Follow, thank or contact through comments or pay through BitCoin, Flattr, Western Union, PayPal, ... at \fBhttp://juanmabcblog.blogspot.com\fR.
+Thank, follow, comment or pay through BitCoin, Flattr, Western Union, PayPal, ... at \fBhttp://juanmabcblog.blogspot.com\fR.
 .SH EMAIL
-Thank or contact through email to \fBjuanmabcmail@gmail.com\fR.
+Thank or Contact through email to \fBjuanmabcmail@gmail.com\fR.
 .SH COPYRIGHT
 Copyright \(co \fB2013 Juan Manuel Borges Caño\fR.
 .PP
