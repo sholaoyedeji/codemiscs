@@ -3,7 +3,6 @@ AM_INIT_AUTOMAKE(no-dist-gzip dist-bzip2)
 
 AC_SUBST(PACKAGE_AUTHOR, "Juan Manuel Borges Caño")
 AC_SUBST(PACKAGE_DESCRIPTION, "code miscellaneous")
-CodeMiscs is a fun, creative, elegant, exciting, amusing, useful and profitable project.
 AC_SUBST(PACKAGE_EXPLANATION, ["Code Miscellaneous is a fun, creative, elegant, exciting, amusing, usefule and profitable project."])
 AC_SUBST(PACKAGE_HOMEPAGE, "http://code.google.com/p/codemiscs")
 AC_SUBST(PACKAGE_BLOG, "http://juanmabcblog.blogspot.com")
@@ -15,50 +14,35 @@ AC_SUBST(PACKAGE_PARSE, ["sed -e 's,\@<:@@\@:>@pkg\@<:@@\@:>@,\$(PACKAGE),g' -e 
 # Checks for programs.
 AC_PROG_CXX
 
-AC_CHECK_PROG(PACKAGE_MKTEMP, mktemp, yes)
-[[ -z $PACKAGE_MKTEMP ]] && AC_MSG_WARN(mktemp is needed at execution time)
-
-AC_CHECK_PROG(PACKAGE_TEE, tee, yes)
-[[ -z $PACKAGE_TEE ]] && AC_MSG_WARN(tee is needed at execution time)
-
 #AC_CHECK_PROG(PACKAGE_BC, bc, yes)
 #[[ -z $PACKAGE_BC ]] && AC_MSG_WARN(bc is needed at execution time)
-
-AC_CHECK_PROG(PACKAGE_SED, sed, yes)
-[[ -z $PACKAGE_SED ]] && AC_MSG_ERROR(sed is needed at compile time)
 
 AC_CHECK_PROG(PACKAGE_BASH, bash, yes)
 [[ -z $PACKAGE_BASH ]] && AC_MSG_ERROR(bash is needed at execution time)
 
-AC_CHECK_PROG(PACKAGE_GETOPT, getopt, yes)
-[[ -z $PACKAGE_GETOPT ]] && AC_MSG_WARN(getopt is needed at execution time)
+AC_CHECK_PROG(PACKAGE_SED, sed, yes)
+[[ -z $PACKAGE_SED ]] && AC_MSG_ERROR(sed is needed at compile time)
 
 AC_CHECK_PROG(PACKAGE_GAWK, gawk, yes)
 [[ -z $PACKAGE_GAWK ]] && AC_MSG_WARN(gawk is needed at execution time)
 
+AC_CHECK_PROG(PACKAGE_PERL, perl, yes)
+[[ -z $PACKAGE_PERL ]] && AC_MSG_ERROR(perl is needed at execution time)
+
+AC_CHECK_PROG(PACKAGE_GETOPT, getopt, yes)
+[[ -z $PACKAGE_GETOPT ]] && AC_MSG_WARN(getopt is needed at execution time)
+
 AC_CHECK_PROG(PACKAGE_AUTORECONF, autoreconf, yes)
 [[ -z $PACKAGE_AUTORECONF ]] && AC_MSG_WARN(autoreconf is needed at execution time)
 
-AC_CHECK_PROG(PACKAGE_CURL, curl, yes)
-[[ -z $PACKAGE_CURL ]] && AC_MSG_WARN(curl is needed at execution time)
-
-AC_CHECK_PROG(PACKAGE_WGET, wget, yes)
-[[ -z $PACKAGE_WGET ]] && AC_MSG_WARN(wget is needed at execution time)
+AC_CHECK_PROG(PACKAGE_TPUT, tput, yes)
+[[ -z $PACKAGE_TPUT ]] && AC_MSG_WARN(tput is needed at execution time)
 
 AC_CHECK_PROG(PACKAGE_ICONV, iconv, yes)
 [[ -z $PACKAGE_ICONV ]] && AC_MSG_WARN(iconv is needed at execution time)
 
 # AC_CHECK_PROG(PACKAGE_RECODE, recode, yes)
 # [[ -z $PACKAGE_RECODE ]] && AC_MSG_WARN(recode is needed at execution time)
-
-AC_CHECK_PROG(PACKAGE_XMLLINT, xmllint, yes)
-[[ -z $PACKAGE_XMLLINT ]] && AC_MSG_WARN(xmllint is needed at execution time)
-
-AC_CHECK_PROG(PACKAGE_XMLSTARLET, xmlstarlet, yes)
-[[ -z $PACKAGE_XMLSTARLET ]] && AC_MSG_WARN(xmlstarlet is needed at execution time)
-
-AC_CHECK_PROG(PACKAGE_LYNX, lynx, yes)
-[[ -z $PACKAGE_LYNX ]] && AC_MSG_WARN(lynx is needed at execution time)
 
 AC_CHECK_PROG(PACKAGE_ASPELL, aspell, yes)
 [[ -z $PACKAGE_ASPELL ]] && AC_MSG_WARN(aspell is needed at execution time)
@@ -74,6 +58,21 @@ AC_CHECK_PROG(PACKAGE_CONVERT, convert, yes)
 AC_CHECK_PROG(PACKAGE_OGG123, ogg123, yes)
 [[ -z $PACKAGE_OGG123 ]] && AC_MSG_WARN(ogg123 is needed at execution time)
 AM_CONDITIONAL(OGG123, [ test x$PACKAGE_OGG123 = xyes ])
+
+AC_CHECK_PROG(PACKAGE_CURL, curl, yes)
+[[ -z $PACKAGE_CURL ]] && AC_MSG_WARN(curl is needed at execution time)
+
+AC_CHECK_PROG(PACKAGE_WGET, wget, yes)
+[[ -z $PACKAGE_WGET ]] && AC_MSG_WARN(wget is needed at execution time)
+
+AC_CHECK_PROG(PACKAGE_XMLLINT, xmllint, yes)
+[[ -z $PACKAGE_XMLLINT ]] && AC_MSG_WARN(xmllint is needed at execution time)
+
+AC_CHECK_PROG(PACKAGE_XMLSTARLET, xmlstarlet, yes)
+[[ -z $PACKAGE_XMLSTARLET ]] && AC_MSG_WARN(xmlstarlet is needed at execution time)
+
+AC_CHECK_PROG(PACKAGE_LYNX, lynx, yes)
+[[ -z $PACKAGE_LYNX ]] && AC_MSG_WARN(lynx is needed at execution time)
 
 # Checks for libraries.
 HUNSPELL_MODULES="hunspell"
