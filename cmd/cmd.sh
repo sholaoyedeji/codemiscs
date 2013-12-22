@@ -183,7 +183,7 @@ function cmd_man
 	[[ -n "$cmd_extranotes" ]] && printf "%s\n%s\n" ".SH NOTES" "${cmd_extranotes}"
 	[[ -n "$cmd_homepage" ]] && printf "%s\n%s\n" ".SH HOMEPAGE" "Main project page at \\fB${cmd_homepage}\\fR."
 	printf "%s\n%s\n" ".SH AUTHOR" "Programmed by \\fB${cmd_author}\\fR."
-	[[ -n "$cmd_blog" ]] && printf "%s\n%s\n" ".SH BLOG" "Follow, thank or contact through comments or pay through BitCoin, Western Union, PayPal, ... at \\fB${cmd_blog}\\fR."
+	[[ -n "$cmd_blog" ]] && printf "%s\n%s\n" ".SH BLOG" "Follow, thank or contact through comments or pay through BitCoin, Flattr, Western Union, PayPal, ... at \\fB${cmd_blog}\\fR."
 	[[ -n "$cmd_email" ]] && printf "%s\n%s\n" ".SH EMAIL" "Thank or contact through email to \\fB${cmd_email}\\fR."
 	printf "%s\n%s\n" ".SH COPYRIGHT" "Copyright \(co \\fB${cmd_year} ${cmd_author}\\fR."
 	printf "%s\n%s\n%s\n%s\n" ".PP" "This is free software.  You may redistribute copies of it under the terms of" "the GNU General Public License <http://www.gnu.org/licenses/gpl.html>." "There is NO WARRANTY, to the extent permitted by law."
