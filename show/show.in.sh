@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-# show: Shell Show (Early stages)
+# show (Shell Show): Show Fun (Early stages)
 # Copyright (C) 2013 Juan Manuel Borges Caño
 # Terminal graphics amaze me.
 
@@ -281,7 +281,7 @@ function sh_main
 # The cmd fields
 cmd="show"
 cmd_name="shell show"
-cmd_description="Shell Show"
+cmd_description="Show Fun"
 cmd_explanation="shell show is a command that displays nice graphical shell art. shell show has various effects combined."
 cmd_version="[@]pkgversion[@]"
 cmd_author="[@]pkgauthor[@]"

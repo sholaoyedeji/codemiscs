@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-# colorize: Help Tinter (Early stages)
+# colorize (Colorize): Input Tinter (Early stages)
 # Copyright (C) 2013 Juan Manuel Borges Caño
 # The idea of colorizing commands output occurred to me multiple times. After knowing the Radovan Garabík Generic Colouriser <http://korpus.juls.savba.sk/~garabik/software/grc.html>, i got inspired to code an elegant, smart, fast and efficient filter solution.
 

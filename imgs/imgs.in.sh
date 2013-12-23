@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-# imgs: fetch and manipulate images
+# imgs (Images): Images Wizard, fetch and manipulate images
 # Copyright (C) 2013 Juan Manuel Borges Caño
 # The thought of creating something usable from google images, encouraged a research that found http://sam.nipl.net/code/nipl-tools/bin/google-images, tweaked to be smart, elegant, efficient, fast and durable. Combined with ImageMagick powerful manipulation tools. 
 

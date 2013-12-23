@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-# tw: translate words into different languages
+# tw (Translate Word): Human Language Translator
 # Copyright (C) 2007-2013 Juan Manuel Borges Caño
 # The need for an smart, fast and rich translation answer inspired this command.
 

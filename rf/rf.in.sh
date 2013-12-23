@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-# rf: read feeds from any source
+# rf (Read Feed): Feed Reader, read feeds from any source
 # Copyright (C) 2012-2013 Juan Manuel Borges Caño
 # The desire for a fast, command line, non interactive, rich news feed reader encouraged this command.
 

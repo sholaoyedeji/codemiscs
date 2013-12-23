@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-# mythes: translate word synonyms help tool
+# mythes (Mythes): Synonyms Mythes Interface, translate word synonyms help tool
 # Copyright (C) 2007-2013 Juan Manuel Borges Caño
 # The need for an smart, fast and rich synonym answer inspired this command.
 

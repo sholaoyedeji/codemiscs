@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-# mkproject: make project skeletons
+# mkproject (Make Project): Project Generator
 # Copyright (C) 2007-2012 Juan Manuel Borges Caño
 # The repetition of project generation made this command a need, and a must.
 

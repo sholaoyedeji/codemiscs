@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-# typewriter: slowed down echo
+# typewriter (Typewriter): Slowed Down Echoer
 # Copyright (C) 2013 Juan Manuel Borges Caño
 # Liking the effect lot of times, and being useful for demos (Gif, YouTube), Dave W. Capella slowcat.c finally inspired a ready to use, simple, smart, elegant, fast and efficient, one line solution.
 # TODO: add 'key typing' sound switch
