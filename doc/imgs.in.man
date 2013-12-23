@@ -11,17 +11,8 @@ images is a program that fetches and/or manipulates groups of images. imgs fetch
 .PP
 Mandatory arguments for long options are mandatory for short options too.
 .TP
-\fB\-f\fR, \fB\-\-fetch\fR
-fetch google images
-.TP
-\fB\-u\fR, \fB\-\-unify\fR
-unify images
-.TP
-\fB\-s\fR, \fB\-\-slideshow\fR
-slideshow images set
-.TP
-\fB\-f\fR, \fB\-\-fortune\fR
-fetch, unify and slideshow terms
+\fB\-l\fR, \fB\-\-list\fR
+list shows
 .TP
 \fB\-h\fR, \fB\-\-help\fR
 show a help message

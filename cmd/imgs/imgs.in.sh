@@ -19,8 +19,21 @@
 
 shopt -s extglob
 
+# The modes
+imgs_modes=(fetch unify slideshow fortune custom)
+
+# The --list option
+function imgs_option_list()
+{
+	for imgs_mode in "${imgs_modes[@]}"
+	do
+		printf "%s\n" "$imgs_mode"
+	done
+	exit 0
+}
+
 # The --fetch option
-function imgs_fetch_google
+function imgs_fetch
 {
 	# Tweaked http://sam.nipl.net/code/nipl-tools/bin/google-images to be silent, and elegant
 	# November 22nd, 2013, Juan Manuel Borges Caño
@@ -65,8 +78,6 @@ function imgs_unify
 # The --slideshow option
 function imgs_slideshow
 {
-	tw_synonyms=0
-	# Relies in ImageMagick's *convert*
 	# November 22nd, 2013, Juan Manuel Borges Caño
 
 	(( $# == 0 )) && cmd_error "Usage: WidthxHeight Images ... SlideshowProduct.gif"
@@ -92,7 +103,24 @@ function imgs_fortune
 	word="${3:-$(shuf /usr/share/dict/words | head -1)}"
 
 	echo "$word"
-	source=$(imgs_fetch_google "$word" "$count")
+	source=$(imgs_fetch "$word" "$count")
+	echo "$source"
+	imgs_slideshow "$size" "$source"/* "$word.gif"
+	exit 0
+}
+
+function imgs_custom
+{
+	# November 17th, 2013, Juan Manuel Borges Caño
+
+	imgs_fortune "$@"
+
+	word="${1:-$(shuf /usr/share/dict/words | head -1)}"
+	count="${2:-100}"
+	size="${3:-320x240}"
+
+	echo "$word"
+	source=$(imgs_fetch "$word" "$count")
 	echo "$source"
 	imgs_slideshow "$size" "$source"/* "$word.gif"
 	exit 0
@@ -105,25 +133,22 @@ function imgs_init
 {
 	#shopt -s extglob
 	#shopt -s nullglob
-	:
+	imgs_mode="fortune"
 }
 
 # The cmd main function
 function imgs_main
 {
-	# November 17th, 2013, Juan Manuel Borges Caño
-
-	imgs_fortune "$@"
-
-	word="${1:-$(shuf /usr/share/dict/words | head -1)}"
-	count="${2:-100}"
-	size="${3:-320x240}"
-
-	echo "$word"
-	source=$(imgs_fetch_google "$word" "$count")
-	echo "$source"
-	imgs_slideshow "$size" "$source"/* "$word.gif"
-	exit 0
+	imgs_modeto="${1:-custom}"
+	for imgs_mode in "${imgs_modes[@]}"
+	do
+		if [[ "$imgs_mode" = "$imgs_modeto" ]]
+		then
+			shift
+			imgs_$imgs_mode "$@"
+		fi
+	done
+	cmd_error "unknown show"
 }
 
 # The cmd fields
@@ -138,7 +163,7 @@ cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTION] [ARGUMENTS]"
 cmd_examples=("$cmd linux 100 320x240")
-cmd_options=("/f/fetch/fetch google images/imgs_fetch_google/" "/u/unify/unify images/imgs_unify/" "/s/slideshow/slideshow images set/imgs_slideshow/" "/f/fortune/fetch, unify and slideshow terms/imgs_fortune/")
+cmd_options=("/l/list/list shows/imgs_option_list/")
 cmd_extrahelp="By default performs a fortune batch. Respect the terms of use of online services."
 cmd_extranotes="For more information, check man documentation."
 cmd_init="imgs_init"
