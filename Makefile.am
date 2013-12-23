@@ -1,4 +1,4 @@
-SUBDIRS = cmd mkproject tw rf imgs typewriter colorize show doc dist
+SUBDIRS = cmd doc dist
 dist_doc_DATA = README NEWS AUTHORS COPYING ChangeLog PAYMENTS
 
 deepdistcheck:

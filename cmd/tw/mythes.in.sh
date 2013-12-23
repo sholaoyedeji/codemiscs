@@ -198,7 +198,7 @@ function mythes_main
 		mythes_encoding="$(printf "%s\n" "$mythes_rawoutput" | head -n 1)"
 		mythes_output="$(printf "%s\n" "$mythes_rawoutput" | tail -n +2 | sort -u | grep -vi ' ('"$(mythes_antonym "$mythes_input")"')' | sed -e 's/ ([^)]*)$//g')"
 		printf "%s\n" "$mythes_output" 
-		mythes_espeak
+		mythes_espeak &
 	else
 		cmd_error "access error"
 	fi

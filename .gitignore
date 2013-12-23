@@ -48,21 +48,21 @@ test-driver
 
 INSTALL
 
-cmd.sh
-cmd/testcmdsh
-cmd/cmd
-cmd/testcmd
-mkproject/mkproject
-tw/mythes-raw
-tw/mythes
-tw/tw
-tw/tw-config-klipper
-tw/tw-config-gtw
-rf/rf
-imgs/imgs
-typewriter/typewriter
-colorize/colorize
-show/show
+cmd/cmd/cmd.sh
+cmd/cmd/testcmdsh
+cmd/cmd/cmd
+cmd/cmd/testcmd
+cmd/mkproject/mkproject
+cmd/tw/mythes-raw
+cmd/tw/mythes
+cmd/tw/tw
+cmd/tw/tw-config-klipper
+cmd/tw/tw-config-gtw
+cmd/rf/rf
+cmd/imgs/imgs
+cmd/typewriter/typewriter
+cmd/colorize/colorize
+cmd/show/show
 
 cmd.man
 mkproject.man
@@ -75,4 +75,3 @@ colorize.man
 show.man
 
 codemiscs.wiki/
-doc/backup/

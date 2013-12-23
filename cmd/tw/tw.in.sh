@@ -141,7 +141,7 @@ function tw
 				done
 			fi
 		fi
-		tw_espeak
+		tw_espeak &
 	else
 		if [[ "$tw_logging" = "0" ]] && [[ -d "$HOME/.tw" ]] && (( "$(printf "%s\n" "$tw_input" | wc -l)" == "1" )) && (( "$(printf "%s\n" "$tw_input" | wc -w)" <= "5" ))
 		then

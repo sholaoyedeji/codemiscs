@@ -17,41 +17,26 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+# The shows
+sh_shows=(cookie pipes ants mandelbrot weave)
+
+# The --list option
+function sh_option_list()
+{
+	for sh_show in "${sh_shows[@]}"
+	do
+		printf "%s\n" "$sh_show"
+	done
+	exit 0
+}
+
 # The --sound option
 function sh_option_sound()
 {
 	sh_sound="0"
 }
 
-# The --cookie option
-function sh_option_cookie()
-{
-	sh_show="cookie"
-}
-
-# The --pipes option
-function sh_option_pipes
-{
-	sh_show="pipes"
-}
-
-# The --ants option
-function sh_option_ants
-{
-	sh_show="ants"
-}
-
-# The --mandelbrot option
-function sh_option_mandelbrot
-{
-	sh_show="mandelbrot"
-}
-
-# The --weave option
-function sh_option_weave
-{
-	sh_show="weave"
-}
+# Show Time!
 
 # The cookie
 function sh_cookie()
@@ -69,6 +54,7 @@ function sh_cookie()
 	then
 		bash -c 'festival --tts <<< "$1" 2>/dev/null &' _ "$epigram "
 	fi
+	exit 0
 }
 
 # The pipes
@@ -188,12 +174,14 @@ function sh_pipes
 function sh_ants
 {
 	echo -ne "\033#8";X=`tput cols`;Y=`tput lines`;((a=$X/2));((b=$Y/2));d=1;while case $d in 0)((a=a<2?X:a-1));;1)((b=b<2?Y:b-1));;2)((a=a==X?1:a+1));;3)((b=b==Y?1:b+1));; esac;do ((c=b+a*X));v=${k[c]:- };[ $v. = @. ]&&{((d=d>2?0:d+1));k[c]="";}||{(( d=d<1?3:d-1));k[c]=@;};echo -ne "\033[$b;${a}H$v";done # Langtons Ants # Charles Cooke
+	exit 0
 }
 
 # The mandelbrot
 function sh_mandelbrot
 {
 	for((P=${1:-10}**8,Q=P/${2:-100},X=320*Q/(`tput cols`-1),Y=210*Q/`tput lines`,y=-105*Q,v=-220*Q,x=v;y<105*Q;x=v,y+=Y));do for((;x<P;a=b=i=k=c=0,x+=X));do for((;a*a+b*b<2*P*P&&i++<99;a=((c=a)*a-b*b)/P+x,b=2*c*b/P+y));do :;done;(((j=(i<99?i%16:0)+30)>37?k=1,j-=8:0));echo -ne "\E[$k;$j"mE;done;echo -e "\E[0m";done # Langtons Mandelbrot # Charles Cooke
+	exit 0
 }
 
 # The weave 
@@ -268,14 +256,16 @@ function sh_init
 # The cmd main function
 function sh_main
 {
-	case "$sh_show" in
-		"cookie") sh_cookie "$@";;
-		"pipes") sh_pipes "$@";;
-		"ants") sh_ants "$@";;
-		"mandelbrot") sh_mandelbrot "$@";;
-		"weave") sh_weave "$@";;
-		*) cmd_error "unknown show";;
-	esac
+	sh_showto="${1:-cookie}"
+	for sh_show in "${sh_shows[@]}"
+	do
+		if [[ "$sh_show" = "$sh_showto" ]]
+		then
+			shift
+			sh_$sh_show "$@"
+		fi
+	done
+	cmd_error "unknown show"
 }
 
 # The cmd fields
@@ -289,8 +279,8 @@ cmd_homepage="[@]pkghomepage[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS]"
-cmd_examples=("$cmd --cookie")
-cmd_options=("/s/sound/play a sound/sh_option_sound/" "/c/cookie/show a cookie/sh_option_cookie/" "/p/pipes/show dynamic pipes/sh_option_pipes" "/a/ants/show some ants/sh_option_ants" "/m/mandelbrot/show a mandelbrot/sh_option_mandelbrot" "/w/weave/show a weave/sh_option_weave/")
+cmd_examples=("$cmd cookie")
+cmd_options=("/l/list/list shows/sh_option_list/" "/s/sound/play a sound/sh_option_sound/")
 cmd_extrahelp="By default shows a cookie."
 cmd_extranotes="For more information, check man documentation."
 cmd_init="sh_init"
