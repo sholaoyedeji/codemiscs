@@ -3,7 +3,7 @@
 .SH NAME
 show \- Show Fun
 .SH SYNOPSIS
-.B show [OPTIONS]
+.B show [OPTIONS] [SHOW] [-- SHOWOPTIONS]
 .SH EXAMPLE
 .B show cookie
 .SH DESCRIPTION
