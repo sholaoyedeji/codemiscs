@@ -35,9 +35,6 @@ AC_CHECK_PROG(PACKAGE_GETOPT, getopt, yes)
 AC_CHECK_PROG(PACKAGE_AUTORECONF, autoreconf, yes)
 [[ -z $PACKAGE_AUTORECONF ]] && AC_MSG_WARN(autoreconf is needed at execution time)
 
-AC_CHECK_PROG(PACKAGE_TPUT, tput, yes)
-[[ -z $PACKAGE_TPUT ]] && AC_MSG_WARN(tput is needed at execution time)
-
 AC_CHECK_PROG(PACKAGE_ICONV, iconv, yes)
 [[ -z $PACKAGE_ICONV ]] && AC_MSG_WARN(iconv is needed at execution time)
 
@@ -47,6 +44,21 @@ AC_CHECK_PROG(PACKAGE_ICONV, iconv, yes)
 AC_CHECK_PROG(PACKAGE_ASPELL, aspell, yes)
 [[ -z $PACKAGE_ASPELL ]] && AC_MSG_WARN(aspell is needed at execution time)
 AM_CONDITIONAL(ASPELL, [ test x$PACKAGE_ASPELL = xyes ])
+
+AC_CHECK_PROG(PACKAGE_FORTUNE, fortune, yes)
+[[ -z $PACKAGE_FORTUNE ]] && AC_MSG_WARN(fortune is needed at execution time)
+
+AC_CHECK_PROG(PACKAGE_TPUT, tput, yes)
+[[ -z $PACKAGE_TPUT ]] && AC_MSG_WARN(tput is needed at execution time)
+
+AC_CHECK_PROG(PACKAGE_FIGLET, figlet, yes)
+[[ -z $PACKAGE_FIGLET ]] && AC_MSG_WARN(figlet is needed at execution time)
+
+AC_CHECK_PROG(PACKAGE_COWSAY, cowsay, yes)
+[[ -z $PACKAGE_COWSAY ]] && AC_MSG_WARN(cowsay is needed at execution time)
+
+AC_CHECK_PROG(PACKAGE_FESTIVAL, festival, yes)
+[[ -z $PACKAGE_FESTIVAL ]] && AC_MSG_WARN(festival is needed at execution time)
 
 AC_CHECK_PROG(PACKAGE_ESPEAK, espeak, yes)
 [[ -z $PACKAGE_ESPEAK ]] && AC_MSG_WARN(espeak is needed at execution time)
