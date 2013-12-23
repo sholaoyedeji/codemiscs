@@ -48,9 +48,10 @@ test-driver
 
 INSTALL
 
-cmd/testcmd
+cmd.sh
 cmd/testcmdsh
 cmd/cmd
+cmd/testcmd
 mkproject/mkproject
 tw/mythes-raw
 tw/mythes
