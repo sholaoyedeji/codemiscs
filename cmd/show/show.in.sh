@@ -41,7 +41,7 @@ function sh_option_sound()
 # The cookie
 function sh_cookie()
 {
-	sh_message=${1:-"Tux says:"}
+	sh_message=${1:-"Tux Says:"}
 	sh_cowfile=${2:-tux}
 	sh_cols="${3:-$(($(tput cols) / 2))}"
 	epigram="$(fortune -a -s | fmt -"$sh_cols" -s)"
