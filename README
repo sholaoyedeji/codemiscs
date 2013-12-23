@@ -12,6 +12,7 @@ Currently Composed Of:
 * Images (imgs): Images Wizard
 * Colorize Input (colorize): Input Tinter
 * Typewriter (typewriter): Slowed Down Echoer
+* Show (show): Shell Show
 
 $ git clone http://code.google.com/p/codemiscs
 $ cd codemiscs

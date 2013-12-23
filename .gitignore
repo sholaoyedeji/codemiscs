@@ -61,6 +61,7 @@ rf/rf
 imgs/imgs
 typewriter/typewriter
 colorize/colorize
+show/show
 
 cmd.man
 mkproject.man
@@ -70,6 +71,7 @@ rf.man
 imgs.man
 typewriter.man
 colorize.man
+show.man
 
 codemiscs.wiki/
 doc/backup/
