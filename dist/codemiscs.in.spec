@@ -44,5 +44,5 @@ make install DESTDIR=$RPM_BUILD_ROOT
 %{_mandir}/man1/*.1.*
 
 %changelog
-* Wed May 08 2013 Juan Manuel Borges Caño <juanmabcmail@gmail.com> - 0.9.0-1
+* Wed May 08 2013 Juan Manuel Borges Caño <juanmabcmail@gmail.com> - [@]pkgversion[@]-1
 - Update to mainstream.
