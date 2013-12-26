@@ -18,7 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # The shows
-sh_shows=(cookie pipes ants mandelbrot weave)
+sh_shows=(cookie clock pipes ants mandelbrot matrix weave)
 
 # The --list option
 function sh_option_list()
@@ -44,7 +44,8 @@ function sh_cookie()
 	sh_message=${1:-"Tux Says:"}
 	sh_cowfile=${2:-tux}
 	sh_cols="${3:-$(($(tput cols) / 2))}"
-	epigram="$(fortune -a -s | fmt -"$sh_cols" -s)"
+	sh_fortune="$4"
+	epigram="$(fortune -a -s "$sh_fortune" | fmt -"$sh_cols" -s)"
 	sh_cols="$(wc -L <<< "$epigram")"
 	sh_shift=$((($(tput cols) - $sh_cols) / 2))
 	sh_shift=$(printf "%${sh_shift}s" "")
@@ -55,6 +56,18 @@ function sh_cookie()
 		bash -c 'festival --tts <<< "$1" 2>/dev/null &' _ "$epigram "
 	fi
 	exit 0
+}
+
+# The clock
+function sh_clock()
+{
+	while sleep 1
+	do
+		tput sc
+		tput cup 0 $(($(tput cols)-29))
+		date
+		tput rc
+	done
 }
 
 # The pipes
@@ -182,6 +195,20 @@ function sh_mandelbrot
 {
 	for((P=${1:-10}**8,Q=P/${2:-100},X=320*Q/(`tput cols`-1),Y=210*Q/`tput lines`,y=-105*Q,v=-220*Q,x=v;y<105*Q;x=v,y+=Y));do for((;x<P;a=b=i=k=c=0,x+=X));do for((;a*a+b*b<2*P*P&&i++<99;a=((c=a)*a-b*b)/P+x,b=2*c*b/P+y));do :;done;(((j=(i<99?i%16:0)+30)>37?k=1,j-=8:0));echo -ne "\E[$k;$j"mE;done;echo -e "\E[0m";done # Langtons Mandelbrot # Charles Cooke
 	exit 0
+}
+
+# The matrix
+function sh_matrix()
+{
+	# Based on Blue Matrix by dave1010 http://www.commandlinefu.com/commands/view/5712/blue-matrix 
+	# matrix 2
+	# matrix "$(printf "%i " {112..123})"
+
+	sh_colors="${1:-$(printf "%i " {0..7})}"
+	sh_colors=( $sh_colors )
+	sh_rows="${2:-27}"
+	sh_cols="${3:-$(tput cols)}"
+	while :; do i=0; COL=$((RANDOM%sh_rows));ROW=$((RANDOM%sh_cols));while [ $i -lt $COL ]; do tput cup $i $ROW; tput setaf ${sh_colors[$((RANDOM%${#sh_colors[@]}))]}; echo "$(head -1 /dev/urandom | cut -c1-1)" 2>/dev/null ; i=$((i+1)); done; done
 }
 
 # The weave 
