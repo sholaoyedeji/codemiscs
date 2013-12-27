@@ -3,6 +3,7 @@
 # show (Shell Show): Show Fun (Early stages)
 # Copyright (C) 2013 Juan Manuel Borges Caño
 # Terminal graphics amaze me.
+# Some shows are based on the gathering of http://mewbies.com/
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
