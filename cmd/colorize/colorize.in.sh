@@ -32,7 +32,7 @@ function cl_option_help_profile
 		-e "s/\([:,;.]\)\([[:blank:]]\)/$(tput setaf 1)\1$(tput sgr0)\2/g" \
 		-e "s/\([:,;.]\)$/$(tput setaf 1)\1$(tput sgr0)/g" \
 		-e "s/\(['\"=]\)/$(tput setaf 1)\1$(tput sgr0)/g" \
-		-e "s/\<\(Command\|command\|Program\|program\|Usage\|usage\|Example\|example\|Arguments\|arguments\|Options\|options\|Set\|set\|Show\|show\|Complete\|complete\|Help\|help\|Version\|version\|Man\|man\|Page\|page\Manpage\|manpage\|Documentation\|documentation\|Mandatory\|mandatory\|Home Page\|home page\|Homepage\|homepage\|Author\|author\|Blog\|blog\|Email\|email\|Report\|report\|Information\|information\|January\|February\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\)\>/$(tput setaf 3)\1$(tput sgr0)/g" \
+		-e "s/\([^-]\)\<\(Command\|command\|Program\|program\|Usage\|usage\|Example\|example\|Arguments\|arguments\|Option\|option\|Options\|options\|Set\|set\|Show\|show\|Complete\|complete\|Help\|help\|Config\|config\|Configuration\|configuration\Version\|version\|Man\|man\|Page\|page\\Manpage\|manpage\|Documentation\|documentation\|Mandatory\|mandatory\|Home Page\|home page\|Homepage\|homepage\|Author\|author\|Blog\|blog\|Email\|email\|Report\|report\|Information\|information\|January\|February\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\)\>/\1$(tput setaf 3)\2$(tput sgr0)/g" \
 		-
 	exit 0
 }
