@@ -99,17 +99,20 @@ do
 	IFS="${cmd_examples[$i]:0:1}" read cmd_titles[$i] cmd_descs[$i] cmd_exs[$i] cmd_footers[$i] < <(printf "%s\n" "${cmd_examples[$i]:1}")
 done
 
-# The --help option
-function cmd_help
+# The help header helper
+function cmd_help_header
 {
-	#{
 	printf "%s\n" "$cmd ($cmd_name) by $cmd_author ($cmd_month $cmd_year)"
 	printf "%s\n" "$cmd_description"
 	printf "%s\n" "Usage: $cmd_usage"
 	printf "%s\n" "Example: ${cmd_examples[0]}"
 	printf "%s\n" ""
 	printf "%s\n" "$cmd_explanation"
-	printf "%s\n" ""
+}
+
+# The help options helper
+function cmd_help_options
+{
 	printf "%s\n" "Mandatory arguments for long options are mandatory for short options too:"
 	for ((i = 0; i < "${#cmd_options[@]}"; i++))
 	do
@@ -127,13 +130,28 @@ function cmd_help
 	done
 	[[ -n "$cmd_extrahelp" ]] && printf "%s\n" "$cmd_extrahelp"
 	printf "%s\n" "Execute 'bash -c \"man <($cmd --man)\"' to see the runtime manpage."
-	printf "%s\n" ""
+}
+
+# The help footer helper
+function cmd_help_footer
+{
 	[[ -n "$cmd_homepage" ]] && printf "%s\n" "$cmd ($cmd_name) homepage: $cmd_homepage."
 	printf "%s\n" "$cmd ($cmd_name) author: $cmd_author."
 	[[ -n "$cmd_blog" ]] && printf "%s\n" "$cmd ($cmd_name) blog: $cmd_blog."
 	[[ -n "$cmd_email" ]] && printf "%s\n" "$cmd ($cmd_name) email: $cmd_email."
 	[[ -n "$cmd_extranotes" ]] && printf "%s\n" "$cmd_extranotes"
-	#} | colorize --help-profile # still not ready
+}
+
+# The --help option
+function cmd_help
+{
+	{
+		cmd_help_header
+		printf "%s\n" ""
+		cmd_help_options
+		printf "%s\n" ""
+		cmd_help_footer
+	} | colorize --help-profile
 	exit 0
 }
 
