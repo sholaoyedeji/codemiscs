@@ -3,7 +3,6 @@
 # cmd.sh (Command): Command Wrapper, wrap bash functions into a command
 # Copyright (C) 2012-2013 Juan Manuel Borges Caño
 # This command wrapper happened by result of design. As mkproject proved efficient generating multitude of commands projects skeletons, a command skeleton itself showed up. I started to use it in tw, mkproject, rf ... and became an smart, elegant, efficient, fast and durable way to develop quality shell commands.
-# Version 0.9.0
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -103,6 +102,7 @@ done
 # The --help option
 function cmd_help
 {
+	#{
 	printf "%s\n" "$cmd ($cmd_name) by $cmd_author ($cmd_month $cmd_year)"
 	printf "%s\n" "$cmd_description"
 	printf "%s\n" "Usage: $cmd_usage"
@@ -133,6 +133,7 @@ function cmd_help
 	[[ -n "$cmd_blog" ]] && printf "%s\n" "$cmd ($cmd_name) blog: $cmd_blog."
 	[[ -n "$cmd_email" ]] && printf "%s\n" "$cmd ($cmd_name) email: $cmd_email."
 	[[ -n "$cmd_extranotes" ]] && printf "%s\n" "$cmd_extranotes"
+	#} | colorize --help-profile # still not ready
 	exit 0
 }
 
