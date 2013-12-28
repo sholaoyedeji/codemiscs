@@ -12,7 +12,7 @@ Currently Composed Of:
 * Read Feed (rf): Feed Reader
 * Images (imgs): Images Wizard
 * Colorize Input (colorize): Input Tinter
-* Typewriter (typewriter): Slowed Down Echoer
+* Typewrite (typewrite): Slowed Down Echoer
 * Shell Show (show): Show Fun
 
 $ git clone http://code.google.com/p/codemiscs

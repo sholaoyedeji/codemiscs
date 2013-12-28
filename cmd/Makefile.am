@@ -1,1 +1,1 @@
-SUBDIRS = cmd mkproject tw rf imgs typewriter colorize show 
+SUBDIRS = cmd mkproject tw rf imgs typewrite colorize show 

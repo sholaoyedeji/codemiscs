@@ -60,7 +60,7 @@ cmd/tw/tw-config-klipper
 cmd/tw/tw-config-gtw
 cmd/rf/rf
 cmd/imgs/imgs
-cmd/typewriter/typewriter
+cmd/typewrite/typewrite
 cmd/colorize/colorize
 cmd/show/show
 
@@ -70,7 +70,7 @@ mythes.man
 tw.man
 rf.man
 imgs.man
-typewriter.man
+typewrite.man
 colorize.man
 show.man
 

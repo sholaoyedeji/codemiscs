@@ -7,7 +7,7 @@ EXTRA_DIST = \
 	mythes.in.man \
 	tw.in.man \
 	imgs.in.man \
-	typewriter.in.man \
+	typewrite.in.man \
 	colorize.in.man \
 	show.in.man \
 	stage1/
@@ -18,7 +18,7 @@ man1_MANS = \
 	mythes.man \
 	tw.man \
 	imgs.man \
-	typewriter.man \
+	typewrite.man \
 	colorize.man \
 	show.man
 CLEANFILES = $(man1_MANS)

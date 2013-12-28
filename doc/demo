@@ -1,17 +1,17 @@
 qdbus org.kde.konsole /Konsole newSession Grande $(echo $HOME)
 clear
 increase font size
-typewriter < /usr/share/doc/codemiscs-0.9.0/README
+typewrite < /usr/share/doc/codemiscs-0.9.0/README
 colorize --help
 colorize --help | colorize
-typewriter --help | colorize | typewriter
-tw --help | colorize | typewriter
-tw --list | grep en-es | typewriter
-tw --shortcuts | typewriter
-tw gt.en-es "code miscellaneous" | typewriter
-tw gt.en-es code | typewriter
-mythes --help | colorize | typewriter
-mythes en code | typewriter
-rf --help | colorize | typewriter
-rf linux | typewriter
-rf linux -d 1 | typewriter
+typewrite --help | colorize | typewrite
+tw --help | colorize | typewrite
+tw --list | grep en-es | typewrite
+tw --shortcuts | typewrite
+tw gt.en-es "code miscellaneous" | typewrite
+tw gt.en-es code | typewrite
+mythes --help | colorize | typewrite
+mythes en code | typewrite
+rf --help | colorize | typewrite
+rf linux | typewrite
+rf linux -d 1 | typewrite
