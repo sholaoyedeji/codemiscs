@@ -145,13 +145,13 @@ function cmd_help_footer
 # The --help option
 function cmd_help
 {
-	{
+	#{
 		cmd_help_header
 		printf "%s\n" ""
 		cmd_help_options
 		printf "%s\n" ""
 		cmd_help_footer
-	} | colorize --help-profile
+	# } | colorize --help-profile # Not until colorize can differentiate when stdout is a pipe (no color) or a terminal (yes color)
 	exit 0
 }
 

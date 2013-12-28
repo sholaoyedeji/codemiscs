@@ -5,17 +5,77 @@ colorize \- Input Tinter
 .SH SYNOPSIS
 .B colorize [OPTIONS]
 .SH EXAMPLE
-.B colorize --help | colorize
+.B colorize --help | colorize --help-profile
 .SH DESCRIPTION
 colorize input is a command that colorizes the input read from standard input. colorize uses profiles to select the color to apply to the input.
 .PP
 Mandatory arguments for long options are mandatory for short options too.
 .TP
-\fB\-e\fR, \fB\-\-help-profile\fR
-use help profile colorizer
+\fB\-f\fR, \fB\-\-foreground\fR=\fICOLOR\fR
+set foreground color
+.TP
+\fB\-b\fR, \fB\-\-background\fR=\fICOLOR\fR
+set background color
 .TP
 \fB\-i\fR, \fB\-\-input-profile\fR
-use input profile colorizer
+use input profile
+.TP
+\fB\-p\fR, \fB\-\-help-profile\fR
+use help profile
+.TP
+\fB\-n\fR, \fB\-\-info-profile\fR
+use info profile
+.TP
+\fB\-w\fR, \fB\-\-warning-profile\fR
+use warning profile
+.TP
+\fB\-e\fR, \fB\-\-error-profile\fR
+use error profile
+.TP
+\fB\-v\fR, \fB\-\-vivid-profile\fR
+use vivid profile
+.TP
+\fB\-l\fR, \fB\-\-health-profile\fR
+use health profile
+.TP
+\fB\-l\fR, \fB\-\-hidden-profile\fR
+use hidden profile
+.TP
+\fB\-y\fR, \fB\-\-fancy-profile\fR
+use fancy profile
+.TP
+\fB\-c\fR, \fB\-\-cool-profile\fR
+use cool profile
+.TP
+\fB\-r\fR, \fB\-\-reverse-profile\fR
+use reverse profile
+.TP
+\fB\-s\fR, \fB\-\-strong-profile\fR
+use strong profile
+.TP
+\fB\-p\fR, \fB\-\-sharp-profile\fR
+use sharp profile
+.TP
+\fB\-a\fR, \fB\-\-heaven-profile\fR
+use heaven profile
+.TP
+\fB\-g\fR, \fB\-\-elegant-profile\fR
+use elegant profile
+.TP
+\fB\-m\fR, \fB\-\-minimalist-profile\fR
+use minimalist profile
+.TP
+\fB\-x\fR, \fB\-\-relax-profile\fR
+use relax profile
+.TP
+\fB\-r\fR, \fB\-\-raw-profile\fR
+use raw profile
+.TP
+\fB\-o\fR, \fB\-\-awesome-profile\fR
+use awesome profile
+.TP
+\fB\-b\fR, \fB\-\-bold-profile\fR
+use bold profile
 .TP
 \fB\-h\fR, \fB\-\-help\fR
 show a help message
@@ -26,7 +86,7 @@ show the program version
 \fB\-m\fR, \fB\-\-man\fR
 show a man page
 .TP
-By default uses help profile.
+By default uses foreground 2, background 1 colors.
 .TP
 Execute 'bash -c "man <(colorize --man)"' to see the runtime manpage.
 .SH NOTES
