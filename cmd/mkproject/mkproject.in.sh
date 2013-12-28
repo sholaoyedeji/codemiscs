@@ -82,7 +82,7 @@ function mp_dependencies
 # The --verbose option
 function mp_verbose
 {
-	mp_verbose="0"
+	mp_verbose="on"
 }
 
 # ... and mkproject, the program itself
@@ -98,7 +98,7 @@ function mp_init
 	mps_bugreport=""
 	mps_homepage=""
 	mps_dependencies=""
-	mp_verbose="1"
+	mp_verbose="off"
 }
 
 # The cmd main function

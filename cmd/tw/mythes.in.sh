@@ -54,13 +54,13 @@ function mythes_option_list
 # The --spelling option
 function mythes_option_spelling
 {
-	mythes_spelling="0"
+	mythes_spelling="on"
 }
 
 # The --speak option
 function mythes_option_speak
 {
-	mythes_speak="0"
+	mythes_speak="on"
 }
 
 # This helps adapting naming scheme
@@ -138,7 +138,7 @@ function mythes_antonym
 # The spelling helper
 function mythes_aspell
 {
-	if (( "$mythes_spelling" == "0" ))
+	if cmd_switch "$mythes_spelling"
 	then
 		printf "%s\n" "$mythes_input" | aspell -d "$mythes_language" -a  2> /dev/null | sed -ne '/^&/s/^& \([^ ]\+\) [0-9]\+ [0-9]\+: \(.*\)/possible misspelling of \`\1'\'', did you mean: \2?/p' | while read -r mythes_msg
 		do
@@ -150,7 +150,7 @@ function mythes_aspell
 # The speak helper
 function mythes_espeak
 {
-	if (( "$mythes_speak" == "0" ))
+	if cmd_switch "$mythes_speak"
 	then
 		espeak -v "$mythes_language" "$mythes_input" 2> /dev/null
 		[[ -n "$mythes_output" ]] && espeak -v "$mythes_language" "$mythes_output" 2> /dev/null
@@ -162,8 +162,8 @@ function mythes_espeak
 # The cmd init function
 function mythes_init
 {
-	mythes_speak="1"
-	mythes_spelling="1"
+	mythes_speak="off"
+	mythes_spelling="off"
 }
 
 # The cmd main function

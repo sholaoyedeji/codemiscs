@@ -22,7 +22,7 @@
 sh_shows=(cookie clock pipes ants mandelbrot matrix weave)
 
 # The --list option
-function sh_option_list()
+function sh_option_list
 {
 	for sh_show in "${sh_shows[@]}"
 	do
@@ -32,15 +32,15 @@ function sh_option_list()
 }
 
 # The --sound option
-function sh_option_sound()
+function sh_option_sound
 {
-	sh_sound="0"
+	sh_sound="on"
 }
 
 # Show Time!
 
 # The cookie
-function sh_cookie()
+function sh_cookie
 {
 	sh_message=${1:-"Tux Says:"}
 	sh_cowfile=${2:-tux}
@@ -52,7 +52,7 @@ function sh_cookie()
 	sh_shift=$(printf "%${sh_shift}s" "")
 	figlet -t -c "$sh_message"
 	cowsay -f "${2:-tux}" -W "$sh_cols" -n <<< "$epigram" | sed -e "s/^/$sh_shift/g"
-	if (( "$sh_sound" == "0" ))
+	if cmd_switch "$sh_sound"
 	then
 		bash -c 'festival --tts <<< "$1" 2>/dev/null &' _ "$epigram "
 	fi
@@ -60,7 +60,7 @@ function sh_cookie()
 }
 
 # The clock
-function sh_clock()
+function sh_clock
 {
 	while sleep 1
 	do
@@ -199,7 +199,7 @@ function sh_mandelbrot
 }
 
 # The matrix
-function sh_matrix()
+function sh_matrix
 {
 	# Based on Blue Matrix by dave1010 http://www.commandlinefu.com/commands/view/5712/blue-matrix 
 	# matrix 2
@@ -277,20 +277,20 @@ function sh_weave
 # The cmd init function
 function sh_init
 {
-	sh_sound="1"
+	sh_sound="off"
 	sh_show="cookie"
 }
 
 # The cmd main function
 function sh_main
 {
-	sh_showto="${1:-cookie}"
+	sh_showsel="${1:-cookie}"
 	for sh_show in "${sh_shows[@]}"
 	do
-		if [[ "$sh_show" = "$sh_showto" ]]
+		if [[ "$sh_show" = "$sh_showsel" ]]
 		then
 			shift
-			sh_$sh_show "$@"
+			"sh_$sh_show" "$@"
 		fi
 	done
 	cmd_error "unknown show"

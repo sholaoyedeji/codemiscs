@@ -48,7 +48,7 @@ function tw_option_linesecs
 # The --sound option
 function tw_option_sound
 {
-	tw_sound="0"
+	tw_sound="on"
 }
 
 # ... and typewrite, the program itself
@@ -58,7 +58,7 @@ function tw_init
 {
 	tw_charsecs="0.05"
 	tw_linesecs="0.5"
-	tw_sound="1"
+	tw_sound="off"
 }
 
 # The cmd main function
@@ -68,7 +68,7 @@ function tw_main
 
 	tw_input="$(cat "${1:--}")"
 
-	if [[ $tw_sound == 0 ]]
+	if cmd_switch "$tw_sound"
 	then
 		trap 'kill $sound 2>/dev/null; wait $sound 2>/dev/null' EXIT
 		ogg123 -r -q "$cmd_datadir/typewrite.ogg" 2>/dev/null & 

@@ -77,6 +77,12 @@ function cmd_error
 	cmd_warning "$@"; cmd_info >&2; exit 1
 }
 
+# The switch helper
+function cmd_switch
+{
+	[[ "$1" = "on" ]]
+}
+
 # The options arrays
 cmd_options+=("/h/help/show a help message/cmd_help/" "/v/version/show the program version/cmd_version/" "/m/man/show a man page/cmd_man/")
 cmd_shorts=()

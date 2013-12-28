@@ -63,7 +63,7 @@ function tw_local
 			tw_output="$(
 			{
 				gawk -F " : " -v input="$tw_input" 'tolower($1) == tolower(input) { print $2 }' "${twp_twds[@]}"
-				if (( "$tw_synonyms" == "0" ))
+				if cmd_switch "$tw_synonyms"
 				then
 					tw_mythes "${tw_dict%%-*}" "$tw_input" |  while read -r twp_myth
 					do
@@ -72,7 +72,7 @@ function tw_local
 				fi
 			} | sort -u
 			)"
-			if (( "$tw_exact" != "0" ))
+			if ! cmd_switch "$tw_exact"
 			then
 				tw_outputextra="$(
 					gawk -F " : " -v input="$tw_input" 'tolower($1) ~ tolower(input) && tolower($1) != tolower(input) { print }' "${twp_twds[@]}" | sort -u

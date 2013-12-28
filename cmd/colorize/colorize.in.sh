@@ -220,13 +220,13 @@ function cl_strip
 # The --strip option
 function cl_option_strip
 {
-	cl_strip=0
+	cl_strip="true"
 }
 
 # The --terminal option
 function cl_option_terminal
 {
-	cl_terminal=0
+	cl_terminal="true"
 }
 
 # ... and colorize, the program itself.
@@ -236,24 +236,24 @@ function cl_init
 {
 	cl_foreground=2
 	cl_background=1
-	cl_strip=1
-	cl_terminal=1
+	cl_strip="false"
+	cl_terminal="false"
 }
 
 # The cmd main function
 function cl_main
 {
-	if (( "$cl_strip" == "1" ))
+	if ! cmd_switch "$cl_strip"
 	then
-		if (( "$cl_terminal" == "1" )) || [[ -t 1 ]]
+		if ! cmd_switch "$cl_terminal" || [[ -t 1 ]]
 		then
-			cl_profileto="${1:-input}"
+			cl_profilesel="${1:-input}"
 			for cl_profile in "${cl_profiles[@]}"
 			do
-				if [[ "$cl_profile" = "$cl_profileto" ]]
+				if [[ "$cl_profile" = "$cl_profilesel" ]]
 				then
 					shift
-					cl_profile_$cl_profile "$@"
+					"cl_profile_$cl_profile" "$@"
 				fi
 			done
 			cmd_error "unknown profile"

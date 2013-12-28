@@ -19,7 +19,7 @@ mps_error_log=$(mktemp)
 # The verbose helper
 function mps_verbose
 {
-	if [[ "$mp_verbose" = "0" ]]
+	if cmd_switch "$mp_verbose"
 	then
 		"$@"
 	fi
@@ -29,7 +29,7 @@ function mps_verbose
 # The report helper
 function mps_report
 {
-	if [[ "$?" == "0" ]]
+	if [[ "$?" = "0" ]]
 	then
 		mps_verbose printf "%s\n" "done"
 	else

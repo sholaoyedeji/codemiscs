@@ -139,13 +139,13 @@ function imgs_init
 # The cmd main function
 function imgs_main
 {
-	imgs_modeto="${1:-custom}"
+	imgs_modesel="${1:-custom}"
 	for imgs_mode in "${imgs_modes[@]}"
 	do
-		if [[ "$imgs_mode" = "$imgs_modeto" ]]
+		if [[ "$imgs_mode" = "$imgs_modesel" ]]
 		then
 			shift
-			imgs_$imgs_mode "$@"
+			"imgs_$imgs_mode" "$@"
 		fi
 	done
 	cmd_error "unknown show"

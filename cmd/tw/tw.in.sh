@@ -48,31 +48,31 @@ function tw_option_shortcuts
 # The --exact option
 function tw_option_exact
 {
-	tw_exact="0"
+	tw_exact="on"
 }
 
 # The --synonyms option
 function tw_option_synonyms
 {
-	tw_synonyms=0
+	tw_synonyms="on"
 }
 
 # The --spelling option
 function tw_option_spelling
 {
-	tw_spelling="0"
+	tw_spelling="on"
 }
 
 # The --speak option
 function tw_option_speak
 {
-	tw_speak="0"
+	tw_speak="on"
 }
 
 # The --disable-logging option
 function tw_option_disable_logging
 {
-	tw_logging="1"
+	tw_logging="off"
 }
 
 # The plugin loader
@@ -87,7 +87,7 @@ function tw_load_plugins
 # The spelling helper
 function tw_aspell
 {
-	if (( "$tw_spelling" == "0" ))
+	if cmd_switch "$tw_spelling"
 	then
 		printf "%s\n" "$tw_input" | aspell -d "${tw_dict%%-*}" -a 2> /dev/null | sed -ne '/^&/s/^& \([^ ]\+\) [0-9]\+ [0-9]\+: \(.*\)/possible misspelling of \`\1'\'', did you mean: \2?/p' | while read -r tw_msg
 		do
@@ -99,7 +99,7 @@ function tw_aspell
 # The speak helper
 function tw_espeak
 {
-	if (( "$tw_speak" == "0" ))
+	if cmd_switch "$tw_speak"
 	then
 		espeak -v "${tw_dict%%-*}" "$tw_input" 2> /dev/null
 		[[ -n "$tw_output" ]] && espeak -v "${tw_dict##*-}" "$tw_output" 2> /dev/null
@@ -130,7 +130,7 @@ function tw
 		if [[ -n "$tw_outputextra" ]]
 		then
 			printf "%s\n" "$tw_outputextra"
-			if (( "$tw_exactextra" == "0" )) && [[ -d "$HOME/.tw" ]] && (( "$(printf "%s\n" "$tw_input" | wc -l)" == "1" )) && (( "$(printf "%s\n" "$tw_input" | wc -w)" <= "5" ))
+			if cmd_switch "$tw_exactextra" && [[ -d "$HOME/.tw" ]] && (( "$(printf "%s\n" "$tw_input" | wc -l)" == "1" )) && (( "$(printf "%s\n" "$tw_input" | wc -w)" <= "5" ))
 			then
 				printf "%s\n" "$tw_outputextra" | while read -r tw_termextra
 				do
@@ -143,7 +143,7 @@ function tw
 		fi
 		tw_espeak &
 	else
-		if [[ "$tw_logging" = "0" ]] && [[ -d "$HOME/.tw" ]] && (( "$(printf "%s\n" "$tw_input" | wc -l)" == "1" )) && (( "$(printf "%s\n" "$tw_input" | wc -w)" <= "5" ))
+		if cmd_switch "$tw_logging" && [[ -d "$HOME/.tw" ]] && (( "$(printf "%s\n" "$tw_input" | wc -l)" == "1" )) && (( "$(printf "%s\n" "$tw_input" | wc -w)" <= "5" ))
 		then
 			tw_twdf="$HOME/.tw/$tw_dict.twdf"
 			printf "%s\n" "$tw_input" >> "$tw_twdf"
@@ -166,11 +166,11 @@ function tw_init
 	tw_load_plugins
 	source "$cmd_datadir/tw_mythes.sh" 
 
-	tw_logging="0"
-	tw_exact="1"
-	tw_synonyms="1"
-	tw_speak="1"
-	tw_spelling="1"
+	tw_logging="on"
+	tw_exact="off"
+	tw_synonyms="off"
+	tw_speak="off"
+	tw_spelling="off"
 }
 
 # The cmd main function
@@ -203,7 +203,7 @@ function tw_main
 	# This prepares output
 	tw_output=""
 	tw_outputextra=""
-	tw_exactextra="1"
+	tw_exactextra="off"
 
 	# This performs the plugin translation
 	tw_aspell
@@ -218,7 +218,7 @@ function tw_main
 			tw
 		fi
 	done
-	if [[ "$tw_logging" = "0" ]] && [[ -d "$HOME/.tw" ]] && (( "$(printf "%s\n" "$tw_input" | wc -l)" == "1" )) && (( "$(printf "%s\n" "$tw_input" | wc -w)" <= "5" ))
+	if cmd_switch "$tw_logging" && [[ -d "$HOME/.tw" ]] && (( "$(printf "%s\n" "$tw_input" | wc -l)" == "1" )) && (( "$(printf "%s\n" "$tw_input" | wc -w)" <= "5" ))
 	then
 		tw_twdf="$HOME/.tw/$tw_dict.twdf"
 		printf "%s\n" "$tw_input" >> "$tw_twdf"
