@@ -23,6 +23,12 @@ list profiles
 \fB\-p\fR, \fB\-\-profile\fR=\fIPROFILE\fR
 set profile
 .TP
+\fB\-t\fR, \fB\-\-terminal\fR
+color only if output is a terminal
+.TP
+\fB\-s\fR, \fB\-\-strip\fR
+remove any color traces
+.TP
 \fB\-i\fR, \fB\-\-info\fR
 use info profile
 .TP
@@ -31,12 +37,6 @@ use warning profile
 .TP
 \fB\-e\fR, \fB\-\-error\fR
 use error profile
-.TP
-\fB\-t\fR, \fB\-\-terminal\fR
-color only if output is a terminal
-.TP
-\fB\-s\fR, \fB\-\-strip\fR
-remove any color traces
 .TP
 \fB\-h\fR, \fB\-\-help\fR
 show a help message

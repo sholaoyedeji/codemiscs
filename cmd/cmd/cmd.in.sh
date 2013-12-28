@@ -62,13 +62,13 @@
 # The info helper
 function cmd_info
 {
-	printf "%s\n" "Try \`$cmd --help' for more information."
+	printf "%s\n" "Try \`$cmd --help' for more information." | colorize --terminal info
 }
 
 # The warning helper
 function cmd_warning
 {
-	printf "%s\n" "$cmd: $@" >&2
+	printf "%s\n" "$cmd: $@" | colorize --terminal warning >&2
 }
 
 # The error helper
