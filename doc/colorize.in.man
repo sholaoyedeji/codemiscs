@@ -3,9 +3,9 @@
 .SH NAME
 colorize \- Input Tinter
 .SH SYNOPSIS
-.B colorize [OPTIONS]
+.B colorize [OPTIONS] [PROFILE]
 .SH EXAMPLE
-.B colorize --help | colorize --help-profile
+.B colorize --help | colorize --profile help
 .SH DESCRIPTION
 colorize input is a command that colorizes the input read from standard input. colorize uses profiles to select the color to apply to the input.
 .PP
@@ -17,64 +17,22 @@ set foreground color
 \fB\-b\fR, \fB\-\-background\fR=\fICOLOR\fR
 set background color
 .TP
-\fB\-i\fR, \fB\-\-input-profile\fR
-use input profile
+\fB\-l\fR, \fB\-\-list\fR
+list profiles
 .TP
-\fB\-p\fR, \fB\-\-help-profile\fR
-use help profile
+\fB\-p\fR, \fB\-\-profile\fR=\fIPROFILE\fR
+set profile
 .TP
-\fB\-n\fR, \fB\-\-info-profile\fR
+\fB\-i\fR, \fB\-\-info\fR
 use info profile
 .TP
-\fB\-w\fR, \fB\-\-warning-profile\fR
+\fB\-w\fR, \fB\-\-warning\fR
 use warning profile
 .TP
-\fB\-e\fR, \fB\-\-error-profile\fR
+\fB\-e\fR, \fB\-\-error\fR
 use error profile
 .TP
-\fB\-v\fR, \fB\-\-vivid-profile\fR
-use vivid profile
-.TP
-\fB\-l\fR, \fB\-\-health-profile\fR
-use health profile
-.TP
-\fB\-l\fR, \fB\-\-hidden-profile\fR
-use hidden profile
-.TP
-\fB\-y\fR, \fB\-\-fancy-profile\fR
-use fancy profile
-.TP
-\fB\-c\fR, \fB\-\-cool-profile\fR
-use cool profile
-.TP
-\fB\-r\fR, \fB\-\-reverse-profile\fR
-use reverse profile
-.TP
-\fB\-s\fR, \fB\-\-strong-profile\fR
-use strong profile
-.TP
-\fB\-p\fR, \fB\-\-sharp-profile\fR
-use sharp profile
-.TP
-\fB\-a\fR, \fB\-\-heaven-profile\fR
-use heaven profile
-.TP
-\fB\-g\fR, \fB\-\-elegant-profile\fR
-use elegant profile
-.TP
-\fB\-m\fR, \fB\-\-minimalist-profile\fR
-use minimalist profile
-.TP
-\fB\-x\fR, \fB\-\-relax-profile\fR
-use relax profile
-.TP
-\fB\-r\fR, \fB\-\-raw-profile\fR
-use raw profile
-.TP
-\fB\-o\fR, \fB\-\-awesome-profile\fR
-use awesome profile
-.TP
-\fB\-b\fR, \fB\-\-bold-profile\fR
+\fB\-b\fR, \fB\-\-bold\fR
 use bold profile
 .TP
 \fB\-h\fR, \fB\-\-help\fR
@@ -86,7 +44,7 @@ show the program version
 \fB\-m\fR, \fB\-\-man\fR
 show a man page
 .TP
-By default uses foreground 2, background 1 colors.
+By default sets profile, by default uses colors foreground = 2 and background = 1.
 .TP
 Execute 'bash -c "man <(colorize --man)"' to see the runtime manpage.
 .SH NOTES

@@ -37,15 +37,28 @@ function cl_profile
 		-
 }
 
-# The --input-profile option
-function cl_option_input_profile
+# The profiles
+cl_profiles=(input help info warning error vivid health hidden fancy cool reverse strong sharp heaven elegant minimalist relax raw awesome bold)
+
+# The --list option
+function cl_option_list()
 {
-	cl_option_relax_profile
+	for cl_profile in "${cl_profiles[@]}"
+	do
+		printf "%s\n" "$cl_profile"
+	done
 	exit 0
 }
 
-# The --help-profile option
-function cl_option_help_profile
+# The input profile
+function cl_profile_input
+{
+	cl_profile_relax
+	exit 0
+}
+
+# The help profile
+function cl_profile_help
 {
 	# December 4th, 2013, Juan Manuel Borges Caño
 #
@@ -64,132 +77,138 @@ function cl_option_help_profile
 	exit 0
 }
 
-# The --info-profile option
-function cl_option_info_profile
+# The info profile
+function cl_profile_info
 {
 	cl_profile 2 4
 	exit 0
 }
 
-# The --warning-profile option
-function cl_option_warning_profile
+# The warning profile
+function cl_profile_warning
 {
 	cl_profile 7 1
 	exit 0
 }
 
-# The --error-profile option
-function cl_option_error_profile
+# The error profile
+function cl_profile_error
 {
 	cl_profile 2 1
 	exit 0
 }
 
-# The --hidden-profile option
-function cl_option_hidden_profile
+# The hidden profile
+function cl_profile_hidden
 {
 	cl_profile 1 0
 	exit 0
 }
 
-# The --health-profile option
-function cl_option_health_profile
+# The health profile
+function cl_profile_health
 {
 	cl_profile 1 7
 	exit 0
 }
 
-# The --vivid-profile option
-function cl_option_vivid_profile
+# The vivid profile
+function cl_profile_vivid
 {
 	cl_profile 2 0
 	exit 0
 }
 
-# The --fancy-profile option
-function cl_option_fancy_profile
+# The fancy profile
+function cl_profile_fancy
 {
 	cl_profile 2 1
 	exit 0
 }
 
-# The --cool-profile option
-function cl_option_cool_profile
+# The cool profile
+function cl_profile_cool
 {
 	cl_profile 2 5
 	exit 0
 }
 
-# The --reverse-profile option
-function cl_option_reverse_profile
+# The reverse profile
+function cl_profile_reverse
 {
 	cl_profile 4 2
 	exit 0
 }
 
-# The --strong-profile option
-function cl_option_strong_profile
+# The strong profile
+function cl_profile_strong
 {
 	cl_profile 3 0
 	exit 0
 }
 
-# The --sharp-profile option
-function cl_option_sharp_profile
+# The sharp profile
+function cl_profile_sharp
 {
 	cl_profile 5 0
 	exit 0
 }
 
-# The --heaven-profile option
-function cl_option_heaven_profile
+# The heaven profile
+function cl_profile_heaven
 {
 	cl_profile 6 0
 	exit 0
 }
 
-# The --elegant-profile option
-function cl_option_elegant_profile
+# The elegant profile
+function cl_profile_elegant
 {
 	cl_profile 6 5
 	exit 0
 }
 
-# The --minimalist-profile option
-function cl_option_minimalist_profile
+# The minimalist profile
+function cl_profile_minimalist
 {
 	cl_profile 3 6
 	exit 0
 }
 
-# The --relax-profile option
-function cl_option_relax_profile
+# The relax profile
+function cl_profile_relax
 {
 	cl_profile 7 1
 	exit 0
 }
 
-# The --raw-profile option
-function cl_option_raw_profile
+# The raw profile
+function cl_profile_raw
 {
 	cl_profile 7 4
 	exit 0
 }
 
-# The --awesome-profile option
-function cl_option_awesome_profile
+# The awesome profile
+function cl_profile_awesome
 {
 	cl_profile 7 5
 	exit 0
 }
 
-# The --bold-profile option
-function cl_option_bold_profile
+# The bold profile
+function cl_profile_bold
 {
 	tput bold;
 	cat -
 	tput sgr0
 	exit 0
+}
+
+# The --profile option
+function cl_option_profile
+{
+	cl_profile_"$1"
 }
 
 # ... and colorize, the program itself.
@@ -199,12 +218,22 @@ function cl_init
 {
 	cl_foreground=2
 	cl_background=1
+	cl_profile=
 }
 
 # The cmd main function
 function cl_main
 {
-	cl_profile
+	cl_profileto="${1:-input}"
+	for cl_profile in "${cl_profiles[@]}"
+	do
+		if [[ "$cl_profile" = "$cl_profileto" ]]
+		then
+			shift
+			cl_profile_$cl_profile "$@"
+		fi
+	done
+	cmd_error "unknown show"
 }
 
 # The cmd fields
@@ -217,33 +246,10 @@ cmd_author="[@]pkgauthor[@]"
 cmd_homepage="[@]pkghomepage[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
-cmd_usage="$cmd [OPTIONS]"
-cmd_examples=("$cmd --help | $cmd --help-profile")
-cmd_options=(
-	"/f:/foreground:/set foreground color/cl_option_foreground/COLOR/"
-	"/b:/background:/set background color/cl_option_background/COLOR/"
-	"/i/input-profile/use input profile/cl_option_input_profile/"
-	"/p/help-profile/use help profile/cl_option_help_profile/"
-	"/n/info-profile/use info profile/cl_option_info_profile/"
-	"/w/warning-profile/use warning profile/cl_option_warning_profile/"
-	"/e/error-profile/use error profile/cl_option_error_profile/"
-	"/v/vivid-profile/use vivid profile/cl_option_vivid_profile/"
-	"/l/health-profile/use health profile/cl_option_health_profile/"
-	"/l/hidden-profile/use hidden profile/cl_option_hidden_profile/"
-	"/y/fancy-profile/use fancy profile/cl_option_fancy_profile/"
-	"/c/cool-profile/use cool profile/cl_option_cool_profile/"
-	"/r/reverse-profile/use reverse profile/cl_option_reverse_profile/"
-	"/s/strong-profile/use strong profile/cl_option_strong_profile/"
-	"/p/sharp-profile/use sharp profile/cl_option_sharp_profile/"
-	"/a/heaven-profile/use heaven profile/cl_option_heaven_profile/"
-	"/g/elegant-profile/use elegant profile/cl_option_elegant_profile/"
-	"/m/minimalist-profile/use minimalist profile/cl_option_minimalist_profile/"
-	"/x/relax-profile/use relax profile/cl_option_relax_profile/"
-	"/r/raw-profile/use raw profile/cl_option_raw_profile/"
-	"/o/awesome-profile/use awesome profile/cl_option_awesome_profile/"
-	"/b/bold-profile/use bold profile/cl_option_bold_profile/"
-)
-cmd_extrahelp="By default uses foreground 2, background 1 colors."
+cmd_usage="$cmd [OPTIONS] [PROFILE]"
+cmd_examples=("$cmd --help | $cmd --profile help")
+cmd_options=("/f:/foreground:/set foreground color/cl_option_foreground/COLOR/" "/b:/background:/set background color/cl_option_background/COLOR/" "/l/list/list profiles/cl_option_list/" "/p:/profile:/set profile/cl_option_profile/PROFILE/" "/i/info/use info profile/cl_profile_info/" "/w/warning/use warning profile/cl_profile_warning/" "/e/error/use error profile/cl_profile_error/" "/b/bold/use bold profile/cl_profile_bold/")
+cmd_extrahelp="By default sets profile, by default uses colors foreground = 2 and background = 1."
 cmd_extranotes="For more information, check man documentation."
 cmd_init="cl_init"
 cmd_main="cl_main"

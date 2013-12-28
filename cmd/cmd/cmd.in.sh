@@ -151,7 +151,7 @@ function cmd_help
 		cmd_help_options
 		printf "%s\n" ""
 		cmd_help_footer
-	# } | colorize --help-profile # Not until colorize can differentiate when stdout is a pipe (no color) or a terminal (yes color)
+	# } | colorize --profile help # Not until colorize can differentiate when stdout is a pipe (no color) or a terminal (yes color)
 	exit 0
 }
 
