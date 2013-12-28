@@ -53,7 +53,7 @@ function cl_option_list()
 # The input profile
 function cl_profile_input
 {
-	cl_profile_relax
+	cl_profile
 	exit 0
 }
 
@@ -218,7 +218,6 @@ function cl_init
 {
 	cl_foreground=2
 	cl_background=1
-	cl_profile=
 }
 
 # The cmd main function
@@ -233,7 +232,7 @@ function cl_main
 			cl_profile_$cl_profile "$@"
 		fi
 	done
-	cmd_error "unknown show"
+	cmd_error "unknown profile"
 }
 
 # The cmd fields
@@ -248,7 +247,7 @@ cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [PROFILE]"
 cmd_examples=("$cmd --help | $cmd --profile help")
-cmd_options=("/f:/foreground:/set foreground color/cl_option_foreground/COLOR/" "/b:/background:/set background color/cl_option_background/COLOR/" "/l/list/list profiles/cl_option_list/" "/p:/profile:/set profile/cl_option_profile/PROFILE/" "/i/info/use info profile/cl_profile_info/" "/w/warning/use warning profile/cl_profile_warning/" "/e/error/use error profile/cl_profile_error/" "/b/bold/use bold profile/cl_profile_bold/")
+cmd_options=("/f:/foreground:/set foreground color/cl_option_foreground/COLOR/" "/b:/background:/set background color/cl_option_background/COLOR/" "/l/list/list profiles/cl_option_list/" "/p:/profile:/set profile/cl_option_profile/PROFILE/" "/i/info/use info profile/cl_profile_info/" "/w/warning/use warning profile/cl_profile_warning/" "/e/error/use error profile/cl_profile_error/")
 cmd_extrahelp="By default sets profile, by default uses colors foreground = 2 and background = 1."
 cmd_extranotes="For more information, check man documentation."
 cmd_init="cl_init"

@@ -32,9 +32,6 @@ use warning profile
 \fB\-e\fR, \fB\-\-error\fR
 use error profile
 .TP
-\fB\-b\fR, \fB\-\-bold\fR
-use bold profile
-.TP
 \fB\-h\fR, \fB\-\-help\fR
 show a help message
 .TP

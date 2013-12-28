@@ -22,7 +22,7 @@ man1_MANS = \
 	colorize.man \
 	show.man
 CLEANFILES = $(man1_MANS)
-man:
+man: Makefile
 	./gen.sh
 %.man: %.in.man
 	$(PACKAGE_PARSE) $(top_srcdir)/doc/$^ > $@
