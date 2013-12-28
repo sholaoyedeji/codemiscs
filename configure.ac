@@ -1,4 +1,4 @@
-AC_INIT([code miscellaneous], [2013.12.23], [juanmabcmail@gmail.com], [codemiscs], ["http://code.google.com/p/codemiscs/"])
+AC_INIT([code miscellaneous], [2013.12.28], [juanmabcmail@gmail.com], [codemiscs], ["http://code.google.com/p/codemiscs/"])
 AM_INIT_AUTOMAKE(no-dist-gzip dist-bzip2)
 
 AC_SUBST(PACKAGE_AUTHOR, "Juan Manuel Borges Caño")

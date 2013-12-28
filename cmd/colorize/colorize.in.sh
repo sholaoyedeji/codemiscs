@@ -72,7 +72,7 @@ function cl_profile_help
 		-e "s/\([:,;.]\)\([[:blank:]]\)/$(tput setaf 1)\1$(tput sgr0)\2/g" \
 		-e "s/\([:,;.]\)$/$(tput setaf 1)\1$(tput sgr0)/g" \
 		-e "s/\(['\"=]\)/$(tput setaf 1)\1$(tput sgr0)/g" \
-		-e "s/\([^-]\)\<\(Command\|command\|Program\|program\|Usage\|usage\|Example\|example\|Arguments\|arguments\|Option\|option\|Options\|options\|Set\|set\|Show\|show\|Complete\|complete\|Help\|help\|Config\|config\|Configuration\|configuration\Version\|version\|Man\|man\|Page\|page\\Manpage\|manpage\|Documentation\|documentation\|Mandatory\|mandatory\|Home Page\|home page\|Homepage\|homepage\|Author\|author\|Blog\|blog\|Email\|email\|Report\|report\|Information\|information\|January\|February\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\)\>/\1$(tput setaf 3)\2$(tput sgr0)/g" \
+		-e "s/\([^-]\?\)\<\(Command\|command\|Program\|program\|Usage\|usage\|Example\|example\|Arguments\|arguments\|Option\|option\|Options\|options\|Set\|set\|Show\|show\|Complete\|complete\|Help\|help\|Execute\|execute\|Execution\|execution\|Config\|config\|Configuration\|configuration\Version\|version\|Man\|man\|Page\|page\\Manpage\|manpage\|Documentation\|documentation\|Mandatory\|mandatory\|Home Page\|home page\|Homepage\|homepage\|Author\|author\|Blog\|blog\|Email\|email\|Report\|report\|Information\|information\|January\|February\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\)\>/\1$(tput setaf 3)\2$(tput sgr0)/g" \
 		-
 	exit 0
 }
@@ -211,6 +211,24 @@ function cl_option_profile
 	cl_profile_"$1"
 }
 
+#The strip helper
+function cl_strip
+{
+	sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g" -
+}
+
+# The --strip option
+function cl_option_strip
+{
+	cl_strip=0
+}
+
+# The --terminal option
+function cl_option_terminal
+{
+	cl_terminal=0
+}
+
 # ... and colorize, the program itself.
 
 # The cmd init function
@@ -218,21 +236,33 @@ function cl_init
 {
 	cl_foreground=2
 	cl_background=1
+	cl_strip=1
+	cl_terminal=1
 }
 
 # The cmd main function
 function cl_main
 {
-	cl_profileto="${1:-input}"
-	for cl_profile in "${cl_profiles[@]}"
-	do
-		if [[ "$cl_profile" = "$cl_profileto" ]]
+	if (( "$cl_strip" == "1" ))
+	then
+		if (( "$cl_terminal" == "1" )) || [[ -t 1 ]]
 		then
-			shift
-			cl_profile_$cl_profile "$@"
+			cl_profileto="${1:-input}"
+			for cl_profile in "${cl_profiles[@]}"
+			do
+				if [[ "$cl_profile" = "$cl_profileto" ]]
+				then
+					shift
+					cl_profile_$cl_profile "$@"
+				fi
+			done
+			cmd_error "unknown profile"
+		else
+			cat -
 		fi
-	done
-	cmd_error "unknown profile"
+	else
+		cl_strip "$@"
+	fi
 }
 
 # The cmd fields
@@ -247,8 +277,8 @@ cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [PROFILE]"
 cmd_examples=("$cmd --help | $cmd --profile help")
-cmd_options=("/f:/foreground:/set foreground color/cl_option_foreground/COLOR/" "/b:/background:/set background color/cl_option_background/COLOR/" "/l/list/list profiles/cl_option_list/" "/p:/profile:/set profile/cl_option_profile/PROFILE/" "/i/info/use info profile/cl_profile_info/" "/w/warning/use warning profile/cl_profile_warning/" "/e/error/use error profile/cl_profile_error/")
-cmd_extrahelp="By default sets profile, by default uses colors foreground = 2 and background = 1."
+cmd_options=("/f:/foreground:/set foreground color/cl_option_foreground/COLOR/" "/b:/background:/set background color/cl_option_background/COLOR/" "/l/list/list profiles/cl_option_list/" "/p:/profile:/set profile/cl_option_profile/PROFILE/" "/i/info/use info profile/cl_profile_info/" "/w/warning/use warning profile/cl_profile_warning/" "/e/error/use error profile/cl_profile_error/" "/t/terminal/color only if output is a terminal/cl_option_terminal/" "/s/strip/remove any color traces/cl_option_strip/")
+cmd_extrahelp="By default sets profile and uses colors foreground = 2 and background = 1."
 cmd_extranotes="For more information, check man documentation."
 cmd_init="cl_init"
 cmd_main="cl_main"
