@@ -29,16 +29,8 @@ function cl_option_background
 	cl_background="$1"
 }
 
-# The profile option helper
-function cl_profile
-{
-	sed \
-		-e "s/^\(.*\)$/$(tput setaf ${1:-$cl_foreground}; tput setab ${2:-$cl_background};)\1$(tput sgr0)/g" \
-		-
-}
-
 # The profiles
-cl_profiles=(input help info warning error vivid smart elegant minimalist sharp awesome fancy cool health relax heaven strong reverse hidden raw bold)
+cl_profiles=(input help info warning error punctuation vivid smart elegant minimalist sharp awesome fancy cool health relax heaven strong reverse hidden raw bold)
 
 # The --list option
 function cl_option_list()
@@ -48,6 +40,14 @@ function cl_option_list()
 		printf "%s\n" "$cl_profile"
 	done
 	exit 0
+}
+
+# The profile helper
+function cl_profile
+{
+	sed \
+		-e "s/^\(.*\)$/$(tput setaf ${1:-$cl_foreground}; tput setab ${2:-$cl_background};)\1$(tput sgr0)/g" \
+		-
 }
 
 # The input profile
@@ -61,7 +61,6 @@ function cl_profile_input
 function cl_profile_help
 {
 	# December 4th, 2013, Juan Manuel Borges Caño
-#
 	sed \
 		-e "s/\([[:digit:]]\+\)/$(tput setaf 4)\1$(tput sgr0)/g" \
 		-e "s/\(GB\|MB\|KB\|[[:upper:]_]\{2,\}\|'[^']\+'\|\"[^\"]\+\"\|\`\`[^\']\+''\)/$(tput setaf 2)\1$(tput sgr0)/g" \
@@ -73,6 +72,21 @@ function cl_profile_help
 		-e "s/\([:,;.]\)$/$(tput setaf 1)\1$(tput sgr0)/g" \
 		-e "s/\(['\"=]\)/$(tput setaf 1)\1$(tput sgr0)/g" \
 		-e "s/\(^\|[^-]\)\<\(Command\|command\|Program\|program\|Usage\|usage\|Example\|example\|Arguments\|arguments\|Option\|option\|Options\|options\|Set\|set\|Show\|show\|Complete\|complete\|Help\|help\|Execute\|execute\|Execution\|execution\|Runtime\|runtime\|Online\|online\|Default\|default\|Config\|config\|Configuration\|configuration\|Respect\|respect\|Term\|term\|Terms\|terms\|Service\|service\|Services\|services\|Version\|version\|Man\|man\|Page\|page\\Manpage\|manpage\|Documentation\|documentation\|Mandatory\|mandatory\|Home Page\|home page\|Homepage\|homepage\|Author\|author\|Blog\|blog\|Email\|email\|Report\|report\|Information\|information\|January\|February\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\)\>/\1$(tput setaf 3)\2$(tput sgr0)/g" \
+		-
+	exit 0
+}
+
+# The punctuation profile
+function cl_profile_punctuation
+{
+	sed \
+		-e "s/\([[:digit:]]\+\)/$(tput setaf 4)\1$(tput sgr0)/g" \
+		-e "s/\(GB\|MB\|KB\|[[:upper:]_]\{2,\}\|'[^']\+'\|\"[^\"]\+\"\|\`\`[^\']\+''\)/$(tput setaf 2)\1$(tput sgr0)/g" \
+		-e "s/\(http:\/\/\)\([^/]\+\)\([^[:blank:]]\+\)/$(tput setaf 4)\1$(tput sgr0)$(tput setaf 6)\2$(tput sgr0)$(tput setaf 1)\3$(tput sgr0)/g" \
+		-e "s/\([[:alnum:]_-]\+\)\+@\([[:alnum:]_-.]\+\)/$(tput setaf 1)\1$(tput sgr0)$(tput setaf 4)@$(tput sgr0)$(tput setaf 6)\2$(tput sgr0)/g" \
+		-e "s/\([:,;.]\)\([[:blank:]]\)/$(tput setaf 1)\1$(tput sgr0)\2/g" \
+		-e "s/\([:,;.]\)$/$(tput setaf 1)\1$(tput sgr0)/g" \
+		-e "s/\(['\"=]\)/$(tput setaf 1)\1$(tput sgr0)/g" \
 		-
 	exit 0
 }
@@ -218,6 +232,12 @@ function cl_option_profile
 	cl_profile_"$1"
 }
 
+# The --terminal option
+function cl_option_terminal
+{
+	cl_terminal="on"
+}
+
 #The strip helper
 function cl_strip
 {
@@ -228,12 +248,6 @@ function cl_strip
 function cl_option_strip
 {
 	cl_strip="on"
-}
-
-# The --terminal option
-function cl_option_terminal
-{
-	cl_terminal="on"
 }
 
 # ... and colorize, the program itself.

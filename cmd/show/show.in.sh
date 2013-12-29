@@ -50,8 +50,8 @@ function sh_cookie
 	sh_cols="$(wc -L <<< "$epigram")"
 	sh_shift=$((($(tput cols) - ($sh_cols + 4)) / 2))
 	sh_shift=$(printf "%${sh_shift}s" "")
-	figlet -t -c "$sh_message"
-	cowsay -f "${2:-tux}" -W "$sh_cols" -n <<< "$epigram" | sed -e "s/^/$sh_shift/g"
+	figlet -t -c "$sh_message" | colorize info
+	cowsay -f "${2:-tux}" -W "$sh_cols" -n <<< "$epigram" | sed -e "s/^/$sh_shift/g" | colorize warning
 	if cmd_switch "$sh_sound"
 	then
 		bash -c 'festival --tts <<< "$1" 2>/dev/null &' _ "$epigram "
