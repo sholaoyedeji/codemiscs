@@ -30,3 +30,17 @@ function traduce
 		mythes es "$@"
 	} | colorize warning
 }
+
+function randword
+{
+	shuf -n 1 "/usr/share/dict/words"
+}
+
+function randdef
+{
+	false
+	while (( "${PIPESTATUS[0]}" ))
+	do
+		dict -d wn "$(randword)" 2>/dev/null | tail -n +5 | colorize info
+	done
+}
