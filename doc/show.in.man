@@ -17,6 +17,9 @@ list shows
 \fB\-s\fR, \fB\-\-sound\fR
 play a sound
 .TP
+\fB\-f\fR, \fB\-\-foreground\fR
+work in foreground
+.TP
 \fB\-h\fR, \fB\-\-help\fR
 show a help message
 .TP

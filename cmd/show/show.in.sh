@@ -37,6 +37,12 @@ function sh_option_sound
 	sh_sound="on"
 }
 
+# The --foreground option
+function sh_option_foreground
+{
+	sh_foreground="on"
+}
+
 # Show Time!
 
 # The cookie
@@ -54,7 +60,12 @@ function sh_cookie
 	cowsay -f "${2:-tux}" -W "$sh_cols" -n <<< "$epigram" | sed -e "s/^/$sh_shift/g" | colorize warning
 	if cmd_switch "$sh_sound"
 	then
-		bash -c 'festival --tts <<< "$1" 2>/dev/null &' _ "$epigram "
+		if cmd_switch "$sh_foreground"
+		then
+			bash -c 'festival --tts <<< "$1" 2>/dev/null' _ "$epigram "
+		else
+			bash -c 'festival --tts <<< "$1" 2>/dev/null &' _ "$epigram "
+		fi
 	fi
 	exit 0
 }
@@ -62,13 +73,24 @@ function sh_cookie
 # The clock
 function sh_clock
 {
-	while sleep 1
-	do
-		tput sc
-		tput cup 0 $(($(tput cols)-29))
-		date
-		tput rc
-	done
+	if cmd_switch "$sh_foreground"
+	then
+		while sleep 1
+		do
+			tput sc
+			tput cup 0 $(($(tput cols)-29))
+			date
+			tput rc
+		done
+	else
+		while sleep 1
+		do
+			tput sc
+			tput cup 0 $(($(tput cols)-29))
+			date
+			tput rc
+		done &
+	fi
 }
 
 # The pipes
@@ -278,6 +300,7 @@ function sh_weave
 function sh_init
 {
 	sh_sound="off"
+	sh_foreground="off"
 	sh_show="cookie"
 }
 
@@ -308,7 +331,7 @@ cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [SHOW] [-- SHOWOPTIONS]"
 cmd_examples=("$cmd cookie")
-cmd_options=("/l/list/list shows/sh_option_list/" "/s/sound/play a sound/sh_option_sound/")
+cmd_options=("/l/list/list shows/sh_option_list/" "/s/sound/play a sound/sh_option_sound/" "/f/foreground/work in foreground/sh_option_foreground/")
 cmd_extrahelp="By default shows a cookie."
 cmd_extranotes="For more information, check man documentation."
 cmd_init="sh_init"

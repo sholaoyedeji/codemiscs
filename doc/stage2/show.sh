@@ -8,7 +8,7 @@ function fortune-show
 		title="${1:-FORTUNE SHOW}"; shift
 		figure="${2:-tux}"
 		cols="${3}"
-		show cookie "$title" "$figure" "$cols" --sound
+		show cookie "$title" "$figure" "$cols" --sound --foreground
 		sleep 1
 	done
 }
