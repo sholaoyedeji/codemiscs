@@ -48,7 +48,7 @@ function sh_cookie
 	sh_fortune="$4"
 	epigram="$(fortune -a -s "$sh_fortune" | fmt -"$sh_cols" -s)"
 	sh_cols="$(wc -L <<< "$epigram")"
-	sh_shift=$((($(tput cols) - $sh_cols) / 2))
+	sh_shift=$((($(tput cols) - ($sh_cols + 4)) / 2))
 	sh_shift=$(printf "%${sh_shift}s" "")
 	figlet -t -c "$sh_message"
 	cowsay -f "${2:-tux}" -W "$sh_cols" -n <<< "$epigram" | sed -e "s/^/$sh_shift/g"
