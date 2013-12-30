@@ -25,6 +25,7 @@ $ autoreconf -i
 $ ./configure
 $ make
 # make install
+$ doc/demo
 
 codemiscs (Code Miscellaneous) licensed GPLv3 by Juan Manuel Borges Caño
 * homepage <http://code.google.com/p/codemiscs>

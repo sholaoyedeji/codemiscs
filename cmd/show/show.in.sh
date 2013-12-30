@@ -68,7 +68,7 @@ function sh_cookie
 	sh_cowfile="${2:-tux}"
 	sh_cols="${3:-$(($(tput cols) / 2))}"
 	sh_fortune="$4"
-	sh_epigram="$(fortune -a -s "$sh_fortune" | fmt -"$sh_cols" -s)"
+	sh_epigram="${5:-"$(fortune -a -s "$sh_fortune" | fmt -"$sh_cols" -s)"}"
 	sh_cookie="$(cowsay -f "${2:-tux}" -W "$sh_cols" -n <<< "$sh_epigram")"
 	sh_cols="$(wc -L <<< "$sh_cookie")"
 	sh_shift=$((($(tput cols) - $sh_cols) / 2))
@@ -94,7 +94,7 @@ function sh_box
 	sh_box="${2:-parchment}"
 	sh_cols="${3:-$(($(tput cols) / 2))}"
 	sh_fortune="$4"
-	sh_epigram="$(fortune -a -s "$sh_fortune" | fmt -"$sh_cols" -s)"
+	sh_epigram="${5:-"$(fortune -a -s "$sh_fortune" | fmt -"$sh_cols" -s)"}"
 	sh_box="$(boxes -d "$sh_box" -s "$sh_cols" <<< "$sh_epigram")"
 	sh_cols="$(wc -L <<< "$sh_box")"
 	sh_shift=$((($(tput cols) - $sh_cols) / 2))
