@@ -90,7 +90,7 @@ function sh_cookie
 # The box
 function sh_box
 {
-	sh_message="${1:-"Fortune Show"}"
+	sh_message="${1:-"Fortune"}"
 	sh_box="${2:-parchment}"
 	sh_cols="${3:-$(($(tput cols) / 2))}"
 	sh_fortune="$4"
