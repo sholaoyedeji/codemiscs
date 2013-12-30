@@ -1,21 +1,36 @@
 #! /usr/bin/env bash
 
-# mkproject (Make Project): Project Generator
-# Copyright (C) 2007-2012 Juan Manuel Borges Caño
-# The repetition of project generation made this command a need, and a must.
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#  ______________________________________________________________________________
+# /\                                                                             \
+# \_|         ___        __                            _   _                     |
+#   |        |_ _|_ __  / _| ___  _ __ _ __ ___   __ _| |_(_) ___  _ __          |
+#   |         | || '_ \| |_ / _ \| '__| '_ ` _ \ / _` | __| |/ _ \| '_ \         |
+#   |         | || | | |  _| (_) | |  | | | | | | (_| | |_| | (_) | | | |        |
+#   |        |___|_| |_|_|  \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|        |
+#   |                                                                            |
+#   |                mkproject (Make Project): Project Generator                 |
+#   |              Copyright (C) 2007-2012 Juan Manuel Borges Caño               |
+#   | The repetition of project generation made this command a need, and a must. |
+#   |                      _     _                                               |
+#   |                     | |   (_) ___ ___ _ __  ___  ___                       |
+#   |                     | |   | |/ __/ _ \ '_ \/ __|/ _ \                      |
+#   |                     | |___| | (_|  __/ | | \__ \  __/                      |
+#   |                     |_____|_|\___\___|_| |_|___/\___|                      |
+#   |                                                                            |
+#   |    This program is free software: you can redistribute it and/or modify    |
+#   |    it under the terms of the GNU General Public License as published by    |
+#   |     the Free Software Foundation, either version 3 of the License, or      |
+#   |                    (at your option) any later version.                     |
+#   |                                                                            |
+#   |      This program is distributed in the hope that it will be useful,       |
+#   |       but WITHOUT ANY WARRANTY; without even the implied warranty of       |
+#   |       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the        |
+#   |                GNU General Public License for more details.                |
+#   |                                                                            |
+#   |     You should have received a copy of the GNU General Public License      |
+#   |   along with this program.  If not, see <http://www.gnu.org/licenses/>.    |
+#   |   _________________________________________________________________________|_
+#    \_/___________________________________________________________________________/
 
 # The --list option
 function mp_list
