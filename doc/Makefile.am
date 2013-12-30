@@ -1,5 +1,4 @@
 EXTRA_DIST = \
-	demo \
 	gen.sh \
 	cmd.in.man \
 	mkproject.in.man \
@@ -10,7 +9,9 @@ EXTRA_DIST = \
 	typewrite.in.man \
 	colorize.in.man \
 	show.in.man \
-	stage1/
+	demo \
+	stage1/ \
+	stage2/
 man1_MANS = \
 	cmd.man \
 	mkproject.man \
