@@ -1,5 +1,37 @@
 #! /usr/bin/env bash
 
+#  _________________________________________________________________________
+# /\                                                                        \
+# \_|       ___        __                            _   _                  |
+#   |      |_ _|_ __  / _| ___  _ __ _ __ ___   __ _| |_(_) ___  _ __       |
+#   |       | || '_ \| |_ / _ \| '__| '_ ` _ \ / _` | __| |/ _ \| '_ \      |
+#   |       | || | | |  _| (_) | |  | | | | | | (_| | |_| | (_) | | | |     |
+#   |      |___|_| |_|_|  \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|     |
+#   |                                                                       |
+#   |                  demo (CodeMiscs Demo) (Early stages)                 |
+#   |               Copyright (C) 2013 Juan Manuel Borges Caño              |
+#   |               Getting people to actually know the stuff               |
+#   |                    _     _                                            |
+#   |                   | |   (_) ___ ___ _ __  ___  ___                    |
+#   |                   | |   | |/ __/ _ \ '_ \/ __|/ _ \                   |
+#   |                   | |___| | (_|  __/ | | \__ \  __/                   |
+#   |                   |_____|_|\___\___|_| |_|___/\___|                   |
+#   |                                                                       |
+#   |  This program is free software: you can redistribute it and/or modify |
+#   |  it under the terms of the GNU General Public License as published by |
+#   |   the Free Software Foundation, either version 3 of the License, or   |
+#   |                  (at your option) any later version.                  |
+#   |                                                                       |
+#   |    This program is distributed in the hope that it will be useful,    |
+#   |     but WITHOUT ANY WARRANTY; without even the implied warranty of    |
+#   |     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the     |
+#   |              GNU General Public License for more details.             |
+#   |                                                                       |
+#   |   You should have received a copy of the GNU General Public License   |
+#   | along with this program.  If not, see <http://www.gnu.org/licenses/>. |
+#   |   ____________________________________________________________________|_
+#    \_/______________________________________________________________________/
+
 # increase font size # qdbus org.kde.konsole /Konsole newSession Grande $(echo $HOME)
 
 set -x
@@ -31,6 +63,7 @@ clear; show cookie --sound --foreground; sleep 5
 clear; rf linux | colorize fancy | typewrite --fast --sound; sleep 5
 clear; rf linux --description 1 | colorize fancy | typewrite --fast --sound; sleep 5
 clear; rf phoronix | colorize fancy | typewrite --fast --sound; sleep 5
+clear; rf linux | tw gt.en-es | colorize fancy | typewrite --fast --sound; sleep 5
 clear; rf --list | colorize info | typewrite --fast --sound; sleep 5
 clear; rf --help | colorize help | typewrite --fast --sound; sleep 5
 

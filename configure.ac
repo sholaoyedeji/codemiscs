@@ -57,6 +57,9 @@ AC_CHECK_PROG(PACKAGE_FIGLET, figlet, yes)
 AC_CHECK_PROG(PACKAGE_COWSAY, cowsay, yes)
 [[ -z $PACKAGE_COWSAY ]] && AC_MSG_WARN(cowsay is needed at execution time)
 
+AC_CHECK_PROG(PACKAGE_BOXES, boxes, yes)
+[[ -z $PACKAGE_BOXES ]] && AC_MSG_WARN(boxes is needed at execution time)
+
 AC_CHECK_PROG(PACKAGE_FESTIVAL, festival, yes)
 [[ -z $PACKAGE_FESTIVAL ]] && AC_MSG_WARN(festival is needed at execution time)
 
