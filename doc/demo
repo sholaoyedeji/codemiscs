@@ -1,17 +1,44 @@
-qdbus org.kde.konsole /Konsole newSession Grande $(echo $HOME)
-clear
-increase font size
-typewrite < /usr/share/doc/codemiscs-0.9.0/README
-colorize --help
-colorize --help | colorize
-typewrite --help | colorize | typewrite
-tw --help | colorize | typewrite
-tw --list | grep en-es | typewrite
-tw --shortcuts | typewrite
-tw gt.en-es "code miscellaneous" | typewrite
-tw gt.en-es code | typewrite
-mythes --help | colorize | typewrite
-mythes en code | typewrite
-rf --help | colorize | typewrite
-rf linux | typewrite
-rf linux -d 1 | typewrite
+#! /usr/bin/env bash
+
+# increase font size # qdbus org.kde.konsole /Konsole newSession Grande $(echo $HOME)
+
+set -x
+
+clear; show cookie --sound --foreground; sleep 5
+clear; colorize --help; sleep 5
+clear; typewrite --help | colorize help | typewrite --fast --sound; sleep 5
+clear; cat /usr/share/doc/codemiscs-*.*.*/README | colorize fancy | typewrite --fast --sound; sleep 5
+
+clear; show cookie --sound --foreground; sleep 5
+
+clear; tw gt.en-es "code miscellaneous" --speak | colorize fancy | typewrite --fast --sound; sleep 5
+clear; tw gt.en-es code --speak | colorize info | typewrite --fast --sound; sleep 5
+clear; tw en-es code --synonyms --exact --speak | colorize info | typewrite --fast --sound; sleep 5
+clear; tw gt.en-ja "code miscellaneous" --speak | colorize fancy | typewrite --fast --sound; sleep 5
+clear; tw --list | grep en-es | colorize info | typewrite --fast --sound; sleep 5
+clear; tw --shortcuts | colorize info | typewrite --fast --sound; sleep 5
+clear; tw --help | colorize help | typewrite --fast --sound; sleep 5
+
+clear; show cookie --sound --foreground; sleep 5
+
+clear; mythes en code --speak | colorize fancy | typewrite --fast --sound; sleep 5
+clear; mythes en miscellaneous --speak | colorize fancy | typewrite --fast --sound; sleep 5
+clear; mythes --list | colorize info | typewrite --fast --sound; sleep 5
+clear; mythes --help | colorize help | typewrite --fast --sound; sleep 5
+
+clear; show cookie --sound --foreground; sleep 5
+
+clear; rf linux | colorize fancy | typewrite --fast --sound; sleep 5
+clear; rf linux --description 1 | colorize fancy | typewrite --fast --sound; sleep 5
+clear; rf phoronix | colorize fancy | typewrite --fast --sound; sleep 5
+clear; rf --list | colorize info | typewrite --fast --sound; sleep 5
+clear; rf --help | colorize help | typewrite --fast --sound; sleep 5
+
+clear; show cookie --sound --foreground; sleep 5
+
+clear; show cookie 'Eat This!' dragon --sound --foreground; sleep 5
+clear; show box --sound --foreground; sleep 5
+clear; show --list | colorize info | typewrite --fast --sound; sleep 5
+clear; show --help | colorize help | typewrite --fast --sound; sleep 5
+
+clear; show cookie --sound --foreground; sleep 5

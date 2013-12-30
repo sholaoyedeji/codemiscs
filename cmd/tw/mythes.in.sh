@@ -196,7 +196,7 @@ function mythes_main
 	if (( "$?" == "0" ))
 	then
 		mythes_encoding="$(printf "%s\n" "$mythes_rawoutput" | head -n 1)"
-		mythes_output="$(printf "%s\n" "$mythes_rawoutput" | tail -n +2 | sort -u | grep -vi ' ('"$(mythes_antonym "$mythes_input")"')' | sed -e 's/ ([^)]*)$//g')"
+		mythes_output="$(printf "%s\n" "$mythes_rawoutput" | tail -n +2 | sort -u | grep -vi ' ('"$(mythes_antonym "$mythes_language")"')' | sed -e 's/ ([^)]*)$//g')"
 		printf "%s\n" "$mythes_output" 
 		mythes_espeak &
 	else
