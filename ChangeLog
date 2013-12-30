@@ -1,7 +1,8 @@
 2013-12-28 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
 	* Improved Commands: cmd, colorize, typewrite, show
 	* Better Design: the colorize improvements benefit the look of all commands, typewrite with sound and speed modes is a pleasure, show is richer and smarter
-	* Better Documentation: with real use cases examples, and code parchments
+	* Better Documentation: with an entertaining demo, real use cases examples and code parchments
+	* Better Motivation: previous efforts consolidate giving faster, straightforward, easy results
 
 2013-12-19 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
 	* New Commands: typewriter, colorize
