@@ -55,7 +55,7 @@ show a man page
 .TP
 Skeleton and Tar Name are obligatory, the rest are recommended, dependencies is optional.
 .TP
-The available --variable's VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes.
+The available --variable VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes.
 .TP
 Execute 'bash -c "man <(mkproject --man)"' to see the runtime manpage.
 .SH NOTES

@@ -40,7 +40,7 @@ show a man page
 .TP
 With no file, or when file is -, read standard input.
 .TP
-The available --variable's VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes.
+The available --variable VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes.
 .TP
 Execute 'bash -c "man <(typewrite --man)"' to see the runtime manpage.
 .SH NOTES

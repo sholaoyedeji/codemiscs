@@ -82,7 +82,7 @@ show a man page
 .TP
 All fields are mandatory except homepage, blog, email, extrahelp and extranotes, which can be empty.
 .TP
-The available --variable's VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes.
+The available --variable VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes.
 .TP
 Execute 'bash -c "man <(cmd --man)"' to see the runtime manpage.
 .SH EXAMPLES

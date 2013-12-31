@@ -46,7 +46,7 @@ show a man page
 .TP
 With no term, or when term is -, read standard input. Create ~/.tw directory to enable caching and logging (mkdir ~/.tw). For straight synonyms, check mythes command.
 .TP
-The available --variable's VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes.
+The available --variable VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes.
 .TP
 Execute 'bash -c "man <(tw --man)"' to see the runtime manpage.
 .SH NOTES
