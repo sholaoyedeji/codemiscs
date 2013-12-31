@@ -3,9 +3,9 @@
 .SH NAME
 cmd \- Command Wrapper
 .SH SYNOPSIS
-.B cmd [OPTIONS] -- [SUBARGS]
+.B cmd [OPTIONS] -- [CMDARGS]
 .SH EXAMPLE
-.B cmd -- -h
+.B cmd -- --help
 .SH DESCRIPTION
 command is an smart, elegant, efficient, fast and durable quality volatile commands wrapper. cmd wraps commands with a sophisticated programmatic technology.
 .PP
@@ -25,6 +25,9 @@ set the explanation field
 .TP
 \fB\-r\fR, \fB\-\-cmdversion\fR=\fIVERSION\fR
 set the version field
+.TP
+\fB\-k\fR, \fB\-\-cmdpackage\fR=\fIPACKAGE\fR
+set the package field
 .TP
 \fB\-a\fR, \fB\-\-cmdauthor\fR=\fIAUTHOR\fR
 set the author field
@@ -91,7 +94,7 @@ Programmed by \fBJuan Manuel Borges Caño\fR.
 .SH BLOG
 Thank, follow, comment or pay (suggested 5 bucks) through BitCoin, Flattr, Western Union, PayPal, ... at \fBhttp://juanmabcblog.blogspot.com\fR.
 .SH EMAIL
-Thank or contact through email to \fBjuanmabcmail@gmail.com\fR.
+Thank or contact (suggested subject codemiscs) through email to \fBjuanmabcmail@gmail.com\fR.
 .SH COPYRIGHT
 Copyright \(co \fB2013 Juan Manuel Borges Caño\fR.
 .PP

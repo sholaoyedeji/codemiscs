@@ -1,21 +1,38 @@
 #! /usr/bin/env bash
 
-# cmd (Command): Command Wrapper, wrap bash functions into a command
-# Copyright (C) 2012-2013 Juan Manuel Borges Caño
-# Motivated by smart, elegant, efficient, fast and durable quality volatile commands. This command is a fun and nice recursion coding exercise of cmd.sh.
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#  __________________________________________________________________________
+# /\                                                                         \
+# \_|        ___        __                            _   _                  |
+#   |       |_ _|_ __  / _| ___  _ __ _ __ ___   __ _| |_(_) ___  _ __       |
+#   |        | || '_ \| |_ / _ \| '__| '_ ` _ \ / _` | __| |/ _ \| '_ \      |
+#   |        | || | | |  _| (_) | |  | | | | | | (_| | |_| | (_) | | | |     |
+#   |       |___|_| |_|_|  \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|     |
+#   |                                                                        |
+#   | cmd.sh (Command): Command Wrapper, wrap bash functions into a command  |
+#   |            Copyright (C) 2012-2013 Juan Manuel Borges Caño             |
+#   |                Motivated by smart, elegant, efficient,                 |
+#   |              fast and durable quality volatile commands.               |
+#   |  This command is a fun and nice recursion coding exercise of cmd.sh.   |
+#   |                     _     _                                            |
+#   |                    | |   (_) ___ ___ _ __  ___  ___                    |
+#   |                    | |   | |/ __/ _ \ '_ \/ __|/ _ \                   |
+#   |                    | |___| | (_|  __/ | | \__ \  __/                   |
+#   |                    |_____|_|\___\___|_| |_|___/\___|                   |
+#   |                                                                        |
+#   |   This program is free software: you can redistribute it and/or modify |
+#   |   it under the terms of the GNU General Public License as published by |
+#   |    the Free Software Foundation, either version 3 of the License, or   |
+#   |                   (at your option) any later version.                  |
+#   |                                                                        |
+#   |     This program is distributed in the hope that it will be useful,    |
+#   |      but WITHOUT ANY WARRANTY; without even the implied warranty of    |
+#   |      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the     |
+#   |               GNU General Public License for more details.             |
+#   |                                                                        |
+#   |    You should have received a copy of the GNU General Public License   |
+#   |  along with this program.  If not, see <http://www.gnu.org/licenses/>. |
+#   |   _____________________________________________________________________|_
+#    \_/_______________________________________________________________________/
 
 # The option helpers
 function cmd_option_cmd { cmd_var_cmd="$1"; }
@@ -23,6 +40,7 @@ function cmd_option_name { cmd_var_name="$1"; }
 function cmd_option_description { cmd_var_description="$1"; }
 function cmd_option_explanation { cmd_var_explanation="$1"; }
 function cmd_option_version { cmd_var_version="$1"; }
+function cmd_option_package { cmd_var_package="$1"; }
 function cmd_option_author { cmd_var_author="$1"; }
 function cmd_option_month { cmd_var_month="$1"; }
 function cmd_option_year { cmd_var_year="$1"; }
@@ -42,7 +60,7 @@ function cmd_option_main { cmd_var_main="$1"; }
 # The cmd init function
 function cmd_cmd_init
 {
-	unset cmd_var_cmd cmd_var_name cmd_var_description cmd_var_explanation cmd_var_version cmd_var_author cmd_var_month cmd_var_year cmd_var_homepage cmd_var_blog cmd_var_email cmd_var_usage cmd_var_examples cmd_var_options cmd_var_extrahelp cmd_var_extranotes cmd_var_init cmd_var_main
+	unset cmd_var_cmd cmd_var_name cmd_var_description cmd_var_explanation cmd_var_version cmd_var_package cmd_var_author cmd_var_month cmd_var_year cmd_var_homepage cmd_var_blog cmd_var_email cmd_var_usage cmd_var_examples cmd_var_options cmd_var_extrahelp cmd_var_extranotes cmd_var_init cmd_var_main
 }
 
 # The cmd main function (which recurses cmd.sh)
@@ -54,6 +72,7 @@ function cmd_cmd_main
 	cmd_description="$cmd_var_description"
 	cmd_explanation="$cmd_var_explanation"
 	cmd_version="$cmd_var_version"
+	cmd_package="$cmd_var_package"
 	cmd_author="$cmd_var_author"
 	cmd_month="$cmd_var_month"
 	cmd_year="$cmd_var_year"
@@ -78,15 +97,16 @@ cmd_name="command"
 cmd_description="Command Wrapper"
 cmd_explanation="command is an smart, elegant, efficient, fast and durable quality volatile commands wrapper. cmd wraps commands with a sophisticated programmatic technology."
 cmd_version="[@]pkgversion[@]"
+cmd_package="[@]pkg[@]"
 cmd_author="[@]pkgauthor[@]"
 cmd_month="[@]pkgmonth[@]"
 cmd_year="[@]pkgyear[@]"
 cmd_homepage="[@]pkghomepage[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
-cmd_usage="$cmd [OPTIONS] -- [SUBARGS]"
-cmd_examples=("$cmd -- -h" "/testcmd and testcmdsh/See testcmdsh and testcmd full example commands for usage.///")
-cmd_options=("/c:/cmd:/set the cmd field/cmd_option_cmd/CMD/" "/n:/cmdname:/set the name field/cmd_option_name/NAME/" "/d:/cmddescription:/set the description field/cmd_option_description/DESCRIPTION/" "/x:/cmdexplanation:/set the explanation field/cmd_option_explanation/EXPLANATION/" "/r:/cmdversion:/set the version field/cmd_option_version/VERSION/" "/a:/cmdauthor:/set the author field/cmd_option_author/AUTHOR/" "/t:/cmdmonth:/set the month field/cmd_option_month/MONTH/" "/y:/cmdyear:/set the year field/cmd_option_year/YEAR/" "/p:/cmdhomepage:/set the homepage field/cmd_option_homepage/HOMEPAGE/" "/b:/cmdblog:/set the blog field/cmd_option_blog/BLOG/" "/e:/cmdemail:/set the email field/cmd_option_email/EMAIL/" "/u:/cmdusage:/set the usage field/cmd_option_usage/USAGE/" "/e:/cmdexample:/add an example field (first for usage)/cmd_option_example/EXAMPLE/" "/o:/cmdoption:/add an option field/cmd_option_option/OPTION/" "/l:/cmdextrahelp:/set the extrahelp field/cmd_option_extrahelp/EXTRAHELP/" "/s:/cmdextranotes:/set the extranotes field/cmd_option_extranotes/EXTRANOTES/" "/i:/cmdinit:/set the init field/cmd_option_init/INIT/" "/m:/cmdmain:/set the main field/cmd_option_main/MAIN/")
+cmd_usage="$cmd [OPTIONS] -- [CMDARGS]"
+cmd_examples=("$cmd -- --help" "/testcmd and testcmdsh/See testcmdsh and testcmd full example commands for usage.///")
+cmd_options=("/c:/cmd:/set the cmd field/cmd_option_cmd/CMD/" "/n:/cmdname:/set the name field/cmd_option_name/NAME/" "/d:/cmddescription:/set the description field/cmd_option_description/DESCRIPTION/" "/x:/cmdexplanation:/set the explanation field/cmd_option_explanation/EXPLANATION/" "/r:/cmdversion:/set the version field/cmd_option_version/VERSION/" "/k:/cmdpackage:/set the package field/cmd_option_package/PACKAGE/" "/a:/cmdauthor:/set the author field/cmd_option_author/AUTHOR/" "/t:/cmdmonth:/set the month field/cmd_option_month/MONTH/" "/y:/cmdyear:/set the year field/cmd_option_year/YEAR/" "/p:/cmdhomepage:/set the homepage field/cmd_option_homepage/HOMEPAGE/" "/b:/cmdblog:/set the blog field/cmd_option_blog/BLOG/" "/e:/cmdemail:/set the email field/cmd_option_email/EMAIL/" "/u:/cmdusage:/set the usage field/cmd_option_usage/USAGE/" "/e:/cmdexample:/add an example field (first for usage)/cmd_option_example/EXAMPLE/" "/o:/cmdoption:/add an option field/cmd_option_option/OPTION/" "/l:/cmdextrahelp:/set the extrahelp field/cmd_option_extrahelp/EXTRAHELP/" "/s:/cmdextranotes:/set the extranotes field/cmd_option_extranotes/EXTRANOTES/" "/i:/cmdinit:/set the init field/cmd_option_init/INIT/" "/m:/cmdmain:/set the main field/cmd_option_main/MAIN/")
 cmd_extrahelp="All fields are mandatory except homepage, blog, email, extrahelp and extranotes, which can be empty."
 cmd_extranotes="For more information, check man and info documentation."
 cmd_init="cmd_cmd_init"

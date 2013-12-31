@@ -5,7 +5,7 @@ mkproject \- Project Generator
 .SH SYNOPSIS
 .B mkproject [OPTIONS]
 .SH EXAMPLE
-.B mkproject -s bash -t test
+.B mkproject --skeleton bash --tarname test
 .SH DESCRIPTION
 make project is a command that makes project skeletons. mkproject automatizes the task of starting a new project with the information provided from the command line. The package created by default is a 'hello world' project of the selected skeleton that is managed with autotools. There are skeletons for bash, c, c library, python, c++, c++ library and perl.
 .PP
@@ -62,7 +62,7 @@ Programmed by \fBJuan Manuel Borges Caño\fR.
 .SH BLOG
 Thank, follow, comment or pay (suggested 5 bucks) through BitCoin, Flattr, Western Union, PayPal, ... at \fBhttp://juanmabcblog.blogspot.com\fR.
 .SH EMAIL
-Thank or contact through email to \fBjuanmabcmail@gmail.com\fR.
+Thank or contact (suggested subject codemiscs) through email to \fBjuanmabcmail@gmail.com\fR.
 .SH COPYRIGHT
 Copyright \(co \fB2013 Juan Manuel Borges Caño\fR.
 .PP
