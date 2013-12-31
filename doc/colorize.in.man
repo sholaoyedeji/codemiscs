@@ -38,16 +38,21 @@ use warning profile
 \fB\-e\fR, \fB\-\-error\fR
 use error profile
 .TP
-\fB\-h\fR, \fB\-\-help\fR
-show a help message
-.TP
 \fB\-v\fR, \fB\-\-version\fR
 show the program version
+.TP
+\fB\-v\fR, \fB\-\-variable\fR=\fIVARIABLE\fR
+show a program variable:
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+show a help message
 .TP
 \fB\-m\fR, \fB\-\-man\fR
 show a man page
 .TP
 By default sets profile and uses colors foreground = 2 and background = 1.
+.TP
+The available --variable's VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes.
 .TP
 Execute 'bash -c "man <(colorize --man)"' to see the runtime manpage.
 .SH NOTES

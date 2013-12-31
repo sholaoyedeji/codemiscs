@@ -55,10 +55,11 @@
 #cmd_options="[@]pkgoptions[@]"
 #cmd_extrahelp="[@]pkgextrahelp[@]"
 #cmd_extranotes="[@]pkgextranotes[@]"
-#cmd_main="[@]pkgoptionsmain[@]"
 
 # The usual variables
 #cmd_datadir="[@]pkgdatadir[@]"
+#cmd_init="[@]pkginit[@]"
+#cmd_main="[@]pkgmain[@]"
 
 # The variables cleaned
 [[ -z "$cmd" ]] && cmd="@cmd@"
@@ -106,7 +107,7 @@ function cmd_switch
 }
 
 # The options arrays
-cmd_options+=("/h/help/show a help message/cmd_help/" "/v/version/show the program version/cmd_version/" "/m/man/show a man page/cmd_man/")
+cmd_options+=("/v/version/show the program version/cmd_version/" "/v:/variable:/show a program variable:/cmd_variable/VARIABLE/" "/h/help/show a help message/cmd_help/" "/m/man/show a man page/cmd_man/")
 cmd_shorts=()
 cmd_longs=()
 cmd_msgs=()
@@ -157,6 +158,7 @@ function cmd_help_options
 		fi
 	done
 	[[ -n "$cmd_extrahelp" ]] && printf "%s\n" "$cmd_extrahelp"
+	printf "%s\n" "The available --variable's VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes."
 	printf "%s\n" "Execute 'bash -c \"man <($cmd --man)\"' to see the runtime manpage."
 }
 
@@ -180,13 +182,6 @@ function cmd_help
 		printf "%s\n" ""
 		cmd_help_footer
 	} | colorize --terminal help 
-	exit 0
-}
-
-# The --version option
-function cmd_version
-{
-	printf "%s\n" "$cmd_version"
 	exit 0
 }
 
@@ -218,6 +213,7 @@ function cmd_man
 		printf "%s\n" "${cmd_msgs[$i]}"
 	done
 	[[ -n "$cmd_extrahelp" ]] && printf "%s\n%s\n" ".TP" "$cmd_extrahelp"
+	printf "%s\n" ".TP" "The available --variable's VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes."
 	printf "%s\n" ".TP" "Execute 'bash -c \"man <($cmd --man)\"' to see the runtime manpage."
 	(( "${#cmd_examples[@]}" > 1 )) && printf "%s\n" ".SH EXAMPLES"
 	for ((i = 1; i < "${#cmd_examples[@]}"; i++))
@@ -234,6 +230,26 @@ function cmd_man
 	[[ -n "$cmd_email" ]] && printf "%s\n%s\n" ".SH EMAIL" "Thank or contact (suggested subject $cmd_package) through email to \\fB${cmd_email}\\fR."
 	printf "%s\n%s\n" ".SH COPYRIGHT" "Copyright \(co \\fB${cmd_year} ${cmd_author}\\fR."
 	printf "%s\n%s\n%s\n%s\n" ".PP" "This is free software.  You may redistribute copies of it under the terms of" "the GNU General Public License <http://www.gnu.org/licenses/gpl.html>." "There is NO WARRANTY, to the extent permitted by law."
+	exit 0
+}
+
+# The --variable option
+function cmd_variable
+{
+	cmd_variable="cmd_$1"'[@]'
+	if [[ "${!cmd_variable+_}" ]]
+	then
+		printf "%s\n" "${!cmd_variable}"
+	else
+		cmd_error "unknown variable"
+	fi
+	exit 0
+}
+
+# The --version option
+function cmd_version
+{
+	printf "%s\n" "$cmd_version"
 	exit 0
 }
 

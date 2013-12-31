@@ -41,16 +41,21 @@ set dependencies
 \fB\-r\fR, \fB\-\-verbose\fR
 show progress messages
 .TP
-\fB\-h\fR, \fB\-\-help\fR
-show a help message
-.TP
 \fB\-v\fR, \fB\-\-version\fR
 show the program version
+.TP
+\fB\-v\fR, \fB\-\-variable\fR=\fIVARIABLE\fR
+show a program variable:
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+show a help message
 .TP
 \fB\-m\fR, \fB\-\-man\fR
 show a man page
 .TP
 Skeleton and Tar Name are obligatory, the rest are recommended, dependencies is optional.
+.TP
+The available --variable's VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes.
 .TP
 Execute 'bash -c "man <(mkproject --man)"' to see the runtime manpage.
 .SH NOTES

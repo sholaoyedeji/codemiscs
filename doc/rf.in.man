@@ -26,17 +26,21 @@ set link mode
 \fB\-c\fR, \fB\-\-cache\fR=\fIMINUTES\fR
 set cache time
 .TP
-\fB\-h\fR, \fB\-\-help\fR
-show a help message
-.TP
 \fB\-v\fR, \fB\-\-version\fR
 show the program version
+.TP
+\fB\-v\fR, \fB\-\-variable\fR=\fIVARIABLE\fR
+show a program variable:
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+show a help message
 .TP
 \fB\-m\fR, \fB\-\-man\fR
 show a man page
 .TP
-On no config creates ~/.rf directory and adds the default feeds to the ~/.rf/feeds file. 
-With no option, use title mode. With no items, show all. With no cache time, use 30 minutes.
+On no config creates ~/.rf directory and adds the default feeds to the ~/.rf/feeds file. With no option, use title mode. With no items, show all. With no cache time, use 30 minutes.
+.TP
+The available --variable's VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes.
 .TP
 Execute 'bash -c "man <(rf --man)"' to see the runtime manpage.
 .SH NOTES
