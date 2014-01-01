@@ -35,6 +35,15 @@
 #   |   ____________________________________________________________________________|_
 #    \_/______________________________________________________________________________/
 
+# tput bold - Set bold mode
+# tput dim - turn on half-bright mode
+# tput smul - begin underline mode
+# tput rmul - exit underline mode
+# tput rev - Turn on reverse mode
+# tput smso - Enter standout mode (bold on rxvt)
+# tput rmso - Exit standout mode
+# tput sgr0 - Turn off all attributes
+
 # The foreground option
 function cl_option_foreground
 {
@@ -273,10 +282,20 @@ function cl_option_strip
 # The cmd init function
 function cl_init
 {
+	# The tput colors
+	cl_black=0
+	cl_red=1
+	cl_green=2
+	cl_yellow=3
+	cl_blue=4
+	cl_magenta=5
+	cl_cyan=6
+	cl_white=7
+
 	cl_foreground=2
 	cl_background=1
-	cl_strip="off"
 	cl_terminal="off"
+	cl_strip="off"
 }
 
 # The cmd main function
