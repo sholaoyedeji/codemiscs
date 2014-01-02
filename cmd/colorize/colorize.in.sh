@@ -35,15 +35,6 @@
 #   |   ____________________________________________________________________________|_
 #    \_/______________________________________________________________________________/
 
-# tput bold - Set bold mode
-# tput dim - turn on half-bright mode
-# tput smul - begin underline mode
-# tput rmul - exit underline mode
-# tput rev - Turn on reverse mode
-# tput smso - Enter standout mode (bold on rxvt)
-# tput rmso - Exit standout mode
-# tput sgr0 - Turn off all attributes
-
 # The foreground option
 function cl_option_foreground
 {
