@@ -25,26 +25,29 @@ CLEANFILES = $(noinst_SCRIPTS)
 tarball: Makefile
 	pushd ..; make dist; popd
 
-fedora/$(PACKAGE).spec: tarball fedora/$(PACKAGE).in.spec Makefile
+folders: Makefile
+	mkdir -p fedora ubuntu debian arch
+
+fedora/$(PACKAGE).spec: tarball folders fedora/$(PACKAGE).in.spec Makefile
 	$(PACKAGE_PARSE) $(srcdir)/fedora/$(PACKAGE).in.spec > fedora/$(PACKAGE).spec
 
-ubuntu/$(PACKAGE).dsc: tarball ubuntu/$(PACKAGE).in.dsc Makefile
+ubuntu/$(PACKAGE).dsc: tarball folders ubuntu/$(PACKAGE).in.dsc Makefile
 	$(PACKAGE_PARSE) $(srcdir)/ubuntu/$(PACKAGE).in.dsc > ubuntu/$(PACKAGE).dsc
-ubuntu/debian.control: tarball ubuntu/debian.in.control Makefile
+ubuntu/debian.control: tarball folders ubuntu/debian.in.control Makefile
 	$(PACKAGE_PARSE) $(srcdir)/ubuntu/debian.in.control > ubuntu/debian.control
-ubuntu/debian.rules: tarball ubuntu/debian.in.rules Makefile
+ubuntu/debian.rules: tarball folders ubuntu/debian.in.rules Makefile
 	$(PACKAGE_PARSE) $(srcdir)/ubuntu/debian.in.rules > ubuntu/debian.rules
-ubuntu/debian.changelog: tarball ubuntu/debian.in.changelog Makefile
+ubuntu/debian.changelog: tarball folders ubuntu/debian.in.changelog Makefile
 	$(PACKAGE_PARSE) $(srcdir)/ubuntu/debian.in.changelog > ubuntu/debian.changelog
 
-debian/$(PACKAGE).dsc: tarball debian/$(PACKAGE).in.dsc Makefile
+debian/$(PACKAGE).dsc: tarball folders debian/$(PACKAGE).in.dsc Makefile
 	$(PACKAGE_PARSE) $(srcdir)/debian/$(PACKAGE).in.dsc > debian/$(PACKAGE).dsc
-debian/debian.control: tarball debian/debian.in.control Makefile
+debian/debian.control: tarball folders debian/debian.in.control Makefile
 	$(PACKAGE_PARSE) $(srcdir)/debian/debian.in.control > debian/debian.control
-debian/debian.rules: tarball debian/debian.in.rules Makefile
+debian/debian.rules: tarball folders debian/debian.in.rules Makefile
 	$(PACKAGE_PARSE) $(srcdir)/debian/debian.in.rules > debian/debian.rules
-debian/debian.changelog: tarball debian/debian.in.changelog Makefile
+debian/debian.changelog: tarball folders debian/debian.in.changelog Makefile
 	$(PACKAGE_PARSE) $(srcdir)/debian/debian.in.changelog > debian/debian.changelog
 
-arch/PKGBUILD: tarball arch/in.PKGBUILD Makefile
+arch/PKGBUILD: tarball folders arch/in.PKGBUILD Makefile
 	$(PACKAGE_PARSE) $(srcdir)/arch/in.PKGBUILD > arch/PKGBUILD
