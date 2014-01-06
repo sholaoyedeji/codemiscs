@@ -243,18 +243,18 @@ function tw_main
 }
 
 # The cmd fields
+cmd_package="[@]pkg[@]"
 cmd="tw"
 cmd_name="translate word"
+cmd_version="[@]pkgversion[@]"
 cmd_description="Human Language Translator"
 cmd_explanation="translate word is a command that translates words into different languages. tw uses internal dictionaries, and contacts online to the Google Translation and the FreeTranslation engines."
-cmd_version="[@]pkgversion[@]"
-cmd_package="[@]pkg[@]"
-cmd_author="[@]pkgauthor[@]"
+cmd_license="[@]pkglicense[@]"
 cmd_homepage="[@]pkghomepage[@]"
+cmd_author="[@]pkgauthor[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [DICTIONARY] [TERM]"
-cmd_examples=("$cmd en-es hello")
 cmd_options=("/l/list/list available dictionaries/tw_option_list/" "/s/shortcuts/list available dictionaries shortcuts/tw_option_shortcuts/" "/x/exact/perform an exact match/tw_option_exact/")
 if [[ "[@]pkghunspell[@]" = "yes" && "[@]pkgmythes[@]" = "yes" ]] 
 then
@@ -269,12 +269,13 @@ then
 	cmd_options=("${cmd_options[@]}" "/k/speak/speak the text/tw_option_speak/")
 fi
 cmd_options=("${cmd_options[@]}" "/d/disable-logging/disable logging of failure terms/tw_option_disable_logging/")
+cmd_examples=("$cmd en-es hello")
 cmd_extrahelp="With no term, or when term is -, read standard input. Create ~/.$cmd directory to enable caching and logging (mkdir ~/.$cmd)."
 if [[ "[@]pkgmythes[@]" = "yes" ]]
 then
 	cmd_extrahelp+=" For straight synonyms, check mythes command."
 fi
-cmd_extranotes="For more information, check man documentation."
+cmd_extranotes="For more information, check documentation."
 cmd_init="tw_init"
 cmd_main="tw_main"
 

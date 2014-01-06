@@ -315,21 +315,22 @@ function cl_main
 }
 
 # The cmd fields
+cmd_package="[@]pkg[@]"
 cmd="colorize"
 cmd_name="colorize input"
+cmd_version="[@]pkgversion[@]"
 cmd_description="Input Tinter"
 cmd_explanation="colorize input is a command that colorizes the input read from standard input. colorize uses profiles to select the color to apply to the input."
-cmd_version="[@]pkgversion[@]"
-cmd_package="[@]pkg[@]"
-cmd_author="[@]pkgauthor[@]"
+cmd_license="[@]pkglicense[@]"
 cmd_homepage="[@]pkghomepage[@]"
+cmd_author="[@]pkgauthor[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [PROFILE]"
-cmd_examples=("$cmd --help | $cmd --profile help")
 cmd_options=("/f:/foreground:/set foreground color/cl_option_foreground/COLOR/" "/b:/background:/set background color/cl_option_background/COLOR/" "/l/list/list profiles/cl_option_list/" "/p:/profile:/set profile/cl_option_profile/PROFILE/" "/t/terminal/color only if output is a terminal/cl_option_terminal/" "/s/strip/remove any color traces/cl_option_strip/" "/i/info/use info profile/cl_profile_info/" "/w/warning/use warning profile/cl_profile_warning/" "/e/error/use error profile/cl_profile_error/")
+cmd_examples=("$cmd --help | $cmd --profile help")
 cmd_extrahelp="By default sets profile and uses colors foreground = 2 and background = 1."
-cmd_extranotes="For more information, check man documentation."
+cmd_extranotes="For more information, check documentation."
 cmd_init="cl_init"
 cmd_main="cl_main"
 

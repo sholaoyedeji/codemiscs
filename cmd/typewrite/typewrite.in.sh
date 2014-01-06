@@ -108,25 +108,26 @@ function tw_main
 }
 
 # The cmd fields
+cmd_package="[@]pkg[@]"
 cmd="typewrite"
 cmd_name="typewrite"
+cmd_version="[@]pkgversion[@]"
 cmd_description="Slowed Down Echoer"
 cmd_explanation="typewrite is a program that echoes slowly. typewrite reads a file or standard input and writes slowed down to standard output."
-cmd_version="[@]pkgversion[@]"
-cmd_package="[@]pkg[@]"
-cmd_author="[@]pkgauthor[@]"
+cmd_license="[@]pkglicense[@]"
 cmd_homepage="[@]pkghomepage[@]"
+cmd_author="[@]pkgauthor[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [FILE]"
-cmd_examples=("echo type this | $cmd ")
 cmd_options=("/c:/charsecs:/set seconds per char/tw_option_charsecs/CHARSECS/" "/l:/linesecs:/set seconds per line/tw_option_linesecs/LINESECS/" "/f/fast/type fast/tw_option_fast/" "/s/slow/type slow/tw_option_slow/")
 if [[ "[@]pkgogg123[@]" == "yes" ]]
 then
 	cmd_options=("${cmd_options[@]}" "/s/sound/play a sound/tw_option_sound/")
 fi
+cmd_examples=("echo type this | $cmd ")
 cmd_extrahelp="With no file, or when file is -, read standard input."
-cmd_extranotes="For more information, check man documentation."
+cmd_extranotes="For more information, check documentation."
 cmd_init="tw_init"
 cmd_main="tw_main"
 

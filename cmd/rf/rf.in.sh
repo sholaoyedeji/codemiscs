@@ -200,21 +200,22 @@ function rf_main
 }
 
 # The cmd fields
+cmd_package="[@]pkg[@]"
 cmd="rf"
 cmd_name="read feed"
+cmd_version="[@]pkgversion[@]"
 cmd_description="Feed Reader"
 cmd_explanation="read feed is a command that reads feeds from any source. rf uses the feed of a site to manage it with a command line interface."
-cmd_version="[@]pkgversion[@]"
-cmd_package="[@]pkg[@]"
-cmd_author="[@]pkgauthor[@]"
+cmd_license="[@]pkglicense[@]"
 cmd_homepage="[@]pkghomepage[@]"
+cmd_author="[@]pkgauthor[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [FEED]"
-cmd_examples=("$cmd linux")
 cmd_options=("/l/list/list the available feeds/rf_list/" "/t::/title::/set title mode/rf_title/ITEMS/" "/d:/description:/set description mode/rf_description/ITEM/" "/n:/link:/set link mode/rf_link/ITEM/" "/c:/cache:/set cache time/rf_cache/MINUTES/")
 cmd_extrahelp="On no config creates ~/.$cmd directory and adds the default feeds to the ~/.rf/feeds file. With no option, use title mode. With no items, show all. With no cache time, use 30 minutes."
-cmd_extranotes="For more information, check man documentation."
+cmd_examples=("$cmd linux")
+cmd_extranotes="For more information, check documentation."
 cmd_init="rf_init"
 cmd_main="rf_main"
 

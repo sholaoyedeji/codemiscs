@@ -1,7 +1,18 @@
 NOTES
 codemiscs-*.tar.bz2
 codemiscs-*.rpm
-codemiscs.spec
+codemiscs-*.deb
+codemiscs-*.pkg.tar.xz
+dist/fedora/codemiscs.spec
+dist/ubuntu/codemiscs.dsc
+dist/ubuntu/debian.rules
+dist/ubuntu/debian.changelog
+dist/ubuntu/debian.control
+dist/debian/codemiscs.dsc
+dist/debian/debian.rules
+dist/debian/debian.changelog
+dist/debian/debian.control
+dist/arch/PKGBUILD
 
 # for all subdirectories
 Makefile.in

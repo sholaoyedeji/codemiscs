@@ -363,21 +363,22 @@ function sh_main
 }
 
 # The cmd fields
+cmd_package="[@]pkg[@]"
 cmd="show"
 cmd_name="shell show"
+cmd_version="[@]pkgversion[@]"
 cmd_description="Show Fun"
 cmd_explanation="shell show is a command that displays nice graphical shell art. shell show has various effects combined."
-cmd_version="[@]pkgversion[@]"
-cmd_package="[@]pkg[@]"
-cmd_author="[@]pkgauthor[@]"
+cmd_license="[@]pkglicense[@]"
 cmd_homepage="[@]pkghomepage[@]"
+cmd_author="[@]pkgauthor[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [SHOW] [-- SHOWOPTIONS]"
-cmd_examples=("$cmd cookie")
 cmd_options=("/l/list/list shows/sh_option_list/" "/s/sound/play a sound/sh_option_sound/" "/f/foreground/work in foreground/sh_option_foreground/")
+cmd_examples=("$cmd cookie")
 cmd_extrahelp="By default shows a cookie."
-cmd_extranotes="For more information, check man documentation."
+cmd_extranotes="For more information, check documentation."
 cmd_init="sh_init"
 cmd_main="sh_main"
 

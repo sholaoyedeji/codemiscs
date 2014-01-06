@@ -171,21 +171,22 @@ function imgs_main
 }
 
 # The cmd fields
+cmd_package="[@]pkg[@]"
 cmd="imgs"
 cmd_name="images"
+cmd_version="[@]pkgversion[@]"
 cmd_description="Images Wizard"
 cmd_explanation="images is a program that fetches and/or manipulates groups of images. imgs fetches google images, unify groups to sizes and builds slideshows."
-cmd_version="[@]pkgversion[@]"
-cmd_package="[@]pkg[@]"
-cmd_author="[@]pkgauthor[@]"
+cmd_license="[@]pkglicense[@]"
 cmd_homepage="[@]pkghomepage[@]"
+cmd_author="[@]pkgauthor[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTION] [ARGUMENTS]"
-cmd_examples=("$cmd linux 100 320x240")
 cmd_options=("/l/list/list shows/imgs_option_list/")
+cmd_examples=("$cmd linux 100 320x240")
 cmd_extrahelp="By default performs a fortune batch. Respect the terms of use of online services."
-cmd_extranotes="For more information, check man documentation."
+cmd_extranotes="For more information, check documentation."
 cmd_init="imgs_init"
 cmd_main="imgs_main"
 

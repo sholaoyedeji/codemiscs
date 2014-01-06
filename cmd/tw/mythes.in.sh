@@ -205,18 +205,18 @@ function mythes_main
 }
 
 # The cmd fields
+cmd_package="[@]pkg[@]"
 cmd="mythes"
 cmd_name="mythes"
+cmd_version="[@]pkgversion[@]"
 cmd_description="Synonyms Mythes Interface"
 cmd_explanation="mythes is a command that shows synonyms for a given word."
-cmd_version="[@]pkgversion[@]"
-cmd_package="[@]pkg[@]"
-cmd_author="[@]pkgauthor[@]"
+cmd_license="[@]pkglicense[@]"
 cmd_homepage="[@]pkghomepage[@]"
+cmd_author="[@]pkgauthor[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [DICTIONARY] [TERM]"
-cmd_examples=("$cmd en hello")
 cmd_options=("/l/list/list available dictionaries/mythes_option_list/")
 if [[ "[@]pkgaspell[@]" == "yes" ]]
 then
@@ -226,8 +226,9 @@ if [[ "[@]pkgespeak[@]" == "yes" ]]
 then
 	cmd_options=("${cmd_options[@]}" "/k/speak/speak the text/mythes_option_speak/")
 fi
+cmd_examples=("$cmd en hello")
 cmd_extrahelp="With no term, or when term is -, read standard input."
-cmd_extranotes="For more information, check tw documentation."
+cmd_extranotes="For more information, check documentation."
 cmd_init="mythes_init"
 cmd_main="mythes_main"
 
