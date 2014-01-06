@@ -1,3 +1,8 @@
+2014-01-06 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
+	* Improved Commands: cmd 
+	* Better Design: the cmd improvements benefit coding, look and usage of all commands.
+	* Better Distribution: introducing meta distribution technology, supporting by now fedora, ubuntu, debian, arch and autotools tarball.
+
 2013-12-30 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
 	* New Commands: show
 	* Improved Commands: cmd, colorize, typewrite
