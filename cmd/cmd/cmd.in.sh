@@ -164,7 +164,7 @@ function cmd_help_options
 		fi
 	done
 	[[ -n "$cmd_extrahelp" ]] && printf "%s\n" "$cmd_extrahelp"
-	printf "%s\n" "The available --variable VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes."
+	printf "%s\n" "The available --variable VARIABLES are: package, name, version, description, explanation, homepage, author, blog, email, usage, options, examples, extrahelp, extranotes, month, year, day and timestamp, ."
 	printf "%s\n" "Execute 'bash -c \"man <($cmd --man)\"' to see the runtime manpage."
 }
 
@@ -219,8 +219,8 @@ function cmd_man
 		printf "%s\n" "${cmd_msgs[$i]}"
 	done
 	[[ -n "$cmd_extrahelp" ]] && printf "%s\n%s\n" ".TP" "$cmd_extrahelp"
-	printf "%s\n" ".TP" "The available --variable VARIABLES are: name, description, explanation, version, package, author, month, year, homepage, blog, email, usage, examples, options, extrahelp and extranotes."
-	printf "%s\n" ".TP" "Execute 'bash -c \"man <($cmd --man)\"' to see the runtime manpage."
+	printf "%s\n%s\n" ".TP" "The available --variable VARIABLES are: package, name, version, description, explanation, homepage, author, blog, email, usage, options, examples, extrahelp, extranotes, month, year, day and timestamp, ."
+	printf "%s\n%s\n" ".TP" "Execute 'bash -c \"man <($cmd --man)\"' to see the runtime manpage."
 	(( "${#cmd_examples[@]}" > 1 )) && printf "%s\n" ".SH EXAMPLES"
 	for ((i = 1; i < "${#cmd_examples[@]}"; i++))
 	do
