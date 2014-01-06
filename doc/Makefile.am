@@ -12,6 +12,8 @@ EXTRA_DIST = \
 	demo \
 	stage1/ \
 	stage2/
+demo_SCRIPTS = demo
+demodir = $(docdir)
 man1_MANS = \
 	cmd.man \
 	mkproject.man \
