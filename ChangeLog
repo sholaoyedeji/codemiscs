@@ -1,7 +1,10 @@
-2014-01-06 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
-	* Improved Commands: cmd 
-	* Better Design: the cmd improvements benefit coding, look and usage of all commands.
-	* Better Distribution: introducing meta distribution technology, supporting by now fedora, ubuntu, debian, arch and autotools tarball.
+2014-01-07 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
+	* Improved Commands: cmd (core)
+	* Better Design: the cmd improvements benefit instantly all commands coding, look and usage experiences
+	* Better Documentation: continues improving effortlessly through documentation automatic syndication 
+	* Better Distribution: introducing smart meta distribution technology (currently targeted to open build service, build.opensuse.org instance, supporting fedora, ubuntu, suse, debian, centos, arch and autotools)
+	* Better Website: continues improving effortlessly through documentation automatic syndication and smart meta distribution
+	* Proved Benefits: previous releases features consolidate into real value
 
 2013-12-30 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
 	* New Commands: show
@@ -13,7 +16,7 @@
 2013-12-19 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
 	* New Commands: typewriter, colorize
 	* Better Documentation: good writing once and automatic syndication everywhere consistency (--help, --man, manuals, homepage)
-	* Better Website: through documentation automatic syndication
+	* Better Website: through documentation automatic syndication technology
 	* Better Distribution: checks for every dependent command in use, minimized overhead for new command additions
 
 2013-11-28 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 

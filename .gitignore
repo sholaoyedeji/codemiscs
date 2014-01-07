@@ -1,20 +1,71 @@
+# Copyright (C) 2012-2014 Juan Manuel Borges Caño <juanmabcmail@gmail.com>
+
 NOTES
+
+# Executables
+cmd/cmd/cmd.sh
+cmd/cmd/testcmdsh
+cmd/cmd/cmd
+cmd/cmd/testcmd
+cmd/mkproject/mkproject
+cmd/tw/mythes-raw
+cmd/tw/mythes
+cmd/tw/tw
+cmd/tw/tw-config-klipper
+cmd/tw/tw-config-gtw
+cmd/rf/rf
+cmd/imgs/imgs
+cmd/typewrite/typewrite
+cmd/colorize/colorize
+cmd/show/show
+
+# Documentation
+cmd.man
+mkproject.man
+mythes.man
+tw.man
+rf.man
+imgs.man
+typewrite.man
+colorize.man
+show.man
+
+# Packages
 codemiscs-*.tar.bz2
 codemiscs-*.rpm
 codemiscs-*.deb
 codemiscs-*.pkg.tar.xz
-dist/fedora/codemiscs.spec
-dist/ubuntu/codemiscs.dsc
-dist/ubuntu/debian.rules
-dist/ubuntu/debian.changelog
-dist/ubuntu/debian.control
-dist/debian/codemiscs.dsc
-dist/debian/debian.rules
-dist/debian/debian.changelog
-dist/debian/debian.control
-dist/arch/PKGBUILD
+codemiscs.spec
+codemiscs.dsc
+debian.rules
+debian.changelog
+debian.control
+PKGBUILD
 
-# for all subdirectories
+# Website
+codemiscs.wiki/
+
+# Autotools
+compile
+config.*
+configure
+depcomp
+aclocal.m4
+autom4te.cache
+stamp-*
+libtool
+ltmain.sh
+mingw32-config.cache
+missing
+install-sh
+glib-gettextize
+glib-zip
+gtk-doc.make
+py-compile
+test-driver
+INSTALL
+
+# Development
 Makefile.in
 Makefile
 TAGS
@@ -38,51 +89,4 @@ TAGS
 *.test 
 *.log
 *.trs
-# autofoo stuff here
-compile
-config.*
-configure
-depcomp
-aclocal.m4
-autom4te.cache
-stamp-*
-libtool
-ltmain.sh
-mingw32-config.cache
-missing
-install-sh
-glib-gettextize
-glib-zip
-gtk-doc.make
-py-compile
-test-driver
 
-INSTALL
-
-cmd/cmd/cmd.sh
-cmd/cmd/testcmdsh
-cmd/cmd/cmd
-cmd/cmd/testcmd
-cmd/mkproject/mkproject
-cmd/tw/mythes-raw
-cmd/tw/mythes
-cmd/tw/tw
-cmd/tw/tw-config-klipper
-cmd/tw/tw-config-gtw
-cmd/rf/rf
-cmd/imgs/imgs
-cmd/typewrite/typewrite
-cmd/colorize/colorize
-cmd/show/show
-
-cmd.man
-mkproject.man
-mythes.man
-tw.man
-rf.man
-imgs.man
-typewrite.man
-colorize.man
-show.man
-
-codemiscs.wiki/
