@@ -51,7 +51,7 @@ function imgs_option_list()
 	exit 0
 }
 
-# The --fetch option
+# The fetch mode
 function imgs_fetch
 {
 	# Tweaked http://sam.nipl.net/code/nipl-tools/bin/google-images to be silent, and elegant
@@ -74,7 +74,7 @@ function imgs_fetch
 	exit 0
 }
 
-# The --unify option
+# The unify mode
 function imgs_unify
 {
 	# Relies in ImageMagick's *convert*
@@ -91,7 +91,7 @@ function imgs_unify
 	exit 0
 }
 
-# The --slideshow option
+# The slideshow mode
 function imgs_slideshow
 {
 	(( $# == 0 )) && cmd_error "Usage: WidthxHeight Images ... SlideshowProduct.gif"
@@ -107,7 +107,7 @@ function imgs_slideshow
 	exit 0
 }
 
-# The --fortune option
+# The fortune mode
 function imgs_fortune
 {
 	size="${1:-320x240}"
@@ -121,6 +121,7 @@ function imgs_fortune
 	exit 0
 }
 
+# The custom mode
 function imgs_custom
 {
 	word="${1:-$(shuf /usr/share/dict/words | head -1)}"
@@ -171,10 +172,10 @@ cmd_homepage="[@]pkghomepage[@]"
 cmd_author="[@]pkgauthor[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
-cmd_usage="$cmd [OPTION] [ARGUMENTS]"
-cmd_options=("/l/list/list shows/imgs_option_list/")
-cmd_examples=("$cmd custom linux 100 320x240")
-cmd_extrahelp="By default performs a fortune batch. Respect the terms of use of online services."
+cmd_usage="$cmd [OPTIONS] [MODE] [-- MODEOPTIONS]"
+cmd_options=("/l/list/list modes/imgs_option_list/")
+cmd_examples=("$cmd custom -- linux 100 320x240")
+cmd_extrahelp="By default works in custom mode. Respect the terms of use of online services."
 cmd_extranotes="For more information, check documentation."
 cmd_init="imgs_init"
 cmd_main="imgs_main"
