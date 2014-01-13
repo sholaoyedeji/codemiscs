@@ -5,7 +5,7 @@ imgs \- Images Wizard
 .SH SYNOPSIS
 .B imgs [OPTION] [ARGUMENTS]
 .SH EXAMPLE
-.B imgs linux 100 320x240
+.B imgs custom linux 100 320x240
 .SH DESCRIPTION
 images is a program that fetches and/or manipulates groups of images. imgs fetches google images, unify groups to sizes and builds slideshows.
 .PP

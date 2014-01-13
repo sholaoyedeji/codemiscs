@@ -1,0 +1,18 @@
+#! /usr/bin/env bash
+
+wininfo="$(xwininfo)"
+id="$(awk '/Window id:/ {print $4}' <<< "$wininfo")"
+x="$(awk '/Absolute upper-left X:/ {print $4}' <<< "$wininfo")"
+y="$(awk '/Absolute upper-left Y:/ {print $4}' <<< "$wininfo")"
+width="$(awk '/Width:/ {print $2}' <<< "$wininfo")"
+height="$(awk '/Height:/ {print $2}' <<< "$wininfo")"
+
+"$@" &
+cid=$!
+recordmydesktop --no-wm-check -x "$x" -y "$y" -width "$width" -height "$height" --device pulse --no-frame --overwrite --fps 25 -o "Capture-$id-$cid.ogv" >/dev/null 2>&1 &
+#ffmpeg -f x11grab -s "${width}x${height}" -i ":0.0+$x,$y" -vb 500M -f pulse -i default -ab 128K "Capture-$id-$cid.ogv" # -loglevel quiet >/dev/null 2>&1 &
+rid=$!
+wait "$cid"
+kill "$rid"
+wait "$rid"
+echo "Capture-$id-$cid"
