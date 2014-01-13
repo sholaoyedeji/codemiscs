@@ -123,8 +123,6 @@ function imgs_fortune
 
 function imgs_custom
 {
-	imgs_fortune "$@"
-
 	word="${1:-$(shuf /usr/share/dict/words | head -1)}"
 	count="${2:-100}"
 	size="${3:-320x240}"
@@ -143,7 +141,7 @@ function imgs_init
 {
 	#shopt -s extglob
 	#shopt -s nullglob
-	imgs_mode="fortune"
+	imgs_mode="custom"
 }
 
 # The cmd main function
@@ -158,7 +156,7 @@ function imgs_main
 			"imgs_$imgs_mode" "$@"
 		fi
 	done
-	cmd_error "unknown show"
+	cmd_error "unknown mode"
 }
 
 # The cmd fields
