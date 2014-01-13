@@ -9,7 +9,7 @@
 #   |      |___|_| |_|_|  \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|     |
 #   |                                                                       |
 #   |       imgs (Images): Images Wizard, fetch and manipulate images       |
-#   |               Copyright (C) 2013 Juan Manuel Borges Caño              |
+#   |            Copyright (C) 2013 - 2014 Juan Manuel Borges Caño          |
 #   |      The thought of creating something usable from google images      |
 #   |                    encouraged a research that found                   |
 #   |         http://sam.nipl.net/code/nipl-tools/bin/google-images,        |
@@ -55,8 +55,6 @@ function imgs_option_list()
 function imgs_fetch
 {
 	# Tweaked http://sam.nipl.net/code/nipl-tools/bin/google-images to be silent, and elegant
-	# November 22nd, 2013, Juan Manuel Borges Caño
-
 	[ $# = 0 ] && cmd_error "Usage: query count parallel safe opts timeout tries agent1 agent2"
 
 	query=$1 count=${2:-100} parallel=${3:-10} safe=$4 opts=$5 timeout=${6:-10} tries=${7:-2} agent1=${8:-Mozilla/5.0 (X11; Linux i686; rv:25.0) Gecko/20100101 Firefox/25.0} agent2=${9:-Googlebot-Image/1.0}
@@ -80,7 +78,6 @@ function imgs_fetch
 function imgs_unify
 {
 	# Relies in ImageMagick's *convert*
-	# November 22nd, 2013, Juan Manuel Borges Caño
 
 	(( $# == 0 )) && cmd_error "Usage: WidthxHeight Images ..."
 
@@ -97,8 +94,6 @@ function imgs_unify
 # The --slideshow option
 function imgs_slideshow
 {
-	# November 22nd, 2013, Juan Manuel Borges Caño
-
 	(( $# == 0 )) && cmd_error "Usage: WidthxHeight Images ... SlideshowProduct.gif"
 
 	size="$1"
@@ -115,8 +110,6 @@ function imgs_slideshow
 # The --fortune option
 function imgs_fortune
 {
-	# November 22nd, 2013, Juan Manuel Borges Caño
-
 	size="${1:-320x240}"
 	count="${2:-100}"
 	word="${3:-$(shuf /usr/share/dict/words | head -1)}"
@@ -130,8 +123,6 @@ function imgs_fortune
 
 function imgs_custom
 {
-	# November 17th, 2013, Juan Manuel Borges Caño
-
 	imgs_fortune "$@"
 
 	word="${1:-$(shuf /usr/share/dict/words | head -1)}"

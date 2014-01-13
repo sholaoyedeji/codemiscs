@@ -9,7 +9,7 @@
 #   |      |___|_| |_|_|  \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|     |
 #   |                                                                       |
 #   |        rf (Read Feed): Feed Reader, read feeds from any source        |
-#   |            Copyright (C) 2012-2013 Juan Manuel Borges Caño            |
+#   |            Copyright (C) 2012 - 2014 Juan Manuel Borges Caño          |
 #   |       The desire for a fast, command line, non interactive, rich      |
 #   |               news feed reader encouraged this command.               |
 #   |                    _     _                                            |

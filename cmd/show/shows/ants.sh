@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 #  _________________________________________________________________________
 # /\                                                                        \
 # \_|       ___        __                            _   _                  |
@@ -6,11 +8,10 @@
 #   |       | || | | |  _| (_) | |  | | | | | | (_| | |_| | (_) | | | |     |
 #   |      |___|_| |_|_|  \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|     |
 #   |                                                                       |
-#   |             tw (Translate Word): Human Language Translator            |
-#   |           Copyright (C) 2007 - 2014 Juan Manuel Borges Caño           |
-#   |                  The need for an smart, fast and rich                 |
-#   |               translation answer inspired this command.               |
-#   |                             Cache Plugin                              |
+#   |               show (Shell Show): Show Fun (Early stages)              |
+#   |            Copyright (C) 2013 - 2014 Juan Manuel Borges Caño          |
+#   |                      Terminal graphics amaze me.                      |
+#   |      Some shows are based on the gathering of http://mewbies.com/     |
 #   |                    _     _                                            |
 #   |                   | |   (_) ___ ___ _ __  ___  ___                    |
 #   |                   | |   | |/ __/ _ \ '_ \/ __|/ _ \                   |
@@ -32,58 +33,10 @@
 #   |   ____________________________________________________________________|_
 #    \_/______________________________________________________________________/
 
-function tw_cache_name
-{
-	printf "%s\n"  "cache"
-}
+# The ants
+# Langtons Ants
+# Charles Cooke
 
-function tw_cache_shortcut
-{
-	printf "%s\n"  "ca"
-}
+speed="${1:-0.01}"
 
-function tw_cache_list
-{
-	if [[ -d "$HOME/.tw" ]]
-	then
-		for twp_twd in "$HOME/.tw"/*.twdc
-		do
-			twp_dict="$twp_twd"
-			twp_dict="${twp_dict##*/}"
-			twp_dict="${twp_dict%.*}"
-			printf "%s\n"  "$twp_dict"
-		done
-	fi
-}
-
-# This does cache translation
-function tw_cache
-{
-	if (( "$(wc -l <<< "$tw_input")" == "1" )) && (( "$(wc -w <<< "$tw_input")" <= "5" ))
-	then
-		twp_twd="$HOME/.tw/$tw_dict.twdc"
-		if [[ -f "$twp_twd" ]]
-		then
-			tw_output="$(
-			{
-				gawk -F " : " -v input="$tw_input" 'tolower($1) == tolower(input) { print $2 }' "${twp_twd}"
-				if cmd_switch "$tw_synonyms"
-				then
-					tw_mythes "${tw_dict%%-*}" "$tw_input" |  while read -r twp_myth
-					do
-						gawk -F " : " -v input="$twp_myth" 'tolower($1) == tolower(input) { print $2 }' "${twp_twd}"
-					done
-				fi
-			} | sort -u
-			)"
-			if ! cmd_switch "$tw_exact"
-			then
-				tw_outputextra="$(
-					gawk -F " : " -v input="$tw_input" 'tolower($1) ~ tolower(input) && tolower($1) != tolower(input) { print }' "${twp_twd}" | sort -u
-				)"
-			fi
-		fi
-	else
-		cmd_error "term not supported"
-	fi
-}
+echo -ne "\033#8";X=`tput cols`;Y=`tput lines`;((a=$X/2));((b=$Y/2));d=1;while case $d in 0)((a=a<2?X:a-1));;1)((b=b<2?Y:b-1));;2)((a=a==X?1:a+1));;3)((b=b==Y?1:b+1));; esac;do ((c=b+a*X));v=${k[c]:- };[ $v. = @. ]&&{((d=d>2?0:d+1));k[c]="";}||{(( d=d<1?3:d-1));k[c]=@;};echo -ne "\033[$b;${a}H$v";sleep "$speed";done

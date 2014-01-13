@@ -9,7 +9,7 @@
 #   |        |___|_| |_|_|  \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|        |
 #   |                                                                            |
 #   |                mkproject (Make Project): Project Generator                 |
-#   |              Copyright (C) 2007-2012 Juan Manuel Borges Caño               |
+#   |             Copyright (C) 2007 - 2014 Juan Manuel Borges Caño              |
 #   | The repetition of project generation made this command a need, and a must. |
 #   |                      _     _                                               |
 #   |                     | |   (_) ___ ___ _ __  ___  ___                       |

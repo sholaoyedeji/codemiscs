@@ -9,7 +9,7 @@
 #   |      |___|_| |_|_|  \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|     |
 #   |                                                                       |
 #   |             tw (Translate Word): Human Language Translator            |
-#   |            Copyright (C) 2007-2013 Juan Manuel Borges Caño            |
+#   |           Copyright (C) 2007 - 2014 Juan Manuel Borges Caño           |
 #   |                  The need for an smart, fast and rich                 |
 #   |               translation answer inspired this command.               |
 #   |                    _     _                                            |

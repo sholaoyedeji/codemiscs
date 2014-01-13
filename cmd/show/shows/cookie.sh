@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 #  _________________________________________________________________________
 # /\                                                                        \
 # \_|       ___        __                            _   _                  |
@@ -6,11 +8,10 @@
 #   |       | || | | |  _| (_) | |  | | | | | | (_| | |_| | (_) | | | |     |
 #   |      |___|_| |_|_|  \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|     |
 #   |                                                                       |
-#   |             tw (Translate Word): Human Language Translator            |
-#   |           Copyright (C) 2007 - 2014 Juan Manuel Borges Caño           |
-#   |                  The need for an smart, fast and rich                 |
-#   |               translation answer inspired this command.               |
-#   |                             Cache Plugin                              |
+#   |               show (Shell Show): Show Fun (Early stages)              |
+#   |            Copyright (C) 2013 - 2014 Juan Manuel Borges Caño          |
+#   |                      Terminal graphics amaze me.                      |
+#   |      Some shows are based on the gathering of http://mewbies.com/     |
 #   |                    _     _                                            |
 #   |                   | |   (_) ___ ___ _ __  ___  ___                    |
 #   |                   | |   | |/ __/ _ \ '_ \/ __|/ _ \                   |
@@ -32,58 +33,25 @@
 #   |   ____________________________________________________________________|_
 #    \_/______________________________________________________________________/
 
-function tw_cache_name
-{
-	printf "%s\n"  "cache"
-}
+# The cookie
 
-function tw_cache_shortcut
-{
-	printf "%s\n"  "ca"
-}
-
-function tw_cache_list
-{
-	if [[ -d "$HOME/.tw" ]]
+sh_message="${1:-"Tux Says:"}"
+sh_cowfile="${2:-tux}"
+sh_cols="${3:-$(($(tput cols) / 2))}"
+sh_fortune="$4"
+sh_epigram="${5:-"$(fortune -a -s "$sh_fortune" | fmt -"$sh_cols" -s)"}"
+sh_cookie="$(cowsay -f "${2:-tux}" -W "$sh_cols" -n <<< "$sh_epigram")"
+sh_cols="$(wc -L <<< "$sh_cookie")"
+sh_shift=$((($(tput cols) - $sh_cols) / 2))
+sh_shift=$(printf "%${sh_shift}s" "")
+figlet -t -c "$sh_message" | colorize info
+printf "%s\n" "$sh_cookie" | sed -e "s/^/$sh_shift/g" | colorize warning
+if cmd_switch "$sh_sound"
+then
+	if cmd_switch "$sh_foreground"
 	then
-		for twp_twd in "$HOME/.tw"/*.twdc
-		do
-			twp_dict="$twp_twd"
-			twp_dict="${twp_dict##*/}"
-			twp_dict="${twp_dict%.*}"
-			printf "%s\n"  "$twp_dict"
-		done
-	fi
-}
-
-# This does cache translation
-function tw_cache
-{
-	if (( "$(wc -l <<< "$tw_input")" == "1" )) && (( "$(wc -w <<< "$tw_input")" <= "5" ))
-	then
-		twp_twd="$HOME/.tw/$tw_dict.twdc"
-		if [[ -f "$twp_twd" ]]
-		then
-			tw_output="$(
-			{
-				gawk -F " : " -v input="$tw_input" 'tolower($1) == tolower(input) { print $2 }' "${twp_twd}"
-				if cmd_switch "$tw_synonyms"
-				then
-					tw_mythes "${tw_dict%%-*}" "$tw_input" |  while read -r twp_myth
-					do
-						gawk -F " : " -v input="$twp_myth" 'tolower($1) == tolower(input) { print $2 }' "${twp_twd}"
-					done
-				fi
-			} | sort -u
-			)"
-			if ! cmd_switch "$tw_exact"
-			then
-				tw_outputextra="$(
-					gawk -F " : " -v input="$tw_input" 'tolower($1) ~ tolower(input) && tolower($1) != tolower(input) { print }' "${twp_twd}" | sort -u
-				)"
-			fi
-		fi
+		bash -c 'festival --tts <<< "$1" 2>/dev/null' _ "$sh_epigram"
 	else
-		cmd_error "term not supported"
+		bash -c 'festival --tts <<< "$1" 2>/dev/null &' _ "$sh_epigram"
 	fi
-}
+fi

@@ -1,3 +1,9 @@
+2014-01-13 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
+	* Improved commands: show, tw
+	* Better Design: show plugin design is more modulable and eassily expandable
+	* Better Documentation: code parchments got everywhere where matters
+	* Better Motivation: copyrighted for 2014
+
 2014-01-07 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
 	* Improved Commands: cmd (core)
 	* Better Design: the cmd improvements benefit instantly all commands coding, look and usage experiences

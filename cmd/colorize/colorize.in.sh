@@ -9,7 +9,7 @@
 #   |          |___|_| |_|_|  \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|         |
 #   |                                                                               |
 #   |                       colorize (Colorize): Input Tinter                       |
-#   |                   Copyright (C) 2013 Juan Manuel Borges Caño                  |
+#   |                Copyright (C) 2013 - 2014 Juan Manuel Borges Caño              |
 #   |     The idea of colorizing commands output occurred to me multiple times.     |
 #   |              After knowing Radovan Garabík's Generic Colouriser               |
 #   |           <http://korpus.juls.savba.sk/~garabik/software/grc.html>,           |
@@ -78,7 +78,6 @@ function cl_profile_input
 # The help profile
 function cl_profile_help
 {
-	# December 4th, 2013, Juan Manuel Borges Caño
 	sed \
 		-e "s/\([[:digit:]]\+\)/$(tput setaf 4)\1$(tput sgr0)/g" \
 		-e "s/\(GB\|MB\|KB\|[[:upper:]_]\{2,\}\|'[^']\+'\|\"[^\"]\+\"\|\`\`[^\']\+''\)/$(tput setaf 2)\1$(tput sgr0)/g" \

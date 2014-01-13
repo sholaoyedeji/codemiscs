@@ -9,7 +9,7 @@
 #   |        |___|_| |_|_|  \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|        |
 #   |                                                                            |
 #   |                 typewrite (Typewrite): Slowed Down Echoer                  |
-#   |                 Copyright (C) 2013 Juan Manuel Borges Caño                 |
+#   |              Copyright (C) 2013 - 2014 Juan Manuel Borges Caño             |
 #   | Liking the effect lot of times, and being useful for demos (Gif, YouTube), |
 #   |                Dave W. Capella's slowcat.c finally inspired                |
 #   |        a ready to use, simple, smart, elegant, fast and efficient,         |

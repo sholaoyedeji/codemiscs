@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 #  _________________________________________________________________________
 # /\                                                                        \
 # \_|       ___        __                            _   _                  |
@@ -6,11 +8,10 @@
 #   |       | || | | |  _| (_) | |  | | | | | | (_| | |_| | (_) | | | |     |
 #   |      |___|_| |_|_|  \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|     |
 #   |                                                                       |
-#   |             tw (Translate Word): Human Language Translator            |
-#   |           Copyright (C) 2007 - 2014 Juan Manuel Borges Caño           |
-#   |                  The need for an smart, fast and rich                 |
-#   |               translation answer inspired this command.               |
-#   |                             Cache Plugin                              |
+#   |               show (Shell Show): Show Fun (Early stages)              |
+#   |            Copyright (C) 2013 - 2014 Juan Manuel Borges Caño          |
+#   |                      Terminal graphics amaze me.                      |
+#   |      Some shows are based on the gathering of http://mewbies.com/     |
 #   |                    _     _                                            |
 #   |                   | |   (_) ___ ___ _ __  ___  ___                    |
 #   |                   | |   | |/ __/ _ \ '_ \/ __|/ _ \                   |
@@ -32,58 +33,15 @@
 #   |   ____________________________________________________________________|_
 #    \_/______________________________________________________________________/
 
-function tw_cache_name
-{
-	printf "%s\n"  "cache"
-}
 
-function tw_cache_shortcut
-{
-	printf "%s\n"  "ca"
-}
+# The matrix
+# Based on Blue Matrix by dave1010 http://www.commandlinefu.com/commands/view/5712/blue-matrix 
 
-function tw_cache_list
-{
-	if [[ -d "$HOME/.tw" ]]
-	then
-		for twp_twd in "$HOME/.tw"/*.twdc
-		do
-			twp_dict="$twp_twd"
-			twp_dict="${twp_dict##*/}"
-			twp_dict="${twp_dict%.*}"
-			printf "%s\n"  "$twp_dict"
-		done
-	fi
-}
+# matrix 2
+# matrix "$(printf "%i " {112..123})"
 
-# This does cache translation
-function tw_cache
-{
-	if (( "$(wc -l <<< "$tw_input")" == "1" )) && (( "$(wc -w <<< "$tw_input")" <= "5" ))
-	then
-		twp_twd="$HOME/.tw/$tw_dict.twdc"
-		if [[ -f "$twp_twd" ]]
-		then
-			tw_output="$(
-			{
-				gawk -F " : " -v input="$tw_input" 'tolower($1) == tolower(input) { print $2 }' "${twp_twd}"
-				if cmd_switch "$tw_synonyms"
-				then
-					tw_mythes "${tw_dict%%-*}" "$tw_input" |  while read -r twp_myth
-					do
-						gawk -F " : " -v input="$twp_myth" 'tolower($1) == tolower(input) { print $2 }' "${twp_twd}"
-					done
-				fi
-			} | sort -u
-			)"
-			if ! cmd_switch "$tw_exact"
-			then
-				tw_outputextra="$(
-					gawk -F " : " -v input="$tw_input" 'tolower($1) ~ tolower(input) && tolower($1) != tolower(input) { print }' "${twp_twd}" | sort -u
-				)"
-			fi
-		fi
-	else
-		cmd_error "term not supported"
-	fi
-}
+sh_colors="${1:-$(printf "%i " {0..7})}"
+sh_colors=( $sh_colors )
+sh_rows="${2:-27}"
+sh_cols="${3:-$(tput cols)}"
+while :; do i=0; COL=$((RANDOM%sh_rows));ROW=$((RANDOM%sh_cols));while [ $i -lt $COL ]; do tput cup $i $ROW; tput setaf ${sh_colors[$((RANDOM%${#sh_colors[@]}))]}; echo "$(head -1 /dev/urandom | cut -c1-1)" 2>/dev/null ; i=$((i+1)); done; done
