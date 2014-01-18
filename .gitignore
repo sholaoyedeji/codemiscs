@@ -1,4 +1,4 @@
-# Copyright (C) 2012-2014 Juan Manuel Borges Caño <juanmabcmail@gmail.com>
+# Copyright (C) 2012 - 2014 Juan Manuel Borges Caño <juanmabcmail@gmail.com>
 
 NOTES
 
@@ -18,6 +18,7 @@ cmd/imgs/imgs
 cmd/typewrite/typewrite
 cmd/colorize/colorize
 cmd/show/show
+cmd/pack/pack
 
 # Documentation
 cmd.man
@@ -29,6 +30,7 @@ imgs.man
 typewrite.man
 colorize.man
 show.man
+pack.man
 
 # Packages
 codemiscs-*.tar.bz2
@@ -89,4 +91,3 @@ TAGS
 *.test 
 *.log
 *.trs
-
