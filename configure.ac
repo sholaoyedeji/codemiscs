@@ -1,4 +1,6 @@
 AC_INIT([code miscellaneous], [2014.01.13], [juanmabcmail@gmail.com], [codemiscs], ["http://code.google.com/p/codemiscs/"])
+AC_CONFIG_MACRO_DIR([autoconf.macro])
+AC_CONFIG_AUX_DIR([autoconf.aux])
 AM_INIT_AUTOMAKE(no-dist-gzip dist-bzip2)
 
 AC_SUBST(PACKAGE_DESCRIPTION, "code miscellaneous")

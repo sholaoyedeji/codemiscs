@@ -1,3 +1,4 @@
+ACLOCAL_AMFLAGS = -I autoconf.macro
 SUBDIRS = cmd doc dist
 dist_doc_DATA = README NEWS AUTHORS COPYING ChangeLog PAYMENTS
 

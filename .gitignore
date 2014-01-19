@@ -48,12 +48,14 @@ PKGBUILD
 codemiscs.wiki/
 
 # Autotools
+autoconf.macro/
+autoconf.aux/
+autom4te.cache/
 compile
 config.*
 configure
 depcomp
 aclocal.m4
-autom4te.cache
 stamp-*
 libtool
 ltmain.sh
