@@ -232,7 +232,7 @@ function cmd_man
 	[[ -n "$cmd_extranotes" ]] && printf "%s\n%s\n" ".SH NOTES" "${cmd_extranotes}"
 	[[ -n "$cmd_homepage" ]] && printf "%s\n%s\n" ".SH HOMEPAGE" "Main project page at \\fB${cmd_homepage}\\fR."
 	printf "%s\n%s\n" ".SH AUTHOR" "Programmed by \\fB${cmd_author}\\fR."
-	[[ -n "$cmd_blog" ]] && printf "%s\n%s\n" ".SH BLOG" "Thank, follow, comment or pay (suggested 5 bucks) through BitCoin, Flattr, Western Union, PayPal, ... at \\fB${cmd_blog}\\fR."
+	[[ -n "$cmd_blog" ]] && printf "%s\n%s\n" ".SH BLOG" "Thank, follow, comment or pay through BitCoin, Flattr, Western Union, PayPal, ... at \\fB${cmd_blog}\\fR."
 	[[ -n "$cmd_email" ]] && printf "%s\n%s\n" ".SH EMAIL" "Thank or contact (suggested subject $cmd_package) through email to \\fB${cmd_email}\\fR."
 	printf "%s\n%s\n" ".SH COPYRIGHT" "Copyright \(co \\fB${cmd_year} ${cmd_author}\\fR."
 	printf "%s\n%s\n%s\n" ".PP" "This software is licensed and under the terms of the $cmd_license License." "There is NO WARRANTY, to the extent permitted by law."
