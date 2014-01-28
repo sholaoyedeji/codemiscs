@@ -10,7 +10,9 @@ nobase_dist_show_DATA = \
 	shows/mandelbrot.sh \
 	shows/matrix.sh \
 	shows/pipes.sh \
-	shows/weave.sh
+	shows/weave.sh \
+	shows/beeper.sh
+nobase_dist_show_SCRIPTS = shows/beeper-midi.py
 show: show.in.sh Makefile
 	$(PACKAGE_PARSE) $(srcdir)/show.in.sh > show
 	chmod +x show
