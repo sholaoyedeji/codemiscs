@@ -33,101 +33,24 @@
 #   |   ____________________________________________________________________|_
 #    \_/______________________________________________________________________/
 
+# The beeper
 
-shopt -s extglob
+sh_monophonic="${1:-0}"
 
-# The --list option
-function sh_option_list
+sh_beeper()
 {
-	for sh_show in "$cmd_datadir/shows"/*.sh
-	do
-		sh_show="$sh_show"
-		sh_show="${sh_show##*/}"
-		sh_show="${sh_show##*_}"
-		sh_show="${sh_show%.sh}"
-		printf "%s\n" "${sh_show}"
-	done
-	exit 0
-}
-
-# The --sound option
-function sh_option_sound
-{
-	sh_sound="on"
-}
-
-# The --foreground option
-function sh_option_foreground
-{
-	sh_foreground="on"
-}
-
-# The --gingerup option
-function sh_option_gingerup
-{
-	sh_gingerup="on"
-}
-
-# ... and show, the program itself.
-
-# The cmd init function
-function sh_init
-{
-	shopt -s extglob
-	shopt -s nullglob
-
-	sh_sound="off"
-	sh_foreground="off"
-	sh_gingerup="off"
-	#sh_show="cookie"
-}
-
-# The cmd main function
-function sh_main
-{
-	# Select user show or random
-	if [[ -n "$1" ]]
+	trap 'pkill -f beeper-midi 2>/dev/null; sleep 1; killall beep 2>/dev/null;' EXIT
+	if cmd_switch "$sh_gingerup"
 	then
-		sh_show="$1"
-		shift
+		locate .mid -0 | shuf -z | xargs -0 -n 1 bash -c '[[ "$(file -b --mime-type "$1")" = "audio/midi" ]] && '"${cmd_datadir}"'/shows/beeper-midi.py "$1"' _ 
 	else
-		sh_shows=("$cmd_datadir/shows"/*.sh)
-		sh_show="${sh_shows[$((${RANDOM}%${#sh_shows[@]}))]}"
-		sh_show="${sh_show##*/}"
-		sh_show="${sh_show##*_}"
-		sh_show="${sh_show%.sh}"
-	fi
-
-	# Show Time!
-	if [[ -e "${cmd_datadir}/shows/${sh_show}.sh" ]]
-	then
-		source "${cmd_datadir}/shows/${sh_show}.sh" "$@"
-	else
-		cmd_error "unknown show"
+		${cmd_datadir}/shows/beeper-midi.py "$@"
 	fi
 }
 
-# The cmd fields
-cmd_package="[@]pkg[@]"
-cmd="show"
-cmd_name="shell show"
-cmd_version="[@]pkgversion[@]"
-cmd_description="Show Fun"
-cmd_explanation="shell show is a command that displays nice graphical shell art. shell show has various effects combined."
-cmd_license="[@]pkglicense[@]"
-cmd_homepage="[@]pkghomepage[@]"
-cmd_author="[@]pkgauthor[@]"
-cmd_blog="[@]pkgblog[@]"
-cmd_email="[@]pkgemail[@]"
-cmd_usage="$cmd [OPTIONS] [SHOW] [-- SHOWOPTIONS]"
-cmd_options=("/l/list/list shows/sh_option_list/" "/s/sound/play a sound/sh_option_sound/" "/f/foreground/work in foreground/sh_option_foreground/" "/g/gingerup/ginger up for data/sh_option_gingerup/")
-cmd_examples=("$cmd cookie")
-cmd_extrahelp="By default shows a cookie."
-cmd_extranotes="For more information, check documentation."
-cmd_init="sh_init"
-cmd_main="sh_main"
-
-cmd_datadir="[@]pkgdatadir[@]/$cmd"
-
-# The cmd environment
-source "[@]pkgdatadir[@]/cmd.sh"
+if cmd_switch "$sh_foreground"
+then
+	sh_beeper "$@" 2>/dev/null
+else
+	sh_beeper "$@" 2>/dev/null &
+fi

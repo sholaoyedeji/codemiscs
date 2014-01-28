@@ -68,6 +68,15 @@ AC_CHECK_PROG(PACKAGE_PERL, perl, yes)
 AC_CHECK_PROG(PACKAGE_GETOPT, getopt, yes)
 [[ -z $PACKAGE_GETOPT ]] && AC_MSG_WARN(getopt is needed at execution time)
 
+AC_CHECK_PROG(PACKAGE_XARGS, xargs, yes)
+[[ -z $PACKAGE_XARGS ]] && AC_MSG_ERROR(xargs is needed at execution time)
+
+AC_CHECK_PROG(PACKAGE_LOCATE, locate, yes)
+[[ -z $PACKAGE_LOCATE ]] && AC_MSG_ERROR(locate is needed at execution time)
+
+AC_CHECK_PROG(PACKAGE_SHUF, shuf, yes)
+[[ -z $PACKAGE_SHUF ]] && AC_MSG_ERROR(shuf is needed at execution time)
+
 AC_CHECK_PROG(PACKAGE_AUTORECONF, autoreconf, yes)
 [[ -z $PACKAGE_AUTORECONF ]] && AC_MSG_WARN(autoreconf is needed at execution time)
 
@@ -105,6 +114,10 @@ AM_CONDITIONAL(ESPEAK, [ test x$PACKAGE_ESPEAK = xyes ])
 
 AC_CHECK_PROG(PACKAGE_CONVERT, convert, yes)
 [[ -z $PACKAGE_CONVERT ]] && AC_MSG_WARN(convert is needed at execution time)
+
+AC_CHECK_PROG(PACKAGE_BEEP, beep, yes)
+[[ -z $PACKAGE_BEEP ]] && AC_MSG_WARN(beep is needed at execution time)
+AM_CONDITIONAL(BEEP, [ test x$PACKAGE_BEEP = xyes ])
 
 AC_CHECK_PROG(PACKAGE_OGG123, ogg123, yes)
 [[ -z $PACKAGE_OGG123 ]] && AC_MSG_WARN(ogg123 is needed at execution time)
