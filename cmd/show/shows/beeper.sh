@@ -42,7 +42,7 @@ sh_beeper()
 	trap 'pkill -f beeper-midi 2>/dev/null; sleep 1; killall beep 2>/dev/null;' EXIT
 	if cmd_switch "$sh_gingerup"
 	then
-		locate .mid -0 | shuf -z | xargs -0 -n 1 bash -c '[[ "$(file -b --mime-type "$1")" = "audio/midi" ]] && '"${cmd_datadir}"'/shows/beeper-midi.py "$1"' _ 
+		locate -0 --regex '\.mid$' | grep -zv 'notes.\?\.mid' | shuf -z | xargs -0 -n 1 bash -c '[[ "$(file -b --mime-type "$1")" = "audio/midi" ]] && '"${cmd_datadir}"'/shows/beeper-midi.py "$1"' _ 
 	else
 		${cmd_datadir}/shows/beeper-midi.py "$@"
 	fi
