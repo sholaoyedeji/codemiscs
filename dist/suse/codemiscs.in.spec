@@ -31,6 +31,7 @@ Requires: fortune-mod
 Requires: figlet
 Requires: cowsay
 Requires: boxes
+Requires: mlocate
 
 BuildRequires: sed
 BuildRequires: bash
@@ -55,6 +56,7 @@ BuildRequires: fortune-mod
 BuildRequires: figlet
 BuildRequires: cowsay
 BuildRequires: boxes
+BuildRequires: mlocate
 %endif
 
 Requires: sed

@@ -6,10 +6,10 @@ pkgdesc="[@]pkgdescription[@]. [@]pkgexplanation[@]"
 url="[@]pkghomepage[@]"
 arch=('i686' 'x86_64')
 license=('[@]pkglicense[@]')
-# ideal depends=('bash' 'sed' 'gawk' 'perl' 'coreutils' 'util-linux' 'autoconf' 'curl' 'wget' 'lynx' 'libxml2' 'xmlstarlet' 'aspell' 'hunspell' 'libmythes' 'espeak' 'festival' 'vorbis-tools' 'imagemagick' 'fortune-mod' 'figlet' 'cowsay' 'boxes')
-# community depends=('bash' 'sed' 'gawk' 'perl' 'coreutils' 'util-linux' 'autoconf' 'curl' 'wget' 'lynx' 'libxml2' 'xmlstarlet' 'aspell' 'hunspell' 'libmythes' 'beep' 'espeak' 'festival' 'vorbis-tools' 'imagemagick' 'fortune-mod' 'figlet' 'cowsay')
-depends=('bash' 'sed' 'gawk' 'perl' 'coreutils' 'util-linux' 'autoconf' 'curl' 'wget' 'lynx' 'libxml2' 'aspell' 'hunspell' 'libmythes' 'beep' 'festival' 'vorbis-tools' 'imagemagick' 'figlet' 'cowsay')
-# core depends=('bash' 'sed' 'gawk' 'perl' 'coreutils' 'util-linux' 'autoconf' 'curl')
+# ideal depends=('bash' 'sed' 'gawk' 'perl' 'coreutils' 'util-linux' 'autoconf' 'curl' 'wget' 'lynx' 'libxml2' 'xmlstarlet' 'aspell' 'hunspell' 'libmythes' 'beep' 'espeak' 'festival' 'vorbis-tools' 'imagemagick' 'fortune-mod' 'figlet' 'cowsay' 'boxes' 'mlocate')
+# community depends=('bash' 'sed' 'gawk' 'perl' 'coreutils' 'util-linux' 'autoconf' 'curl' 'wget' 'lynx' 'libxml2' 'xmlstarlet' 'aspell' 'hunspell' 'libmythes' 'beep' 'espeak' 'festival' 'vorbis-tools' 'imagemagick' 'fortune-mod' 'figlet' 'cowsay' 'mlocate')
+depends=('bash' 'sed' 'gawk' 'perl' 'coreutils' 'util-linux' 'autoconf' 'curl' 'wget' 'lynx' 'libxml2' 'aspell' 'hunspell' 'libmythes' 'beep' 'festival' 'vorbis-tools' 'imagemagick' 'figlet' 'cowsay' 'mlocate')
+# core depends=('bash' 'sed' 'gawk' 'perl' 'coreutils' 'util-linux' 'autoconf' 'curl' 'mlocate')
 source=("${pkgname}-${pkgver}.tar.bz2")
 md5sums=('[@]pkgmd5sum[@]')
 

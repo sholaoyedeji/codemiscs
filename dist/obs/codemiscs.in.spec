@@ -31,6 +31,7 @@ Requires: fortune-mod
 Requires: figlet
 Requires: cowsay
 Requires: boxes
+Requires: mlocate
 
 BuildRequires: sed
 BuildRequires: bash
@@ -55,6 +56,7 @@ BuildRequires: fortune-mod
 BuildRequires: figlet
 BuildRequires: cowsay
 BuildRequires: boxes
+BuildRequires: mlocate
 %endif
 
 Requires: sed
@@ -73,7 +75,9 @@ Requires: xmlstarlet
 Requires: aspell
 Requires: hunspell
 Requires: mythes
+%if (! 0%{?centos_version}) && (! 0%{?rhel_version}) && (! 0%{?sles_version}) && (! 0%{?suse_version})
 Requires: beep
+%endif
 %if (! 0%{?centos_version} == 505) && (! 0%{?rhel_version})
 Requires: espeak
 %endif
@@ -91,6 +95,9 @@ Requires: cowsay
 %endif
 %if (! 0%{?centos_version}) && (! 0%{?rhel_version}) && (! 0%{?suse_version})
 Requires: boxes
+%endif
+%if (! 0%{?centos_version}) && (! 0%{?rhel_version}) && (! 0%{?suse_version})
+Requires: mlocate
 %endif
 
 %if 0%{?centos_version} || 0%{?rhel_version} || 0%{?suse_version}
@@ -116,7 +123,9 @@ BuildRequires: hunspell-devel
 %if (! 0%{?centos_version}) && (! 0%{?rhel_version}) && (! 0%{?sles_version})
 BuildRequires: mythes-devel
 %endif
+%if (! 0%{?centos_version}) && (! 0%{?rhel_version}) && (! 0%{?sles_version}) && (! 0%{?suse_version})
 BuildRequires: beep
+%endif
 %if (! 0%{?centos_version} == 505) && (! 0%{?rhel_version})
 BuildRequires: espeak
 %endif
@@ -134,6 +143,9 @@ BuildRequires: cowsay
 %endif
 %if (! 0%{?centos_version}) && (! 0%{?rhel_version}) && (! 0%{?suse_version})
 BuildRequires: boxes
+%endif
+%if (! 0%{?centos_version}) && (! 0%{?rhel_version}) && (! 0%{?suse_version})
+BuildRequires: mlocate
 %endif
 
 %description

@@ -54,7 +54,7 @@ AC_PROG_CXX
 #[[ -z $PACKAGE_BC ]] && AC_MSG_WARN(bc is needed at execution time)
 
 AC_CHECK_PROG(PACKAGE_BASH, bash, yes)
-[[ -z $PACKAGE_BASH ]] && AC_MSG_ERROR(bash is needed at execution time)
+[[ -z $PACKAGE_BASH ]] && AC_MSG_WARN(bash is needed at execution time)
 
 AC_CHECK_PROG(PACKAGE_SED, sed, yes)
 [[ -z $PACKAGE_SED ]] && AC_MSG_ERROR(sed is needed at compile time)
@@ -63,19 +63,19 @@ AC_CHECK_PROG(PACKAGE_GAWK, gawk, yes)
 [[ -z $PACKAGE_GAWK ]] && AC_MSG_WARN(gawk is needed at execution time)
 
 AC_CHECK_PROG(PACKAGE_PERL, perl, yes)
-[[ -z $PACKAGE_PERL ]] && AC_MSG_ERROR(perl is needed at execution time)
+[[ -z $PACKAGE_PERL ]] && AC_MSG_WARN(perl is needed at execution time)
 
 AC_CHECK_PROG(PACKAGE_GETOPT, getopt, yes)
 [[ -z $PACKAGE_GETOPT ]] && AC_MSG_WARN(getopt is needed at execution time)
 
 AC_CHECK_PROG(PACKAGE_XARGS, xargs, yes)
-[[ -z $PACKAGE_XARGS ]] && AC_MSG_ERROR(xargs is needed at execution time)
+[[ -z $PACKAGE_XARGS ]] && AC_MSG_WARN(xargs is needed at execution time)
 
 AC_CHECK_PROG(PACKAGE_LOCATE, locate, yes)
-[[ -z $PACKAGE_LOCATE ]] && AC_MSG_ERROR(locate is needed at execution time)
+[[ -z $PACKAGE_LOCATE ]] && AC_MSG_WARN(locate is needed at execution time)
 
 AC_CHECK_PROG(PACKAGE_SHUF, shuf, yes)
-[[ -z $PACKAGE_SHUF ]] && AC_MSG_ERROR(shuf is needed at execution time)
+[[ -z $PACKAGE_SHUF ]] && AC_MSG_WARN(shuf is needed at execution time)
 
 AC_CHECK_PROG(PACKAGE_AUTORECONF, autoreconf, yes)
 [[ -z $PACKAGE_AUTORECONF ]] && AC_MSG_WARN(autoreconf is needed at execution time)

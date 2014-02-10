@@ -31,6 +31,7 @@ Requires: fortune-mod
 Requires: figlet
 Requires: cowsay
 Requires: boxes
+Requires: mlocate
 
 BuildRequires: sed
 BuildRequires: bash
@@ -54,6 +55,7 @@ BuildRequires: fortune-mod
 BuildRequires: figlet
 BuildRequires: cowsay
 BuildRequires: boxes
+BuildRequires: mlocate
 %endif
 
 Requires: sed
@@ -72,6 +74,7 @@ Requires: mythes
 Requires: festival
 Requires: vorbis-tools
 Requires: ImageMagick
+Requires: mlocate
 
 BuildRequires: gcc-c++
 BuildRequires: sed
@@ -91,6 +94,7 @@ BuildRequires: hunspell-devel
 BuildRequires: festival
 BuildRequires: vorbis-tools
 BuildRequires: ImageMagick
+BuildRequires: mlocate
 
 %description
 [@]pkgexplanation[@]
