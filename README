@@ -8,6 +8,21 @@
   |   _______________________________________________________________________________________|_
    \_/_________________________________________________________________________________________/
 
+codemiscs (Code Miscellaneous) licensed GPLv3 by Juan Manuel Borges Caño
+* homepage <http://code.google.com/p/codemiscs>
+* blog <http://juanmabcblog.blogspot.com>
+* mail <mailto:juanmabcmail@gmail.com>
+
+$ git clone http://code.google.com/p/codemiscs
+$ cd codemiscs
+$ autoreconf -i
+$ ./configure
+$ make
+# make install
+$ doc/demo
+
+Thanks through email (suggested subject codemiscs) or/and Payments through blog with BitCoin, Flattr, Western Union, PayPal welcome
+
 Currently Composed Of:
 * Command (cmd): Command Wrapper
 * Make Project (mkproject): Project Generator
@@ -19,18 +34,6 @@ Currently Composed Of:
 * Typewrite (typewrite): Slowed Down Echoer
 * Shell Show (show): Show Fun
 
-$ git clone http://code.google.com/p/codemiscs
-$ cd codemiscs
-$ autoreconf -i
-$ ./configure
-$ make
-# make install
-$ doc/demo
-
-codemiscs (Code Miscellaneous) licensed GPLv3 by Juan Manuel Borges Caño
-* homepage <http://code.google.com/p/codemiscs>
-* blog <http://juanmabcblog.blogspot.com>
-* mail <mailto:juanmabcmail@gmail.com>
-Copyright (C) 2007 - 2014 Juan Manuel Borges Caño :-) Thanks through email (suggested subject codemiscs) or/and Payments through blog with BitCoin, Flattr, Western Union, PayPal welcome :-)
+Copyright (C) 2007 - 2014 Juan Manuel Borges Caño
 
 Proceed to NEWS, AUTHORS, COPYING, ChangeLog, PAYMENTS

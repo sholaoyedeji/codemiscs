@@ -22,6 +22,7 @@ Requires: xmlstarlet
 Requires: aspell
 Requires: hunspell
 Requires: mythes
+Requires: beep
 Requires: espeak
 Requires: festival
 Requires: vorbis-tools
@@ -45,6 +46,7 @@ BuildRequires: xmlstarlet
 BuildRequires: aspell
 BuildRequires: hunspell-devel
 BuildRequires: mythes-devel
+BuildRequires: beep
 BuildRequires: espeak
 BuildRequires: festival
 BuildRequires: vorbis-tools
@@ -71,6 +73,7 @@ Requires: xmlstarlet
 Requires: aspell
 Requires: hunspell
 Requires: mythes
+Requires: beep
 %if (! 0%{?centos_version} == 505) && (! 0%{?rhel_version})
 Requires: espeak
 %endif
@@ -113,6 +116,7 @@ BuildRequires: hunspell-devel
 %if (! 0%{?centos_version}) && (! 0%{?rhel_version}) && (! 0%{?sles_version})
 BuildRequires: mythes-devel
 %endif
+BuildRequires: beep
 %if (! 0%{?centos_version} == 505) && (! 0%{?rhel_version})
 BuildRequires: espeak
 %endif

@@ -21,6 +21,7 @@ Requires: xmlstarlet
 Requires: aspell
 Requires: hunspell
 Requires: mythes
+Requires: beep
 Requires: espeak
 Requires: festival
 Requires: vorbis-tools
@@ -44,6 +45,7 @@ BuildRequires: xmlstarlet
 BuildRequires: aspell
 BuildRequires: hunspell-devel
 BuildRequires: mythes-devel
+BuildRequires: beep
 BuildRequires: espeak
 BuildRequires: festival
 BuildRequires: vorbis-tools
