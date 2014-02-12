@@ -29,7 +29,7 @@ set the description field
 \fB\-x\fR, \fB\-\-cmdexplanation\fR=\fIEXPLANATION\fR
 set the explanation field
 .TP
-\fB\-x\fR, \fB\-\-cmdlicense\fR=\fILICENSE\fR
+\fB\-l\fR, \fB\-\-cmdlicense\fR=\fILICENSE\fR
 set the license field
 .TP
 \fB\-p\fR, \fB\-\-cmdhomepage\fR=\fIHOMEPAGE\fR
@@ -53,7 +53,7 @@ add an option field
 \fB\-e\fR, \fB\-\-cmdexample\fR=\fIEXAMPLE\fR
 add an example field (first for usage)
 .TP
-\fB\-l\fR, \fB\-\-cmdextrahelp\fR=\fIEXTRAHELP\fR
+\fB\-x\fR, \fB\-\-cmdextrahelp\fR=\fIEXTRAHELP\fR
 set the extrahelp field
 .TP
 \fB\-s\fR, \fB\-\-cmdextranotes\fR=\fIEXTRANOTES\fR
