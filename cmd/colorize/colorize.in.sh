@@ -72,7 +72,7 @@ function cl_color
 		"magenta") echo 5;;
 		"cyan") echo 6;;
 		"white") echo 7;;
-		*) echo "$1"
+		*) echo "$1";;
 	esac
 }
 
