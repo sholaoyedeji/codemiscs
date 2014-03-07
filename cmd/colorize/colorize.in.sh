@@ -48,7 +48,7 @@ function cl_option_background
 }
 
 # The profiles
-cl_profiles=(input help info warning error punctuation vivid smart elegant minimalist sharp awesome fancy cool health relax heaven strong reverse hidden raw bold)
+cl_profiles=(input help info warning error punctuation vivid smart elegant minimalist sharp awesome fancy cool health relax heaven strong reverse hidden raw bold reverse)
 
 # The --list option
 function cl_option_list()
@@ -60,18 +60,34 @@ function cl_option_list()
 	exit 0
 }
 
+# The color helper
+function cl_color
+{
+	case "$1" in
+		"black") echo 0;;
+		"red") echo 1;;
+		"green") echo 2;;
+		"yellow") echo 3;;
+		"blue") echo 4;;
+		"magenta") echo 5;;
+		"cyan") echo 6;;
+		"white") echo 7;;
+		*) echo "$1"
+	esac
+}
+
 # The profile helper
 function cl_profile
 {
 	sed \
-		-e "s/^\(.*\)$/$(tput setaf ${1:-$cl_foreground}; tput setab ${2:-$cl_background};)\1$(tput sgr0)/g" \
+		-e "s/^\(.*\)$/$(tput setaf $(cl_color "$1"); tput setab $(cl_color "$2");)\1$(tput sgr0)/g" \
 		-
 }
 
 # The input profile
 function cl_profile_input
 {
-	cl_profile
+	cl_profile "${cl_foreground:-green}" "${cl_background:-red}"
 	exit 0
 }
 
@@ -243,6 +259,15 @@ function cl_profile_bold
 	exit 0
 }
 
+# The reverse profile
+function cl_profile_reverse
+{
+	tput rev;
+	cat -
+	tput sgr0
+	exit 0
+}
+
 # The --profile option
 function cl_option_profile
 {
@@ -272,18 +297,8 @@ function cl_option_strip
 # The cmd init function
 function cl_init
 {
-	# The tput colors
-	cl_black=0
-	cl_red=1
-	cl_green=2
-	cl_yellow=3
-	cl_blue=4
-	cl_magenta=5
-	cl_cyan=6
-	cl_white=7
-
-	cl_foreground=2
-	cl_background=1
+	cl_foreground="green"
+	cl_background="red"
 	cl_terminal="off"
 	cl_strip="off"
 }
@@ -328,7 +343,7 @@ cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [PROFILE]"
 cmd_options=("/f:/foreground:/set foreground color/cl_option_foreground/COLOR/" "/b:/background:/set background color/cl_option_background/COLOR/" "/l/list/list profiles/cl_option_list/" "/p:/profile:/set profile/cl_option_profile/PROFILE/" "/t/terminal/color only if output is a terminal/cl_option_terminal/" "/s/strip/remove any color traces/cl_option_strip/" "/i/info/use info profile/cl_profile_info/" "/w/warning/use warning profile/cl_profile_warning/" "/e/error/use error profile/cl_profile_error/")
 cmd_examples=("$cmd --help | $cmd --profile help")
-cmd_extrahelp="By default sets profile and uses colors foreground = 2 and background = 1."
+cmd_extrahelp="By default sets profile, else uses input profile (green foreground and red background). Color aliases are understood: black (0), red (1), green (2), yellow (3), blue (4), magenta (5), cyan (6) and white (7)."
 cmd_extranotes="For more information, check documentation."
 cmd_init="cl_init"
 cmd_main="cl_main"

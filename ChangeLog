@@ -1,3 +1,10 @@
+2014-03-07 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
+	* Improved commands: tw, colorize
+	* Better Design: colorize understands color aliases and reverse profile
+	* Better Motivation: tw adapts faster to online engines
+	* Better Documentation: examples are more widely useful
+	* Better Website: thanks to better documentation 
+
 2014-02-10 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
 	* Improved commands: show (beeper)
 	* Better Website: demonstrations of every command
