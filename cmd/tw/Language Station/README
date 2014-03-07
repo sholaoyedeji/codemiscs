@@ -1,0 +1,13 @@
+#   |             tw (Translate Word): Human Language Translator            |
+#   |           Copyright (C) 2007 - 2014 Juan Manuel Borges Caño           |
+#   |                  The need for an smart, fast and rich                 |
+#   |               translation answer inspired this command.               |
+#   |                     Text Console Language Station                     |
+
+English and Spanish, adapt to your needs.
+
+export PATH=".:$PATH"
+language word
+lenguaje palabra
+
+Machines Content

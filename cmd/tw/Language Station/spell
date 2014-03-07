@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+#   |             tw (Translate Word): Human Language Translator            |
+#   |           Copyright (C) 2007 - 2014 Juan Manuel Borges Caño           |
+#   |                  The need for an smart, fast and rich                 |
+#   |               translation answer inspired this command.               |
+#   |                     Text Console Language Station                     |
+
+aspell --lang=en pipe <<< "$@" | tail -n +2 | head -n +1

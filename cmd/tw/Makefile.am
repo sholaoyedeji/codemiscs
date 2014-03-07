@@ -3,7 +3,8 @@ EXTRA_DIST = \
 	engines/tw_yb.sh \
 	mythes.in.sh \
 	tw-config-klipper.in.sh \
-	tw-config-gtw.in.sh
+	tw-config-gtw.in.sh \
+	Language\ Station/
 bin_SCRIPTS = \
 	tw \
 	tw-config-klipper tw-config-gtw

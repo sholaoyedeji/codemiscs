@@ -275,7 +275,7 @@ if [[ "[@]pkgmythes[@]" = "yes" ]]
 then
 	cmd_extrahelp+=" For straight synonyms, check mythes command."
 fi
-cmd_extranotes="For more information, check documentation."
+cmd_extranotes="Machines Content, Respect terms of online services. For more information, check documentation."
 cmd_init="tw_init"
 cmd_main="tw_main"
 

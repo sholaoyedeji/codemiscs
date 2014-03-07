@@ -1,0 +1,18 @@
+#! /usr/bin/env bash
+
+#   |             tw (Translate Word): Human Language Translator            |
+#   |           Copyright (C) 2007 - 2014 Juan Manuel Borges Caño           |
+#   |                  The need for an smart, fast and rich                 |
+#   |               translation answer inspired this command.               |
+#   |                     Text Console Language Station                     |
+
+{
+	{
+		tw -x -y es-en "$@"
+		tw gt.es-en "$@"
+		tw ft.es-en "$@"
+	} 2> /dev/null | sed -e '/^$/d' | sort -u | colorize info
+	{
+		mythes es "$@"
+	} 2> /dev/null | sed -e '/^$/d' | colorize warning
+} | paste -s -d'|'

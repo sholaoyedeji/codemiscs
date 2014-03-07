@@ -247,7 +247,7 @@ then
 fi
 cmd_examples=("$cmd en hello")
 cmd_extrahelp="With no term, or when term is -, read standard input."
-cmd_extranotes="For more information, check documentation."
+cmd_extranotes="Machines Content. For more information, check documentation."
 cmd_init="mythes_init"
 cmd_main="mythes_main"
 
