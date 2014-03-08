@@ -4,7 +4,7 @@ EXTRA_DIST = \
 	mythes.in.sh \
 	tw-config-klipper.in.sh \
 	tw-config-gtw.in.sh \
-	Language\ Station/
+	LanguageStation/
 bin_SCRIPTS = \
 	tw \
 	tw-config-klipper tw-config-gtw

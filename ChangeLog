@@ -1,21 +1,21 @@
-2014-03-07 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
+2014-03-07 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Improved commands: tw, colorize
 	* Better Design: colorize understands color aliases and reverse profile
 	* Better Motivation: tw adapts faster to online engines
 	* Better Documentation: examples are more widely useful
 	* Better Website: thanks to better documentation 
 
-2014-02-10 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
+2014-02-10 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Improved commands: show (beeper)
 	* Better Website: demonstrations of every command
 
-2014-01-13 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
+2014-01-13 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Improved commands: show, tw
 	* Better Design: show plugin design is more modulable and easily expandable
 	* Better Documentation: code parchments got everywhere where matters
 	* Better Motivation: copyrighted for 2014
 
-2014-01-07 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
+2014-01-07 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Improved Commands: cmd (core)
 	* Better Design: the cmd improvements benefit instantly all commands coding, look and usage experiences
 	* Better Documentation: continues improving effortlessly through documentation automatic syndication 
@@ -23,19 +23,19 @@
 	* Better Website: continues improving effortlessly through documentation automatic syndication and smart meta distribution
 	* Proved Benefits: previous releases features consolidate into real value
 
-2013-12-30 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
+2013-12-30 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* New Commands: show
 	* Improved Commands: cmd, colorize, typewrite
 	* Better Design: the colorize improvements benefit the look of all commands, typewrite with sound and speed modes is a pleasure, show is richer and smarter
 	* Better Documentation: with an entertaining demo, real use cases examples and code parchments
 	* Better Motivation: previous efforts consolidate giving faster, straightforward, easy results
 
-2013-12-19 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
+2013-12-19 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* New Commands: typewriter, colorize
 	* Better Documentation: good writing once and automatic syndication everywhere consistency (--help, --man, manuals, homepage)
 	* Better Website: through documentation automatic syndication technology
 	* Better Distribution: checks for every dependent command in use, minimized overhead for new command additions
 
-2013-11-28 Juan Manuel Borges Caño <http://juanmabcblog.blogspot.com> <juanmabcmail@gmail.com> 
+2013-11-28 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Independent Projects Merger: command, make project, read feed, translateword and images
 

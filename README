@@ -1,39 +1,65 @@
  ____________________________________________________________________________________________
 /\                                                                                           \
 \_|                              CodeMiscs: Code Miscellaneous                               |
-  |                                                                                          |
   |                          Functional Shell Development Made Fun                           |
   |                                                                                          |
   | CodeMiscs is a fun, creative, elegant, exciting, amusing, useful and profitable project. |
   |   _______________________________________________________________________________________|_
    \_/_________________________________________________________________________________________/
 
-codemiscs (Code Miscellaneous) licensed GPLv3 by Juan Manuel Borges Caño
-* homepage <http://code.google.com/p/codemiscs>
-* blog <http://juanmabcblog.blogspot.com>
-* mail <mailto:juanmabcmail@gmail.com>
 
-$ git clone http://code.google.com/p/codemiscs
-$ cd codemiscs
-$ autoreconf -i
-$ ./configure
-$ make
-# make install
-$ doc/demo
+     __^__                                                                           __^__
+    ( ___ )-------------------------------------------------------------------------( ___ )
+     | / | codemiscs (Code Miscellaneous)  licensed GPLv3 by Juan Manuel Borges Caño | \ |
+     | / |              * homepage <http://code.google.com/p/codemiscs>              | \ |
+     | / |                 * blog <http://juanmabcblog.blogspot.com>                 | \ |
+     |___|                  * mail <mailto:juanmabcmail@gmail.com>                   |___|
+    (_____)-------------------------------------------------------------------------(_____)
 
-Thanks through email (suggested subject codemiscs) or/and Payments through blog with BitCoin, Flattr, Western Union, PayPal welcome
 
-Currently Composed Of:
-* Command (cmd): Command Wrapper
-* Make Project (mkproject): Project Generator
-* Mythes (mythes): Synonyms Mythes Interface
-* Translate Word (tw): Human Language Translator
-* Read Feed (rf): Feed Reader
-* Images (imgs): Images Wizard
-* Colorize Input (colorize): Input Tinter
-* Typewrite (typewrite): Slowed Down Echoer
-* Shell Show (show): Show Fun
+                       /\          /\          /\          /\          /\
+                    /\//\\/\    /\//\\/\    /\//\\/\    /\//\\/\    /\//\\/\
+                 /\//\\\///\\/\//\\\///\\/\//\\\///\\/\//\\\///\\/\//\\\///\\/\
+                //\\\//\/\\///\\\//\/\\///\\\//\/\\///\\\//\/\\///\\\//\/\\///\\
+                \\//\/                                                    \/\\//
+                 \/                  Currently Composed Of:                  \/
+                 /\             * Command (cmd): Command Wrapper             /\
+                //\\     * Make Project (mkproject): Project Generator      //\\
+                \\//      * Mythes (mythes): Synonyms Mythes Interface      \\//
+                 \/     * Translate Word (tw): Human Language Translator     \/
+                 /\              * Read Feed (rf): Feed Reader               /\
+                //\\             * Images (imgs): Images Wizard             //\\
+                \\//       * Colorize Input (colorize): Input Tinter        \\//
+                 \/       * Typewrite (typewrite): Slowed Down Echoer        \/
+                 /\              * Shell Show (show): Show Fun               /\
+                //\\/\                                                    /\//\\
+                \\///\\/\//\\\///\\/\//\\\///\\/\//\\\///\\/\//\\\///\\/\//\\\//
+                 \/\\///\\\//\/\\///\\\//\/\\///\\\//\/\\///\\\//\/\\///\\\//\/
+                    \/\\//\/    \/\\//\/    \/\\//\/    \/\\//\/    \/\\//\/
+                       \/          \/          \/          \/          \/
+                
 
-Copyright (C) 2007 - 2014 Juan Manuel Borges Caño
+                       ##################################################
+                       # $ git clone http://code.google.com/p/codemiscs #
+                       #                 $ cd codemiscs                 #
+                       #                $ autoreconf -i                 #
+                       #                 $ ./configure                  #
+                       #                     $ make                     #
+                       #                 # make install                 #
+                       #                   $ doc/demo                   #
+                       #                                                #
+                       ##################################################
 
-Proceed to NEWS, AUTHORS, COPYING, ChangeLog, PAYMENTS
+
+             .+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.
+            (         Thanks through EMail (suggested subject CodeMiscs)          )
+             )                              or/and                               (
+            (  Payments through Blog with BitCoin, Flattr, Western Union, PayPal  )
+             )                              Welcome                              (
+            (                                                                     )
+             )        Copyright (C) 2007 - 2014 Juan Manuel Borges Caño         (
+            (                                                                     )
+             "+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"
+
+
+	      If you will, Proceed to NEWS, AUTHORS, COPYING, ChangeLog, PAYMENTS
