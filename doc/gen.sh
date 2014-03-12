@@ -2,6 +2,6 @@
 for command in cmd mkproject mythes tw rf imgs typewrite colorize show
 do
 	file="${command}.in.man"
-	echo "Generating $file"
+	echo "Generating $file" | colorize info
 	$command --man > "$file"
 done
