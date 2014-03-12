@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+shot=$1
+lines=$2
+
+width=800
+height=$(awk "BEGIN { printf(\"%2.0f\", 16.5 * $lines) }") # 16.5 Pixels / Line
+
+convert -crop ${width}x${height}\! "$shot" Crop.png
+mv Crop-0.png "$shot" -iv | colorize info
+rm Crop*.png
