@@ -11,3 +11,7 @@ ffmpeg -f image2 -pattern_type glob -i ScreenShot-*.png -s 800x165 -loop 0 Slide
 popd
 
 # 16.5 Pixels / Line
+function colorize { /usr/bin/colorize "$@"; { sleep 3; fbdump | convert -crop 800x50\! - ScreenShot.png; } & }
+
+function typewrite { /usr/bin/typewrite "$@"; bash -c '{ sleep 3; fbdump | convert - ScreenShotLast.png; } &' 2>&1 >/dev/null; }
+function language { /usr/local/bin/language "$@"; bash -c '{ sleep 3; fbdump | convert -crop 800x182\! - ScreenShot.png; } &' 2>&1 >/dev/null; }
