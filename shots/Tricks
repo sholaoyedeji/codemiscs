@@ -1,0 +1,13 @@
+rf linux | colorize smart | typewrite
+rf phoronix | colorize smart | typewrite
+rf freecode | colorize smart | typewrite
+
+mkdir Crop
+
+for shot in ScreenShot-*.png; do convert -crop 800x165\! "$shot" Crop.png; mv Crop-0.png Crop/"$shot" -iv | colorize info; rm Crop*.png; done
+
+pushd Crop
+ffmpeg -f image2 -pattern_type glob -i ScreenShot-*.png -s 800x165 -loop 0 SlideShow.gif
+popd
+
+# 16.5 Pixels / Line

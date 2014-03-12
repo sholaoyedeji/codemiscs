@@ -1,0 +1,19 @@
+#! /usr/bin/env bash
+
+lines=$1
+
+width=800
+height=$(awk "BEGIN { printf(%2.0f, 16.5 * $lines) }") # 16.5 Pixels / Line
+
+mkdir Crop
+
+for shot in ScreenShot-*.png; do convert -crop ${width}x${height}\! "$shot" Crop.png; mv Crop-0.png Crop/"$shot" -iv | colorize info; rm Crop*.png; done
+
+pushd Crop
+ffmpeg -f image2 -pattern_type glob -i ScreenShot-*.png -s ${width}x${height} -loop 0 SlideShow.gif
+mv SlideShow.gif .. -iv | colorize warning
+popd
+
+rm -r Crop
+
+echo 'Another SlideShow Done!' | colorize info
