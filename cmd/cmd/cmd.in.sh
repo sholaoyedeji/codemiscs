@@ -113,7 +113,7 @@ function cmd_switch
 }
 
 # The options arrays
-cmd_options+=("/v/version/show the program version/cmd_version/" "/v:/variable:/show a program variable/cmd_variable/VARIABLE/" "/h/help/show a help message/cmd_help/" "/m/man/show a man page/cmd_man/")
+cmd_options+=("/v/version/show the program version/cmd_version/" "/v:/variable:/show a program variable/cmd_variable/VARIABLE/" "/h/help/show the program help/cmd_help/" "/m/man/show the program manual/cmd_man/")
 cmd_shorts=()
 cmd_longs=()
 cmd_msgs=()

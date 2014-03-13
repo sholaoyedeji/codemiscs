@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+# Crop & SlideShow 
+
 lines=$1
 
 width=800

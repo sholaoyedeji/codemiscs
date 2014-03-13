@@ -63,6 +63,19 @@ function tw_option_linesecs
 	tw_linesecs="$1"
 }
 
+# The --scroll option
+function tw_option_scroll
+{
+	tw_charsecs="0"
+	tw_linesecs="${1:-$tw_linesecs}"
+}
+
+# The --all option
+function tw_option_all
+{
+	tw_all="on"
+}
+
 # The --sound option
 function tw_option_sound
 {
@@ -76,6 +89,7 @@ function tw_init
 {
 	tw_charsecs="0.05"
 	tw_linesecs="0.5"
+	tw_all="off"
 	tw_sound="off"
 }
 
@@ -95,12 +109,20 @@ function tw_main
 
 	printf "%s\n" "$tw_input" | while IFS="" read -r tw_line
 	do
-		printf "%s" "$tw_line" | while IFS="" read -r -n 1 tw_char
-		do
-			printf "%s" "$tw_char"
-			sleep "$tw_charsecs"
-		done
-		printf "\n"
+		if [[ $tw_charsecs != 0 ]]
+		then
+			printf "%s" "$tw_line" | while IFS="" read -r -n 1 tw_char
+			do
+				printf "%s" "$tw_char"
+				if ! cmd_switch "$tw_all" && [[ "$tw_char" =~ [[:print:]] ]]
+				then
+					sleep "$tw_charsecs"
+				fi
+			done
+			printf "\n"
+		else
+			printf "%s\n" "$tw_line"
+		fi
 		sleep "$tw_linesecs"
 	done
 
@@ -120,13 +142,13 @@ cmd_author="[@]pkgauthor[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [FILE]"
-cmd_options=("/c:/charsecs:/set seconds per char/tw_option_charsecs/CHARSECS/" "/l:/linesecs:/set seconds per line/tw_option_linesecs/LINESECS/" "/f/fast/type fast/tw_option_fast/" "/s/slow/type slow/tw_option_slow/")
+cmd_options=("/c:/charsecs:/set seconds per character/tw_option_charsecs/CHARSECS/" "/l:/linesecs:/set seconds per line/tw_option_linesecs/LINESECS/" "/f/fast/type faster/tw_option_fast/" "/s/slow/type slower/tw_option_slow/" "/s::/scroll::/type scrolling/tw_option_scroll/LINESECS/" "/a/all/slow all characters/tw_option_all/")
 if [[ "[@]pkgogg123[@]" == "yes" ]]
 then
-	cmd_options=("${cmd_options[@]}" "/s/sound/play a sound/tw_option_sound/")
+	cmd_options=("${cmd_options[@]}" "/s/sound/play a sound while echoing/tw_option_sound/")
 fi
-cmd_examples=("echo type this | $cmd ")
-cmd_extrahelp="With no file, or when file is -, read standard input."
+cmd_examples=("echo text | $cmd ")
+cmd_extrahelp="By default slows only printable characters, at 0.05 seconds per character and 0.5 seconds per line, and does not play sound. With no file, or when file is -, read standard input."
 cmd_extranotes="For more information, check documentation."
 cmd_init="tw_init"
 cmd_main="tw_main"

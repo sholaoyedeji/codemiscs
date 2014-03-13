@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+
+# Google Plus Limitations
+
+rate="1"
+
+mkdir -p plus
+for slideshow in "$@"
+do
+	ffmpeg -i "$slideshow" -r 25 ScreenShot-%04d.png
+	ffmpeg -f image2 -pattern_type glob -i 'ScreenShot-*.png' -loop 0 -r "$rate" plus/${slideshow##*/}
+	rm ScreenShot*.png
+	echo "plus/${slideshow##*/}" | colorize info
+done
