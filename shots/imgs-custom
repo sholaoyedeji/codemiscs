@@ -102,7 +102,7 @@ function imgs_slideshow
 	unification="$(imgs_unify "${@:1:$#-1}")"
 	echo "$unification"
 
-	convert -alpha off -scale "$size"\! -delay 25 -loop 0 "$unification"/* "$slideshow"
+	convert -limit disk 128 -limit memory 128 -limit map 128 -alpha off -scale "$size"\! -delay 25 -loop 0 "$unification"/* "$slideshow"
 	echo "$slideshow"
 	exit 0
 }
