@@ -1,9 +1,10 @@
 2014-03-13 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
-	* Improved commands: cmd (core), typewrite
-	* Better Design: typewrite can scroll, and pass through non printable characters
+	* Proved Benefits: previous features consolidate actual ones
+	* Better Motivation: proved benefits sweetens development
+	* Improved commands: cmd (core), typewrite, colorize
 	* Improved Documentation: more rich content with media
+	* Better Design: typewrite can scroll, and pass through non printable characters, colorize understands more keywords
 	* Better Website: thanks to better documentation 
-	* Proved Benefits: previous releases features consolidate into real value
 
 2014-03-11 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Improved commands: tw, colorize, readfeed
