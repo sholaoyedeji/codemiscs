@@ -114,7 +114,7 @@ function tw_main
 			printf "%s" "$tw_line" | while IFS="" read -r -n 1 tw_char
 			do
 				printf "%s" "$tw_char"
-				if ! cmd_switch "$tw_all" && [[ "$tw_char" =~ [[:print:]] ]]
+				if cmd_switch "$tw_all" || [[ "$tw_char" =~ [[:print:]] ]]
 				then
 					sleep "$tw_charsecs"
 				fi
