@@ -142,7 +142,7 @@ cmd_author="[@]pkgauthor[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [FILE]"
-cmd_options=("/c:/charsecs:/set seconds per character/tw_option_charsecs/CHARSECS/" "/l:/linesecs:/set seconds per line/tw_option_linesecs/LINESECS/" "/f/fast/type faster/tw_option_fast/" "/s/slow/type slower/tw_option_slow/" "/s::/scroll::/type scrolling/tw_option_scroll/LINESECS/" "/a/all/slow all characters/tw_option_all/")
+cmd_options=("/c:/charsecs:/set seconds per character/tw_option_charsecs/CHARSECS/" "/l:/linesecs:/set seconds per line/tw_option_linesecs/LINESECS/" "/f/fast/type faster/tw_option_fast/" "/s/slow/type slower/tw_option_slow/" "/r::/scroll::/type scrolling/tw_option_scroll/LINESECS/" "/a/all/slow all characters/tw_option_all/")
 if [[ "[@]pkgogg123[@]" == "yes" ]]
 then
 	cmd_options=("${cmd_options[@]}" "/s/sound/play a sound while echoing/tw_option_sound/")
