@@ -1,0 +1,5 @@
+[@]pkg[@] ([@]pkgversion[@]) stable; urgency=low
+
+  * Initial Release
+
+ -- [@]pkgauthor[@] <[@]pkgemail[@]>  [@]pkgtimestamp[@]

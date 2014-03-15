@@ -6,6 +6,9 @@ EXTRA_DIST = codemiscs.png # shots
 deepdistcheck: 
 	make && make clean && make && make distcheck
 
+bin:
+	make -C dist bin
+
 obs:
 	make -C dist obs
 

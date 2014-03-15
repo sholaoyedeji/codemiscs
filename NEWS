@@ -1,3 +1,11 @@
+2014-03-16 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
+	* Proved Benefits: previous features consolidate actual ones
+	* Better Motivation: proved benefits sweetens development
+	* Improved commands: cmd (core), typewrite, colorize
+	* Improved Documentation: more rich content with media
+	* Improved Distribution: more automated generation of binary packages
+	* Better Design: typewrite can scroll, and pass through non printable characters, colorize understands more keywords
+	* Better Website: thanks to better documentation and better distribution
 2014-02-10 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Improved commands: cmd (core), tw, show.
 	* Better Website: Continues improving effortlessly through documentation automatic syndication and smart meta distribution. Demonstrations of every command.

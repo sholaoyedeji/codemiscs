@@ -1,0 +1,27 @@
+#! /usr/bin/env bash
+tarball="$1"
+osc co home:juanmabcsuse/codemiscs
+for platform in Arch_Core Arch_Extra CentOS_CentOS-5 CentOS_CentOS-6 Debian_6.0 Debian_7.0 Fedora_18 Fedora_19 Fedora_20 openSUSE_12.3 openSUSE_13.1 openSUSE_Factory RedHat_RHEL-5 RedHat_RHEL-6 SLE_11_SP2 SLE_11_SP3 xUbuntu_12.10 xUbuntu_13.10
+do
+	echo "Building $platform:"
+	cp "$tarball" "${platform}"/{codemiscs.dsc,codemiscs.spec,debian.changelog,debian.control,debian.rules,PKGBUILD} home:juanmabcsuse/codemiscs;
+	pushd home:juanmabcsuse/codemiscs
+	osc addremove
+	osc ci -m "Build $tarball for $platform"
+	osc rebuildpac
+	results="$(osc results | grep "$platform" | awk '{ print $3 }')"
+	results32=$(head -1 <<< "$results")
+	results64=$(tail -1 <<< "$results")
+	echo -ne "\r32:$results32 64:$results64"
+	while ! grep -qE "broken|unresolvable|failed|succeeded" <<< "$results32" || ! grep -qE "broken|unresolvable|failed|succeeded" <<< "$results64"
+	do
+		results="$(osc results | grep "$platform" | awk '{ print $3 }')"
+		results32=$(head -1 <<< "$results")
+		results64=$(tail -1 <<< "$results")
+		echo -ne "\r32:$results32 64:$results64"
+		sleep 10
+	done
+	echo
+	popd
+done
+rm -rv home:juanmabcsuse/
