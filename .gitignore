@@ -3,22 +3,22 @@
 NOTES
 
 # Executables
-cmd/cmd/cmd.sh
-cmd/cmd/testcmdsh
-cmd/cmd/cmd
-cmd/cmd/testcmd
-cmd/mkproject/mkproject
-cmd/tw/mythes-raw
-cmd/tw/mythes
-cmd/tw/tw
-cmd/tw/tw-config-klipper
-cmd/tw/tw-config-gtw
-cmd/rf/rf
-cmd/imgs/imgs
-cmd/typewrite/typewrite
-cmd/colorize/colorize
-cmd/show/show
-cmd/pack/pack
+cmds/cmd/cmd.sh
+cmds/cmd/testcmdsh
+cmds/cmd/cmd
+cmds/cmd/testcmd
+cmds/mkproject/mkproject
+cmds/tw/mythes-raw
+cmds/tw/mythes
+cmds/tw/tw
+cmds/tw/tw-config-klipper
+cmds/tw/tw-config-gtw
+cmds/rf/rf
+cmds/imgs/imgs
+cmds/typewrite/typewrite
+cmds/colorize/colorize
+cmds/show/show
+cmds/pack/pack
 
 # Documentation
 cmd.man

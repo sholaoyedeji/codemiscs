@@ -18,7 +18,8 @@ EXTRA_DIST = \
 	obs/debian.in.control \
 	obs/debian.in.rules \
 	obs/in.PKGBUILD
-noinst_SCRIPTS = \
+
+EXTRA_SCRIPTS = \
 	fedora/$(PACKAGE).spec \
 	centos/$(PACKAGE).spec \
 	rhel/$(PACKAGE).spec \
@@ -38,12 +39,13 @@ noinst_SCRIPTS = \
 	obs/debian.control \
 	obs/debian.rules \
 	obs/PKGBUILD
-CLEANFILES = $(noinst_SCRIPTS)
 
-tarball: Makefile
-	pushd ..; make dist; popd
+CLEANFILES = $(EXTRA_SCRIPTS)
 
-folders: Makefile
+tarball: 
+	pushd .. && make dist && popd
+
+folders: 
 	mkdir -p fedora centos rhel suse ubuntu debian arch obs
 
 fedora/$(PACKAGE).spec: tarball folders fedora/$(PACKAGE).in.spec Makefile
@@ -91,3 +93,5 @@ obs/debian.changelog: tarball folders obs/debian.in.changelog Makefile
 	$(PACKAGE_PARSE) $(srcdir)/obs/debian.in.changelog > obs/debian.changelog
 obs/PKGBUILD: tarball folders obs/in.PKGBUILD Makefile
 	$(PACKAGE_PARSE) $(srcdir)/obs/in.PKGBUILD > obs/PKGBUILD
+
+obs: fedora/$(PACKAGE).spec centos/$(PACKAGE).spec rhel/$(PACKAGE).spec suse/$(PACKAGE).spec ubuntu/$(PACKAGE).dsc ubuntu/debian.changelog ubuntu/debian.control ubuntu/debian.rules debian/$(PACKAGE).dsc debian/debian.changelog debian/debian.control debian/debian.rules arch/PKGBUILD obs/$(PACKAGE).spec obs/$(PACKAGE).dsc obs/debian.changelog obs/debian.control obs/debian.rules obs/PKGBUILD
