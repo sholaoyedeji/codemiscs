@@ -12,13 +12,13 @@ do
 	results="$(osc results | grep "$platform" | awk '{ print $3 }')"
 	results32=$(head -1 <<< "$results")
 	results64=$(tail -1 <<< "$results")
-	echo -ne "\r32:$results32 64:$results64"
+	echo -ne "\r32:$results32 64:$results64\t\t"
 	while ! grep -qE "broken|unresolvable|failed|succeeded" <<< "$results32" || ! grep -qE "broken|unresolvable|failed|succeeded" <<< "$results64"
 	do
 		results="$(osc results | grep "$platform" | awk '{ print $3 }')"
 		results32=$(head -1 <<< "$results")
 		results64=$(tail -1 <<< "$results")
-		echo -ne "\r32:$results32 64:$results64"
+		echo -ne "\r32:$results32 64:$results64\t\t"
 		sleep 10
 	done
 	echo
