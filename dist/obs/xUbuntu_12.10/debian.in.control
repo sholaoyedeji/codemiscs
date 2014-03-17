@@ -2,11 +2,11 @@ Source: [@]pkg[@]
 Section: Miscellaneous
 Priority: optional
 Maintainer: [@]pkgauthor[@] <[@]pkgemail[@]>
-Build-Depends: debhelper, autoconf, aspell, beep, espeak, vorbis-tools, curl, wget, libxml2-utils, xmlstarlet, lynx-cur, pkg-config, libhunspell-dev, libmythes-dev, mlocate
+Build-Depends: debhelper, autoconf, aspell, espeak, vorbis-tools, curl, wget, libxml2-utils, xmlstarlet, lynx-cur, pkg-config, libhunspell-dev, libmythes-dev, mlocate
 
 Package: [@]pkg[@]
 Architecture: any
-Depends: ${shlibs:Depends}, autoconf, aspell, beep, espeak, vorbis-tools, curl, wget, libxml2-utils, xmlstarlet, lynx-cur, pkg-config, libhunspell-dev, libmythes-dev, mlocate
+Depends: ${shlibs:Depends}, autoconf, aspell, espeak, vorbis-tools, curl, wget, libxml2-utils, xmlstarlet, lynx-cur, pkg-config, libhunspell-dev, libmythes-dev, mlocate
 Description: [@]pkgdescription[@]
  [@]pkgexplanation[@]
 
