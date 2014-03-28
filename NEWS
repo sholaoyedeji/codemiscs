@@ -6,6 +6,7 @@
 	* Improved Distribution: more automated generation of binary packages
 	* Better Design: typewrite can scroll, and pass through non printable characters, colorize understands more keywords
 	* Better Website: thanks to better documentation and better distribution
+
 2014-02-10 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Improved commands: cmd (core), tw, show.
 	* Better Website: Continues improving effortlessly through documentation automatic syndication and smart meta distribution. Demonstrations of every command.
