@@ -4217,7 +4217,7 @@ function tw_gt
 	twp_language="$(printf "%s\n" "$tw_dict" | sed -e 's/-/|/g' -e 's/zh/zh-CN/g' -e 's/zt/zh-TW/g')"
 
 	# This performs the translation
-	twp_data="$(printf "%s\n" "$tw_input" | curl -s --connect-timeout 300 --max-time 300 -A "Mozilla/5.0" --data-urlencode "hl=en" --data-urlencode "ie=UTF-8" --data-urlencode "langpair=${twp_language}" --data-urlencode "q@-" http://translate.google.com)"
+	twp_data="$(printf "%s\n" "$tw_input" | curl -s --connect-timeout 300 --max-time 300 -A "Mozilla/5.0" --data-urlencode "hl=en" --data-urlencode "ie=UTF-8" --data-urlencode "langpair=${twp_language}" --data-urlencode "q@-" https://translate.google.com)"
 	tw_output="$(
 	{
 		printf "%s\n" "$twp_data" | xmllint --html --xpath '//span[@id="result_box"]' - 2> /dev/null | lynx -assume-charset="UTF-8" -dump -stdin | sed -e 's/^[[:space:]][[:space:]][[:space:]]//'
