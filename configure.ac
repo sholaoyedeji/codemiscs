@@ -158,5 +158,5 @@ AM_CONDITIONAL(MYTHES, [test x$PACKAGE_HUNSPELL = xyes -a  x$PACKAGE_MYTHES = xy
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile cmds/Makefile cmds/cmd/Makefile cmds/mkproject/Makefile cmds/tw/Makefile cmds/rf/Makefile cmds/imgs/Makefile cmds/typewrite/Makefile cmds/colorize/Makefile cmds/show/Makefile cmds/pack/Makefile doc/Makefile dist/Makefile])
+AC_CONFIG_FILES([Makefile cmds/Makefile cmds/cmd/Makefile cmds/mkproject/Makefile cmds/tw/Makefile cmds/rf/Makefile cmds/imgs/Makefile cmds/typewrite/Makefile cmds/colorize/Makefile cmds/show/Makefile cmds/pack/Makefile cmds/tonize/Makefile cmds/status/Makefile doc/Makefile dist/Makefile])
 AC_OUTPUT

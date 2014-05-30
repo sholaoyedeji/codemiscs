@@ -1,3 +1,6 @@
+2014-05-30 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
+	* New Commands (In Progress): tonize, status
+
 2014-05-29 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Improved commands: colorize, tw
 	* Better Design: colorize understands pattern and line matches, tw adapts way faster to online engines changes

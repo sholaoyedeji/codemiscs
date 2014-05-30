@@ -19,6 +19,8 @@ cmds/typewrite/typewrite
 cmds/colorize/colorize
 cmds/show/show
 cmds/pack/pack
+cmds/tonize/tonize
+cmds/status/status
 
 # Documentation
 cmd.man
@@ -31,6 +33,8 @@ typewrite.man
 colorize.man
 show.man
 pack.man
+tonize.man
+status.man
 
 # Packages
 codemiscs-*.tar.bz2

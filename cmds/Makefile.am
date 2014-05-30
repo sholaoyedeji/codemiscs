@@ -1,1 +1,1 @@
-SUBDIRS = cmd mkproject tw rf imgs typewrite colorize show pack
+SUBDIRS = cmd mkproject tw rf imgs typewrite colorize show pack status
