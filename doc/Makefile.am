@@ -9,6 +9,8 @@ EXTRA_DIST = \
 	typewrite.in.man \
 	colorize.in.man \
 	show.in.man \
+	tonize.in.man \
+	status.in.man \
 	demo \
 	stage1/ \
 	stage2/
@@ -23,7 +25,9 @@ man1_MANS = \
 	imgs.man \
 	typewrite.man \
 	colorize.man \
-	show.man
+	show.man \
+	tonize.man \
+	status.man
 CLEANFILES = $(man1_MANS)
 man: Makefile
 	./gen.sh

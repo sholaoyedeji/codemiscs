@@ -60,7 +60,7 @@ function cl_option_match
 }
 
 # The profiles
-cl_profiles=(input help info warning error punctuation vivid smart elegant minimalist sharp awesome fancy cool health relax heaven strong reverse hidden raw bold reverse)
+cl_profiles=(input help info warning error punctuation vivid smart elegant minimalist sharp awesome fancy cool health relax heaven strong reverse hidden raw bold)
 
 # The --list option
 function cl_option_list()

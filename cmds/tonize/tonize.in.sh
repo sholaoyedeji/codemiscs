@@ -78,7 +78,7 @@ function tn_option_match
 }
 
 # The profiles
-tn_profiles=(beep input help info warning error punctuation vivid smart elegant minimalist sharp awesome fancy cool health relax heaven strong reverse hidden raw bold reverse)
+tn_profiles=(beep composer info warning error success trouble failure victory problem fail input phaser ring cash vivid smart elegant minimalist sharp awesome fancy cool health relax heaven strong reverse hidden raw bold)
 
 # The --list option
 function tn_option_list()
@@ -125,17 +125,22 @@ function tn_note
 	esac
 }
 
+# The beep helper
+function tn_beep
+{
+	if ! cmd_switch "$tn_print"
+	then
+		beep "$@"
+	else
+		echo beep "$@"
+	fi
+}
+
 # The profile helper
 function tn_profile
 {
 	#grep "${tn_match:-^\(.*\)$}" && beep
-	beep -f "$(tn_note "${1:-beep}")" -l "${2:-1000}" -d "${3:-0}" -r "${4:-1}"
-}
-
-# The beep helper
-function tn_beep
-{
-	beep "$@"
+	tn_beep -f "$(tn_note "${1:-beep}")" -l "${2:-1000}" -d "${3:-0}" -r "${4:-1}"
 }
 
 # The loop helper
@@ -161,73 +166,165 @@ function tn_profile_beep
 # The input profile
 function tn_profile_input
 {
-	while read tn_input
+	while IFS="" read -r -n 1 tn_char && [[ "$tn_char" != $'\004' ]]
 	do
-		tn_profile $tn_input
+		if [[ -z "$tn_char" ]]; then tn_char=$'\n'; fi
+		tn_input=$"$tn_input$tn_char"
+		tn_beep -f 400 -D 50 -l 10
 	done
-	#grep "${tn_match:-^\(.*\)$}" && tn_profile
+	printf "%s" $"$tn_input"
 	exit 0
 }
 
-# The help profile
-function tn_profile_help
+# The composer profile
+function tn_profile_composer
 {
-	sed \
-		-e "s/\([[:digit:]]\+\)/$(tput setaf 4)\1$(tput sgr0)/g" \
-		-e "s/\(GB\|MB\|KB\|[[:upper:]_]\{2,\}\|'[^']\+'\|\"[^\"]\+\"\|\`\`[^\']\+''\)/$(tput setaf 2)\1$(tput sgr0)/g" \
-		-e "s/\([^[:alnum:]]\)\(-\{1,2\}[?[:alnum:]_-]\+\)\( \)\?\([?[:alnum:]_-]\+\)\?/\1$(tput setaf 5)\2$(tput sgr0)\3$(tput setaf 2)\4$(tput sgr0)/g" \
-		-e "s/\(=\)\([?[:alnum:]_-.]\+\)/\1$(tput setaf 2)\2$(tput sgr0)/g" \
-		-e "s/\(http:\/\/\)\([^/]\+\)\([^[:blank:]]\+\)/$(tput setaf 4)\1$(tput sgr0)$(tput setaf 6)\2$(tput sgr0)$(tput setaf 1)\3$(tput sgr0)/g" \
-		-e "s/\([[:alnum:]_-]\+\)\+@\([[:alnum:]_-.]\+\)/$(tput setaf 1)\1$(tput sgr0)$(tput setaf 4)@$(tput sgr0)$(tput setaf 6)\2$(tput sgr0)/g" \
-		-e "s/\([:,;.]\)\([[:blank:]]\)/$(tput setaf 1)\1$(tput sgr0)\2/g" \
-		-e "s/\([:,;.]\)$/$(tput setaf 1)\1$(tput sgr0)/g" \
-		-e "s/\(['\"=]\)/$(tput setaf 1)\1$(tput sgr0)/g" \
-		-e "s/\(^\|[^-]\)\<\(Command\|command\|Program\|program\|License\|license\|Licensed\|licensed\|Usage\|usage\|Example\|example\|Arguments\|arguments\|Option\|option\|Options\|options\|Set\|set\|Sets\|sets\|Check\|check\|Checks\|checks\|Add\|add\|Show\|show\|Shows\|shows\|Use\|use\|Uses\|uses\|Add\|add\|Adds\|adds\|Remove\|remove\|Removes\|removes\|Complete\|complete\|Field\|field\|Fields\|fields\|Help\|help\|Execute\|execute\|Execution\|execution\|Runtime\|runtime\|Online\|online\|Default\|default\|Config\|config\|Configuration\|configuration\|Respect\|respect\|Term\|term\|Terms\|terms\|Service\|service\|Services\|services\|Name\|name\|Description\|description\|Explanation\|explanation\|Version\|version\|Package\|package\|Author\|author\|Day\|day\|Month\|month\|Year\|year\|Timestamp\|timestamp\|Examples\|examples\|Extrahelp\|extrahelp\|Extranotes\|extranotes\|Main\|main\|Man\|man\|Page\|page\\Manpage\|manpage\|Documentation\|documentation\|Mandatory\|mandatory\|Home Page\|home page\|Homepage\|homepage\|Author\|author\|Blog\|blog\|Email\|email\|Report\|report\|Information\|information\|Info\|info\|Informs\|informs\|Warning\|warning\|Warn\|warn\|Warns\|warns\|Standard\|standard\|Input\|input\|Output\|output\|Error\|error\|Read\|read\|Reads\|reads\|Write\|write\|Writes\|writes\|Print\|print\|Prints\|prints\|List\|list\|Lists\|lists\|File\|file\|Files\|files\|Terminal\|terminal\|Terminals\|terminals\|Profiles\|profiles\|Profile\|profile\|Color\|color\|Colors\|colors\|January\|February\|Monday\|\|Twesday\|Wednesday\|Thursday\|Friday\|Saturday\|Sunday\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\)\>/\1$(tput setaf 3)\2$(tput sgr0)/g" \
-		-
-	exit 0
-}
+	while read tn_frequency tn_time tn_delay tn_repeats
+	do
+		if [[ -n $tn_time ]]
+		then
+			tn_time="$(cmd_float "$tn_time * 1000")"
+		else
+			tn_time=1000
+		fi
+		if [[ -n $tn_delay ]]
+		then
+			tn_delay="$(cmd_float "$tn_delay * 1000")"
+		else
+			tn_delay=0
+		fi
+		if [[ -n $tn_repeats ]]
+		then
+			tn_repeats=1
+		fi
 
-# The punctuation profile
-function tn_profile_punctuation
-{
-	sed \
-		-e "s/\([[:digit:]]\+\)/$(tput setaf 4)\1$(tput sgr0)/g" \
-		-e "s/\(GB\|MB\|KB\|[[:upper:]_]\{2,\}\|'[^']\+'\|\"[^\"]\+\"\|\`\`[^\']\+''\)/$(tput setaf 2)\1$(tput sgr0)/g" \
-		-e "s/\(http:\/\/\)\([^/]\+\)\([^[:blank:]]\+\)/$(tput setaf 4)\1$(tput sgr0)$(tput setaf 6)\2$(tput sgr0)$(tput setaf 1)\3$(tput sgr0)/g" \
-		-e "s/\([[:alnum:]_-]\+\)\+@\([[:alnum:]_-.]\+\)/$(tput setaf 1)\1$(tput sgr0)$(tput setaf 4)@$(tput sgr0)$(tput setaf 6)\2$(tput sgr0)/g" \
-		-e "s/\([:,;.]\)\([[:blank:]]\)/$(tput setaf 1)\1$(tput sgr0)\2/g" \
-		-e "s/\([:,;.]\)$/$(tput setaf 1)\1$(tput sgr0)/g" \
-		-e "s/\(['\"=]\)/$(tput setaf 1)\1$(tput sgr0)/g" \
-		-
+		tn_profile "$(tn_note "$tn_frequency")" "$tn_time" "$tn_delay" "$tn_repeats"
+	done
 	exit 0
 }
 
 # The info profile
 function tn_profile_info
 {
-	tn_loop "-l 100" {1000..2000..100}
-	# beep -f 200 -d 1 -r 5 -n -f 300 -d 10 -r 4 -n -f  400 -d 100 -r 3 
+	tn_beep
 	exit 0
 }
 
 # The warning profile
 function tn_profile_warning
 {
-	tn_profile 3 0
+	tn_beep -n
 	exit 0
 }
 
 # The error profile
 function tn_profile_error
 {
+	tn_beep -n -n
+	exit 0
+}
+
+# The success profile
+function tn_profile_success
+{
+	tn_beep
+	exit 0
+}
+
+# The trouble profile
+function tn_profile_trouble
+{
+	tn_beep -n
+	exit 0
+}
+
+# The failure profile
+function tn_profile_failure
+{
+	tn_beep -n -n
+	exit 0
+}
+
+# The victory profile
+function tn_profile_victory
+{
+	# AnoPoli, http://ubuntuforums.org/showthread.php?t=1157670&page=4
+	tn_loop "-l 100" {1000..2000..100}
+	exit 0
+}
+
+# The warning profile
+function tn_profile_problem
+{
+	# AnoPoli, http://ubuntuforums.org/showthread.php?t=1157670&page=4
+	tn_beep -f 200 -d 1 -r 5 -n -f 300 -d 10 -r 4 -n -f  400 -d 100 -r 3 
+	exit 0
+}
+
+# The error profile
+function tn_profile_fail
+{
+	# AnoPoli, http://ubuntuforums.org/showthread.php?t=1157670&page=4
 	tn_loop "-l 100" {2000..1000..100}
+	exit 0
+}
+
+# The phaser profile
+function tn_profile_phaser
+{
+	# odokemono, http://www.reddit.com/r/linux/comments/18h8v5/does_anyone_have_or_know_a_source_for_beep_scripts/
+	new=""
+	tune=""
+	frequency=3000
+	while [[ $frequency -gt 400 ]]
+	do
+		tune="$tune $new -f ${frequency} -l 5"
+		[[ -z $new ]] && new="-n"
+		frequency="$(($frequency * 97 / 100))"
+	done
+	tn_beep $tune
+	exit 0
+}
+
+# The ring profile
+function tn_profile_ring
+{
+	# odokemono, http://www.reddit.com/r/linux/comments/18h8v5/does_anyone_have_or_know_a_source_for_beep_scripts/
+	new=""
+	tune=""
+	for repeat in 1 2 3
+	do
+		for frequency in 1000 2000 1000 2000 1000 2000 1000 2000 1000 2000
+		do
+			tune="$tune $new -f ${frequency} -l 20"
+			[[ -z $new ]] && new="-n"
+		done
+	done
+	tn_beep $tune
+	exit 0
+}
+
+# The cash profile
+function tn_profile_cash
+{
+	# odokemono, http://www.reddit.com/r/linux/comments/18h8v5/does_anyone_have_or_know_a_source_for_beep_scripts/
+	new=""
+	tune=""
+	for repeat in 1 2 3 4 5 6 7 8 9 0
+	do
+		for frequency in 400 500 600 700 800 900 1000 1100 1200 1300 1400 1500 1600
+		do
+			tune="$tune $new -f ${frequency} -l 20"
+			[[ -z $new ]] && new="-n"
+		done
+	done
+	tn_beep $tune
 	exit 0
 }
 
 # The vivid profile
 function tn_profile_vivid
 {
-	tn_profile 2 0
 	exit 0
 }
 
@@ -241,28 +338,24 @@ function tn_profile_smart
 # The elegant profile
 function tn_profile_elegant
 {
-	tn_profile 6 5
 	exit 0
 }
 
 # The minimalist profile
 function tn_profile_minimalist
 {
-	tn_profile 3 6
 	exit 0
 }
 
 # The sharp profile
 function tn_profile_sharp
 {
-	tn_profile 5 0
 	exit 0
 }
 
 # The awesome profile
 function tn_profile_awesome
 {
-	tn_profile 7 5
 	exit 0
 }
 
@@ -284,67 +377,52 @@ function tn_profile_cool
 # The health profile
 function tn_profile_health
 {
-	tn_profile 1 7
+	# odokemono, http://www.reddit.com/r/linux/comments/18h8v5/does_anyone_have_or_know_a_source_for_beep_scripts/
+	tn_loop "-l 200" "1500 1550 1500 1550 1500 1550 1500 1550 1500 1550 1500 1550"
 	exit 0
 }
 
 # The relax profile
 function tn_profile_relax
 {
-	tn_profile 7 1
 	exit 0
 }
 
 # The heaven profile
 function tn_profile_heaven
 {
-	tn_profile 6 0
 	exit 0
 }
 
 # The strong profile
 function tn_profile_strong
 {
-	tn_profile 3 0
+	tn_beep -f 300.7 -r 2 -d 100 -l 400
 	exit 0
 }
 
 # The reverse profile
 function tn_profile_reverse
 {
-	tn_profile 4 2
 	exit 0
 }
 
 # The hidden profile
 function tn_profile_hidden
 {
-	tn_profile 1 0
+	tn_beep -f 1000 -r 5
 	exit 0
 }
 
 # The raw profile
 function tn_profile_raw
 {
-	tn_profile 7 4
 	exit 0
 }
 
 # The bold profile
 function tn_profile_bold
 {
-	tput bold;
-	cat -
-	tput sgr0
-	exit 0
-}
-
-# The reverse profile
-function tn_profile_reverse
-{
-	tput rev;
-	cat -
-	tput sgr0
 	exit 0
 }
 
@@ -360,19 +438,13 @@ function tn_option_terminal
 	tn_terminal="on"
 }
 
-#The strip helper
-function tn_strip
+# The --print option
+function tn_option_print
 {
-	sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g" -
+	tn_print="on"
 }
 
-# The --strip option
-function tn_option_strip
-{
-	tn_strip="on"
-}
-
-# ... and colorize, the program itself.
+# ... and tonize, the program itself.
 
 # The cmd init function
 function tn_init
@@ -381,31 +453,26 @@ function tn_init
 	tn_background="red"
 	tn_match="^\(.*\)$"
 	tn_terminal="off"
-	tn_strip="off"
+	tn_print="off"
 }
 
 # The cmd main function
 function tn_main
 {
-	if ! cmd_switch "$tn_strip"
+	if ! cmd_switch "$tn_terminal" || [[ -t 1 ]]
 	then
-		if ! cmd_switch "$tn_terminal" || [[ -t 1 ]]
-		then
-			tn_profilesel="${1:-input}"
-			for tn_profile in "${tn_profiles[@]}"
-			do
-				if [[ "$tn_profile" = "$tn_profilesel" ]]
-				then
-					shift
-					"tn_profile_$tn_profile" "$@"
-				fi
-			done
-			cmd_error "unknown profile"
-		else
-			cat -
-		fi
+		tn_profilesel="${1:-input}"
+		for tn_profile in "${tn_profiles[@]}"
+		do
+			if [[ "$tn_profile" = "$tn_profilesel" ]]
+			then
+				shift
+				"tn_profile_$tn_profile" "$@"
+			fi
+		done
+		cmd_error "unknown profile"
 	else
-		tn_strip "$@"
+		cat -
 	fi
 }
 
@@ -429,8 +496,6 @@ cmd_options=(
 "/t:/time:/set time/tn_option_time/TIME/"
 "/d:/delay:/set delay/tn_option_delay/DELAY/"
 "/r:/repeats:/set repeats/tn_option_repeats/TIMES/"
-"/f/foreground/set foreground/tn_option_foreground/"
-"/b/background/set background/tn_option_background/"
 "/i/info/use info profile/tn_profile_info/"
 "/w/warning/use warning profile/tn_profile_warning/"
 "/e/error/use error profile/tn_profile_error/"
@@ -439,9 +504,9 @@ cmd_options=(
 "/p:/profile:/set profile/tn_option_profile/PROFILE/"
 "/l/list/list profiles/tn_option_list/"
 "/t/terminal/tone only if output is a terminal/tn_option_terminal/"
-"/s/strip/remove any tone traces/tn_option_strip/"
+"/p/print/only print command/tn_option_print/"
 )
-cmd_examples=("$cmd --help | $cmd --profile help")
+cmd_examples=("$cmd beep")
 cmd_extrahelp="By default sets profile, else uses input profile (green foreground and red background). Tone aliases are understood: do/c, re/d, mi/e, fa/f, sol/g, la/a , si/b (6) and beep."
 cmd_extranotes="For more information, check documentation."
 cmd_init="tn_init"

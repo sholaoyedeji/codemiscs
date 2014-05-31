@@ -38,10 +38,10 @@
 #   |   ____________________________________________________________________________|_
 #    \_/______________________________________________________________________________/
 
-# The visual option
-function st_option_visual
+# The visible option
+function st_option_visible
 {
-	st_visual="on"
+	st_visible="on"
 	stv_message="${1:-"shell status code: $st_check"}"
 }
 
@@ -65,12 +65,14 @@ function st_option_list()
 	exit 0
 }
 
-# The visual profile helper
-function st_profile_visual
+# The visible profile helper
+function st_profile_visible
 {
-	if cmd_switch "$st_visual"
+	if cmd_switch "$st_visible"
 	then
-		printf "%s\n" "${stv_message:-shell status code: $st_check}" | colorize "${@:2}" >&2
+		printf "%s\n" "${stv_message:-shell status code: $st_check}" | colorize "$1" >&2
+		#printf "%s\n" "${stv_message:-shell status code: $st_check}" | colorize "${@:2}" >&2
+		#printf "%s\n" "$shell status code: $st_check" | colorize "$stv_message" >&2
 	fi
 }
 
@@ -79,7 +81,6 @@ function st_profile_audible
 {
 	if cmd_switch "$st_audible"
 	then
-		# echo ${sta_message:-beep}
 		tonize "${1:-beep}"
 	fi
 }
@@ -87,7 +88,7 @@ function st_profile_audible
 # The profiles helper
 function st_profiles
 {
-	st_profile_visual "$1"
+	st_profile_visible "$1"
 	st_profile_audible "$1"
 }
 
@@ -130,37 +131,39 @@ function st_option_profile
 	st_profile_"$1"
 }
 
+# The --terminal option
+function cl_option_terminal
+{
+	cl_terminal="on"
+}
+
 # ... and status, the program itself.
 
 # The cmd init function
 function st_init
 {
 	st_check="$1"
+	cl_terminal="off"
 }
 
 # The cmd main function
 function st_main
 {
 	shift
-	if ! cmd_switch "$st_strip"
+	if ! cmd_switch "$st_terminal" || [[ -t 1 ]]
 	then
-		if ! cmd_switch "$st_terminal" || [[ -t 1 ]]
-		then
-			st_profilesel="${1:-check}"
-			for st_profile in "${st_profiles[@]}"
-			do
-				if [[ "$st_profile" = "$st_profilesel" ]]
-				then
-					shift
-					"st_profile_$st_profile" "$@"
-				fi
-			done
-			cmd_error "unknown profile"
-		else
-			cat -
-		fi
+		st_profilesel="${1:-check}"
+		for st_profile in "${st_profiles[@]}"
+		do
+			if [[ "$st_profile" = "$st_profilesel" ]]
+			then
+				shift
+				"st_profile_$st_profile" "$@"
+			fi
+		done
+		cmd_error "unknown profile"
 	else
-		st_strip "$@"
+		cat -
 	fi
 }
 
@@ -170,7 +173,7 @@ cmd="status"
 cmd_name="status report"
 cmd_version="[@]pkgversion[@]"
 cmd_description="Status Reporter"
-cmd_explanation="status report is a command that reports the status of the shell last command return code. status uses profiles to select the report to make effective"
+cmd_explanation="status report is a command that reports status, either manual or the shell last command return code. status uses profiles to select the report to make effective."
 cmd_license="[@]pkglicense[@]"
 cmd_homepage="[@]pkghomepage[@]"
 cmd_author="[@]pkgauthor[@]"
@@ -178,15 +181,16 @@ cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd "'$?'" [OPTIONS] [PROFILE]"
 cmd_options=(
-"/v::/visual::/set visual report/st_option_visual/MESSAGE/"
+"/v::/visible::/set visible report/st_option_visible/MESSAGE/"
 "/a::/audible::/set audible report/st_option_audible/MESSAGE/"
 "/i/info/use info profile/st_profile_info/"
 "/w/warning/use warning profile/st_profile_warning/"
 "/e/error/use error profile/st_profile_error/"
 "/p:/profile:/set profile/st_option_profile/PROFILE/"
 "/l/list/list profiles/st_option_list/"
+"/t/terminal/tone only if output is a terminal/tn_option_terminal/"
 )
-cmd_examples=("$cmd --help | $cmd --profile help")
+cmd_examples=("$cmd "'$?'" --visible --audible")
 cmd_extrahelp="By default sets profile, else uses check profile (shell last command code). Visual colorize and audible speaker arguments are understood."
 cmd_extranotes="For more information, check documentation."
 cmd_init="st_init"

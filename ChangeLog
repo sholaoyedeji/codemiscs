@@ -1,8 +1,10 @@
 2014-05-30 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
-	* New Commands (In Progress): tonize, status
+	* New Commands: tonize, status
+	* Improved Commands: reverse profile unification
+	* Better Documentation: acontinues improving effortlessly through documentation automatic syndication, tonize & status man pages. 
 
 2014-05-29 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
-	* Improved commands: colorize, tw
+	* Improved Commands: colorize, tw
 	* Better Design: colorize understands pattern and line matches, tw adapts way faster to online engines changes
 	* Better Motivation: proved benefits sweetens development
 	* Better Documentation: continues improving effortlessly through documentation automatic syndication 
@@ -13,29 +15,29 @@
 2014-03-13 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Proved Benefits: previous features consolidate actual ones
 	* Better Motivation: proved benefits sweetens development
-	* Improved commands: cmd (core), typewrite, colorize
+	* Improved Commands: cmd (core), typewrite, colorize
 	* Improved Documentation: more rich content with media
 	* Better Design: typewrite can scroll, and pass through non printable characters, colorize understands more keywords
 	* Better Website: thanks to better documentation 
 
 2014-03-11 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
-	* Improved commands: tw, colorize, readfeed
+	* Improved Commands: tw, colorize, readfeed
 	* Improved Documentation: more rich content with media
 	* Better Website: thanks to better documentation 
 
 2014-03-07 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
-	* Improved commands: tw, colorize
+	* Improved Commands: tw, colorize
 	* Better Design: colorize understands color aliases and reverse profile
 	* Better Motivation: tw adapts faster to online engines
 	* Better Documentation: examples are more widely useful
 	* Better Website: thanks to better documentation 
 
 2014-02-10 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
-	* Improved commands: show (beeper)
+	* Improved Commands: show (beeper)
 	* Better Website: demonstrations of every command
 
 2014-01-13 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
-	* Improved commands: show, tw
+	* Improved Commands: show, tw
 	* Better Design: show plugin design is more modulable and easily expandable
 	* Better Documentation: code parchments got everywhere where matters
 	* Better Motivation: copyrighted for 2014
