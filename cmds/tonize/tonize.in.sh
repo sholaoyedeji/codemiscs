@@ -47,6 +47,7 @@ function cmd_float
 {
 	printf "%s\n" "$@" | bc -l
 }
+
 # The --time option
 function tn_option_time
 {
@@ -65,20 +66,9 @@ function tn_option_repeats
 	tn_repeats="$1"
 }
 
-# The line option
-function tn_option_line
-{
-	tn_match="^\(.*$1.*\)$"
-}
-
-# The match option
-function tn_option_match
-{
-	tn_match="\($1\)"
-}
-
 # The profiles
-tn_profiles=(beep composer info warning error success trouble failure victory problem fail input phaser ring cash vivid smart elegant minimalist sharp awesome fancy cool health relax heaven strong reverse hidden raw bold)
+#tn_profiles=(beep composer info warning error success trouble failure victory problem fail input phaser ring cash smart elegant minimalist awesome fancy cool health relax heaven strong reverse hidden raw bold)
+tn_profiles=(beep composer info warning error success trouble failure victory problem fail input phaser ring cash vivid sharp fancy cool health strong reverse hidden raw bold)
 
 # The --list option
 function tn_option_list()
@@ -139,8 +129,8 @@ function tn_beep
 # The profile helper
 function tn_profile
 {
-	#grep "${tn_match:-^\(.*\)$}" && beep
-	tn_beep -f "$(tn_note "${1:-beep}")" -l "${2:-1000}" -d "${3:-0}" -r "${4:-1}"
+	#tn_beep -f "$(tn_note "${1:-beep}")" -l "${2:-1000}" -d "${3:-0}" -r "${4:-1}"
+	tn_beep -f "$(tn_note "${1:-$tn_frequency}")" -l "${2:-$tn_time}" -d "${3:-$tn_delay}" -r "${4:-$tn_repeats}"
 }
 
 # The loop helper
@@ -159,7 +149,7 @@ function tn_loop
 # The beep profile
 function tn_profile_beep
 {
-	tn_profile beep "${tn_time:-100}" "${tn_delay:-0}" "${tn_repeats:-1}"
+	tn_profile
 	exit 0
 }
 
@@ -253,7 +243,7 @@ function tn_profile_victory
 	exit 0
 }
 
-# The warning profile
+# The problem profile
 function tn_profile_problem
 {
 	# AnoPoli, http://ubuntuforums.org/showthread.php?t=1157670&page=4
@@ -261,7 +251,7 @@ function tn_profile_problem
 	exit 0
 }
 
-# The error profile
+# The fail profile
 function tn_profile_fail
 {
 	# AnoPoli, http://ubuntuforums.org/showthread.php?t=1157670&page=4
@@ -325,6 +315,7 @@ function tn_profile_cash
 # The vivid profile
 function tn_profile_vivid
 {
+	tn_profile 3500 ${tn_time} ${tn_delay} 1
 	exit 0
 }
 
@@ -350,6 +341,7 @@ function tn_profile_minimalist
 # The sharp profile
 function tn_profile_sharp
 {
+	tn_profile 100 500 200 8
 	exit 0
 }
 
@@ -404,6 +396,7 @@ function tn_profile_strong
 # The reverse profile
 function tn_profile_reverse
 {
+	tn_profile fancy 150
 	exit 0
 }
 
@@ -417,12 +410,14 @@ function tn_profile_hidden
 # The raw profile
 function tn_profile_raw
 {
+	tn_beep
 	exit 0
 }
 
 # The bold profile
 function tn_profile_bold
 {
+	tn_beep
 	exit 0
 }
 
@@ -449,11 +444,12 @@ function tn_option_print
 # The cmd init function
 function tn_init
 {
-	tn_foreground="green"
-	tn_background="red"
-	tn_match="^\(.*\)$"
 	tn_terminal="off"
 	tn_print="off"
+	tn_frequency="beep"
+	tn_time="125"
+	tn_delay="0"
+	tn_repeats="1"
 }
 
 # The cmd main function
@@ -499,15 +495,13 @@ cmd_options=(
 "/i/info/use info profile/tn_profile_info/"
 "/w/warning/use warning profile/tn_profile_warning/"
 "/e/error/use error profile/tn_profile_error/"
-"/l:/line:/set line pattern/tn_option_line/LINE/"
-"/m:/match:/set match pattern/tn_option_match/MATCH/"
 "/p:/profile:/set profile/tn_option_profile/PROFILE/"
 "/l/list/list profiles/tn_option_list/"
 "/t/terminal/tone only if output is a terminal/tn_option_terminal/"
 "/p/print/only print command/tn_option_print/"
 )
 cmd_examples=("$cmd beep")
-cmd_extrahelp="By default sets profile, else uses input profile (green foreground and red background). Tone aliases are understood: do/c, re/d, mi/e, fa/f, sol/g, la/a , si/b (6) and beep."
+cmd_extrahelp="By default sets profile, else uses input profile (beep tone,  one second time, no delay, one repeat). Tone aliases are understood: do/c, re/d, mi/e, fa/f, sol/g, la/a , si/b (6) and beep."
 cmd_extranotes="For more information, check documentation."
 cmd_init="tn_init"
 cmd_main="tn_main"

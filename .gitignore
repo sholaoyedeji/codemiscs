@@ -37,6 +37,7 @@ tonize.man
 status.man
 
 # Packages
+codemiscs-*/
 codemiscs-*.tar.bz2
 codemiscs-*.rpm
 codemiscs-*.deb

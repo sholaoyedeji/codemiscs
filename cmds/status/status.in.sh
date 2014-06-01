@@ -53,7 +53,8 @@ function st_option_audible
 }
 
 # The profiles
-st_profiles=(check info warning error success problem failure victory trouble lose)
+#st_profiles=(check info warning error success problem failure victory trouble lose)
+st_profiles=(verify check info warning error success problem failure)
 
 # The --list option
 function st_option_list()
@@ -92,14 +93,28 @@ function st_profiles
 	st_profile_audible "$1"
 }
 
-# The check profile
-function st_profile_check
+# The verify profile
+function st_profile_verify
 {
 	if [[ $st_check = 0 ]]
 	then
 		st_profiles info
 	else
 		st_profiles error
+	fi
+	exit 0
+}
+
+# The check profile
+function st_profile_check
+{
+	if [[ $st_check = 0 ]]
+	then
+		st_profile_visible info
+		st_profile_audible vivid
+	else
+		st_profile_visible error
+		st_profile_audible sharp
 	fi
 	exit 0
 }
@@ -122,6 +137,27 @@ function st_profile_warning
 function st_profile_error
 {
 	st_profiles error
+	exit 0
+}
+
+# The success profile
+function st_profile_success
+{
+	st_profiles vivid
+	exit 0
+}
+
+# The problem profile
+function st_profile_problem
+{
+	st_profiles warning
+	exit 0
+}
+
+# The failure profile
+function st_profile_failure
+{
+	st_profiles sharp
 	exit 0
 }
 
