@@ -51,13 +51,13 @@ function cmd_float
 # The --time option
 function tn_option_time
 {
-	tn_time="$(cmd_float "$1 * 1000")"
+	tn_time="$1"
 }
 
 # The --delay option
 function tn_option_delay
 {
-	tn_delay="$(cmd_float "$1 * 1000")"
+	tn_delay="$1"
 }
 
 # The --repeats option
@@ -67,8 +67,8 @@ function tn_option_repeats
 }
 
 # The profiles
-#tn_profiles=(beep composer info warning error success trouble failure victory problem fail input phaser ring cash smart elegant minimalist awesome fancy cool health relax heaven strong reverse hidden raw bold)
-tn_profiles=(beep composer info warning error success trouble failure victory problem fail input phaser ring cash vivid sharp fancy cool health strong reverse hidden raw bold)
+#tn_profiles=(beep composer info warning error success trouble failure victory problem fail input phaser ring cash elegant minimalist awesome fancy cool health relax heaven strong reverse hidden raw bold)
+tn_profiles=(beep composer info warning error success trouble failure victory problem fail input phaser ring cash smart vivid sharp fancy cool health strong reverse hidden raw bold)
 
 # The --list option
 function tn_option_list()
@@ -130,7 +130,7 @@ function tn_beep
 function tn_profile
 {
 	#tn_beep -f "$(tn_note "${1:-beep}")" -l "${2:-1000}" -d "${3:-0}" -r "${4:-1}"
-	tn_beep -f "$(tn_note "${1:-$tn_frequency}")" -l "${2:-$tn_time}" -d "${3:-$tn_delay}" -r "${4:-$tn_repeats}"
+	tn_beep -f "$(tn_note "${1:-$tn_frequency}")" -l "$(cmd_float "${2:-$tn_time} * 1000")" -d "$(cmd_float "${3:-$tn_delay} * 1000")" -r "${4:-$tn_repeats}"
 }
 
 # The loop helper
@@ -160,7 +160,7 @@ function tn_profile_input
 	do
 		if [[ -z "$tn_char" ]]; then tn_char=$'\n'; fi
 		tn_input=$"$tn_input$tn_char"
-		tn_beep -f 400 -D 50 -l 10
+		tn_beep -f 400 -d 50 -l 10
 	done
 	printf "%s" $"$tn_input"
 	exit 0
@@ -171,24 +171,23 @@ function tn_profile_composer
 {
 	while read tn_frequency tn_time tn_delay tn_repeats
 	do
-		if [[ -n $tn_time ]]
-		then
-			tn_time="$(cmd_float "$tn_time * 1000")"
-		else
-			tn_time=1000
-		fi
-		if [[ -n $tn_delay ]]
-		then
-			tn_delay="$(cmd_float "$tn_delay * 1000")"
-		else
-			tn_delay=0
-		fi
-		if [[ -n $tn_repeats ]]
-		then
-			tn_repeats=1
-		fi
-
-		tn_profile "$(tn_note "$tn_frequency")" "$tn_time" "$tn_delay" "$tn_repeats"
+#		if [[ -z $tn_frequency ]]
+#		then
+#			tn_frequency="beep"
+#		fi
+#		if [[ -z $tn_time ]]
+#		then
+#			tn_time=0.125
+#		fi
+#		if [[ -z $tn_delay ]]
+#		then
+#			tn_delay=0
+#		fi
+#		if [[ -z $tn_repeats ]]
+#		then
+#			tn_repeats=1
+#		fi
+		tn_profile "$(tn_note "${tn_frequency:-beep}")" "${tn_time:-0.125}" "${tn_delay:-0}" "${tn_repeats:-1}"
 	done
 	exit 0
 }
@@ -315,14 +314,14 @@ function tn_profile_cash
 # The vivid profile
 function tn_profile_vivid
 {
-	tn_profile 3500 ${tn_time} ${tn_delay} 1
+	tn_profile 3500 "${tn_time}" "${tn_delay}" 1
 	exit 0
 }
 
 # The smart profile
 function tn_profile_smart
 {
-	tn_profile 5000 50 100 2
+	tn_profile 5000 0.05 0.1 2
 	exit 0
 }
 
@@ -341,7 +340,7 @@ function tn_profile_minimalist
 # The sharp profile
 function tn_profile_sharp
 {
-	tn_profile 100 500 200 8
+	tn_profile 100 0.5 0.2 8
 	exit 0
 }
 
@@ -354,7 +353,7 @@ function tn_profile_awesome
 # The fancy profile
 function tn_profile_fancy
 {
-	tn_profile 5000 50 100 2
+	tn_profile 5000 0.05 0.1 2
 	exit 0
 }
 
@@ -389,21 +388,21 @@ function tn_profile_heaven
 # The strong profile
 function tn_profile_strong
 {
-	tn_beep -f 300.7 -r 2 -d 100 -l 400
+	tn_profile 300.7 0.4 0.1 2
 	exit 0
 }
 
 # The reverse profile
 function tn_profile_reverse
 {
-	tn_profile fancy 150
+	tn_profile fancy 0.150
 	exit 0
 }
 
 # The hidden profile
 function tn_profile_hidden
 {
-	tn_beep -f 1000 -r 5
+	tn_profile 1000 "${tn_time}" "${tn_delay}" 5
 	exit 0
 }
 
@@ -447,7 +446,7 @@ function tn_init
 	tn_terminal="off"
 	tn_print="off"
 	tn_frequency="beep"
-	tn_time="125"
+	tn_time="0.125"
 	tn_delay="0"
 	tn_repeats="1"
 }
