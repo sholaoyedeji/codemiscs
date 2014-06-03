@@ -8,7 +8,7 @@
 #   |           | || | | |  _| (_) | |  | | | | | | (_| | |_| | (_) | | | |         |
 #   |          |___|_| |_|_|  \___/|_|  |_| |_| |_|\__,_|\__|_|\___/|_| |_|         |
 #   |                                                                               |
-#   |                          tonize (Tonize): Tone Beeper                         |
+#   |                        tonize (Tone Beep): Tone Beeper                        |
 #   |                Copyright (C) 2013 - 2014 Juan Manuel Borges Caño              |
 #<colorize>
 #   |     The idea of colorizing commands output occurred to me multiple times.     |
@@ -474,9 +474,9 @@ function tn_main
 # The cmd fields
 cmd_package="[@]pkg[@]"
 cmd="tonize"
-cmd_name="tone beeper"
+cmd_name="tone beep"
 cmd_version="[@]pkgversion[@]"
-cmd_description="Tone Beeper"
+cmd_description="Internal Speaker Tone Beeper"
 cmd_explanation="tone beeper is a command that tones according to a selected profile, the input read from standard input or from a file."
 cmd_license="[@]pkglicense[@]"
 cmd_homepage="[@]pkghomepage[@]"

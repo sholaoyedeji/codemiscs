@@ -5,3 +5,4 @@ do
 	echo "Generating $file" | colorize info
 	$command --man > "$file"
 done
+status $? --visible --audible

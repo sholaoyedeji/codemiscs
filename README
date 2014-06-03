@@ -3,63 +3,67 @@
 \_|                              CodeMiscs: Code Miscellaneous                               |
   |                          Functional Shell Development Made Fun                           |
   |                                                                                          |
-  | CodeMiscs is a fun, creative, elegant, exciting, amusing, useful and profitable project. |
+  |      CodeMiscs is fun, creative, elegant, exciting, amusing, useful and profitable.      |
   |   _______________________________________________________________________________________|_
    \_/_________________________________________________________________________________________/
 
+                          <\/><\/><\/><\/><\/><\/><\/><\/><\/><\/><\/>
+                      <\/></\></\></\></\></\></\></\></\></\></\></\><\/>
+                      </\>                                            </\>
+                   <\/>              Currently Composed Of:              <\/>
+                   </\>         * Command (cmd): Command Wrapper         </\>
+                  <\/>   * Make Project (mkproject): Project Generator    <\/>
+                  </\>    * Mythes (mythes): Synonyms Mythes Interface    </\>
+                  <\/>  * Translate Word (tw): Human Language Translator  <\/>
+                  </\>           * Read Feed (rf): Feed Reader            </\>
+                  <\/>           * Images (imgs): Images Wizard           <\/>
+                  </\>     * Colorize Input (colorize): Input Tinter      </\>
+                  <\/>    * Typewrite (typewrite): Slowed Down Echoer     <\/>
+                  </\>           * Shell Show (show): Show Fun            </\>
+                   <\/>       * Tone Beeper (tonize): Tone Beeper        <\/>
+                   </\>    * Status Report (status): Status Reporter     </\>
+                      <\/>                                            <\/>
+                      </\><\/><\/><\/><\/><\/><\/><\/><\/><\/><\/><\/></\>
+                          </\></\></\></\></\></\></\></\></\></\></\>
 
      __^__                                                                           __^__
     ( ___ )-------------------------------------------------------------------------( ___ )
      | / | codemiscs (Code Miscellaneous)  licensed GPLv3 by Juan Manuel Borges Caño | \ |
-     | / |              * Homepage <http://code.google.com/p/codemiscs>              | \ |
-     | / |                 * Blog <http://juanmabcblog.blogspot.com>                 | \ |
-     |___|                  * Mail <mailto:juanmabcmail@gmail.com>                   |___|
+     | / |                  < http://code.google.com/p/codemiscs >                   | \ |
+     | / |                   < http://juanmabcblog.blogspot.com >                    | \ |
+     |___|                    < mailto:juanmabcmail@gmail.com >                      |___|
     (_____)-------------------------------------------------------------------------(_____)
-
-
-                       /\          /\          /\          /\          /\
-                    /\//\\/\    /\//\\/\    /\//\\/\    /\//\\/\    /\//\\/\
-                 /\//\\\///\\/\//\\\///\\/\//\\\///\\/\//\\\///\\/\//\\\///\\/\
-                //\\\//\/\\///\\\//\/\\///\\\//\/\\///\\\//\/\\///\\\//\/\\///\\
-                \\//\/                                                    \/\\//
-                 \/                  Currently Composed Of:                  \/
-                 /\             * Command (cmd): Command Wrapper             /\
-                //\\     * Make Project (mkproject): Project Generator      //\\
-                \\//      * Mythes (mythes): Synonyms Mythes Interface      \\//
-                 \/     * Translate Word (tw): Human Language Translator     \/
-                 /\              * Read Feed (rf): Feed Reader               /\
-                //\\             * Images (imgs): Images Wizard             //\\
-                \\//       * Colorize Input (colorize): Input Tinter        \\//
-                 \/       * Typewrite (typewrite): Slowed Down Echoer        \/
-                 /\              * Shell Show (show): Show Fun               /\
-                //\\/\                                                    /\//\\
-                \\///\\/\//\\\///\\/\//\\\///\\/\//\\\///\\/\//\\\///\\/\//\\\//
-                 \/\\///\\\//\/\\///\\\//\/\\///\\\//\/\\///\\\//\/\\///\\\//\/
-                    \/\\//\/    \/\\//\/    \/\\//\/    \/\\//\/    \/\\//\/
-                       \/          \/          \/          \/          \/
-
 
                        ##################################################
                        # $ git clone http://code.google.com/p/codemiscs #
-                       #                 $ cd codemiscs                 #
-                       #                $ autoreconf -i                 #
-                       #                 $ ./configure                  #
-                       #                     $ make                     #
-                       #                 # make install                 #
-                       #                   $ doc/demo                   #
-                       #                                                #
+                       # $ cd codemiscs                                 #
+                       # $ cat README                                   #
+                       # $ autoreconf -i                                #
+                       # $ ./configure                                  #
+                       # $ make                                         #
+                       # # make install                                 #
+                       # $ doc/demo                                     #
                        ##################################################
 
+                   _________________________________________________________
+                  |                                                         |
+                  |                       If you will                       |
+                  | Proceed to NEWS, AUTHORS, COPYING, ChangeLog & PAYMENTS |
+                  |                           and                           |
+                  |               Enjoy the source code read                |
+                  |_________________________________________________________|
 
-             .+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.
-            (         Thanks through EMail (suggested subject CodeMiscs)          )
-             )                              or/and                               (
-            (  Payments through Blog with BitCoin, Flattr, Western Union, PayPal  )
-             )                              Welcome                              (
-            (                                                                     )
-             )        Copyright (C) 2007 - 2014 Juan Manuel Borges Caño         (
-            (                                                                     )
-             "+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"
+                                               .
+                                          .    |    .
+                                           \   |   /
+                                       '.   \  '  /   .'
+                                         '. .'```'. .'
+           <>.......................:::::::`.......`:::::::......................<>
+           <>:                             You can                              :<>
+           <>:                        Thank Through Mail                        :<>
+           <>:                               and                                :<>
+           <>: Pay Through PayPal, Flattr, Patreon, Western Union & BitCoin :-) :<>
+           <>:..................................................................:<>
+           <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
-
-              If you will, Proceed to NEWS, AUTHORS, COPYING, ChangeLog, PAYMENTS
+                                    Juan Manuel Borges Caño
