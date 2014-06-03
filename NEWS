@@ -1,9 +1,10 @@
-2014-05-30 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
+2014-06-03 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* New Commands: tonize, status
 	* Improved Commands: colorize, tw
-	* Better Design: colorize understands pattern and line matches, removes reverse duplication, tw adapts way faster to online engines changes
+	* Improved Website: better looking design with more easy access to stuff that matters, and more content like NEWS & ChangeLog
+	* Better Design: colorize understands pattern and line matches, removes reverse duplication, tw adapts way faster to online engines changes. Website makes core usage of templates & is better metatagged.
 	* Better Documentation: continues improving effortlessly through documentation automatic syndication, automatic tonize & status man pages, 
-	* Better Motivation: proved benefits sweetens development
+	* Better Motivation: proved benefits sweetens development, nicer web with a lot of content exploit
 
 2014-03-16 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Proved Benefits: previous features consolidate actual ones
