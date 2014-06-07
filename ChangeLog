@@ -1,12 +1,13 @@
 2014-06-03 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Improved Website: better looking design with more easy access to stuff that matters, and more content like NEWS & ChangeLog
 	* Better Design: website makes core usage of templates
+	* Better Distribution: more automated generation of documentation and wiki
 	* Improved Motivation: web looks nicer with a lot of reusage
 
 2014-05-30 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* New Commands: tonize, status
 	* Improved Commands: reverse profile unification
-	* Better Documentation: acontinues improving effortlessly through documentation automatic syndication, tonize & status man pages. 
+	* Better Documentation: continues improving effortlessly through documentation automatic syndication, tonize & status man pages
 
 2014-05-29 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Improved Commands: colorize, tw

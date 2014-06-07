@@ -1,19 +1,20 @@
-2014-06-03 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
-	* New Commands: tonize, status
-	* Improved Commands: colorize, tw
-	* Improved Website: better looking design with more easy access to stuff that matters, and more content like NEWS & ChangeLog
+2014-07-03 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
+	* New Commands: tonize, status.
+	* Improved Commands: colorize, tw.
+	* Improved Website: better looking design with more easy access to stuff that matters, and more content like NEWS & ChangeLog.
 	* Better Design: colorize understands pattern and line matches, removes reverse duplication, tw adapts way faster to online engines changes. Website makes core usage of templates & is better metatagged.
-	* Better Documentation: continues improving effortlessly through documentation automatic syndication, automatic tonize & status man pages, 
-	* Better Motivation: proved benefits sweetens development, nicer web with a lot of content exploit
+	* Better Documentation: continues improving effortlessly through documentation automatic syndication, automatic tonize & status man pages.
+	* Better Distribution: more automated generation of documentation and wiki.
+	* Better Motivation: proved benefits sweetens development, nicer web with a lot of content exploit.
 
 2014-03-16 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
-	* Proved Benefits: previous features consolidate actual ones
-	* Better Motivation: proved benefits sweetens development
-	* Improved Commands: cmd (core), typewrite, colorize
-	* Improved Documentation: more rich content with media
-	* Improved Distribution: more automated generation of binary packages
-	* Better Design: typewrite can scroll, and pass through non printable characters, colorize understands more keywords
-	* Better Website: thanks to better documentation and better distribution
+	* Proved Benefits: previous features consolidate actual ones.
+	* Better Motivation: proved benefits sweetens development.
+	* Improved Commands: cmd (core), typewrite, colorize.
+	* Improved Documentation: more rich content with media.
+	* Improved Distribution: more automated generation of binary packages.
+	* Better Design: typewrite can scroll, and pass through non printable characters, colorize understands more keywords.
+	* Better Website: thanks to better documentation and better distribution.
 
 2014-02-10 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Improved Commands: cmd (core), tw, show.
@@ -25,10 +26,10 @@
 	* Better Motivation: copyrighted for 2014.
 
 2013-12-30 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
-	* New Commands, Improved Commands, Better Design, Better Documentation, Better Motivation
+	* New Commands, Improved Commands, Better Design, Better Documentation, Better Motivation.
 
 2013-12-19 codemiscs <code.google.com/p/codemiscs>
-	* New Commands, Better Documentation, Better Website, Better Distribution
+	* New Commands, Better Documentation, Better Website, Better Distribution.
 
 2013-11-28 codemiscs <code.google.com/p/codemiscs>
-	* Independent Projects Merger
+	* Independent Projects Merger.
