@@ -91,19 +91,23 @@
 # The info helper
 function cmd_info
 {
-	printf "%s\n" "Try \`$cmd --help' for more information." | colorize --terminal info
+	printf "%s\n" "Try '$cmd --help' for more information." | colorize --terminal info
 }
 
 # The warning helper
 function cmd_warning
 {
-	printf "%s\n" "$cmd: $@" | colorize --terminal warning >&2
+	printf "%s\n" "$cmd: $1" | colorize --terminal warning >&2
 }
 
 # The error helper
 function cmd_error
 {
-	cmd_warning "$@"; cmd_info >&2; exit 1
+	{
+		printf "%s\n" "$cmd: $1" | colorize --terminal error
+		cmd_info
+	} >&2
+	exit 1
 }
 
 # The switch helper
