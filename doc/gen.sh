@@ -1,8 +1,16 @@
 #! /usr/bin/env bash
-for command in cmd mkproject mythes tw rf imgs typewrite colorize show tonize status
+
+echo "CodeMiscs Manuals" | colorize fancy
+commands=( cmd mkproject mythes tw rf imgs typewrite colorize show tonize status )
+echo "${commands[@]}" | colorize smart
+
+for command in "${commands[@]}"
 do
 	file="${command}.in.man"
 	echo "Generating $file" | colorize info
 	$command --man > "$file"
 done
+
+echo "CodeMiscs Manuals, Juan Manuel Borges Caño" | colorize smart
+
 status $? --visible --audible
