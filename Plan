@@ -1,12 +1,14 @@
-lolcat
-readme + website bump
-cmd: defaults config support (engine! :))
-status --visual --audible
-demo2
-pluginify imgs
+own getopt, own plugin system, internal subcommands ......  cmd: defaults config support (engine! :))
 code prettification
-/usr/bin/beep, + pabeep tunes ?
-video capture?
-codemiscs -> shellcode !
+tonize midi, composer do2
+/usr/bin/beep, + pabeep tunes ? show beeps -> tonize ?
+colorize rainbow lolcat
 tw babylon dict support + bing ... ?
-Google Wallet, PayPal, Patreon, Flattr, BitCoin, Western Union? straight links
+pluginify imgs, .....
+sync imgs google
+status --visible --audible
+demo2
+video capture?
+Google Wallet, PayPal, Patreon, Flattr, BitCoin, Western Union straight links, readme, website, --help, --manual ?
+readme + website bump
+codemiscs -> shellcode, shmiscs? !
