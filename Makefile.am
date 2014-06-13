@@ -23,10 +23,10 @@ reload: distcheck rpm
 	sudo rpm -e codemiscs; sudo rpm -Uhv $(PACKAGE)-$(PACKAGE_VERSION)-1.*.rpm
 
 docs:
-	pushd doc; ./gen.sh; popd
+	pushd doc; ./generate; popd
 
 wiki:
-	pushd codemiscs.wiki; ./gen.sh; popd
+	pushd codemiscs.wiki; ./generate; popd
 
 deepproject:
 	make deepreload
