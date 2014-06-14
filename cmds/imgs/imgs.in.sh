@@ -54,21 +54,89 @@ function imgs_option_list()
 # The fetch mode
 function imgs_fetch
 {
-	# Tweaked http://sam.nipl.net/code/nipl-tools/bin/google-images to be silent, and elegant
-	[ $# = 0 ] && cmd_error "Usage: query count parallel safe opts timeout tries agent1 agent2"
+#	# Tweaked http://sam.nipl.net/code/nipl-tools/bin/google-images to be silent, and elegant
+#	[ $# = 0 ] && cmd_error "Usage: query count parallel safe opts timeout tries agent1 agent2"
+#
+#	query=$1 count=${2:-100} parallel=${3:-10} safe=$4 opts=$5 timeout=${6:-10} tries=${7:-2} agent1=${8:-Mozilla/5.0 (X11; Linux i686; rv:25.0) Gecko/20100101 Firefox/25.0} agent2=${9:-Googlebot-Image/1.0}
+#
+#	query_esc=`perl -e 'use URI::Escape; print uri_escape($ARGV[0]);' "$query"`
+#	dir=`echo "$query_esc" | sed 's/%20/-/g'`-`date +%s`; mkdir "$dir" || exit 2; cd "$dir"
+#	url="http://www.google.com/search?tbm=isch&safe=$safe&tbs=$opts&q=$query_esc" procs=0
+#	echo >.URL "$url" ; for A; do echo >>.args "$A"; done
+#
+#	htmlsplit() { tr '\n\r \t' ' ' | sed 's/</\n</g; s/>/>\n/g; s/\n *\n/\n/g; s/^ *\n//; s/ $//;'; }
+#
+#	for start in `seq 0 100 $[$count-1]`; do wget --quiet -U"$agent1" -T"$timeout" --tries="$tries" -O- "$url&start=$start" | htmlsplit; done | perl -ne 'use HTML::Entities; /^<a .*?href="(.*?)"/ and print decode_entities($1), "\n";' | grep '/imgres?' | perl -ne 'use URI::Escape; ($ref, $img) = map { uri_unescape($_) } /imgrefurl=(.*?)&imgurl=(.*?)&/; $ext = $img; for ($ext) { s,.*[/.],,; s/[^a-z0-9].*//i; $_ ||= "img"; } $save = sprintf("%04d.$ext", ++$i); print join("\t", $save, $img, $ref), "\n";' | tee -a .images.tsv | while IFS=$'\t' read -r save img ref; do wget --quiet -U"$agent2" -T"$timeout" --tries="$tries" --referer="$ref" -O "$save" "$img" || rm "$save" & procs=$[$procs + 1]; [ $procs = $parallel ] && { wait; procs=0; }; done
+#
+#	wait
+#
+#	echo "$dir"
+#	exit 0
 
-	query=$1 count=${2:-100} parallel=${3:-10} safe=$4 opts=$5 timeout=${6:-10} tries=${7:-2} agent1=${8:-Mozilla/5.0 (X11; Linux i686; rv:25.0) Gecko/20100101 Firefox/25.0} agent2=${9:-Googlebot-Image/1.0}
+	# Thanks To: https://developers.google.com/image-search/v1/jsondevguide :-)
+	# 3 Seconds Between Resuts, 1 Second Between Fetch
+	# Don't Fetch Useless Stuff, Be Clever
+	# Don't Abuse Services, Be Nice
+	# Development Getting Out Of Google Services
 
+	[ $# = 0 ] && cmd_error "Usage: query count safe rights size chromacity filetype"
+	query="$1"
+	count="${2:-50}"
+	safe="$3" # "moderate"
+	results="8"
+	rights="$4" # "(cc_publicdomain|cc_attribute|cc_sharealike).-(cc_noncommercial|cc_nonderived)"
+	size="$5" #icon small|medium|large|xlarge
+	chromacity="$6" # "color"
+	filetype="$7" # "png" "jpg"
+
+	# Keep The sam.nipl.net Dir
 	query_esc=`perl -e 'use URI::Escape; print uri_escape($ARGV[0]);' "$query"`
-	dir=`echo "$query_esc" | sed 's/%20/-/g'`-`date +%s`; mkdir "$dir" || exit 2; cd "$dir"
-	url="http://www.google.com/search?tbm=isch&safe=$safe&tbs=$opts&q=$query_esc" procs=0
-	echo >.URL "$url" ; for A; do echo >>.args "$A"; done
+	dir="$(echo "$query_esc" | sed 's/%20/-/g')"-"$(date +%s)"
+	mkdir "$dir" || exit 2
+	cd "$dir"
 
-	htmlsplit() { tr '\n\r \t' ' ' | sed 's/</\n</g; s/>/>\n/g; s/\n *\n/\n/g; s/^ *\n//; s/ $//;'; }
+	# Don't Fetch Useless Stuff, Be Clever
+	for ((start=1; start<count; start+=results))
+	do
+		search="$(
+			printf "$query\n" | curl \
+				-s --connect-timeout 300 --max-time 300 \
+				'https://ajax.googleapis.com/ajax/services/search/images' \
+				--get --data-urlencode "v=1.0" \
+				--data-urlencode "safe=$safe" \
+				--data-urlencode "rsz=$results" \
+				--data-urlencode "start=$start" \
+				--data-urlencode "as_rights=$rights" \
+				--data-urlencode "imgsz=$size" \
+				--data-urlencode "imgc=$chromacity" \
+				--data-urlencode "as_filetype=$filetype" \
+				--data-urlencode "q@-" \
+				-A "Mozilla/5.0"
+		)"
 
-	for start in `seq 0 100 $[$count-1]`; do wget --quiet -U"$agent1" -T"$timeout" --tries="$tries" -O- "$url&start=$start" | htmlsplit; done | perl -ne 'use HTML::Entities; /^<a .*?href="(.*?)"/ and print decode_entities($1), "\n";' | grep '/imgres?' | perl -ne 'use URI::Escape; ($ref, $img) = map { uri_unescape($_) } /imgrefurl=(.*?)&imgurl=(.*?)&/; $ext = $img; for ($ext) { s,.*[/.],,; s/[^a-z0-9].*//i; $_ ||= "img"; } $save = sprintf("%04d.$ext", ++$i); print join("\t", $save, $img, $ref), "\n";' | tee -a .images.tsv | while IFS=$'\t' read -r save img ref; do wget --quiet -U"$agent2" -T"$timeout" --tries="$tries" --referer="$ref" -O "$save" "$img" || rm "$save" & procs=$[$procs + 1]; [ $procs = $parallel ] && { wait; procs=0; }; done
+		# Cache/Reference/Credit The Search
+		printf "%s\n" "$search" | python -mjson.tool > ".search-$start-$((start+results-1))"
+		urls="$(
+			printf "%s\n" "$search" | python -c \
+'
+import json, sys
+obj = json.load(sys.stdin)
+urls = [result["url"] for result in obj["responseData"]["results"]]
+for url in urls: print url
+'
+		)"
 
-	wait
+		# Index/Reference/Credit The URLs
+		printf "%s\n" "$urls" >> ".urls"
+
+		# Don't Abuse Services, Be Nice
+		sleep 3
+	done
+	wget \
+		--quiet -T300 --tries 3 \
+		-i .urls \
+		--wait 1 \
+		-U "Mozilla/5.0"
 
 	echo "$dir"
 	exit 0
@@ -85,7 +153,7 @@ function imgs_unify
 	size="$1"
 
 	unification=$(mktemp -d "Unification-$size-XXXXXXXXXX")
-	for i in ${!images[@]}; do convert -scale "$size"\! "${images[i]}" "$unification/$(printf "%.10i" "$i").png"; done
+	for i in ${!images[@]}; do convert -quiet -scale "$size"\! "${images[i]}" "$unification/$(printf "%.10i" "$i").png"; done
 
 	echo "$unification"
 	exit 0
@@ -102,7 +170,7 @@ function imgs_slideshow
 	unification="$(imgs_unify "${@:1:$#-1}")"
 	echo "$unification"
 
-	convert -alpha off -scale "$size"\! -delay 50 -loop 0 "$unification"/* "$slideshow"
+	convert -quiet -alpha off -scale "$size"\! -delay 50 -loop 0 "$unification"/* "$slideshow"
 	echo "$slideshow"
 	exit 0
 }
@@ -111,11 +179,10 @@ function imgs_slideshow
 function imgs_fortune
 {
 	size="${1:-320x240}"
-	count="${2:-100}"
-	word="${3:-$(shuf /usr/share/dict/words | head -1)}"
+	word="${2:-$(shuf /usr/share/dict/words | head -1)}"
 
 	echo "$word"
-	source=$(imgs_fetch "$word" "$count")
+	source=$(imgs_fetch "$word" 25)
 	echo "$source"
 	imgs_slideshow "$size" "$source"/* "$word.gif"
 	exit 0
@@ -125,8 +192,8 @@ function imgs_fortune
 function imgs_custom
 {
 	word="${1:-$(shuf /usr/share/dict/words | head -1)}"
-	count="${2:-100}"
-	size="${3:-320x240}"
+	size="${2:-320x240}"
+	count="${3:-50}"
 
 	echo "$word"
 	source=$(imgs_fetch "$word" "$count")
@@ -174,9 +241,9 @@ cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
 cmd_usage="$cmd [OPTIONS] [MODE] [-- MODEOPTIONS]"
 cmd_options=("/l/list/list modes/imgs_option_list/")
-cmd_examples=("$cmd custom -- linux 100 320x240")
+cmd_examples=("$cmd custom -- linux 50 320x240")
 cmd_extrahelp="By default works in custom mode. Respect the terms of use of online services."
-cmd_extranotes="For more information, check documentation."
+cmd_extranotes="Don't Fetch Useless Stuff, Be Clever. Don't Abuse Services, It's not funny, Be Nice. Development Getting Out Of Google Services. For more information, check documentation."
 cmd_init="imgs_init"
 cmd_main="imgs_main"
 

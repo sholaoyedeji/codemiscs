@@ -65,6 +65,9 @@ AC_CHECK_PROG(PACKAGE_GAWK, gawk, yes)
 AC_CHECK_PROG(PACKAGE_PERL, perl, yes)
 [[ -z $PACKAGE_PERL ]] && AC_MSG_WARN(perl is needed at execution time)
 
+AC_CHECK_PROG(PACKAGE_PYTHON, python, yes)
+[[ -z $PACKAGE_PERL ]] && AC_MSG_WARN(python is needed at execution time)
+
 AC_CHECK_PROG(PACKAGE_GETOPT, getopt, yes)
 [[ -z $PACKAGE_GETOPT ]] && AC_MSG_WARN(getopt is needed at execution time)
 

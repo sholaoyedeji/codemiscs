@@ -1,5 +1,5 @@
 EXTRA_DIST = \
-	gen.sh \
+	generate \
 	cmd.in.man \
 	mkproject.in.man \
 	rf.in.man \
@@ -30,6 +30,6 @@ man1_MANS = \
 	status.man
 CLEANFILES = $(man1_MANS)
 man: Makefile
-	./gen.sh
+	./generate
 %.man: %.in.man
 	$(PACKAGE_PARSE) $(top_srcdir)/doc/$^ > $@
