@@ -96,7 +96,7 @@ function imgs_fetch
 	cd "$dir"
 
 	# Don't Fetch Useless Stuff, Be Clever
-	for ((start=1; start<count; start+=results))
+	for ((start=1; start<=count; start+=results))
 	do
 		search="$(
 			printf "$query\n" | curl \
