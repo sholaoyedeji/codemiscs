@@ -1,6 +1,6 @@
 ACLOCAL_AMFLAGS = -I autoconf.macro
 SUBDIRS = cmds doc dist
-dist_doc_DATA = README NEWS AUTHORS COPYING ChangeLog PAYMENTS
+dist_doc_DATA = README NEWS AUTHORS COPYING ChangeLog SUPPORT
 EXTRA_DIST = codemiscs.png # shots
 
 deepdistcheck: 

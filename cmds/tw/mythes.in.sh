@@ -233,8 +233,9 @@ cmd_explanation="mythes is a command that shows synonyms for a given word."
 cmd_license="[@]pkglicense[@]"
 cmd_homepage="[@]pkghomepage[@]"
 cmd_author="[@]pkgauthor[@]"
-cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
+cmd_social="[@]pkgsocial[@]"
+cmd_blog="[@]pkgblog[@]"
 cmd_usage="$cmd [OPTIONS] [DICTIONARY] [TERM]"
 cmd_options=("/l/list/list available dictionaries/mythes_option_list/")
 if [[ "[@]pkgaspell[@]" == "yes" ]]

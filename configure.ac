@@ -8,8 +8,9 @@ AC_SUBST(PACKAGE_EXPLANATION, ["Code Miscellaneous is a fun, creative, elegant, 
 AC_SUBST(PACKAGE_LICENSE, "GPLv3+")
 AC_SUBST(PACKAGE_HOMEPAGE, "http://code.google.com/p/codemiscs")
 AC_SUBST(PACKAGE_AUTHOR, "Juan Manuel Borges Caño")
-AC_SUBST(PACKAGE_BLOG, "http://juanmabcblog.blogspot.com")
 AC_SUBST(PACKAGE_EMAIL, "juanmabcmail@gmail.com")
+AC_SUBST(PACKAGE_SOCIAL, "http://plus.google.com/+JuanManuelBorgesCaño")
+AC_SUBST(PACKAGE_BLOG, "http://juanmabcblog.blogspot.com")
 AC_SUBST(PACKAGE_MONTH, $(LANG=C date '+%B'))
 AC_SUBST(PACKAGE_YEAR, $(LANG=C date '+%Y'))
 AC_SUBST(PACKAGE_DAY, $(LANG=C date '+%A'))
@@ -28,8 +29,9 @@ AC_SUBST(PACKAGE_PARSE,
 	-e 's,\@<:@@\@:>@pkglicense\@<:@@\@:>@,\$(PACKAGE_LICENSE),g' \
 	-e 's,\@<:@@\@:>@pkghomepage\@<:@@\@:>@,\$(PACKAGE_HOMEPAGE),g' \
 	-e 's,\@<:@@\@:>@pkgauthor\@<:@@\@:>@,\$(PACKAGE_AUTHOR),g' \
-	-e 's,\@<:@@\@:>@pkgblog\@<:@@\@:>@,\$(PACKAGE_BLOG),g' \
 	-e 's,\@<:@@\@:>@pkgemail\@<:@@\@:>@,\$(PACKAGE_EMAIL),g' \
+	-e 's,\@<:@@\@:>@pkgsocial\@<:@@\@:>@,\$(PACKAGE_SOCIAL),g' \
+	-e 's,\@<:@@\@:>@pkgblog\@<:@@\@:>@,\$(PACKAGE_BLOG),g' \
 	-e 's,\@<:@@\@:>@pkgmonth\@<:@@\@:>@,\$(PACKAGE_MONTH),g' \
 	-e 's,\@<:@@\@:>@pkgyear\@<:@@\@:>@,\$(PACKAGE_YEAR),g' \
 	-e 's,\@<:@@\@:>@pkgday\@<:@@\@:>@,\$(PACKAGE_DAY),g' \

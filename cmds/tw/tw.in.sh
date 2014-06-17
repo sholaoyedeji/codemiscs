@@ -252,8 +252,9 @@ cmd_explanation="translate word is a command that translates words into differen
 cmd_license="[@]pkglicense[@]"
 cmd_homepage="[@]pkghomepage[@]"
 cmd_author="[@]pkgauthor[@]"
-cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
+cmd_social="[@]pkgsocial[@]"
+cmd_blog="[@]pkgblog[@]"
 cmd_usage="$cmd [OPTIONS] [DICTIONARY] [TERM]"
 cmd_options=("/l/list/list available dictionaries/tw_option_list/" "/s/shortcuts/list available dictionaries shortcuts/tw_option_shortcuts/" "/x/exact/perform an exact match/tw_option_exact/")
 if [[ "[@]pkghunspell[@]" = "yes" && "[@]pkgmythes[@]" = "yes" ]] 

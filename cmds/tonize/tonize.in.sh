@@ -481,8 +481,9 @@ cmd_explanation="tone beeper is a command that tones according to a selected pro
 cmd_license="[@]pkglicense[@]"
 cmd_homepage="[@]pkghomepage[@]"
 cmd_author="[@]pkgauthor[@]"
-cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
+cmd_social="[@]pkgsocial[@]"
+cmd_blog="[@]pkgblog[@]"
 cmd_usage="$cmd [OPTIONS] [PROFILE]"
 cmd_options=(
 "/t:/tone:/set tone/tn_option_frequency/TONE/"

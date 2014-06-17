@@ -213,8 +213,9 @@ cmd_explanation="status report is a command that reports status, either manual o
 cmd_license="[@]pkglicense[@]"
 cmd_homepage="[@]pkghomepage[@]"
 cmd_author="[@]pkgauthor[@]"
-cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
+cmd_social="[@]pkgsocial[@]"
+cmd_blog="[@]pkgblog[@]"
 cmd_usage="$cmd "'$?'" [OPTIONS] [PROFILE]"
 cmd_options=(
 "/v::/visible::/set visible report/st_option_visible/MESSAGE/"

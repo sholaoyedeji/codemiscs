@@ -56,8 +56,9 @@ source cmd \
 	--cmdlicense "[@]pkglicense[@]" \
 	--cmdhomepage "[@]pkghomepage[@]" \
 	--cmdauthor "[@]pkgauthor[@]" \
-	--cmdblog "[@]pkgblog[@]" \
 	--cmdemail "[@]pkgemail[@]" \
+	--cmdsocial "[@]pkgsocial[@]" \
+	--cmdblog "[@]pkgblog[@]" \
 	--cmdusage "test [OPTIONS]" \
 	--cmdoption "/t/test/show a test message/test_test/" \
 	--cmdoption "/a:/testarg:/show a test message with argument/test_testarg/ARG/" \

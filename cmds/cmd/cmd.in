@@ -44,8 +44,9 @@ function cmd_option_explanation { cmd_var_explanation="$1"; }
 function cmd_option_license { cmd_var_license="$1"; }
 function cmd_option_homepage { cmd_var_homepage="$1"; }
 function cmd_option_author { cmd_var_author="$1"; }
-function cmd_option_blog { cmd_var_blog="$1"; }
 function cmd_option_email { cmd_var_email="$1"; }
+function cmd_option_social { cmd_var_social="$1"; }
+function cmd_option_blog { cmd_var_blog="$1"; }
 function cmd_option_usage { cmd_var_usage="$1"; }
 function cmd_option_option { cmd_var_options+=("$1"); }
 function cmd_option_example { cmd_var_examples+=("$1"); }
@@ -63,7 +64,7 @@ function cmd_option_main { cmd_var_main="$1"; }
 # The cmd init function
 function cmd_cmd_init
 {
-	unset cmd_var_package cmd_var_cmd cmd_var_name cmv_var_version cmd_var_description cmd_var_explanation cmd_var_license cmd_var_homepage cmd_var_author cmd_var_blog cmd_var_email cmd_var_usage cmd_var_options ccmd_var_examples md_var_extrahelp cmd_var_extranotes cmd_var_day cmd_var_month cmd_var_year cmd_var_timestamp cmd_var_init cmd_var_main
+	unset cmd_var_package cmd_var_cmd cmd_var_name cmv_var_version cmd_var_description cmd_var_explanation cmd_var_license cmd_var_homepage cmd_var_author cmd_var_email cmd_var_social cmd_var_blog cmd_var_usage cmd_var_options ccmd_var_examples md_var_extrahelp cmd_var_extranotes cmd_var_day cmd_var_month cmd_var_year cmd_var_timestamp cmd_var_init cmd_var_main
 }
 
 # The cmd main function (which recurses cmd.sh)
@@ -79,8 +80,9 @@ function cmd_cmd_main
 	cmd_license="$cmd_var_license"
 	if [[ "${cmd_var_homepage+_}" ]]; then cmd_homepage="$cmd_var_homepage"; else unset cmd_homepage; fi
 	cmd_author="$cmd_var_author"
-	if [[ "${cmd_var_blog+_}" ]]; then cmd_blog="$cmd_var_blog"; else unset cmd_blog; fi
 	if [[ "${cmd_var_email+_}" ]]; then cmd_email="$cmd_var_email"; else unset cmd_email; fi
+	if [[ "${cmd_var_social+_}" ]]; then cmd_social="$cmd_var_social"; else unset cmd_social; fi
+	if [[ "${cmd_var_blog+_}" ]]; then cmd_blog="$cmd_var_blog"; else unset cmd_blog; fi
 	cmd_usage="$cmd_var_usage"
 	cmd_options=("${cmd_var_options[@]}")
 	cmd_examples=("${cmd_var_examples[@]}")
@@ -106,8 +108,9 @@ cmd_explanation="command is an smart, elegant, efficient, fast and durable quali
 cmd_license="[@]pkglicense[@]"
 cmd_homepage="[@]pkghomepage[@]"
 cmd_author="[@]pkgauthor[@]"
-cmd_blog="[@]pkgblog[@]"
 cmd_email="[@]pkgemail[@]"
+cmd_social="[@]pkgsocial[@]"
+cmd_blog="[@]pkgblog[@]"
 cmd_usage="$cmd [OPTIONS] -- [CMDARGS]"
 cmd_examples=("$cmd -- --help" "/testcmd and testcmdsh/See testcmdsh and testcmd full example commands for usage.///")
 cmd_options=(
@@ -120,8 +123,9 @@ cmd_options=(
 	"/l:/cmdlicense:/set the license field/cmd_option_license/LICENSE/"
 	"/p:/cmdhomepage:/set the homepage field/cmd_option_homepage/HOMEPAGE/"
 	"/a:/cmdauthor:/set the author field/cmd_option_author/AUTHOR/"
-	"/b:/cmdblog:/set the blog field/cmd_option_blog/BLOG/"
 	"/e:/cmdemail:/set the email field/cmd_option_email/EMAIL/"
+	"/s:/cmdsocial:/set the social field/cmd_option_social/SOCIAL/"
+	"/b:/cmdblog:/set the blog field/cmd_option_blog/BLOG/"
 	"/u:/cmdusage:/set the usage field/cmd_option_usage/USAGE/"
 	"/o:/cmdoption:/add an option field/cmd_option_option/OPTION/"
 	"/e:/cmdexample:/add an example field (first for usage)/cmd_option_example/EXAMPLE/"
@@ -134,7 +138,7 @@ cmd_options=(
 	"/i:/cmdinit:/set the init field/cmd_option_init/INIT/"
 	"/m:/cmdmain:/set the main field/cmd_option_main/MAIN/"
 )
-cmd_extrahelp="All fields are mandatory except homepage, blog, email, extrahelp and extranotes, which can be empty."
+cmd_extrahelp="All fields are mandatory except homepage, email, social, blog, extrahelp and extranotes, which can be empty."
 cmd_extranotes="For more information, check documentation."
 cmd_day="[@]pkgday[@]"
 cmd_month="[@]pkgmonth[@]"

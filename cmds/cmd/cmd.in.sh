@@ -47,8 +47,9 @@
 #cmd_license="[@]pkglicense[@]"
 #cmd_homepage="[@]pkghomepage[@]"
 #cmd_author="[@]pkgauthor[@]"
-#cmd_blog="[@]pkgblog[@]"
 #cmd_email="[@]pkgemail[@]"
+#cmd_social="[@]pkgsocial[@]"
+#cmd_blog="[@]pkgblog[@]"
 #cmd_usage="[@]pkgusage[@]"
 #cmd_options="[@]pkgoptions[@]"
 #cmd_examples="[@]pkgexamples[@]"
@@ -74,8 +75,9 @@
 [[ -z "$cmd_license" ]] && cmd_license="@license@"
 [[ ! "${cmd_homepage+_}" ]] && cmd_homepage="@homepage@"
 [[ -z "$cmd_author" ]] && cmd_author="@author@"
-[[ ! "${cmd_blog+_}" ]] && cmd_blog="@blog@"
 [[ ! "${cmd_email+_}" ]] && cmd_email="@email@"
+[[ ! "${cmd_social+_}" ]] && cmd_social="@social@"
+[[ ! "${cmd_blog+_}" ]] && cmd_blog="@blog@"
 [[ -z "$cmd_usage" ]] && cmd_usage="@usage@"
 [[ -z "$cmd_options" ]] && cmd_options=()
 [[ -z "$cmd_examples" ]] && cmd_examples=("@example@")
@@ -168,7 +170,7 @@ function cmd_help_options
 		fi
 	done
 	[[ -n "$cmd_extrahelp" ]] && printf "%s\n" "$cmd_extrahelp"
-	printf "%s\n" "The available --variable VARIABLES are: package, name, version, description, explanation, license, homepage, author, blog, email, usage, options, examples, extrahelp, extranotes, month, year, day and timestamp."
+	printf "%s\n" "The available --variable VARIABLES are: package, name, version, description, explanation, license, homepage, author, email, social, blog, usage, options, examples, extrahelp, extranotes, month, year, day and timestamp."
 	printf "%s\n" "Execute 'bash -c \"man <($cmd --man)\"' to see the runtime manpage."
 }
 
@@ -177,8 +179,9 @@ function cmd_help_footer
 {
 	[[ -n "$cmd_homepage" ]] && printf "%s\n" "$cmd ($cmd_name) homepage: $cmd_homepage."
 	printf "%s\n" "$cmd ($cmd_name) author: $cmd_author."
-	[[ -n "$cmd_blog" ]] && printf "%s\n" "$cmd ($cmd_name) blog: $cmd_blog."
 	[[ -n "$cmd_email" ]] && printf "%s\n" "$cmd ($cmd_name) email: $cmd_email."
+	[[ -n "$cmd_social" ]] && printf "%s\n" "$cmd ($cmd_name) social: $cmd_social"
+	[[ -n "$cmd_blog" ]] && printf "%s\n" "$cmd ($cmd_name) blog: $cmd_blog."
 	[[ -n "$cmd_extranotes" ]] && printf "%s\n" "$cmd_extranotes"
 }
 
@@ -223,7 +226,7 @@ function cmd_man
 		printf "%s\n" "${cmd_msgs[$i]}"
 	done
 	[[ -n "$cmd_extrahelp" ]] && printf "%s\n%s\n" ".TP" "$cmd_extrahelp"
-	printf "%s\n%s\n" ".TP" "The available --variable VARIABLES are: package, name, version, description, explanation, license, homepage, author, blog, email, usage, options, examples, extrahelp, extranotes, month, year, day and timestamp."
+	printf "%s\n%s\n" ".TP" "The available --variable VARIABLES are: package, name, version, description, explanation, license, homepage, author, email, social, blog, usage, options, examples, extrahelp, extranotes, month, year, day and timestamp."
 	printf "%s\n%s\n" ".TP" "Execute 'bash -c \"man <($cmd --man)\"' to see the runtime manpage."
 	(( "${#cmd_examples[@]}" > 1 )) && printf "%s\n" ".SH EXAMPLES"
 	for ((i = 1; i < "${#cmd_examples[@]}"; i++))
@@ -236,8 +239,9 @@ function cmd_man
 	[[ -n "$cmd_extranotes" ]] && printf "%s\n%s\n" ".SH NOTES" "${cmd_extranotes}"
 	[[ -n "$cmd_homepage" ]] && printf "%s\n%s\n" ".SH HOMEPAGE" "Main project page at \\fB${cmd_homepage}\\fR."
 	printf "%s\n%s\n" ".SH AUTHOR" "Programmed by \\fB${cmd_author}\\fR."
-	[[ -n "$cmd_blog" ]] && printf "%s\n%s\n" ".SH BLOG" "Thank, follow, comment or pay through Paypal, Patreon, Flattr, Western Union, BitCoin, ... at \\fB${cmd_blog}\\fR."
-	[[ -n "$cmd_email" ]] && printf "%s\n%s\n" ".SH EMAIL" "Thank or contact through mail to \\fB${cmd_email}\\fR."
+	[[ -n "$cmd_email" ]] && printf "%s\n%s\n" ".SH EMAIL" "Thank, Contact, Follow through \\fB${cmd_email}\\fR."
+	[[ -n "$cmd_social" ]] && printf "%s\n%s\n" ".SH SOCIAL" "Interact with \\fB${cmd_social}\\fR"
+	[[ -n "$cmd_blog" ]] && printf "%s\n%s\n" ".SH SUPPORT" "Support through Paypal, Patreon, Flattr, Western Union, BitCoin, ..."
 	printf "%s\n%s\n" ".SH COPYRIGHT" "Copyright \(co \\fB${cmd_year} ${cmd_author}\\fR."
 	printf "%s\n%s\n%s\n" ".PP" "This software is licensed and under the terms of the $cmd_license License." "There is NO WARRANTY, to the extent permitted by law."
 	exit 0
