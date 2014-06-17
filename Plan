@@ -1,3 +1,4 @@
+runcmd (Presents Commands) --title "Blah" --notitle --status --nostatus --header --no-header --footer --no-footer
 figure something about blog, get rid of?
 own getopt, own plugin system, internal subcommands ......  cmd: defaults config support (engine! :))
 code prettification
