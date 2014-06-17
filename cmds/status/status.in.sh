@@ -38,18 +38,54 @@
 #   |   ____________________________________________________________________________|_
 #    \_/______________________________________________________________________________/
 
+# The check option
+function st_option_check
+{
+	st_check="on"
+	st_status="$1"
+}
+
+# The code option
+function st_option_code
+{
+	st_code="on"
+}
+
 # The visible option
 function st_option_visible
 {
 	st_visible="on"
-	stv_message="${1:-"shell status code: $st_check"}"
+	stv_text="${1:-"$stv_text"}"
+}
+
+# The visible positive option
+function st_option_visible_positive
+{
+	stv_positive="$1"
+}
+
+# The visible negative option
+function st_option_visible_negative
+{
+	stv_negative="$1"
 }
 
 # The --audible option
 function st_option_audible
 {
 	st_audible="on"
-	sta_message="${1:-"beep"}"
+}
+
+# The audible positive option
+function st_option_audible_positive
+{
+	sta_positive="$1"
+}
+
+# The audible negative option
+function st_option_audible_negative
+{
+	sta_negative="$1"
 }
 
 # The profiles
@@ -67,98 +103,136 @@ function st_option_list()
 }
 
 # The visible profile helper
-function st_profile_visible
+function stv_profile
 {
 	if cmd_switch "$st_visible"
 	then
-		printf "%s\n" "${stv_message:-shell status code: $st_check}" | colorize "$1" >&2
-		#printf "%s\n" "${stv_message:-shell status code: $st_check}" | colorize "${@:2}" >&2
-		#printf "%s\n" "$shell status code: $st_check" | colorize "$stv_message" >&2
+		if cmd_switch "$st_check"
+		then
+			if [[ $st_status = 0 ]]
+			then
+				stv_message="$stv_positive"
+			else
+				stv_message="$stv_negative"
+			fi
+		fi
+		if cmd_switch "$st_code"
+		then
+			printf "%s (%s)\n" "$stv_text" "$st_status" | colorize $stv_message >&2
+		else
+			printf "%s\n" "$stv_text" | colorize $stv_message >&2
+		fi
 	fi
 }
 
 # The audible profile helper
-function st_profile_audible
+function sta_profile
 {
 	if cmd_switch "$st_audible"
 	then
-		tonize "${1:-beep}"
+		if cmd_switch "$st_check"
+		then
+			if [[ $st_status = 0 ]]
+			then
+				sta_message="$sta_positive"
+			else
+				sta_message="$sta_negative"
+			fi
+		fi
+		tonize $sta_message
 	fi
+}
+
+# The positive helper
+function stp_positive
+{
+	stv_positive="$1"
+	sta_positive="$1"
+}
+
+# The negative profile helper
+function stp_negative
+{
+	stv_negative="$1"
+	sta_negative="$1"
 }
 
 # The profiles helper
 function st_profiles
 {
-	st_profile_visible "$1"
-	st_profile_audible "$1"
+	stv_profile
+	sta_profile
+	exit 0
+}
+
+# The profile helper
+function st_profile
+{
+	case "$#" in
+		"1")
+			stp_positive="$1"
+			stp_negative="$1"
+			;;
+		"2")
+			stp_positive="$1"
+			stp_negative="$2"
+			;;
+		"4")
+			stv_positive="$1"
+			sta_positive="$2"
+			stv_negative="$3"
+			sta_negative="$4"
+			;;
+	esac
+	st_profiles
 }
 
 # The verify profile
 function st_profile_verify
 {
-	if [[ $st_check = 0 ]]
-	then
-		st_profiles info
-	else
-		st_profiles error
-	fi
-	exit 0
+	st_profile info error
 }
 
 # The check profile
 function st_profile_check
 {
-	if [[ $st_check = 0 ]]
-	then
-		st_profile_visible info
-		st_profile_audible vivid
-	else
-		st_profile_visible error
-		st_profile_audible sharp
-	fi
-	exit 0
+	st_profile "${stv_positive:-info}" "${sta_positive:-vivid}" "${stv_negative:-error}" "${sta_negative:-sharp}"
 }
 
 # The info profile
 function st_profile_info
 {
-	st_profiles info
-	exit 0
+	st_profile "${stv_positive:-info}" "${sta_positive:-info}" "${stv_negative:-info}" "${sta_negative:-info}"
 }
 
 # The warning profile
 function st_profile_warning
 {
-	st_profiles warning
-	exit 0
+	st_profile "${stv_positive:-warning}" "${sta_positive:-warning}" "${stv_negative:-warning}" "${sta_negative:-warning}"
 }
 
 # The error profile
 function st_profile_error
 {
-	st_profiles error
-	exit 0
+	st_profile "${stv_positive:-error}" "${sta_positive:-error}" "${stv_negative:-error}" "${sta_negative:-error}"
 }
 
 # The success profile
 function st_profile_success
 {
-	st_profiles vivid
-	exit 0
+	st_profile "${stv_positive:-vivid}" "${sta_positive:-vivid}" "${stv_negative:-vivid}" "${sta_negative:-vivid}"
 }
 
 # The problem profile
 function st_profile_problem
 {
-	st_profiles warning
-	exit 0
+	st_profile "${stv_positive:-warning}" "${sta_positive:-warning}" "${stv_negative:-warning}" "${sta_negative:-warning}"
 }
 
 # The failure profile
 function st_profile_failure
 {
-	st_profiles sharp
-	exit 0
+	st_profile "${stv_positive:-sharp}" "${sta_positive:-sharp}" "${stv_negative:-sharp}" "${sta_negative:-sharp}"
 }
 
 # The --profile option
@@ -168,9 +242,9 @@ function st_option_profile
 }
 
 # The --terminal option
-function cl_option_terminal
+function st_option_terminal
 {
-	cl_terminal="on"
+	st_terminal="on"
 }
 
 # ... and status, the program itself.
@@ -178,28 +252,34 @@ function cl_option_terminal
 # The cmd init function
 function st_init
 {
-	st_check="$1"
-	cl_terminal="off"
+	st_code="off"
+	stv_text="job done"
+	st_terminal="off"
+	stv_message="fancy"
+	sta_message="beep"
 }
 
 # The cmd main function
 function st_main
 {
+	if [[ $# == 1 ]]
+	then
+		st_status="$1"
+		st_check="on"
+	fi
 	shift
 	if ! cmd_switch "$st_terminal" || [[ -t 1 ]]
 	then
-		st_profilesel="${1:-check}"
+		st_selection="${1:-check}"
 		for st_profile in "${st_profiles[@]}"
 		do
-			if [[ "$st_profile" = "$st_profilesel" ]]
+			if [[ "$st_profile" = "$st_selection" ]]
 			then
 				shift
 				"st_profile_$st_profile" "$@"
 			fi
 		done
 		cmd_error "unknown profile"
-	else
-		cat -
 	fi
 }
 
@@ -218,6 +298,8 @@ cmd_social="[@]pkgsocial[@]"
 cmd_blog="[@]pkgblog[@]"
 cmd_usage="$cmd "'$?'" [OPTIONS] [PROFILE]"
 cmd_options=(
+"/c:/check:/report according to shell exit status/st_option_check/STATUS/"
+"/c/code/show visually shell exit status/st_option_code/"
 "/v::/visible::/set visible report/st_option_visible/MESSAGE/"
 "/a::/audible::/set audible report/st_option_audible/MESSAGE/"
 "/i/info/use info profile/st_profile_info/"
@@ -225,10 +307,14 @@ cmd_options=(
 "/e/error/use error profile/st_profile_error/"
 "/p:/profile:/set profile/st_option_profile/PROFILE/"
 "/l/list/list profiles/st_option_list/"
-"/t/terminal/tone only if output is a terminal/tn_option_terminal/"
+"/p:/visible-positive:/set visible positive report/st_option_visible_positive/COLORIZE_MESSAGE/"
+"/n:/visible-negative:/set visible negative report/st_option_visible_negative/COLORIZE_MESSAGE/"
+"/p:/audible-positive:/set audible positive report/st_option_audible_positive/TONIZE_MESSAGE/"
+"/n:/audible-negative:/set audible negative report/st_option_audible_negative/TONIZE_MESSAGE/"
+"/t/terminal/report only if output is a terminal/st_option_terminal/"
 )
-cmd_examples=("$cmd "'$?'" --visible --audible")
-cmd_extrahelp="By default sets profile, else uses check profile (shell last command code). Visual colorize and audible speaker arguments are understood."
+cmd_examples=("$cmd --visible=\"job ended\" --audible --check "'$?'" --code")
+cmd_extrahelp="By default uses check profile, requiring one argument for shell last command code ("'$?'"). Visual colorize and audible tonize arguments are understood."
 cmd_extranotes="For more information, check documentation."
 cmd_init="st_init"
 cmd_main="st_main"

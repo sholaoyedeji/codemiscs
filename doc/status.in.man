@@ -5,11 +5,17 @@ status \- Status Reporter
 .SH SYNOPSIS
 .B status $? [OPTIONS] [PROFILE]
 .SH EXAMPLE
-.B status $? --visible --audible
+.B status --visible="job ended" --audible --check $? --code
 .SH DESCRIPTION
 status report is a command that reports status, either manual or the shell last command return code. status uses profiles to select the report to make effective.
 .PP
 Mandatory arguments for long options are mandatory for short options too.
+.TP
+\fB\-c\fR, \fB\-\-check\fR=\fISTATUS\fR
+report according to shell exit status
+.TP
+\fB\-c\fR, \fB\-\-code\fR
+show visually shell exit status
 .TP
 \fB\-v\fR, \fB\-\-visible\fR[=\fIMESSAGE\fR]\fR
 set visible report
@@ -32,8 +38,20 @@ set profile
 \fB\-l\fR, \fB\-\-list\fR
 list profiles
 .TP
+\fB\-p\fR, \fB\-\-visible-positive\fR=\fICOLORIZE_MESSAGE\fR
+set visible positive report
+.TP
+\fB\-n\fR, \fB\-\-visible-negative\fR=\fICOLORIZE_MESSAGE\fR
+set visible negative report
+.TP
+\fB\-p\fR, \fB\-\-audible-positive\fR=\fITONIZE_MESSAGE\fR
+set audible positive report
+.TP
+\fB\-n\fR, \fB\-\-audible-negative\fR=\fITONIZE_MESSAGE\fR
+set audible negative report
+.TP
 \fB\-t\fR, \fB\-\-terminal\fR
-tone only if output is a terminal
+report only if output is a terminal
 .TP
 \fB\-v\fR, \fB\-\-version\fR
 show the program version
@@ -47,7 +65,7 @@ show the program help
 \fB\-m\fR, \fB\-\-man\fR
 show the program manual
 .TP
-By default sets profile, else uses check profile (shell last command code). Visual colorize and audible speaker arguments are understood.
+By default uses check profile, requiring one argument for shell last command code ($?). Visual colorize and audible tonize arguments are understood.
 .TP
 The available --variable VARIABLES are: package, name, version, description, explanation, license, homepage, author, email, social, blog, usage, options, examples, extrahelp, extranotes, month, year, day and timestamp.
 .TP

@@ -10,7 +10,5 @@ do
 	echo "Generating $file" | colorize info
 	$command --man > "$file"
 done
-
+status --visible --audible --check $? --code
 echo "CodeMiscs Manuals, Juan Manuel Borges Caño" | colorize smart
-
-status $? --visible --audible
