@@ -1,3 +1,7 @@
+2014-07-13 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
+	* Improved Commands: colorize
+	* Better Design: colorize understands whole input as an unit.
+
 2014-06-17 Juan Manuel Borges Caño <juanmabcblog.blogspot.com, juanmabcmail@gmail.com> 
 	* Better Design: social variable/tagging
 	* Improved Website: support reference
