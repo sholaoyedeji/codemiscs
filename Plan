@@ -1,3 +1,4 @@
+colorize --whole FILE (like typewrite)
 runcmd (Presents Commands) --title "Blah" --notitle --status --nostatus --header --no-header --footer --no-footer
 figure something about blog, get rid of?
 comment GitHub mirror
