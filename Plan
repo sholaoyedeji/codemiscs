@@ -1,3 +1,4 @@
+achivements on homepage & its own .wiki
 runcmd (Presents Commands) --title "Blah" --notitle --status --nostatus --header --no-header --footer --no-footer
 timer
 own getopt, own plugin system, internal subcommands ......  cmd: defaults config support (engine! :))
