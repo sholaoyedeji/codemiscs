@@ -1,19 +1,25 @@
-colorize --whole FILE (like typewrite)
 runcmd (Presents Commands) --title "Blah" --notitle --status --nostatus --header --no-header --footer --no-footer
+timer
+own getopt, own plugin system, internal subcommands ......  cmd: defaults config support (engine! :))
 figure something about blog, get rid of?
 comment GitHub mirror
-own getopt, own plugin system, internal subcommands ......  cmd: defaults config support (engine! :))
 code prettification
+colorize --whole FILE (like typewrite)
+colorize rainbow lolcat, random profile (chars/lines), list (paired/tripled/...) profile ("black/white", "green/red", "yellow/blue", ...)
+# ! newline fail at colorize bold (GalacticBattle)
 tonize midi, composer do2
 /usr/bin/beep, + pabeep tunes ? show beeps -> tonize ?
-colorize rainbow lolcat
+typewrite --sound (tonize typewrite)
 tw babylon dict support + bing ... ?
 pluginify imgs, .....
 sync imgs google
 status --visible --audible
-demo2
+job done, job failed text to speech (festival, espeak, google?...?)
+demo2: apropos random | typewrite --scroll --lines 1 | colorize list
 video capture?
 Google Wallet, PayPal, Patreon, Flattr, BitCoin, Western Union straight links, readme, website, --help, --manual ?
 readme + website bump
 codemiscs -> shellcode, shmiscs? !
 generate cmd ?
+GalacticBattle Make System ?
+indentation cmd (center, ...) ?

@@ -1,0 +1,17 @@
+#! /usr/bin/env bash
+
+while ! acpi | grep -q "Charging"
+do
+	while ! acpi | grep -q "Charging"
+	do
+		tonize sharp
+		festival --tts <<< "Battery Discharging, Juan Manuel!"
+		sleep 1
+		acpi
+	done
+
+	tonize beep
+	festival --tts <<< "Battery Powered Now!"
+done
+
+# Juan Manuel Borges Caño, 2014-09-15 (Monday 15 September 2014)

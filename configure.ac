@@ -4,7 +4,7 @@ AC_CONFIG_AUX_DIR([autoconf.aux])
 AM_INIT_AUTOMAKE(no-dist-gzip dist-bzip2)
 
 AC_SUBST(PACKAGE_DESCRIPTION, "code miscellaneous")
-AC_SUBST(PACKAGE_EXPLANATION, ["Code Miscellaneous is a fun, creative, elegant, exciting, amusing, useful and profitable project."])
+AC_SUBST(PACKAGE_EXPLANATION, ["Code Miscellaneous is a fun, creative, elegant, exciting, amusing, useful, human and profitable project."])
 AC_SUBST(PACKAGE_LICENSE, "GPLv3+")
 AC_SUBST(PACKAGE_HOMEPAGE, "http://code.google.com/p/codemiscs")
 AC_SUBST(PACKAGE_AUTHOR, "Juan Manuel Borges Caño")
