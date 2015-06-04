@@ -1,0 +1,69 @@
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/TypeWrite/TypeWriteHelp.gif
+</p>
+
+Simple:
+
+{{{
+$ cat file | typewrite
+...
+
+$ typewrite file
+...
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/TypeWrite/TypeWriteFile.gif
+</p>
+
+Customizable:
+
+{{{
+$ typewrite file --charsecs 1 --linesecs 2
+...
+}}}
+
+Has Presets:
+
+{{{
+$ typewrite file --fast
+...
+
+$ typewrite file --slow
+...
+
+$ typewrite file --scroll
+...
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/TypeWrite/TypeWriteScroll.gif
+</p>
+
+Has An Audio Touch:
+
+{{{
+$ typewrite file --sound
+...
+}}}
+
+Extends To External Commands:
+
+{{{
+$ rf slashdot | colorize strong | typewrite
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/TypeWrite/TypeWriteRFSlashdot.gif
+</p>
+
+{{{
+$ rf phoronix | colorize cool | typewrite
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/TypeWrite/TypeWriteRFPhoronix.gif
+</p>
+
+{{{
+$ rf linux | colorize smart | typewrite
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/TypeWrite/TypeWriteRFLinux.gif
+</p>

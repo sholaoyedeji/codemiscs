@@ -1,0 +1,112 @@
+Simple, Straight & Effective:
+
+{{{
+$ rf phoronix
+[1] Intel Still Polishing Their 3.0 X.Org Graphics Driver
+[2] NVIDIA Publishes A New Open-Source Nouveau Driver Patch
+[3] Transmageddon Video Transcoder Adding New Features
+[4] Ubuntu Is Short On Developer Membership Board Nominations
+[5] Wine's Performance For Direct3D Gaming With Many Drivers
+[6] GNU Hurd Is Enjoying User-Space Device Drivers
+[7] Valve Is Now Giving Away Their Games To Ubuntu Developers
+[8] Intel Gets AVX-512 Support Going In GCC
+[9] The Godot Engine Is Now Open-Source
+[10] Hawaii Is Looking Great As A Wayland Desktop
+[11] What It Takes To Write A Wayland Compositor
+[12] GStreamer 1.4 Will Be Bringing Many New Features
+[13] CodeRefactor: Turning Microsoft's MSIL/CIL Into C++
+[14] Linux 3.14-rc2 Kernel Brings Fair Amount Of Fixes
+[15] Wine On Android Is Making Progress, Running Solitaire
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/ReadFeed/ReadFeedPhoronix.png
+</p>
+
+{{{
+$ rf linux
+[1] Install Fedora on Intel NUC: A Low-Power, x86-Ready Mini PC With Grunt
+[2] These Women Are Building The Software That Quietly Runs The World
+[3] OpenDaylight: Open-Source SDN is Growing Fast
+[4] Ubuntu Is Short On Developer Membership Board Nominations
+[5] GNU Hurd Is Enjoying User-Space Device Drivers
+[6] Oracle and Pluribus Team Up, Flip the Switch on Cisco SDN Killer
+[7] The Godot Engine Is Now Open-Source
+[8] Hawaii Is Looking Great As A Wayland Desktop
+[9] How to Watch Free Online TV on Linux
+[10] Linux 3.14-rc2 Kernel Brings Fair Amount Of Fixes
+[11] Rebellion Might Develop Games for Linux
+[12] Growing the Linux Community
+[13] Wine On Android Is Making Progress, Running Solitaire
+[14] Man Converts 3D Printer Into an Air Hockey Robot
+[15] Debian 7.4 Rounds Up Stable Updates
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/ReadFeed/ReadFeedLinux.png
+</p>
+
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/ReadFeed/ReadFeedLinuxJournal.png
+</p>
+
+Supports Descriptions Of News Items:
+
+{{{
+$ rf phoronix --description 1
+The xf86-video-intel 2.99.910 driver was released today as the latest X.Org 3.0 pre-release DDX...
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/ReadFeed/ReadFeedDescriptionPhoronix.png
+</p>
+
+{{{
+$ rf linux --description 1
+How well does Fedora 20 run on the Intel NUC? Does audio output over the mini HDMI work out of the box? Does suspend to RAM sometimes decide not to resume? And of course, what sort of performance and power usage is there relative to a traditional desktop machine or the high-end ARM machines such as the ODroid XU?
+}}}
+
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/ReadFeed/ReadFeedDescriptionLinuxJournal.png
+</p>
+
+And Has Multiple Feeds (Customizable):
+
+{{{
+$ rf --list
+20-minutos
+20-minutos-tech
+barrapunto
+debian-people
+debian-planet
+fedora-people
+fedora-planet
+foss-people
+freecode
+freedesktop-people
+freedesktop-planet
+freegamedev-planet
+freegame-people
+freegame-planet
+gimp
+gnome
+gnome-blogs
+gnome-devel
+gnome-people
+gnome-planet
+gstreamer
+gstreamer-people
+gstreamer-planet
+gtk
+jabber-people
+jabber-planet
+kde
+kde-people
+linux
+linux-journal
+linux-magazine
+linux-today
+lwn
+mozilla-people
+mozilla-planet
+phoronix
+python-people
+slashdot
+}}}

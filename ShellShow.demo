@@ -1,0 +1,128 @@
+Cheer Up Static Amusements:
+
+{{{
+$ show cookie --sound --foreground
+				 _____		   ____			   
+				|_   _|	  ___  __ / ___|  __ _ _   _ ___ _ 
+				  | || | | \ \/ / \___ \ / _` | | | / __(_)
+				  | || |_| |>  <   ___) | (_| | |_| \__ \_ 
+				  |_| \__,_/_/\_\ |____/ \__,_|\__, |___(_)
+							       |___/	   
+			      ________________________________________________ 
+			     / All that glitters is not gold; all that wander \
+			     \ are not lost.				      /
+			      ------------------------------------------------ 
+				\
+				 \
+				     .--.
+				    |o_o |
+				    |:_/ |
+				   //	\ \
+				  (|	 | )
+				 /'\_	_/`\
+				 \___)=(___/
+
+$ show cookie "Dragon Says:" "dragon" --sound --foreground
+                    ____                                ____                    
+                   |  _ \ _ __ __ _  __ _  ___  _ __   / ___|  __ _ _   _ ___ _ 
+                   | | | | '__/ _` |/ _` |/ _ \| '_ \  \___ \ / _` | | | / __(_)
+                   | |_| | | | (_| | (_| | (_) | | | |  ___) | (_| | |_| \__ \_ 
+                   |____/|_|  \__,_|\__, |\___/|_| |_| |____/ \__,_|\__, |___(_)
+                                    |___/                           |___/       
+             __________________________________________________ 
+            < Your boss is a few sandwiches short of a picnic. >
+             -------------------------------------------------- 
+                  \                    / \  //\
+                   \    |\___/|      /   \//  \\
+                        /0  0  \__  /    //  | \ \    
+                       /     /  \/_/    //   |  \  \  
+                       @_^_@'/   \/_   //    |   \   \ 
+                       //_^_/     \/_ //     |    \    \
+                    ( //) |        \///      |     \     \
+                  ( / /) _|_ /   )  //       |      \     _\
+                ( // /) '/,_ _ _/  ( ; -.    |    _ _\.-~        .-~~~^-.
+              (( / / )) ,-{        _      `-.|.-~-.           .~         `.
+             (( // / ))  '/\      /                 ~-. _ .-~      .-~^-.  \
+             (( /// ))      `.   {            }                   /      \  \
+              (( / ))     .----~-.\        \-'                 .~         \  `. \^-.
+                         ///.----..>        \             _ -~             `.  ^-`  ^-_
+                           ///-._ _ _ _ _ _ _}^ - - - - ~                     ~-- ,.-~
+                                                                              /.-~
+
+$ show box --sound --foreground
+                    	     _____          _                    
+                    	    |  ___|__  _ __| |_ _   _ _ __   ___ 
+                    	    | |_ / _ \| '__| __| | | | '_ \ / _ \
+                    	    |  _| (_) | |  | |_| |_| | | | |  __/
+                    	    |_|  \___/|_|   \__|\__,_|_| |_|\___|
+                                                         
+                   	    __________________________________
+                   	   /\                                 \
+                   	   \_| panic: can't find /            |
+                   	     |                                |
+                   	     |   _____________________________|_
+                	     \_/_______________________________/
+}}}
+
+Graphical Animated Amusements:
+
+{{{
+$ show pipes
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Show/Pipes.gif
+</p>
+
+{{{
+$ show matrix
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Show/Matrix.gif
+</p>
+
+{{{
+$ show mandelbrot
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Show/Mandelbrot.gif
+</p>
+
+{{{
+$ show ants
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Show/Ants.gif
+</p>
+
+{{{
+$ show weave
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Show/Weave.gif
+</p>
+
+{{{
+$ show clock
+}}}
+
+Sound Amusements:
+
+{{{
+$ show --gingerup beeper
+((((local disk .midi's beeping)))
+}}}
+
+Wide List Of Shows:
+
+{{{
+$ show --list
+ants
+beeper
+box
+clock
+cookie
+mandelbrot
+matrix
+pipes
+weave
+}}}

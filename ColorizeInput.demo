@@ -1,0 +1,147 @@
+Supports Straight Color Assignments And Aliases (frontend for the complexity of terminal handling):
+
+{{{
+$ echo "Text" | colorize --background green --foreground yellow
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Colorize/ColorizeTextCustom.png
+</p>
+
+{{{
+$ cat ./README | colorize --background blue --foreground green
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Colorize/ColorizeFileCustom.png
+</p>
+
+Prettifies Message Logging levels:
+
+{{{
+$ echo "This is an error" | colorize --error
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Colorize/ColorizeError.png
+</p>
+
+{{{
+$ echo "This is a warning" | colorize --warning
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Colorize/ColorizeWarning.png
+</p>
+
+{{{
+$ echo "This is a message" | colorize --info
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Colorize/ColorizeInfo.png
+</p>
+
+Highlights Lines & Patterns:
+{{{
+$ echo -e "When done." | colorize --match done --info
+}}}
+
+{{{
+$ echo -e "When\nerror" | colorize --line error --error
+}}}
+
+Increases Readability:
+
+{{{
+$ cat file | colorize smart | less
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Colorize/ColorizeSmart.png
+n</p>
+
+Has A Wide List Of Profiles:
+
+{{{
+$ colorize --list
+input
+help
+info
+warning
+error
+punctuation
+vivid
+smart
+elegant
+minimalist
+sharp
+awesome
+fancy
+cool
+health
+relax
+heaven
+strong
+reverse
+hidden
+raw
+bold
+reverse
+}}}
+
+Help Profile Extends To External Commands:
+
+{{{
+$ grep --help | colorize help
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Colorize/ColorizeGREPHelp.png
+</p>
+
+{{{
+$ ls --help | colorize help
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Colorize/ColorizeLSHelp.png
+</p>
+
+{{{
+$ cp --help | colorize help
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Colorize/ColorizeCPHelp.png
+</p>
+
+{{{
+$ mv --help | colorize help
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Colorize/ColorizeMVHelp.png
+</p>
+
+{{{
+$ colorize --help
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Colorize/ColorizeHelp.png
+</p>
+
+And Has Some Extras:
+{{{
+$ echo "Emphatize This" | colorize bold
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Colorize/ColorizeBold.png
+</p>
+
+{{{
+$ echo "Remark This" | colorize reverse
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Colorize/ColorizeReverse.png
+</p>
+
+{{{
+$ echo "Remove Color Codes" | colorize elegant | colorize --strip
+...
+}}}
+
+{{{
+$ echo "Insert Color Codes Only On Screens" | colorize --terminal > file
+...
+}}}

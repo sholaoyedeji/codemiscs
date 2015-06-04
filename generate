@@ -1,0 +1,397 @@
+#! /usr/bin/env bash
+
+echo "CodeMiscs Wiki" | colorize fancy
+commands=( cmd mkproject mythes tw rf imgs typewrite colorize show tonize status )
+echo "${commands[@]}" | colorize smart
+
+banner="$(
+cat <<EOF
+<table width=100%>
+	<tr>
+		<td align="center">
+			<h2>codemiscs (Code Miscellaneous) licensed GPLv3</h2>
+			<h2>by Juan Manuel Borges Caño</h2>
+			<p>
+			< [http://code.google.com/p/codemiscs Homepage] >
+			</p>
+			<p>
+			< [http://code.google.com/p/codemiscs/wiki/ Wiki] >
+			</p>
+			<p>
+			< [mailto:juanmabcmail@gmail.com Mail] >
+			</p>
+			<p>
+			[http://plus.google.com/+JuanManuelBorgesCaño Social]
+			</p>
+			<p>
+			< [http://juanmabcblog.blogspot.com Blog] >
+			</p>
+		</td>
+	</tr>
+</table>
+EOF
+)"
+
+components="$(
+for command in "${commands[@]}"
+do
+	name="$($command --variable name)"
+	description="$($command --variable description)"
+	title="$(sed -e 's/^\(.\)/\U\1/g' -e 's/ \(.\)/ \U\1/g' <<< "$name")"
+	code="$(tr -d ' ' <<< "$title")"
+	printf "  * [%s %s (%s): %s]\n" "$code" "$title" "$command" "$description"
+done
+)"
+
+setup="$(
+cat <<EOF
+{{{
+$ git clone http://code.google.com/p/codemiscs
+$ cd codemiscs
+$ cat README
+$ autoreconf -i
+$ ./configure
+$ make
+# make install
+$ doc/demo
+}}}
+EOF
+)"
+
+awesome="$(
+cat <<EOF
+<table width=100%>
+	<tr>
+		<td align="center">
+			<h1>Awesome Code, Awesome Results</h1>
+		</td>
+	</tr>
+</table>
+EOF
+)"
+
+social="$(
+cat <<EOF
+<table width=100%>
+	<tr>
+		<td align="center">
+			<h2>You can:</h2>
+			<p>
+			Thank, Comment, Follow, Contact Through Mail
+			</p>
+			<p>
+			<strong>and</strong>
+			</p>
+			<p>
+			Support Through PayPal, Patreon, Flattr, Western Union & BitCoin
+			</p>
+			<h1>:-)</h1>
+		</td>
+	</tr>
+</table>
+EOF
+)"
+
+credits="$(
+cat <<EOF
+<table width=100%>
+	<tr>
+		<td align="center">
+			<p>
+			Copyright (C) 2007 - 2014 
+			</p>
+			<p>
+			[http://plus.google.com/+JuanManuelBorgesCaño Juan Manuel Borges Caño]
+			</p>
+		</td>
+	</tr>
+</table>
+EOF
+)"
+
+ad="$(
+cat <<EOF
+<table width=100%>
+	<tr>
+		<td align="center">
+			<h3>Ad Supporting CodeMiscs Development</h3>
+
+			<wiki:gadget url="http://goo.gl/Uql18" width="728" height="90" border="1" up_ad_client="1499394790009918" up_ad_slot="0061131168" up_ad_width="728" up_ad_height="90" />
+
+			<h3>Ad Supporting CodeMiscs Development</h3>
+		</td>
+	</tr>
+</table>
+EOF
+)"
+
+echo "Generating SideBar.wiki ..." | colorize info
+
+file="Main.wiki"
+echo "Generating $file" | colorize info
+news="$(echo '{{{'; sed -e "s/^$/}}}\n\n{{{/g" ../NEWS; echo '}}}')"
+changes="$(echo '{{{'; sed -e "s/^$/}}}\n\n{{{/g" ../ChangeLog; echo '}}}')"
+cat > "$file"<<-EOF
+<table width=100%>
+	<tr>
+		<td align="center">
+			<h1>CodeMiscs</h1>
+			<h3>is</h3>
+			<h2>fun, creative, elegant, exciting, amusing, useful, human and profitable</h2>
+		</td>
+	</tr>
+</table>
+
+<table width=100%>
+	<tr>
+		<td align="center">
+			< [http://code.google.com/p/codemiscs/wiki/ Wiki] >
+		</td>
+	</tr>
+</table>
+
+<table width=100% align="center">
+	<tr>
+		<td>
+<h2>Currently Composed Of:</h2>
+$components
+		</td>
+		<td>
+<h2>Set Up:</h2>
+$setup
+		</td>
+	</tr>
+</table>
+
+<table width=100%>
+	<tr>
+		<td align="center">
+			<h2>News:</h2>
+		</td>
+	</tr>
+</table>
+$news
+
+
+<table width=100% align="center">
+	<tr>
+		<td>
+$banner
+		</td>
+		<td>
+$social
+		</td>
+	</tr>
+</table>
+
+$awesome
+
+----
+
+$ad
+
+----
+
+<table width=100%>
+	<tr>
+		<td align="center">
+			<h2>Demos:</h2>
+		</td>
+	</tr>
+</table>
+
+  * <h3>colorize file:</h3>
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Colorize/ColorizeFileCustom.png
+</p>
+
+  * <h3>read feed & typewrite:</h3>
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/TypeWrite/TypeWriteRFPhoronix.gif
+</p>
+
+  * <h3>tw (translate) & aspell (spelling) & dict (definition) & festival (speech) combo:</h3>
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/TranslateWord/LanguageCatalyst.png
+</p>
+
+  * <h3>show pipes:</h3>
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Show/Pipes.gif
+</p>
+
+  * <h3>imgs slideshow linux (hundred google images):</h3>
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Images/Linux.gif
+</p>
+
+  * <h3> doc/demo:</h3>
+<table align="center" width="100%" height="100%">
+	<tr>
+		<td align="center">
+			<wiki:video width="100%" height="56.25%" url="http://www.youtube.com/watch?v=2oz_u_iRIsM" />
+		</td>
+	</tr>
+</table>
+
+$awesome
+
+----
+
+$ad
+
+----
+
+<table width=100%>
+	<tr>
+		<td align="center">
+			<h2>Set Up:</h2>
+		</td>
+	</tr>
+</table>
+$setup
+
+<table width=100%>
+	<tr>
+		<td align="center">
+			<h2>Optional:</h2>
+			<p>
+			Proceed to NEWS, AUTHORS, COPYING, ChangeLog & PAYMENTS
+			</p>
+			<p>
+			<strong>and</strong>
+			</p>
+			<p>
+			Enjoy the source code read
+			</p>
+		</td>
+	</tr>
+</table>
+
+<table width=100%>
+	<tr>
+		<td align="center">
+			<h2>Packaging Research:</h2>
+			<p>
+				[https://build.opensuse.org/package/show/home:juanmabcsuse/codemiscs Build Environment]
+			</p>
+			<p>
+				[http://software.opensuse.org/download.html?project=home%3Ajuanmabcsuse&package=codemiscs Packages]
+			</p>
+		</td>
+	</tr>
+</table>
+
+<table width=100%>
+	<tr>
+		<td align="center">
+			<h2>Changes:</h2>
+		</td>
+	</tr>
+</table>
+$changes
+
+$awesome
+
+----
+
+$ad
+
+----
+
+<table width=100% align="center">
+	<tr>
+		<td>
+$components
+		</td>
+		<td>
+$banner
+		</td>
+	</tr>
+</table>
+
+$social
+
+$credits
+EOF
+
+echo "  * [Main CodeMiscs]" > SideBar.wiki
+
+#for command in cmd mkproject mythes tw rf imgs typewrite colorize show tonize status
+for command in "${commands[@]}"
+do
+	name="$($command --variable name)"
+	description="$($command --variable description)"
+	explanation="$($command --variable explanation)"
+	title="$(sed -e 's/^\(.\)/\U\1/g' -e 's/ \(.\)/ \U\1/g' <<< "$name")"
+	code="$(tr -d ' ' <<< "$title")"
+	file="${code}.wiki"
+	usages="$(cat "${code}.demo")"
+
+	echo "Generating $file" | colorize info
+	cat > "$file" <<-EOF
+		#summary $description
+		#labels Featured
+		#sidebar SideBar
+
+		$explanation
+
+		----
+
+		<h1>Manual</h1>
+		{{{
+		$(man <($command --man))
+		}}}
+
+		$awesome
+
+		----
+
+		$ad
+
+		----
+
+		<h1>Help</h1>
+		{{{
+		$($command --help)
+		}}}
+
+		$awesome
+
+		----
+
+		$ad
+
+		----
+
+		<h1>Use Cases</h1>
+		$usages
+
+		$awesome
+
+		----
+
+		$ad
+
+		----
+
+		<table width=100% align="center">
+			<tr>
+				<td>
+		$components
+				</td>
+				<td>
+		$banner
+				</td>
+			</tr>
+		</table>
+
+		$social
+
+		$credits
+	EOF
+	echo "    * [$code $title]" >> SideBar.wiki
+done
+
+status --visible --audible --check $? --code
+echo "CodeMiscs Wiki, Juan Manuel Borges Caño" | colorize smart

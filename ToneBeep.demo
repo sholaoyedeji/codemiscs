@@ -1,0 +1,92 @@
+Designed For Straight Usage On Noticeable Tasks:
+{{{
+$ mail -e && tonize ring
+}}}
+
+{{{
+$ sleep 360; tonize phaser
+}}}
+
+Composition Support Of Straight Notes Assignments And Aliases (frontend for the complexity of frequencies handling):
+
+{{{
+$ echo "do" | tonize composer
+$ echo "c" | tonize composer
+}}}
+
+{{{
+$ cat <<EOF | tonize composer
+do
+re
+mi
+fa
+sol
+la
+si
+c2 3 # (do2 coming)
+EOF
+}}}
+
+Audifies Message Logging Levels:
+
+{{{
+$ echo "This is an error" | colorize error && tonize error
+}}}
+
+{{{
+$ echo "This is a warning" | colorize warning && tonize warning
+}}}
+
+{{{
+$ echo "This is a message" | colorize info && tonize info
+}}}
+
+Increases File Audibility ;-):
+
+{{{
+$ cat file | colorize smart | tonize input
+}}}
+
+Has A Wide List Of Profiles:
+
+{{{
+$ tonize --list
+beep
+composer
+info
+warning
+error
+success
+trouble
+failure
+victory
+problem
+fail
+input
+phaser
+ring
+cash
+smart
+vivid
+sharp
+fancy
+cool
+health
+strong
+reverse
+hidden
+raw
+bold
+}}}
+
+Midi Profile Extends To External Formats (In Progress, See Show):
+
+{{{
+$ cat ./tune.midi | tonize midi
+}}}
+
+And Has Some Extras:
+{{{
+$ echo "Don't beep when piped" | tonize --terminal > file
+...
+}}}

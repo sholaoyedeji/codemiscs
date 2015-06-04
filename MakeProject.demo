@@ -1,0 +1,116 @@
+Effective:
+{{{
+$ mkproject --skeleton=bash --tarname=demo --pkgname="Demo Package" --description="A quick demo package for mkproject" --author="Juan Manuel Borges Caño" --bugreport=juanmabcmail@gmail.com --homepage "http://code.google.com/p/codemiscs" --verbose
+Creating directory `demo'...done
+Creating file `demo/configure.ac'...done
+Creating file `demo/Makefile.am'...done
+Creating file `demo/README'...done
+Creating file `demo/AUTHORS'...done
+Creating file `demo/ChangeLog'...done
+Creating file `demo/NEWS'...done
+Creating directory `src'...done
+Creating file `demo/src/Makefile.am'...done
+Creating file `demo/src/main.sh'...done
+Executing command `autoreconf -i' (see `mkproject.log')...done
+
+$ cd demo
+
+$ ls 
+aclocal.m4      ChangeLog     COPYING     Makefile.am  mkproject.log  src
+AUTHORS         configure     INSTALL     Makefile.in  NEWS
+autom4te.cache  configure.ac  install-sh  missing      README
+
+$ cat README
+Demo Package: A quick demo package for mkproject
+
+Copyright (C) 2014 Juan Manuel Borges Caño
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+demo (Demo Package) homepage <http://code.google.com/p/codemiscs>
+
+$ cat AUTHORS
+Juan Manuel Borges Caño <juanmabcmail@gmail.com>
+
+$ cat NEWS
+2014-01-01:
+        * Project start
+
+$ cat ChangeLog
+2014-01-01 Juan Manuel Borges Caño <juanmabcmail@gmail.com>
+        * ChangeLog start
+
+$ cat src/main.sh
+#! /usr/bin/env bash
+echo "Hello world!"
+
+$ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking for bash... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+
+$ make
+Making all in src
+make[1]: Entering directory `demo/src'
+cp ./main.sh demo
+chmod +x demo
+make[1]: Leaving directory `demo/src'
+make[1]: Entering directory `demo'
+make[1]: Nothing to be done for `all-am'.
+make[1]: Leaving directory `demo'
+
+$ src/demo
+Hello world!
+}}}
+
+Multiple Projects Support:
+{{{
+$ mkproject -s c -t demo -p "Another Demo" -d "Another quick demo package for mkproject" -a "Juan Manuel Borges Caño" -b "juanmabcmail@gmail.com" -m "http://code.google.com/p/codemiscs"
+$ cd demo
+$ ls 
+aclocal.m4      ChangeLog     COPYING     Makefile.am  mkproject.log  src
+AUTHORS         configure     INSTALL     Makefile.in  NEWS
+autom4te.cache  configure.ac  install-sh  missing      README
+$ ./configure && make && src/demo && make distcheck
+...
+}}}
+
+Minimal Needs:
+{{{
+$ mkproject -s bash -t demo --verbose
+Creating directory `demo'...done
+Creating file `demo/configure.ac'...done
+Creating file `demo/Makefile.am'...done
+Creating file `demo/README'...done
+Creating file `demo/AUTHORS'...done
+Creating file `demo/ChangeLog'...done
+Creating file `demo/NEWS'...done
+Creating directory `src'...done
+Creating file `demo/src/Makefile.am'...done
+Creating file `demo/src/main.sh'...done
+Executing command `autoreconf -i' (see `mkproject.log')...done
+$ cd demo
+$ ls 
+aclocal.m4      ChangeLog     COPYING     Makefile.am  mkproject.log  src
+AUTHORS         configure     INSTALL     Makefile.in  NEWS
+autom4te.cache  configure.ac  install-sh  missing      README
+$ ./configure && make && src/demo && make distcheck
+...
+}}}

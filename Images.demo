@@ -1,0 +1,54 @@
+Automatic Fetch Of Online Services (Only Google Images):
+
+{{{
+$ imgs fetch "Linux" 
+Linux-1394297611
+}}}
+
+Animated Image Slideshow From Static Ones:
+
+{{{
+$ imgs slideshow 320x240 Linux-*/* "Linux.gif"
+Unification-320x240-SQcq6YNdao
+Linux.gif
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Images/Linux.gif
+</p>
+
+Straight Fetch Of Online Images To Animated Slideshow
+
+{{{
+$ imgs fortune 320x240 "Linux"
+Linux
+Linux-1394297471
+Unification-320x240-Q2vlwcCkXu
+Linux.gif
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Images/Linux.gif
+</p>
+
+Content Amusement With Random Terms:
+
+{{{
+$ imgs fortune
+diffusors
+diffusors-1394297241
+Unification-320x240-FvaKmCr69W
+diffusors.gif
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/Images/Diffusors.gif
+</p>
+
+Modes Of Operation:
+
+{{{
+$ imgs --list
+fetch
+unify
+slideshow
+fortune
+custom
+}}}

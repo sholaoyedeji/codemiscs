@@ -1,0 +1,179 @@
+Machines Content, Respect the terms of online services.
+
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/TranslateWord/LanguageCatalyst.png
+</p>
+
+Local Dictionaries Technology:
+
+{{{
+$ tw en-es hello
+hola
+}}}
+
+Online Translation Providers:
+
+{{{
+$ tw translate.google.com.en-es Salute
+Saludo
+$ tw gt.en-es Salute
+Saludo
+
+$ tw www.freetranslation.com.en-es Salute
+Saludo
+$ tw ft.en-es Salute
+Saludo
+}}}
+
+Phrases Support:
+
+{{{
+$ tw translate.google.com.en-es "This is a demonstration."
+Esta es una demostración.
+$ tw gt.en-es "This is a demonstration."
+Esta es una demostración.
+}}}
+
+Wide Language Support:
+
+{{{
+$ tw translate.google.com.en-fr "This is a demonstration."
+Ceci est une démonstration.
+$ tw gt.en-fr "This is a demonstration."
+Ceci est une démonstration.
+
+$ tw translate.google.com.en-ru "This is a demonstration."
+Это демонстрация.
+$ tw gt.en-ru "This is a demonstration."
+Это демонстрация.
+
+$ tw translate.google.com.en-it "This is a demonstration."
+Questa è una dimostrazione.
+$ tw gt.en-it "This is a demonstration."
+Questa è una dimostrazione.
+
+$ tw translate.google.com.en-ja "This is a demonstration."
+これはデモンストレーションです。
+$ tw gt.en-ja "This is a demonstration."
+これはデモンストレーションです。
+}}}
+
+Engines Distinctions:
+
+{{{
+$ tw --list | grep en-es
+share.en-es
+cache.en-es
+local.en-es
+www.freetranslation.com.en-es
+translate.google.com.en-es
+}}}
+
+Engines Abreviations:
+
+{{{
+$ tw --shortcuts
+share = sh
+cache = ca
+local = lo
+www.freetranslation.com = ft
+translate.google.com = gt
+}}}
+
+Graphical Integration With Copy & Paste Buffer Managers:
+
+{{{
+XBindKeys
+GNOME GPaste
+KDE Klipper
+}}}
+
+Language Station:
+
+{{{
+alias show=cat
+
+*$* show /usr/local/bin/spell
+#! /usr/bin/env bash
+aspell --lang=en pipe <<< "$@"| tail -n +2 | head -n +1
+
+*$ spell studing*
+& studing 45 0: studding, studying, stating, striding, stuffing, duding, siding, situating, tiding, sting, standing, stunting, scudding, sliding, sounding, stubbing, stunning, styling, suturing, starting, stetting, studio, string, seeding, sodding, student, sanding, sending, spading, staging, staking, staling, staring, staving, staying, stewing, stoking, stoning, storing, stowing, studied, studies, studios, studding's, studio's
+
+*$* show /usr/local/bin/translate 
+#! /usr/bin/env bash
+{
+        {
+                tw -x -y en-es "$@"
+                tw gt.en-es "$@"
+                tw ft.en-es "$@"
+        } 2> /dev/null | sed -e '/^$/d' | sort -u | colorize info
+        {
+                mythes en "$@"
+        } 2> /dev/null | sed -e '/^$/d' | colorize warning
+} | paste -s -d'|'
+
+*$ translate studying*
+*estudiar*|*lectura*|*leyendo*|perusal|perusing|poring over|reading
+
+*$* show /usr/local/bin/define 
+#! /usr/bin/env bash
+dict -d wn "$@"| colorize info
+
+*$ define studying*
+1 definition found
+
+From WordNet (r) 3.0 (2006) [wn]:
+
+  studying
+      n 1: reading carefully with intent to remember [syn: {perusal},
+           {perusing}, {poring over}, {studying}]
+
+*$* show  /usr/local/bin/pronounce
+#! /usr/bin/env bash
+festival --tts <<< "$@"
+
+*$ pronounce studying*
+((( * )))
+
+*$* show /usr/local/bin/traduce 
+#! /usr/bin/env bash
+{
+        tw -x -y es-en "$@"
+        tw gt.es-en "$@"
+        tw ft.es-en "$@"
+} 2> /dev/null | sed -e '/^$/d' | sort -u | colorize info
+{
+        mythes es "$@"
+} 2> /dev/null | sed -e '/^$/d' | colorize warning
+
+*$ traduce estudiando*
+studying
+
+*$* show /usr/local/bin/language
+#! /usr/bin/env bash
+{
+        echo "Spelling" | colorize bold
+        spell "$@"
+        echo "Translation" | colorize bold
+        translate "$@"
+        echo "Definition" | colorize bold
+        define "$@"
+        echo "(((Pronunciation)))" | colorize bold
+        pronounce "$@"
+} | sed -e '/^$/d'
+
+*$ language studying*
+Spelling
+*
+Translation
+estudiar|lectura|leyendo|perusal|perusing|poring over|reading
+Definition
+  studying
+      n 1: reading carefully with intent to remember [syn: {perusal},
+           {perusing}, {poring over}, {studying}]
+(((Pronunciation)))
+}}}
+<p align = "center">
+https://codemiscs.googlecode.com/git/shots/TranslateWord/LanguageStudying.png
+</p>

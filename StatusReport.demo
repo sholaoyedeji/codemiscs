@@ -1,0 +1,59 @@
+Designed To React To Shell Command Exit Status & For Straight Usage On Unattended Long Duration Tasks:
+
+{{{
+$ true; status --visible --audible --check $? --code
+job done (0) ((( info colors, 1 beep )))
+}}}
+
+{{{
+$ false; status --visible --audible --check $? --code
+job done (127) ((( error colors, 3 beeps )))
+}}}
+
+{{{
+$ cp -rv /home/videos/youtube /mnt/usb/videos/youtube; status --visible --audible --check $? --code
+}}}
+
+{{{
+$ cp -rv /home/books/guttenberg /mnt/usb/books/guttenberg; status --visible --audible --check $? --code
+}}}
+
+{{{
+$ cp -rv /home/music/jamendo /mnt/usb/music/jamendo; status --visible --audible --check $? --code
+}}}
+
+{{{
+$ cp -rv /home/images/flickr /mnt/usb/images/flickr; status --visible --audible --check $? --code
+}}}
+
+{{{
+$ make; status --visible --audible --check $? --code
+}}}
+
+{{{
+$ sleep 360; status --visible --audible --check $? --code
+}}}
+
+Due To The Nature Of Shell Exit Status Has To Be Invoked With $?, But Aliases Are Handy:
+{{{
+$ alias status='status --visible --audible --check $? --code'
+$ true; status
+job done (0) ((( info colors, 1 beep )))
+$ false; status
+job done (127) ((( error colors, 3 beeps )))
+$ make; status
+}}}
+
+Customizable:
+{{{
+$ true; status --visible="void task done" --visible-positive smart --visible-negative health --audible --audible-positive phaser --audible-negative fail --check $? --code
+}}}
+
+{{{
+$ false; status --visible="void task done" --visible-positive smart --visible-negative health --audible --audible-positive phaser --audible-negative fail --check $? --code
+}}}
+
+Proved To Be A Bless ;-)
+{{{
+$ inefficient command; status --visible --audible --check $? --code # notify me at the patio
+}}}

@@ -1,0 +1,108 @@
+Simple:
+{{{
+$ mythes en hello
+greeting
+hi
+how-do-you-do
+howdy
+hullo
+salutation
+
+$ mythes en goodbye
+adieu
+adios
+arrivederci
+auf wiedersehen
+au revoir
+bye
+bye-bye
+cheerio
+farewell
+goodby
+good-by
+good-bye
+good day
+sayonara
+so long
+word of farewell
+
+$ mythes es saludo
+abrazo
+acatamiento
+aceptación
+acogida
+admisión
+adulación
+aplauso
+aprobación
+arrodillamiento
+besalamano
+besamanos
+bienllegada
+bienvenida
+brindis
+cabezada
+coba
+congratulación
+consentimiento
+convite
+cortesía
+cumplido
+cumplimiento
+dedicación
+dedicatoria
+elogio
+enhorabuena
+esquela
+éxito
+felicitación
+genuflexión
+halago
+inclinación
+invitación
+lisonja
+nota
+ofrecimiento
+parabién
+pláceme
+popularidad
+prosternación
+recepción
+recibimiento
+reverencia
+venia
+zalamería
+zalema
+}}}
+
+Wide Language Support:
+{{{
+$ mythes --list
+bg
+ca
+cs
+da
+de
+el
+en
+es
+fr
+ga
+hu
+it
+lb
+lv
+mi
+nb
+ne
+nl
+nn
+pl
+pt
+ro
+ru
+sk
+sl
+sv
+uk
+}}}
